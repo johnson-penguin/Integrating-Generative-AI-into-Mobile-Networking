@@ -1,0 +1,550 @@
+[
+  {
+    "label": "prach_msg1_FrequencyStart",
+    "content": "prach_msg1_FrequencyStart                                 = 0;"
+  },
+  {
+    "label": "du_addr",
+    "content": "du_addr = (\"00:11:22:33:44:66\", \"00:11:22:33:44:66\");"
+  },
+  {
+    "label": "iq_width_prach",
+    "content": "iq_width_prach = 8;"
+  },
+  {
+    "label": "security",
+    "content": "security = {\n  # preferred ciphering algorithms\n  # the first one of the list that an UE supports in chosen\n  # valid values: nea0, nea1, nea2, nea3\n  ciphering_algorithms = ( \"nea0\" );\n\n  # preferred integrity algorithms\n  # the first one of the list that an UE supports in chosen\n  # valid values: nia0, nia1, nia2, nia3\n  integrity_algorithms = ( \"nia2\", \"nia0\" );\n\n  # setting 'drb_ciphering' to \"no\" disables ciphering for DRBs, no matter\n  # what 'ciphering_algorithms' configures; same thing for 'drb_integrity'\n  drb_ciphering = \"yes\";\n  drb_integrity = \"no\";\n};"
+  },
+  {
+    "label": "ra_ResponseWindow",
+    "content": "ra_ResponseWindow                                           = 5;"
+  },
+  {
+    "label": "n_TimingAdvanceOffset",
+    "content": "n_TimingAdvanceOffset                                         = 0;"
+  },
+  {
+    "label": "rlc_log_level",
+    "content": "rlc_log_level                         =\"info\";"
+  },
+  {
+    "label": "do_CSIRS",
+    "content": "do_CSIRS              = 1;"
+  },
+  {
+    "label": "Ta4",
+    "content": "Ta4 = (0, 200);"
+  },
+  {
+    "label": "phy_log_level",
+    "content": "phy_log_level                         =\"info\";"
+  },
+  {
+    "label": "att_rx",
+    "content": "att_rx         = 0;"
+  },
+  {
+    "label": "num_cc",
+    "content": "num_cc                      = 1;"
+  },
+  {
+    "label": "pusch_AntennaPorts",
+    "content": "pusch_AntennaPorts    = 2;"
+  },
+  {
+    "label": "initialULBWPlocationAndBandwidth",
+    "content": "initialULBWPlocationAndBandwidth                            = 1099;"
+  },
+  {
+    "label": "L1_rx_thread_core",
+    "content": "L1_rx_thread_core = 8;"
+  },
+  {
+    "label": "dl_absoluteFrequencyPointA",
+    "content": "dl_absoluteFrequencyPointA                                    = 626772;"
+  },
+  {
+    "label": "tr_s_preference",
+    "content": "tr_s_preference             = \"local_L1\";"
+  },
+  {
+    "label": "powerRampingStep",
+    "content": "powerRampingStep                                            = 3;"
+  },
+  {
+    "label": "nr_cellid",
+    "content": "nr_cellid = 1;"
+  },
+  {
+    "label": "force_256qam_off",
+    "content": "force_256qam_off      = 1;"
+  },
+  {
+    "label": "SCTP_OUTSTREAMS",
+    "content": "SCTP_OUTSTREAMS = 2;"
+  },
+  {
+    "label": "L1_tx_thread_core",
+    "content": "L1_tx_thread_core = 10;"
+  },
+  {
+    "label": "prach_msg1_FDM",
+    "content": "prach_msg1_FDM                                            = 0;"
+  },
+  {
+    "label": "tr_n_preference",
+    "content": "tr_n_preference             = \"local_RRC\";"
+  },
+  {
+    "label": "physCellId",
+    "content": "physCellId                                                    = 0;"
+  },
+  {
+    "label": "msg3_DeltaPreamble",
+    "content": "msg3_DeltaPreamble                                          = 2;"
+  },
+  {
+    "label": "sl_ahead",
+    "content": "sl_ahead       = 5;"
+  },
+  {
+    "label": "global_log_level",
+    "content": "global_log_level                      =\"info\";"
+  },
+  {
+    "label": "iq_width",
+    "content": "iq_width = 8;"
+  },
+  {
+    "label": "searchSpaceZero",
+    "content": "searchSpaceZero = 0;"
+  },
+  {
+    "label": "initialULBWPsubcarrierSpacing",
+    "content": "initialULBWPsubcarrierSpacing                               = 1;"
+  },
+  {
+    "label": "pucch0_dtx_threshold",
+    "content": "pucch0_dtx_threshold = 80;"
+  },
+  {
+    "label": "ciphering_algorithms",
+    "content": "ciphering_algorithms = ( \"nea0\" );"
+  },
+  {
+    "label": "ssPBCH_BlockPower",
+    "content": "ssPBCH_BlockPower                                                 = 10;"
+  },
+  {
+    "label": "phase_compensation",
+    "content": "phase_compensation = 0;"
+  },
+  {
+    "label": "system_core",
+    "content": "system_core = 0;"
+  },
+  {
+    "label": "num_cc",
+    "content": "num_cc = 1;"
+  },
+  {
+    "label": "drb_integrity",
+    "content": "drb_integrity = \"no\";"
+  },
+  {
+    "label": "ra_ContentionResolutionTimer",
+    "content": "ra_ContentionResolutionTimer                                = 7;"
+  },
+  {
+    "label": "Active_gNBs",
+    "content": "Active_gNBs = ( \"gNB-OAI-2\");"
+  },
+  {
+    "label": "fft_size",
+    "content": "fft_size = 12;"
+  },
+  {
+    "label": "nrofUplinkSlots",
+    "content": "nrofUplinkSlots                                               = 2;"
+  },
+  {
+    "label": "sib1_tda",
+    "content": "sib1_tda\t\t\t  = 15;"
+  },
+  {
+    "label": "ul_subcarrierSpacing",
+    "content": "ul_subcarrierSpacing                                          = 1;"
+  },
+  {
+    "label": "ul_frequencyBand",
+    "content": "ul_frequencyBand                                              = 78;"
+  },
+  {
+    "label": "dl_frequencyBand",
+    "content": "dl_frequencyBand                                              = 78;"
+  },
+  {
+    "label": "T1a_cp_dl",
+    "content": "T1a_cp_dl = (258, 392);"
+  },
+  {
+    "label": "eAxC_offset",
+    "content": "eAxC_offset = 2;"
+  },
+  {
+    "label": "rrc_log_level",
+    "content": "rrc_log_level                         =\"info\";"
+  },
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NGU",
+    "content": "GNB_IPV4_ADDRESS_FOR_NGU                 = \"192.168.8.43\";"
+  },
+  {
+    "label": "hoppingId",
+    "content": "hoppingId                                                   = 0;"
+  },
+  {
+    "label": "gNB_name",
+    "content": "gNB_name  =  \"gNB-OAI-2\";"
+  },
+  {
+    "label": "nrofDownlinkSlots",
+    "content": "nrofDownlinkSlots                                             = 7;"
+  },
+  {
+    "label": "dpdk_devices",
+    "content": "dpdk_devices = (\"0000:ca:02.0\", \"0000:ca:02.1\");"
+  },
+  {
+    "label": "L1s",
+    "content": "L1s = (\n{\n  num_cc = 1;\n  tr_n_preference = \"local_mac\";\n  prach_dtx_threshold = 130\n  pucch0_dtx_threshold = 80;\n  pusch_dtx_threshold = 10;\n  max_ldpc_iterations = 10;\n  tx_amp_backoff_dB = 20; # needs to match O-RU configuration\n  L1_rx_thread_core = 8;\n  L1_tx_thread_core = 10;\n  phase_compensation = 0; # needs to match O-RU configuration\n}\n);"
+  },
+  {
+    "label": "prach_config",
+    "content": "prach_config = {\n      eAxC_offset = 2;\n    };"
+  },
+  {
+    "label": "tr_n_preference",
+    "content": "tr_n_preference = \"local_mac\";"
+  },
+  {
+    "label": "pucch_TargetSNRx10",
+    "content": "pucch_TargetSNRx10          = 230;"
+  },
+  {
+    "label": "log_config",
+    "content": "log_config :\n{\n  global_log_level                      =\"info\";\n  hw_log_level                          =\"debug\";\n  phy_log_level                         =\"info\";\n  mac_log_level                         =\"info\";\n  rlc_log_level                         =\"info\";\n  pdcp_log_level                        =\"info\";\n  rrc_log_level                         =\"info\";\n  ngap_log_level                        =\"info\";\n  f1ap_log_level                        =\"info\";\n};"
+  },
+  {
+    "label": "initialDLBWPsubcarrierSpacing",
+    "content": "initialDLBWPsubcarrierSpacing                               = 1;"
+  },
+  {
+    "label": "pucchGroupHopping",
+    "content": "pucchGroupHopping                                           = 0;"
+  },
+  {
+    "label": "ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR",
+    "content": "ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR                = 3;"
+  },
+  {
+    "label": "zeroCorrelationZoneConfig",
+    "content": "zeroCorrelationZoneConfig                                 = 0;"
+  },
+  {
+    "label": "MACRLCs",
+    "content": "MACRLCs = (\n{\n  num_cc                      = 1;\n  tr_s_preference             = \"local_L1\";\n  tr_n_preference             = \"local_RRC\";\n  pusch_TargetSNRx10          = 300;\n  pucch_TargetSNRx10          = 230;\n  dl_bler_target_upper=.35;\n  dl_bler_target_lower=.15; \n  ul_bler_target_upper=.35;\n  ul_bler_target_lower=.15;\n  pusch_FailureThres          = 100;\n  ul_max_mcs                  = 28;\n}\n);"
+  },
+  {
+    "label": "initialDLBWPlocationAndBandwidth",
+    "content": "initialDLBWPlocationAndBandwidth                             = 1099;"
+  },
+  {
+    "label": "io_core",
+    "content": "io_core = 4;"
+  },
+  {
+    "label": "integrity_algorithms",
+    "content": "integrity_algorithms = ( \"nia2\", \"nia0\" );"
+  },
+  {
+    "label": "T2a_cp_ul",
+    "content": "T2a_cp_ul = (125, 1200);"
+  },
+  {
+    "label": "servingCellConfigCommon",
+    "content": "servingCellConfigCommon = (\n    {\n #spCellConfigCommon\n\n      physCellId                                                    = 0;\n     # n_TimingAdvanceOffset                                         = 0;\n#  downlinkConfigCommon\n    #frequencyInfoDL\n      # this is 3450.72 MHz (center frequency)\n      absoluteFrequencySSB                                          = 630048;\n      dl_frequencyBand                                              = 78;\n      # this is 3401.58 MHz\n      dl_absoluteFrequencyPointA                                    = 626772;\n      #scs-SpecificCarrierList\n        dl_offstToCarrier                                           = 0;\n# subcarrierSpacing\n# 0=kHz15, 1=kHz30, 2=kHz60, 3=kHz120\n        dl_subcarrierSpacing                                        = 1;\n        dl_carrierBandwidth                                         = 273;\n     #initialDownlinkBWP\n      #genericParameters\n       initialDLBWPlocationAndBandwidth                             = 1099; #38.101-1 Table 5.3.2-1\n       #\n# subcarrierSpacing\n# 0=kHz15, 1=kHz30, 2=kHz60, 3=kHz120\n        initialDLBWPsubcarrierSpacing                               = 1;\n      #pdcch-ConfigCommon\n        initialDLBWPcontrolResourceSetZero                          = 11;\n        initialDLBWPsearchSpaceZero                                 = 0;\n\n  #uplinkConfigCommon\n     #frequencyInfoUL\n      ul_frequencyBand                                              = 78;\n      #scs-SpecificCarrierList\n      ul_offstToCarrier                                             = 0;\n# subcarrierSpacing\n# 0=kHz15, 1=kHz30, 2=kHz60, 3=kHz120\n      ul_subcarrierSpacing                                          = 1;\n      ul_carrierBandwidth                                           = 273;\n      pMax                                                          = 23;\n     #initialUplinkBWP\n      #genericParameters\n        initialULBWPlocationAndBandwidth                            = 1099;\n# subcarrierSpacing\n# 0=kHz15, 1=kHz30, 2=kHz60, 3=kHz120\n        initialULBWPsubcarrierSpacing                               = 1;\n      #rach-ConfigCommon\n        #rach-ConfigGeneric\n          prach_ConfigurationIndex                                  = 151;\n#prach_msg1_FDM\n#0 = one, 1=two, 2=four, 3=eight\n          prach_msg1_FDM                                            = 0;\n          prach_msg1_FrequencyStart                                 = 0;\n          zeroCorrelationZoneConfig                                 = 0;\n          preambleReceivedTargetPower                               = -100;\n#preamblTransMax (0...10) = (3,4,5,6,7,8,10,20,50,100,200)\n          preambleTransMax                                          = 7;\n#powerRampingStep\n# 0=dB0,1=dB2,2=dB4,3=dB6\n        powerRampingStep                                            = 3;\n#ra_ReponseWindow\n#1,2,4,8,10,20,40,80\n        ra_ResponseWindow                                           = 5;\n#ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR\n#1=oneeighth,2=onefourth,3=half,4=one,5=two,6=four,7=eight,8=sixteen\n        ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR                = 3;\n#oneHalf (0..15) 4,8,12,16,...60,64\n        ssb_perRACH_OccasionAndCB_PreamblesPerSSB                   = 15;\n#ra_ContentionResolutionTimer\n#(0..7) 8,16,24,32,40,48,56,64\n        ra_ContentionResolutionTimer                                = 7;\n        rsrp_ThresholdSSB                                           = 19;\n#prach-RootSequenceIndex_PR\n#1 = 839, 2 = 139\n        prach_RootSequenceIndex_PR                                  = 2;\n        prach_RootSequenceIndex                                     = 1;\n        # SCS for msg1, can only be 15 for 30 kHz < 6 GHz, takes precendence over the one derived from prach-ConfigIndex\n        #\n        msg1_SubcarrierSpacing                                      = 1,\n# restrictedSetConfig\n# 0=unrestricted, 1=restricted type A, 2=restricted type B\n        restrictedSetConfig                                         = 0,\n\n# this is the offset between the last PRACH preamble power and the Msg3 PUSCH, 2 times the field value in dB\n        msg3_DeltaPreamble                                          = 2;\n        p0_NominalWithGrant                                         = -96;\n\n# pucch-ConfigCommon setup :\n# pucchGroupHopping\n# 0 = neither, 1= group hopping, 2=sequence hopping\n        pucchGroupHopping                                           = 0;\n        hoppingId                                                   = 0;\n        p0_nominal                                                  = -96;\n# ssb_PositionsInBurs_BitmapPR\n# 1=short, 2=medium, 3=long\n      ssb_PositionsInBurst_PR                                       = 2;\n      ssb_PositionsInBurst_Bitmap                                   = 0x1;\n\n# ssb_periodicityServingCell\n# 0 = ms5, 1=ms10, 2=ms20, 3=ms40, 4=ms80, 5=ms160, 6=spare2, 7=spare1\n      ssb_periodicityServingCell                                    = 2;\n\n# dmrs_TypeA_position\n# 0 = pos2, 1 = pos3\n      dmrs_TypeA_Position                                           = 0;\n\n# subcarrierSpacing\n# 0=kHz15, 1=kHz30, 2=kHz60, 3=kHz120\n      subcarrierSpacing                                             = 1;\n\n\n  #tdd-UL-DL-ConfigurationCommon\n# subcarrierSpacing\n# 0=kHz15, 1=kHz30, 2=kHz60, 3=kHz120\n      referenceSubcarrierSpacing                                    = 1;\n      # pattern1\n      # dl_UL_TransmissionPeriodicity\n      # 0=ms0p5, 1=ms0p625, 2=ms1, 3=ms1p25, 4=ms2, 5=ms2p5, 6=ms5, 7=ms10\n      dl_UL_TransmissionPeriodicity                                 = 6;\n      nrofDownlinkSlots                                             = 7;\n      nrofDownlinkSymbols                                           = 6;\n      nrofUplinkSlots                                               = 2;\n      nrofUplinkSymbols                                             = 4;\n\n  ssPBCH_BlockPower                                                 = 10;\n  }\n\n  );"
+  },
+  {
+    "label": "Ta3",
+    "content": "Ta3 = (50, 171);"
+  },
+  {
+    "label": "initialDLBWPsearchSpaceZero",
+    "content": "initialDLBWPsearchSpaceZero                                 = 0;"
+  },
+  {
+    "label": "rsrp_ThresholdSSB",
+    "content": "rsrp_ThresholdSSB                                           = 19;"
+  },
+  {
+    "label": "nb_rx",
+    "content": "nb_rx          = 2;"
+  },
+  {
+    "label": "dl_carrierBandwidth",
+    "content": "dl_carrierBandwidth                                         = 273;"
+  },
+  {
+    "label": "GNB_PORT_FOR_S1U",
+    "content": "GNB_PORT_FOR_S1U                         = 2152;"
+  },
+  {
+    "label": "ipv4",
+    "content": "ipv4 = \"192.168.8.21\" }); #free5GC\n\n\n    NETWORK_INTERFACES :\n    {\n        GNB_IPV4_ADDRESS_FOR_NG_AMF              = \"192.168.8.43\";"
+  },
+  {
+    "label": "controlResourceSetZero",
+    "content": "controlResourceSetZero = 11;"
+  },
+  {
+    "label": "max_rxgain",
+    "content": "max_rxgain                    = 75;"
+  },
+  {
+    "label": "Asn1_verbosity",
+    "content": "Asn1_verbosity = \"none\";"
+  },
+  {
+    "label": "prach_RootSequenceIndex_PR",
+    "content": "prach_RootSequenceIndex_PR                                  = 2;"
+  },
+  {
+    "label": "ssb_perRACH_OccasionAndCB_PreamblesPerSSB",
+    "content": "ssb_perRACH_OccasionAndCB_PreamblesPerSSB                   = 15;"
+  },
+  {
+    "label": "ngap_log_level",
+    "content": "ngap_log_level                        =\"info\";"
+  },
+  {
+    "label": "sf_extension",
+    "content": "sf_extension                  = 0;"
+  },
+  {
+    "label": "pusch_FailureThres",
+    "content": "pusch_FailureThres          = 100;"
+  },
+  {
+    "label": "pMax",
+    "content": "pMax                                                          = 23;"
+  },
+  {
+    "label": "NETWORK_INTERFACES",
+    "content": "NETWORK_INTERFACES :\n    {\n        GNB_IPV4_ADDRESS_FOR_NG_AMF              = \"192.168.8.43\";\n        GNB_IPV4_ADDRESS_FOR_NGU                 = \"192.168.8.43\";\n        GNB_PORT_FOR_S1U                         = 2152; # Spec 2152\n    };"
+  },
+  {
+    "label": "local_rf",
+    "content": "local_rf       = \"no\";"
+  },
+  {
+    "label": "SCTP",
+    "content": "SCTP :\n    {\n        # Number of streams to use in input/output\n        SCTP_INSTREAMS  = 2;\n        SCTP_OUTSTREAMS = 2;\n    };"
+  },
+  {
+    "label": "pusch_dtx_threshold",
+    "content": "pusch_dtx_threshold = 10;"
+  },
+  {
+    "label": "hw_log_level",
+    "content": "hw_log_level                          =\"debug\";"
+  },
+  {
+    "label": "tx_amp_backoff_dB",
+    "content": "tx_amp_backoff_dB = 20;"
+  },
+  {
+    "label": "nrofUplinkSymbols",
+    "content": "nrofUplinkSymbols                                             = 4;"
+  },
+  {
+    "label": "T1a_up",
+    "content": "T1a_up = (155, 300);"
+  },
+  {
+    "label": "tracking_area_code",
+    "content": "tracking_area_code  =  1;"
+  },
+  {
+    "label": "ssb_periodicityServingCell",
+    "content": "ssb_periodicityServingCell                                    = 2;"
+  },
+  {
+    "label": "absoluteFrequencySSB",
+    "content": "absoluteFrequencySSB                                          = 630048;"
+  },
+  {
+    "label": "file_prefix",
+    "content": "file_prefix = \"fhi_72\";"
+  },
+  {
+    "label": "amf_ip_address",
+    "content": "amf_ip_address = ({ ipv4 = \"192.168.8.21\" });"
+  },
+  {
+    "label": "ssb_PositionsInBurst_PR",
+    "content": "ssb_PositionsInBurst_PR                                       = 2;"
+  },
+  {
+    "label": "Tadv_cp_dl",
+    "content": "Tadv_cp_dl = 125;"
+  },
+  {
+    "label": "dmrs_TypeA_Position",
+    "content": "dmrs_TypeA_Position                                           = 0;"
+  },
+  {
+    "label": "ru_addr",
+    "content": "ru_addr = (\"10:70:fd:14:1c:10\", \"10:70:fd:14:1c:10\");"
+  },
+  {
+    "label": "pdsch_AntennaPorts_XP",
+    "content": "pdsch_AntennaPorts_XP = 2;"
+  },
+  {
+    "label": "f1ap_log_level",
+    "content": "f1ap_log_level                        =\"info\";"
+  },
+  {
+    "label": "fh_config",
+    "content": "fh_config = ({\n\n    Tadv_cp_dl = 125;\n    T2a_cp_dl = (259, 470);"
+  },
+  {
+    "label": "att_tx",
+    "content": "att_tx         = 0;"
+  },
+  {
+    "label": "RUs",
+    "content": "RUs = (\n{\n  local_rf       = \"no\";\n  nb_tx          = 2; # 4\n  nb_rx          = 2; # 4\n  att_tx         = 0; # TODO relevant?\n  att_rx         = 0; # TODO relevant?\n  bands          = [78];\n  max_pdschReferenceSignalPower = -27;\n  max_rxgain                    = 75; # TODO relevant?\n  sf_extension                  = 0; # TODO relevant?\n  eNB_instances  = [0]; # TODO is relevant?\n  ru_thread_core = 6;\n  sl_ahead       = 5;\n  ##beamforming 1x2 matrix: 1 layer x 2 antennas\n  bf_weights = [0x00007fff, 0x0000,0x00007fff, 0x0000]; # necessary?\n\n  tr_preference  = \"raw_if4p5\"; # important: activate FHI7.2\n  do_precoding = 0; # needs to match O-RU configuration\n  \n}\n);"
+  },
+  {
+    "label": "fhi_72",
+    "content": "fhi_72 = {\n  dpdk_devices = (\"0000:ca:02.0\", \"0000:ca:02.1\");\n  system_core = 0;\n  io_core = 4;\n  worker_cores = (2);\n  du_addr = (\"00:11:22:33:44:66\", \"00:11:22:33:44:66\");\n  ru_addr = (\"10:70:fd:14:1c:10\", \"10:70:fd:14:1c:10\");\n\n  mtu = 1500;\n  file_prefix = \"fhi_72\";\n  fh_config = ({\n\n    Tadv_cp_dl = 125;\n    T2a_cp_dl = (259, 470);\n    T2a_cp_ul = (125, 1200);\n    T2a_up = (70, 345);\n    Ta3 = (50, 171);\n    T1a_cp_dl = (258, 392);\n    T1a_cp_ul = (285, 300);\n    T1a_up = (155, 300);\n    Ta4 = (0, 200);\n\n    ru_config = {\n      iq_width = 8;\n      iq_width_prach = 8;\n      fft_size = 12;\n    };"
+  },
+  {
+    "label": "ul_max_mcs",
+    "content": "ul_max_mcs                  = 28;"
+  },
+  {
+    "label": "mac_log_level",
+    "content": "mac_log_level                         =\"info\";"
+  },
+  {
+    "label": "tr_preference",
+    "content": "tr_preference  = \"raw_if4p5\";"
+  },
+  {
+    "label": "mtu",
+    "content": "mtu = 1500;"
+  },
+  {
+    "label": "drb_ciphering",
+    "content": "drb_ciphering = \"yes\";"
+  },
+  {
+    "label": "gNBs",
+    "content": "gNBs =\n(\n {\n    ////////// Identification parameters:\n    gNB_ID    =  0xe01;\n    gNB_name  =  \"gNB-OAI-2\";\n\n    // Tracking area code, 0x0000 and 0xfffe are reserved values\n    tracking_area_code  =  1;\n    plmn_list = ({ mcc = 001 ;mnc = 01 mnc_length = 2 snssaiList = ( { sst = 1 })})\n              \n\n    nr_cellid = 1;\n\n    ////////// Physical parameters:\n\n    pdsch_AntennaPorts_XP = 2; \n    pusch_AntennaPorts    = 2; \n    do_CSIRS              = 1;\n    do_SRS                = 0 ;\n    force_256qam_off      = 1;\n    sib1_tda\t\t\t  = 15;\n\n    pdcch_ConfigSIB1 = (\n      {\n        controlResourceSetZero = 11;\n        searchSpaceZero = 0;\n      }\n    );"
+  },
+  {
+    "label": "subcarrierSpacing",
+    "content": "subcarrierSpacing                                             = 1;"
+  },
+  {
+    "label": "SCTP_INSTREAMS",
+    "content": "SCTP_INSTREAMS  = 2;"
+  },
+  {
+    "label": "fh_config",
+    "content": "fh_config = ({\n\n    Tadv_cp_dl = 125;\n    T2a_cp_dl = (259, 470);\n    T2a_cp_ul = (125, 1200);\n    T2a_up = (70, 345);\n    Ta3 = (50, 171);\n    T1a_cp_dl = (258, 392);\n    T1a_cp_ul = (285, 300);\n    T1a_up = (155, 300);\n    Ta4 = (0, 200);\n\n    ru_config = {\n      iq_width = 8;\n      iq_width_prach = 8;\n      fft_size = 12;\n    };\n    prach_config = {\n      eAxC_offset = 2;\n    };\n  });"
+  },
+  {
+    "label": "dl_UL_TransmissionPeriodicity",
+    "content": "dl_UL_TransmissionPeriodicity                                 = 6;"
+  },
+  {
+    "label": "dl_subcarrierSpacing",
+    "content": "dl_subcarrierSpacing                                        = 1;"
+  },
+  {
+    "label": "preambleTransMax",
+    "content": "preambleTransMax                                          = 7;"
+  },
+  {
+    "label": "T1a_cp_ul",
+    "content": "T1a_cp_ul = (285, 300);"
+  },
+  {
+    "label": "do_precoding",
+    "content": "do_precoding = 0;"
+  },
+  {
+    "label": "worker_cores",
+    "content": "worker_cores = (2);"
+  },
+  {
+    "label": "referenceSubcarrierSpacing",
+    "content": "referenceSubcarrierSpacing                                    = 1;"
+  },
+  {
+    "label": "ru_thread_core",
+    "content": "ru_thread_core = 6;"
+  },
+  {
+    "label": "max_ldpc_iterations",
+    "content": "max_ldpc_iterations = 10;"
+  },
+  {
+    "label": "ul_carrierBandwidth",
+    "content": "ul_carrierBandwidth                                           = 273;"
+  },
+  {
+    "label": "dl_offstToCarrier",
+    "content": "dl_offstToCarrier                                           = 0;"
+  },
+  {
+    "label": "prach_RootSequenceIndex",
+    "content": "prach_RootSequenceIndex                                     = 1;"
+  },
+  {
+    "label": "nb_tx",
+    "content": "nb_tx          = 2;"
+  },
+  {
+    "label": "ul_offstToCarrier",
+    "content": "ul_offstToCarrier                                             = 0;"
+  },
+  {
+    "label": "pusch_TargetSNRx10",
+    "content": "pusch_TargetSNRx10          = 300;"
+  },
+  {
+    "label": "T2a_up",
+    "content": "T2a_up = (70, 345);"
+  },
+  {
+    "label": "pdcp_log_level",
+    "content": "pdcp_log_level                        =\"info\";"
+  },
+  {
+    "label": "initialDLBWPcontrolResourceSetZero",
+    "content": "initialDLBWPcontrolResourceSetZero                          = 11;"
+  },
+  {
+    "label": "prach_ConfigurationIndex",
+    "content": "prach_ConfigurationIndex                                  = 151;"
+  },
+  {
+    "label": "nrofDownlinkSymbols",
+    "content": "nrofDownlinkSymbols                                           = 6;"
+  }
+]

@@ -1,0 +1,496 @@
+[UTIL]   running in SA mode (no --phy-test, --do-ra, --nsa option present)
+[0m[OPT]   OPT disabled
+[0m[HW]   Version: Branch: HEAD Abrev. Hash: 60b0c1827d Date: Wed Mar 12 07:41:54 2025 +0000
+[0m[GNB_APP]   Initialized RAN Context: RC.nb_nr_inst = 1, RC.nb_nr_macrlc_inst = 1, RC.nb_nr_L1_inst = 1, RC.nb_RU = 1, RC.nb_nr_CC[0] = 1
+[0m[NR_PHY]   Initializing gNB RAN context: RC.nb_nr_L1_inst = 1 
+[0m[NR_PHY]   Registered with MAC interface module (0x56df9e0)
+[0m[NR_PHY]   Initializing NR L1: RC.nb_nr_L1_inst = 1
+[0m[NR_PHY]   L1_RX_THREAD_CORE 8 (15)
+[0m[NR_PHY]   TX_AMP = 3276 (-20 dBFS)
+[0m[PHY]   No prs_config configuration found..!!
+[0m[GNB_APP]   pdsch_AntennaPorts N1 1 N2 1 XP 2 pusch_AntennaPorts 2
+[0m[GNB_APP]   minTXRXTIME 2
+[0m[GNB_APP]   SIB1 TDA 15
+[0m[GNB_APP]   CSI-RS 1, SRS 0, 256 QAM force off, delta_MCS off, maxMIMO_Layers -1, HARQ feedback enabled, num DLHARQ:16, num ULHARQ:16
+[0m[GNB_APP]   sr_ProhibitTimer 0, sr_TransMax 64, sr_ProhibitTimer_v1700 0, t300 400, t301 400, t310 2000, n310 10, t311 3000, n311 1, t319 400
+[0m[NR_MAC]   Candidates per PDCCH aggregation level on UESS: L1: 0, L2: 2, L4: 0, L8: 0, L16: 0
+[0m[RRC]   Read in ServingCellConfigCommon (PhysCellId 0, ABSFREQSSB 630048, DLBand 78, ABSFREQPOINTA 626772, DLBW 273,RACH_TargetReceivedPower -100
+[0m[RRC]   absoluteFrequencySSB 630048 corresponds to 3450720000 Hz
+[0m[NR_MAC]   TDD period index = 6, based on the sum of dl_UL_TransmissionPeriodicity from Pattern1 (5.000000 ms) and Pattern2 (0.000000 ms): Total = 5.000000 ms
+[0m[UTIL]   threadCreate() for MAC_STATS: creating thread with affinity ffffffff, priority 2
+[0m[NR_MAC]   PUSCH Target 300, PUCCH Target 230, PUCCH Failure 10, PUSCH Failure 100
+[0m[NR_PHY]   Copying 0 blacklisted PRB to L1 context
+[0m[NR_MAC]   Set TX antenna number to 2, Set RX antenna number to 2 (num ssb 1: 80000000,0)
+[0m[NR_MAC]   TDD period index = 6, based on the sum of dl_UL_TransmissionPeriodicity from Pattern1 (5.000000 ms) and Pattern2 (0.000000 ms): Total = 5.000000 ms
+[0m[NR_MAC]   Set TDD configuration period to: 8 DL slots, 3 UL slots, 10 slots per period (NR_TDD_UL_DL_Pattern is 7 DL slots, 2 UL slots, 6 DL symbols, 4 UL symbols)
+[0m[NR_MAC]   Configured 1 TDD patterns (total slots: pattern1 = 10, pattern2 = 0)
+[0m[NR_PHY]   Set TDD Period Configuration: 2 periods per frame, 20 slots to be configured (8 DL, 3 UL)
+[0m[NR_PHY]   TDD period configuration: slot 0 is DOWNLINK
+[0m[NR_PHY]   TDD period configuration: slot 1 is DOWNLINK
+[0m[NR_PHY]   TDD period configuration: slot 2 is DOWNLINK
+[0m[NR_PHY]   TDD period configuration: slot 3 is DOWNLINK
+[0m[NR_PHY]   TDD period configuration: slot 4 is DOWNLINK
+[0m[NR_PHY]   TDD period configuration: slot 5 is DOWNLINK
+[0m[NR_PHY]   TDD period configuration: slot 6 is DOWNLINK
+[0m[NR_PHY]   TDD period configuration: slot 7 is FLEXIBLE: DDDDDDFFFFUUUU
+[0m[NR_PHY]   TDD period configuration: slot 8 is UPLINK
+[0m[NR_PHY]   TDD period configuration: slot 9 is UPLINK
+[0m[PHY]   DL frequency 3450720000 Hz, UL frequency 3450720000 Hz: band 78, uldl offset 0 Hz
+[0m[PHY]   Initializing frame parms for mu 1, N_RB 273, Ncp 0
+[0m[PHY]   Init: N_RB_DL 273, first_carrier_offset 2458, nb_prefix_samples 288,nb_prefix_samples0 352, ofdm_symbol_size 4096
+[0m[NR_RRC]   SIB1 freq: offsetToPointA 252
+[0m[GNB_APP]   F1AP: gNB idx 0 gNB_DU_id 3585, gNB_DU_name gNB-OAI-2, TAC 1 MCC/MNC/length 1/1/2 cellID 1
+[0m[GNB_APP]   ngran_DU: Configuring Cell 0 for TDD
+[0m[GNB_APP]   SDAP layer is disabled
+[0m[GNB_APP]   Data Radio Bearer count 1
+[0m[NR_RRC]   do_SIB23_NR, size 9
+[0m[UTIL]   threadCreate() for TASK_SCTP: creating thread with affinity ffffffff, priority 50
+[0m[X2AP]   X2AP is disabled.
+[0m[UTIL]   threadCreate() for TASK_NGAP: creating thread with affinity ffffffff, priority 50
+[0m[UTIL]   threadCreate() for TASK_GNB_APP: creating thread with affinity ffffffff, priority 50
+[0m[NGAP]   Registered new gNB[0] and macro gNB id 3585
+[0m[NGAP]   [gNB 0] check the amf registration state
+[0m[UTIL]   threadCreate() for TASK_RRC_GNB: creating thread with affinity ffffffff, priority 50
+[0m[32m[NGAP]   Send NGSetupRequest to AMF
+[0m[NGAP]   3585 -> 0000e010
+[0m[NR_RRC]   Entering main loop of NR_RRC message task
+[0m[NR_RRC]   Received F1 Setup Request from gNB_DU 3585 (gNB-OAI-2) on assoc_id -1
+[0m[RRC]   Accepting DU 3585 (gNB-OAI-2), sending F1 Setup Response
+[0m[RRC]   DU uses RRC version 17.3.0
+[0m[MAC]   received F1 Setup Response from CU (null)
+[0m[MAC]   CU uses RRC version 17.3.0
+[0m[MAC]   Clearing the DU's UE states before, if any.
+[0m[GTPU]   Configuring GTPu
+[0m[GTPU]   SA mode 
+[0m[GTPU]   Configuring GTPu address : 192.168.8.43, port : 2152
+[0m[GTPU]   Initializing UDP for local address 192.168.8.43 with port 2152
+[0m[GTPU]   Created gtpu instance id: 95
+[0m[NR_RRC]   Accepting new CU-UP ID 3585 name gNB-OAI-2 (assoc_id -1)
+[0m[UTIL]   threadCreate() for TASK_GTPV1_U: creating thread with affinity ffffffff, priority 50
+[0m[32m[NGAP]   Received NGSetupResponse from AMF
+[0m[GNB_APP]   [gNB 0] Received NGAP_REGISTER_GNB_CNF: associated AMF 1
+[0m[PHY]   number of L1 instances 1, number of RU 1, number of CPU cores 32
+[0m[PHY]   Initialized RU proc 0 (NGFI_RAU_IF4p5,synch_to_ext_device),
+[0m[34m[HW]   [nr-softmodem.c] RU threads created
+[0m[UTIL]   threadCreate() for ru_thread: creating thread with affinity 6, priority 97
+[0m[PHY]   Starting RU 0 (NGFI_RAU_IF4p5,synch_to_ext_device) on cpu 31
+[0m[PHY]   Initializing frame parms for mu 1, N_RB 273, Ncp 0
+[0m[PHY]   Init: N_RB_DL 273, first_carrier_offset 2458, nb_prefix_samples 288,nb_prefix_samples0 352, ofdm_symbol_size 4096
+[0m[PHY]   fp->scs=30000
+[0m[PHY]   fp->ofdm_symbol_size=4096
+[0m[PHY]   fp->nb_prefix_samples0=352
+[0m[PHY]   fp->nb_prefix_samples=288
+[0m[PHY]   fp->slots_per_subframe=2
+[0m[PHY]   fp->samples_per_subframe_wCP=114688
+[0m[PHY]   fp->samples_per_frame_wCP=1146880
+[0m[PHY]   fp->samples_per_subframe=122880
+[0m[PHY]   fp->samples_per_frame=1228800
+[0m[PHY]   fp->dl_CarrierFreq=3450720000
+[0m[PHY]   fp->ul_CarrierFreq=3450720000
+[0m[PHY]   fp->Nid_cell=0
+[0m[PHY]   fp->first_carrier_offset=2458
+[0m[PHY]   fp->ssb_start_subcarrier=0
+[0m[PHY]   fp->Ncp=0
+[0m[PHY]   fp->N_RB_DL=273
+[0m[PHY]   fp->numerology_index=1
+[0m[PHY]   fp->nr_band=78
+[0m[PHY]   fp->ofdm_offset_divisor=8
+[0m[PHY]   fp->threequarter_fs=0
+[0m[PHY]   fp->sl_CarrierFreq=0
+[0m[PHY]   fp->N_RB_SL=0
+[0m[PHY]   Setting RF config for N_RB 273, NB_RX 2, NB_TX 2
+[0m[PHY]   tune_offset 0 Hz, sample_rate 122880000 Hz
+[0m[PHY]   Channel 0: setting tx_gain offset 0, tx_freq 3450720000 Hz
+[0m[PHY]   Channel 1: setting tx_gain offset 0, tx_freq 3450720000 Hz
+[0m[PHY]   Channel 0: setting rx_gain offset 0, rx_freq 3450720000 Hz
+[0m[PHY]   Channel 1: setting rx_gain offset 0, rx_freq 3450720000 Hz
+[0m[PHY]   starting transport
+[0m[HW]   Initializing O-RAN 7.2 FH interface through xran library (compiled against headers of oran_e_maintenance_release_v1.4)
+[0mCMDLINE: "./nr-softmodem" "-O" "../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/gnb.sa.band78.273prb.fhi72.2x2-TM500_johnson.conf" "--sa" "--reorder-thread-disable" "1" "--thread-pool" "1,3,5,7,9,11,13,15" 
+[CONFIG] function config_libconfig_init returned 0
+DL frequency 3450720000: band 78, UL frequency 3450720000
+xran_fh_init:
+  io_cfg:
+    id 0 (O-DU)
+    num_vfs 2
+    num_rxq 1
+    dpdk_dev [0000:ca:02.0, 0000:ca:02.1, (null), (null), (null), (null), (null), (null), (null), (null), (null), (null), (null), (null), (null), (null)]
+    bbdev_dev (null)
+    bbdev_mode -1
+    dpdkIoVaMode 0
+    dpdkMemorySize 8192
+    core 4
+    system_core 0
+    pkt_proc_core 0000000000000004
+    pkt_proc_core_64_127 0000000000000000
+    pkt_aux_core 0
+    timing_core 4
+    port (filled within xran library)
+    io_sleep 0
+    nEthLinePerPort 1
+    nEthLineSpeed 10
+    one_vf_cu_plane 0
+    eowd_cmn[0]:
+      initiator_en 0
+      numberOfSamples 0
+      filterType 0
+      responseTo 0
+      measVf 0
+      measState 0
+      measId 0
+      measMethod 0
+      owdm_enable 0
+      owdm_PlLength 0
+eowd_port (filled within xran library)
+  eAxCId_conf:
+    mask_cuPortId 0xf000
+    mask_bandSectorId 0x0f00
+    mask_ccId 0x00f0
+    mask_ruPortId 0x000f
+    bit_cuPortId 0
+    bit_bandSectorId 0
+    bit_ccId 0
+    bit_ruPortId 0
+  xran_ports 1
+  dpdkBasebandFecMode 0
+  dpdkBasebandDevice (null)
+  filePrefix fhi_72
+  mtu 1500
+  p_o_du_addr (null)
+  p_o_ru_addr [10:70:FD:14:1C:10, 10:70:FD:14:1C:10]
+  totalBfWeights 0
+'DPDK 20.11.9'
+ xran_init: MTU 1500
+PF Eth line speed 10G
+PF Eth lines per O-xU port 1
+RX HW queues per O-xU Eth line 1 
+total cores 32 c_mask 0x00000000000000015 core 4 [id] system_core 0 [id] pkt_proc_core 0x00000000000000004 [mask] pkt_aux_core 0 [id] timing_core 4 [id]
+xran_ethdi_init_dpdk_io: Calling rte_eal_init:fhi_72 -c 0x00000000000000015 -n2 --iova-mode=pa --socket-mem=8192 --socket-limit=8192 --proc-type=auto --no-telemetry --file-prefix fhi_72 -a0000:00:00.0   
+xran_init_mbuf_pool: socket 0
+initializing port 0 for TX, drv=net_i40e_vf
+Port 0 MAC: 00 11 22 33 44 66
+Port 0: nb_rxd 4096 nb_txd 4096
+[0] mp_rx__p_0_q_0 num blocks 65535
+[0] mempool_small__0
+
+Checking link status portid [0]   ... done
+Port 0 Link Up - speed 10000 Mbps - full-duplex
+initializing port 1 for TX, drv=net_i40e_vf
+Port 1 MAC: 00 11 22 33 44 66
+Port 1: nb_rxd 4096 nb_txd 4096
+[1] mp_rx__p_1_q_0 num blocks 65535
+[1] mempool_small__1
+Created ring tx_ring_cp_1 on core 2
+Created ring rx_ring_cp_1_0 on core 2
+
+Checking link status portid [1]  [93m[PHY]   Please be aware that E release support will be removed by the end of January 2025. Instead, F release will be mandatory.
+[0m ... done
+Port 1 Link Up - speed 10000 Mbps - full-duplex
+[ 0] vf  0 local  SRC MAC: 00 11 22 33 44 66
+[ 0] vf  0 remote DST MAC: 10 70 fd 14 1c 10
+[ 0] vf  1 local  SRC MAC: 00 11 22 33 44 66
+[ 0] vf  1 remote DST MAC: 10 70 fd 14 1c 10
+created dl_gen_ring_up_0 on core 2
+xran_fh_config:
+  dpdk_port 0
+  sector_id 0
+  nCC 1
+  neAxc 2
+  neAxcUl 0
+  nAntElmTRx 0
+  nDLFftSize 0
+  nULFftSize 0
+  nDLRBs 273
+  nULRBs 273
+  nDLAbsFrePointA 0
+  nULAbsFrePointA 0
+  nDLCenterFreqARFCN 0
+  nULCenterFreqARFCN 0
+  ttiCb (nil)
+  ttiCbParam (nil)
+  Tadv_cp_dl 0
+  T2a_min_cp_dl 0
+  T2a_max_cp_dl 0
+  T2a_min_cp_ul 0
+  T2a_max_cp_ul 0
+  T2a_min_up 0
+  T2a_max_up 0
+  Ta3_min 0
+  Ta3_max 0
+  T1a_min_cp_dl 258
+  T1a_max_cp_dl 392
+  T1a_min_cp_ul 285
+  T1a_max_cp_ul 300
+  T1a_min_up 155
+  T1a_max_up 300
+  Ta4_min 0
+  Ta4_max 200
+  enableCP 1
+  prachEnable 1
+  srsEnable 0
+  puschMaskEnable 0
+  puschMaskSlot 0
+  cp_vlan_tag 0
+  up_vlan_tag 0
+  debugStop 0
+  debugStopCount 0
+  DynamicSectionEna 0
+  GPS_Alpha 0
+  GPS_Beta 0
+  prach_config:
+    nPrachConfIdx 151
+    nPrachSubcSpacing 1
+    nPrachZeroCorrConf 0
+    nPrachRestrictSet 0
+    nPrachRootSeqIdx 0
+    nPrachFreqStart 0
+    nPrachFreqOffset -3276
+    nPrachFilterIdx 0
+    startSymId 0
+    lastSymId 0
+    startPrbc 0
+    numPrbc 0
+    timeOffset 0
+    freqOffset 0
+    eAxC_offset 2
+  srs_config:
+    symbMask 0000
+    eAxC_offset 0
+  frame_conf:
+    nFrameDuplexType TDD
+    nNumerology 1
+    nTddPeriod 10
+    sSlotConfig[0]: DDDDDDDDDDDDDD
+    sSlotConfig[1]: DDDDDDDDDDDDDD
+    sSlotConfig[2]: DDDDDDDDDDDDDD
+    sSlotConfig[3]: DDDDDDDDDDDDDD
+    sSlotConfig[4]: DDDDDDDDDDDDDD
+    sSlotConfig[5]: DDDDDDDDDDDDDD
+    sSlotConfig[6]: DDDDDDDDDDDDDD
+    sSlotConfig[7]: DDDDDDGGGGUUUU
+    sSlotConfig[8]: UUUUUUUUUUUUUU
+    sSlotConfig[9]: UUUUUUUUUUUUUU
+  ru_config:
+    xranTech NR
+    xranCat A
+    xranCompHdrType static
+    iqWidth 9
+    compMeth 1
+    iqWidth_PRACH 9
+    compMeth_PRACH 1
+    fftSize 12
+    byteOrder network/BE
+    iqOrder I_Q
+    xran_max_frame 0
+  bbdev_enc (nil)
+  bbdev_dec (nil)
+  tx_cp_eAxC2Vf 0x7f18ff7f00e8
+  tx_up_eAxC2Vf 0x7f18ff7f0ce8
+  rx_cp_eAxC2Vf 0x7f18ff7f18e8
+  rx_up_eAxC2Vf 0x7f18ff7f24e8
+  log_level 1
+  max_sections_per_slot 0
+  max_sections_per_symbol 0
+ xran_open: 5G NR Category A
+xRAN open PRACH config: Numerology 1 ConfIdx 151, preambleFmrt 10 startsymb 2, numSymbol 12, occassionsInPrachSlot 1
+PRACH: x 2 y[0] 1, y[1] 0 prach slot: 4 .. 9 ..
+PRACH start symbol 2 lastsymbol 13
+xran_init_vfs_mapping: p 0 vf 0
+xran_init_vfs_mapping: p 0 vf 1
+xran_open: interval_us=500, interval_us_local=500
+XRAN_UP_VF: 0x0000
+xran_timing_source_thread [CPU  4] [PID: 457236]
+TTI interval 500 [us]
+Start C-plane DL 108 us after TTI  [trigger on sym 4]
+Start C-plane UL 200 us after TTI  [trigger on sym 6]
+Start U-plane DL 300 us before OTA [offset  in sym -8]
+Start U-plane UL 200 us OTA        [offset  in sym 6]
+C-plane to U-plane delay 192 us after TTI
+Start Sym timer 71428 ns
+O-XU      0
+HW        0
+Num cores 2
+Num ports 1
+O-RU Cat  0
+O-RU CC   1
+O-RU eAxC 2
+p:0 XRAN_JOB_TYPE_CP_DL worker id 1
+p:0 XRAN_JOB_TYPE_CP_UL worker id 1
+spawn worker 0 core 2
+xran_generic_worker_thread [CPU  2] [PID: 457236]
+xran_open [CPU  0] [PID: 457236]
+Waiting on Timing thread...
+Initialize ORAN port instance 0 (1) sector 0
+xran_sector_get_instances() o_xu_id 0 xran_handle 0x7f18e18c6040
+xran_sector_get_instances [0]: CC 0 handle 0x7f18f413a0c0
+Handle: 0x7f191405a588 Instance: 0x7f18f413a0c0
+-> hInstance 0x7f18f413a0c0
+ru_0_cc_0_idx_0: [ handle 0x7f18f413a0c0 0 0 ] [nPoolIndex 0] nNumberOfBuffers 1023 nBufferSize 14116
+CC:[ handle 0x7f18f413a0c0 ru 0 cc_idx 0 ] [nPoolIndex 0] mb pool 0x2dd2ca380 
+xran_bm_init() hInstance 0x7f18f413a0c0 poolIdx 0 elements 1023 size 14116
+xran_bm_allocate_buffer() hInstance 0x7f18f413a0c0 poolIdx 0 count 560
+ru_0_cc_0_idx_1: [ handle 0x7f18f413a0c0 0 0 ] [nPoolIndex 1] nNumberOfBuffers 4096 nBufferSize 32
+CC:[ handle 0x7f18f413a0c0 ru 0 cc_idx 0 ] [nPoolIndex 1] mb pool 0x2dc2f5f80 
+xran_bm_init() hInstance 0x7f18f413a0c0 poolIdx 1 elements 4096 size 32
+ru_0_cc_0_idx_2:[HW]   [RAU] has loaded ETHERNET trasport protocol.
+[0m[PHY]   RU 0: manually set CPU affinity to CPU 6
+[0m[PHY]   Starting IF interface for RU 0, nb_rx 2
+[0m[PHY]   RU 0 Setting N_TA_offset to 1600 samples (UL Freq 3401580, N_RB 273, mu 1)
+[0m[PHY]   Signaling main thread that RU 0 is ready, sl_ahead 5
+[0m[PHY]   L1 configured without analog beamforming
+[0m[PHY]   Attaching RU 0 antenna 0 to gNB antenna 0
+[0m[PHY]   Attaching RU 0 antenna 1 to gNB antenna 1
+[0m[UTIL]   threadCreate() for Tpool0_1: creating thread with affinity 1, priority 97
+[0m[UTIL]   threadCreate() for Tpool1_3: creating thread with affinity 3, priority 97
+[0m[UTIL]   threadCreate() for Tpool2_5: creating thread with affinity 5, priority 97
+[0m[UTIL]   threadCreate() for Tpool3_7: creating thread with affinity 7, priority 97
+[0m[UTIL]   threadCreate() for Tpool4_9: creating thread with affinity 9, priority 97
+[0m[UTIL]   threadCreate() for Tpool5_11: creating thread with affinity b, priority 97
+[0m[UTIL]   threadCreate() for Tpool6_13: creating thread with affinity d, priority 97
+[0m[UTIL]   threadCreate() for Tpool7_15: creating thread with affinity f, priority 97
+[0m[UTIL]   threadCreate() for L1_rx_thread: creating thread with affinity 8, priority 97
+[0m[UTIL]   threadCreate() for L1_tx_thread: creating thread with affinity a, priority 97
+[0m[UTIL]   threadCreate() for L1_stats: creating thread with affinity ffffffff, priority 1
+[0m[PHY]   got sync (ru_thread)
+[0m[PHY]   got sync (L1_stats_thread)
+[0m [ handle 0x7f18f413a0c0 0 0 ] [nPoolIndex 2] nNumberOfBuffers 1023 nBufferSize 7408
+CC:[ handle 0x7f18f413a0c0 ru 0 cc_idx 0 ] [nPoolIndex 2] mb pool 0x2dbf23940 
+xran_bm_init() hInstance 0x7f18f413a0c0 poolIdx 2 elements 1023 size 7408
+xran_bm_allocate_buffer() hInstance 0x7f18f413a0c0 poolIdx 2 count 40
+xran_bm_allocate_buffer() hInstance 0x7f18f413a0c0 poolIdx 1 count 560
+ru_0_cc_0_idx_3: [ handle 0x7f18f413a0c0 0 0 ] [nPoolIndex 3] nNumberOfBuffers 1023 nBufferSize 13168
+CC:[ handle 0x7f18f413a0c0 ru 0 cc_idx 0 ] [nPoolIndex 3] mb pool 0x2db5cf540 
+xran_bm_init() hInstance 0x7f18f413a0c0 poolIdx 3 elements 1023 size 13168
+xran_bm_allocate_buffer() hInstance 0x7f18f413a0c0 poolIdx 3 count 560
+ru_0_cc_0_idx_4: [ handle 0x7f18f413a0c0 0 0 ] [nPoolIndex 4] nNumberOfBuffers 4096 nBufferSize 32
+CC:[ handle 0x7f18f413a0c0 ru 0 cc_idx 0 ] [nPoolIndex 4] mb pool 0x2da6db140 
+xran_bm_init() hInstance 0x7f18f413a0c0 poolIdx 4 elements 4096 size 32
+ru_0_cc_0_idx_5: [ handle 0x7f18f413a0c0 0 0 ] [nPoolIndex 5] nNumberOfBuffers 1023 nBufferSize 7408
+CC:[ handle 0x7f18f413a0c0 ru 0 cc_idx 0 ] [nPoolIndex 5] mb pool 0x2da308b00 
+xran_bm_init() hInstance 0x7f18f413a0c0 poolIdx 5 elements 1023 size 7408
+xran_bm_allocate_buffer() hInstance 0x7f18f413a0c0 poolIdx 5 count 40
+xran_bm_allocate_buffer() hInstance 0x7f18f413a0c0 poolIdx 4 count 560
+ru_0_cc_0_idx_6: [ handle 0x7f18f413a0c0 0 0 ] [nPoolIndex 6] nNumberOfBuffers 1023 nBufferSize 3360
+CC:[ handle 0x7f18f413a0c0 ru 0 cc_idx 0 ] [nPoolIndex 6] mb pool 0x2d99b4700 
+xran_bm_init() hInstance 0x7f18f413a0c0 poolIdx 6 elements 1023 size 3360
+xran_bm_allocate_buffer() hInstance 0x7f18f413a0c0 poolIdx 6 count 560
+ORAN: get_internal_parameter
+ORAN: get_internal_parameter
+ORAN: trx_oran_start
+O-DU: XRAN start time: 04/29/25 06:33:05.626362543 UTC [500]
+Start ORAN. Done
+O-DU: thread_run start time: 04/29/25 06:33:06.000000016 UTC [500]
+TYPE <CTRL-C> TO TERMINATE
+[PHY]   RU 0 no rf device
+[0m[PHY]   RU 0 RF started cpu_meas_enabled 0
+[0m[PHY]   before adjusting, OAI: frame=0 slot=0, XRAN: frame=0 slot=9
+[0m[PHY]   After adjusting, OAI: frame=0 slot=9, XRAN: frame=0 slot=9
+[0m[32m[PHY]   Command line parameters for OAI UE: -C 3450720000 -r 273 --numerology 1 --ssb 1518 
+[0m[NR_MAC]   Frame.Slot 128.0
+
+[0m[NR_PHY]   [o-du 0][rx  202752 pps  202752 kbps  894995][tx   63296 pps   63296 kbps 1431961][Total Msgs_Rcvd 202752]
+[0m[NR_PHY]   [o_du0][pusch0   98304 prach0    3072]
+[0m[NR_PHY]   [o_du0][pusch1   98304 prach1    3072]
+[0m[NR_MAC]   Frame.Slot 256.0
+
+[0m[NR_PHY]   [o-du 0][rx  405504 pps  202752 kbps 1598652][tx  126528 pps   63232 kbps 2555318][Total Msgs_Rcvd 405504]
+[0m[NR_PHY]   [o_du0][pusch0  196608 prach0    6144]
+[0m[NR_PHY]   [o_du0][pusch1  196608 prach1    6144]
+[0m[NR_MAC]   Frame.Slot 384.0
+
+[0m[NR_PHY]   [o-du 0][rx  608256 pps  202752 kbps 1598680][tx  189760 pps   63232 kbps 2555318][Total Msgs_Rcvd 608256]
+[0m[NR_PHY]   [o_du0][pusch0  294912 prach0    9216]
+[0m[NR_PHY]   [o_du0][pusch1  294912 prach1    9216]
+[0m[NR_MAC]   Frame.Slot 512.0
+
+[0m[NR_PHY]   [o-du 0][rx  811008 pps  202752 kbps 1598656][tx  252992 pps   63232 kbps 2555318][Total Msgs_Rcvd 811008]
+[0m[NR_PHY]   [o_du0][pusch0  393216 prach0   12288]
+[0m[NR_PHY]   [o_du0][pusch1  393216 prach1   12288]
+[0m[NR_MAC]   Frame.Slot 640.0
+
+[0m[NR_PHY]   [o-du 0][rx 1013760 pps  202752 kbps 1598668][tx  316224 pps   63232 kbps 2555318][Total Msgs_Rcvd 1013760]
+[0m[NR_PHY]   [o_du0][pusch0  491520 prach0   15360]
+[0m[NR_PHY]   [o_du0][pusch1  491520 prach1   15360]
+[0m[NR_MAC]   Frame.Slot 768.0
+
+[0m[NR_PHY]   [o-du 0][rx 1216512 pps  202752 kbps 1598685][tx  379456 pps   63232 kbps 2555318][Total Msgs_Rcvd 1216512]
+[0m[NR_PHY]   [o_du0][pusch0  589824 prach0   18432]
+[0m[NR_PHY]   [o_du0][pusch1  589824 prach1   18432]
+[0m[NR_MAC]   Frame.Slot 896.0
+
+[0m[NR_PHY]   [o-du 0][rx 1419264 pps  202752 kbps 1598668][tx  442688 pps   63232 kbps 2555318][Total Msgs_Rcvd 1419264]
+[0m[NR_PHY]   [o_du0][pusch0  688128 prach0   21504]
+[0m[NR_PHY]   [o_du0][pusch1  688128 prach1   21504]
+[0m[NR_MAC]   Frame.Slot 0.0
+
+[0m[NR_PHY]   [o-du 0][rx 1622016 pps  202752 kbps 1598668][tx  505920 pps   63232 kbps 2555318][Total Msgs_Rcvd 1622016]
+[0m[NR_PHY]   [o_du0][pusch0  786432 prach0   24576]
+[0m[NR_PHY]   [o_du0][pusch1  786432 prach1   24576]
+[0m[NR_MAC]   Frame.Slot 128.0
+
+[0m[NR_PHY]   [o-du 0][rx 1824768 pps  202752 kbps 1598668][tx  569152 pps   63232 kbps 2555318][Total Msgs_Rcvd 1824768]
+[0m[NR_PHY]   [o_du0][pusch0  884736 prach0   27648]
+[0m[NR_PHY]   [o_du0][pusch1  884736 prach1   27648]
+[0m[NR_MAC]   Frame.Slot 256.0
+
+[0m[NR_PHY]   [o-du 0][rx 2027520 pps  202752 kbps 1598668][tx  632384 pps   63232 kbps 2555318][Total Msgs_Rcvd 2027520]
+[0m[NR_PHY]   [o_du0][pusch0  983040 prach0   30720]
+[0m[NR_PHY]   [o_du0][pusch1  983040 prach1   30720]
+[0m[NR_MAC]   Frame.Slot 384.0
+
+[0m[NR_PHY]   [o-du 0][rx 2230272 pps  202752 kbps 1598668][tx  695616 pps   63232 kbps 2555318][Total Msgs_Rcvd 2230272]
+[0m[NR_PHY]   [o_du0][pusch0 1081344 prach0   33792]
+[0m[NR_PHY]   [o_du0][pusch1 1081344 prach1   33792]
+[0m[NR_MAC]   Frame.Slot 512.0
+
+[0m[NR_PHY]   [o-du 0][rx 2433024 pps  202752 kbps 1598668][tx  758848 pps   63232 kbps 2555318][Total Msgs_Rcvd 2433024]
+[0m[NR_PHY]   [o_du0][pusch0 1179648 prach0   36864]
+[0m[NR_PHY]   [o_du0][pusch1 1179648 prach1   36864]
+[0m[NR_MAC]   Frame.Slot 640.0
+
+[0m[NR_PHY]   [o-du 0][rx 2635776 pps  202752 kbps 1598685][tx  822080 pps   63232 kbps 2555318][Total Msgs_Rcvd 2635776]
+[0m[NR_PHY]   [o_du0][pusch0 1277952 prach0   39936]
+[0m[NR_PHY]   [o_du0][pusch1 1277952 prach1   39936]
+[0m[NR_MAC]   Frame.Slot 768.0
+
+[0m[NR_PHY]   [o-du 0][rx 2838528 pps  202752 kbps 1598668][tx  885312 pps   63232 kbps 2555318][Total Msgs_Rcvd 2838528]
+[0m[NR_PHY]   [o_du0][pusch0 1376256 prach0   43008]
+[0m[NR_PHY]   [o_du0][pusch1 1376256 prach1   43008]
+[0m[NR_MAC]   Frame.Slot 896.0
+
+[0m[NR_PHY]   [o-du 0][rx 3041280 pps  202752 kbps 1598652][tx  948544 pps   63232 kbps 2555318][Total Msgs_Rcvd 3041280]
+[0m[NR_PHY]   [o_du0][pusch0 1474560 prach0   46080]
+[0m[NR_PHY]   [o_du0][pusch1 1474560 prach1   46080]
+[0m[NR_MAC]   Frame.Slot 0.0
+
+[0m[NR_PHY]   [o-du 0][rx 3244032 pps  202752 kbps 1598685][tx 1011776 pps   63232 kbps 2555318][Total Msgs_Rcvd 3244032]
+[0m[NR_PHY]   [o_du0][pusch0 1572864 prach0   49152]
+[0m[NR_PHY]   [o_du0][pusch1 1572864 prach1   49152]
+[0m[NR_MAC]   Frame.Slot 128.0
+
+[0m[NR_PHY]   [o-du 0][rx 3446784 pps  202752 kbps 1598668][tx 1075008 pps   63232 kbps 2555318][Total Msgs_Rcvd 3446784]
+[0m[NR_PHY]   [o_du0][pusch0 1671168 prach0   52224]
+[0m[NR_PHY]   [o_du0][pusch1 1671168 prach1   52224]
+[0m[NR_MAC]   Frame.Slot 256.0
+
+[0m[NR_PHY]   [o-du 0][rx 3649536 pps  202752 kbps 1598652][tx 1138240 pps   63232 kbps 2555318][Total Msgs_Rcvd 3649536]
+[0m[NR_PHY]   [o_du0][pusch0 1769472 prach0   55296]
+[0m[NR_PHY]   [o_du0][pusch1 1769472 prach1   55296]
+[0m[NR_MAC]   Frame.Slot 384.0
+
+[0m[NR_PHY]   [o-du 0][rx 3852288 pps  202752 kbps 1598668][tx 1201472 pps   63232 kbps 2555318][Total Msgs_Rcvd 3852288]
+[0m[NR_PHY]   [o_du0][pusch0 1867776 prach0   58368]
+[0m[NR_PHY]   [o_du0][pusch1 1867776 prach1   58368]
+[0m
+** Caught SIGTERM, shutting down
+[GNB_APP]   stopping nr-softmodem
+[0m[PHY]   Killing gNB 0 processing threads
+[0m[PHY]   Stopping RU 0 processing threads
+[0m[93m[PHY]   No stop_rf() for RU 0 defined, cannot stop RF!
+[0m[GNB_APP]   turned off RU ifdevice
+[0mfirst_call set from phy cb first_call_set=0x7f1914059ac0
+Returned from ITTI signal handler
+ORAN: trx_oran_stop
+fh_rx_bbdev-2 worker thread finished on core 2 [worker id 0]
+Closing timing source thread...
+Bye.
