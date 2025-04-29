@@ -1,0 +1,38 @@
+- stage: gnb_initialization
+  symptom: "gNB failed to recognize the configured ciphering algorithm ('nea4'), resulting in security module initialization error and potential connection failure with UE."
+  log_snippet: "[RRC]   unknown ciphering algorithm 'nea4' in section 'security' of the configuration file"
+  related_config:
+    - ciphering_algorithm
+  notes: |
+    Supported ciphering algorithms:
+      - nea0 (no encryption)
+      - nea1 (based on SNOW 3G)
+      - nea2 (based on AES)
+      - nea3 (based on ZUC)
+    It is recommended to use 'nea0' (no encryption) first to simplify initial debugging and avoid security negotiation failures.
+
+- stage: fh_setup
+  symptom: "PCAP file contains zero packets, likely due to incorrect MAC address configuration"
+  log_snippet: "[FH] No packets captured – possible mismatch in MAC address between DU and RU"
+  related_config:
+    - ru_addr
+    - du_addr
+  notes:
+      - "Ensure that the DU and RU MAC addresses are correctly configured and match each other to enable successful packet capture."
+
+- stage: fh_setup
+  symptom: "DU reports continuous 'Received Time doesn't correspond to the time we think it is' and 'Jump in frame counter' errors after XRAN start. Observed mismatch between expected and received frame/slot numbers and frequent double sync detection."
+  log_snippet: "[PHY]   Jump in frame counter last_frame 86 => 167, slot 19; [PHY]   Received Time doesn't correspond to the time we think it is (slot mismatch, received 167.19, expected 86.11); [PHY]   Detected double sync message 371.6 => 371.7"
+  related_config:
+    - iq_width_prach
+    - iq_width
+  notes:
+    - "Check and align IQ bit width settings between DU and RU. Mismatch in IQ configurations can cause frame and slot synchronization issues."
+
+- stage: ng_setup
+  symptom: "Incorrect AMF IP configuration, unable to establish NG connection"
+  log_snippet: "[SCTP] Connect failed: Connection refused"
+  related_config:
+    - amf_ip_address
+  
+
