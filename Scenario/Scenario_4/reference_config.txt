@@ -1,0 +1,6 @@
+reference_info = {
+    "du_addr": "00:11:22:33:44:66",
+    "ru_addr": "10:70:fd:14:1c:10",
+    "CN_AMF_IP": "192.168.8.21",
+    "dl/ul_compression_method/iq_width_prach/iq_width": "9"
+}

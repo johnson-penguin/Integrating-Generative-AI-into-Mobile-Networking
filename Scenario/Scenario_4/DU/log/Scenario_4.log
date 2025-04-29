@@ -1,0 +1,50 @@
+[UTIL]   running in SA mode (no --phy-test, --do-ra, --nsa option present)
+[0m[OPT]   OPT disabled
+[0m[HW]   Version: Branch: HEAD Abrev. Hash: 60b0c1827d Date: Wed Mar 12 07:41:54 2025 +0000
+[0m[GNB_APP]   Initialized RAN Context: RC.nb_nr_inst = 1, RC.nb_nr_macrlc_inst = 1, RC.nb_nr_L1_inst = 1, RC.nb_RU = 1, RC.nb_nr_CC[0] = 1
+[0m[NR_PHY]   Initializing gNB RAN context: RC.nb_nr_L1_inst = 1 
+[0m[NR_PHY]   Registered with MAC interface module (0x528d9e0)
+[0m[NR_PHY]   Initializing NR L1: RC.nb_nr_L1_inst = 1
+[0m[NR_PHY]   L1_RX_THREAD_CORE 8 (15)
+[0m[NR_PHY]   TX_AMP = 3276 (-20 dBFS)
+[0m[PHY]   No prs_config configuration found..!!
+[0m[GNB_APP]   pdsch_AntennaPorts N1 1 N2 1 XP 2 pusch_AntennaPorts 2
+[0m[GNB_APP]   minTXRXTIME 2
+[0m[GNB_APP]   SIB1 TDA 15
+[0m[GNB_APP]   CSI-RS 1, SRS 0, 256 QAM force off, delta_MCS off, maxMIMO_Layers -1, HARQ feedback enabled, num DLHARQ:16, num ULHARQ:16
+[0m[GNB_APP]   sr_ProhibitTimer 0, sr_TransMax 64, sr_ProhibitTimer_v1700 0, t300 400, t301 400, t310 2000, n310 10, t311 3000, n311 1, t319 400
+[0m[NR_MAC]   Candidates per PDCCH aggregation level on UESS: L1: 0, L2: 2, L4: 0, L8: 0, L16: 0
+[0m[RRC]   Read in ServingCellConfigCommon (PhysCellId 0, ABSFREQSSB 630048, DLBand 78, ABSFREQPOINTA 626772, DLBW 273,RACH_TargetReceivedPower -100
+[0m[RRC]   absoluteFrequencySSB 630048 corresponds to 3450720000 Hz
+[0m[NR_MAC]   TDD period index = 6, based on the sum of dl_UL_TransmissionPeriodicity from Pattern1 (5.000000 ms) and Pattern2 (0.000000 ms): Total = 5.000000 ms
+[0m[UTIL]   threadCreate() for MAC_STATS: creating thread with affinity ffffffff, priority 2
+[0m[NR_MAC]   PUSCH Target 300, PUCCH Target 230, PUCCH Failure 10, PUSCH Failure 100
+[0m[NR_PHY]   Copying 0 blacklisted PRB to L1 context
+[0m[NR_MAC]   Set TX antenna number to 2, Set RX antenna number to 2 (num ssb 1: 80000000,0)
+[0m[NR_MAC]   TDD period index = 6, based on the sum of dl_UL_TransmissionPeriodicity from Pattern1 (5.000000 ms) and Pattern2 (0.000000 ms): Total = 5.000000 ms
+[0m[NR_MAC]   Set TDD configuration period to: 8 DL slots, 3 UL slots, 10 slots per period (NR_TDD_UL_DL_Pattern is 7 DL slots, 2 UL slots, 6 DL symbols, 4 UL symbols)
+[0m[NR_MAC]   Configured 1 TDD patterns (total slots: pattern1 = 10, pattern2 = 0)
+[0m[NR_PHY]   Set TDD Period Configuration: 2 periods per frame, 20 slots to be configured (8 DL, 3 UL)
+[0m[NR_PHY]   TDD period configuration: slot 0 is DOWNLINK
+[0m[NR_PHY]   TDD period configuration: slot 1 is DOWNLINK
+[0m[NR_PHY]   TDD period configuration: slot 2 is DOWNLINK
+[0m[NR_PHY]   TDD period configuration: slot 3 is DOWNLINK
+[0m[NR_PHY]   TDD period configuration: slot 4 is DOWNLINK
+[0m[NR_PHY]   TDD period configuration: slot 5 is DOWNLINK
+[0m[NR_PHY]   TDD period configuration: slot 6 is DOWNLINK
+[0m[NR_PHY]   TDD period configuration: slot 7 is FLEXIBLE: DDDDDDFFFFUUUU
+[0m[NR_PHY]   TDD period configuration: slot 8 is UPLINK
+[0m[NR_PHY]   TDD period configuration: slot 9 is UPLINK
+[0m[PHY]   DL frequency 3450720000 Hz, UL frequency 3450720000 Hz: band 78, uldl offset 0 Hz
+[0m[PHY]   Initializing frame parms for mu 1, N_RB 273, Ncp 0
+[0m[PHY]   Init: N_RB_DL 273, first_carrier_offset 2458, nb_prefix_samples 288,nb_prefix_samples0 352, ofdm_symbol_size 4096
+[0m[NR_RRC]   SIB1 freq: offsetToPointA 252
+[0m[GNB_APP]   F1AP: gNB idx 0 gNB_DU_id 3585, gNB_DU_name gNB-OAI-2, TAC 1 MCC/MNC/length 1/1/2 cellID 1
+[0m[GNB_APP]   ngran_DU: Configuring Cell 0 for TDD
+[0m[GNB_APP]   SDAP layer is disabled
+[0m[GNB_APP]   Data Radio Bearer count 1
+[0m[NR_RRC]   do_SIB23_NR, size 9
+[0m[1;31m[RRC]   unknown ciphering algorithm "nea4" in section "security" of the configuration file
+[0mCMDLINE: "./nr-softmodem" "-O" "../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/gnb.sa.band78.273prb.fhi72.2x2-TM500_johnson.conf" "--sa" "--reorder-thread-disable" "1" "--thread-pool" "1,3,5,7,9,11,13,15" 
+[CONFIG] function config_libconfig_init returned 0
+DL frequency 3450720000: band 78, UL frequency 3450720000
