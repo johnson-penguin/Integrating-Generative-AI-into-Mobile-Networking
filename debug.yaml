@@ -1,15 +1,33 @@
 - stage: gnb_initialization
   symptom: "gNB failed to recognize the configured ciphering algorithm ('nea4'), resulting in security module initialization error and potential connection failure with UE."
-  log_snippet: "[RRC]   unknown ciphering algorithm 'nea4' in section 'security' of the configuration file"
+  log_snippet: "[RRC]   unknown ciphering algorithm \"nia4\" in section \"security\" of the configuration file"
+
   related_config:
     - ciphering_algorithm
   notes: |
-    Supported ciphering algorithms:
+    1. Supported ciphering algorithms:
       - nea0 (no encryption)
       - nea1 (based on SNOW 3G)
       - nea2 (based on AES)
       - nea3 (based on ZUC)
-    It is recommended to use 'nea0' (no encryption) first to simplify initial debugging and avoid security negotiation failures.
+    2. It is recommended to use 'nea0' (no encryption) first to simplify initial debugging and avoid security negotiation failures.
+    3. Preferred ciphering algorithms the first one of the list that an UE supports in chosen : Valid values: nia0, nia1, nia2, nia3
+
+
+- stage: gnb_initialization
+  symptom: "gNB failed to recognize the configured ciphering algorithm ('nea8'), resulting in security module initialization error and potential connection failure with UE."
+  log_snippet: "[RRC]   unknown integrity algorithm \"nia8\" in section \"security\" of the configuration file"
+  related_config:
+    - integrity_algorithms 
+  notes: |
+    1. Supported ciphering algorithms:
+      - nea0 (no encryption)
+      - nea1 (based on SNOW 3G)
+      - nea2 (based on AES)
+      - nea3 (based on ZUC)
+    2. It is recommended to use 'nea0' (no encryption) first to simplify initial debugging and avoid security negotiation failures.
+    3. Preferred integrity algorithms the first one of the list that an UE supports in chosen : Valid values: nia0, nia1, nia2, nia3
+    4. The integrity_algorithms parameter supports configuring multiple algorithms as a list, for example: ("nia2", "nia1", "nia3", "nia0"). During security negotiation, the gNB will select the first algorithm from the list that is also supported by the UE.
 
 - stage: fh_setup
   symptom: "PCAP file contains zero packets, likely due to incorrect MAC address configuration"
