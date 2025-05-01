@@ -38,6 +38,32 @@
 ![image](https://github.com/user-attachments/assets/1e60040b-8446-4120-b566-be33a3169bf8)
 
 
+## Input – Debug Knowledge
+- Debug yaml: A structured file that documents known symptoms, their causes, log snippets, and the related config fields.
+- This is embedded into the Integration_Dataset, which serves as the retrieval base.
+
+## Retrieval Stage
+- Query (from the user or system): Describes an issue or request (e.g., “UE cannot attach”).
+- The system uses similarity search over the Integration_Dataset to retrieve:
+  - Symptom: Matched issue from the dataset.
+  - Related config: Fields or parameters related to the symptom.
+
+## Prompt Construction
+Inputs to the prompt:
+- Symptom and Related config (from retrieval)
+- Query (from the user or diagnostic system)
+- Reference_Config: A known-correct config (e.g., golden config or MAC/IP mapping)
+- Current_Config: The configuration being debugged
+
+All these are combined into a structured prompt, sent to the LLM.
+
+## LLM Processing
+- The LLM receives the full context and returns:
+  - Suggestion: Specific config changes (e.g., integrity_algorithms = ( "nia2", "nia0" );)
+  - Reason: Explanation for the recommendation (e.g., "matches supported algorithm pool, avoids negotiation failure")
+
+## Final Output
+Suggestions are applied to generate a New conf (new configuration file), ready for testing or deployment.
 
 
 
