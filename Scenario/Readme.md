@@ -1,5 +1,5 @@
 ## Introduction
-- This diagram represents the data preprocessing and query flow in a 5G system. It shows how raw logs and packet captures (PCAP) from various network components are transformed into structured, useful messages that can be queried for diagnostics, debugging, or automation.
+- This diagram shows how raw logs and packet captures (PCAP) from various network components are transformed into structured, useful messages that can be queried for diagnostics, debugging, or automation.
 
 ![image](https://github.com/user-attachments/assets/bdc9d5db-d0c7-4ad8-afc9-b9024f0ce080)
 
