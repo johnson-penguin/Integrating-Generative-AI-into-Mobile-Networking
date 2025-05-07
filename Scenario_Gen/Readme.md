@@ -53,7 +53,7 @@ It is normal for this session to time out because the CU will wait indefinitely 
 Based on the status, you can determine which parameters will cause the CU or DU to crash directly during operation.
 ![image](https://github.com/user-attachments/assets/e4124b12-d6ad-4aed-8896-a0c37a530126)
 
-- Normal case (timeout)
+- [Normal case (timeout)](https://github.com/johnson-penguin/Integrating-Generative-AI-into-Mobile-Networking/blob/main/Scenario_Gen/cu/cu_test_log/0_cu_gnb_original_log.txt)
 
 ```bash=
 [GTPU]   SA mode 
@@ -71,7 +71,7 @@ Based on the status, you can determine which parameters will cause the CU or DU 
 [GNB_APP]   [gNB 0] Received NGAP_REGISTER_GNB_CNF: associated AMF 1
 ```
 
-- Exit case (255)
+- [Exit case (255)](https://github.com/johnson-penguin/Integrating-Generative-AI-into-Mobile-Networking/blob/main/Scenario_Gen/cu/cu_test_log/3_cu_gnb_ciphering_algorithms_log.txt)
 
 ```bash=
 [UTIL]   running in SA mode (no --phy-test, --do-ra, --nsa option present)
