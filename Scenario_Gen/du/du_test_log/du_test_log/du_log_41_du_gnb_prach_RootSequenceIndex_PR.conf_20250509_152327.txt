@@ -1,0 +1,145 @@
+[UTIL]   running in SA mode (no --phy-test, --do-ra, --nsa option present)
+[0m[OPT]   OPT disabled
+[0m[HW]   Version: Branch: develop Abrev. Hash: 054506f5ae Date: Tue Dec 10 13:33:23 2024 +0000
+[0m[GNB_APP]   Initialized RAN Context: RC.nb_nr_inst = 1, RC.nb_nr_macrlc_inst = 1, RC.nb_nr_L1_inst = 1, RC.nb_RU = 1, RC.nb_nr_CC[0] = 1
+[0m[NR_PHY]   Initializing gNB RAN context: RC.nb_nr_L1_inst = 1 
+[0m[NR_PHY]   Registered with MAC interface module (0x3a9a6f0)
+[0m[NR_PHY]   Initializing NR L1: RC.nb_nr_L1_inst = 1
+[0m[NR_PHY]   L1_RX_THREAD_CORE -1 (15)
+[0m[NR_PHY]   TX_AMP = 519 (-36 dBFS)
+[0m[PHY]   No prs_config configuration found..!!
+[0m[GNB_APP]   pdsch_AntennaPorts N1 1 N2 1 XP 1 pusch_AntennaPorts 1
+[0m[GNB_APP]   minTXRXTIME 6
+[0m[GNB_APP]   SIB1 TDA 1
+[0m[GNB_APP]   CSI-RS 0, SRS 0, 256 QAM force off, delta_MCS off, maxMIMO_Layers -1, HARQ feedback enabled, num DLHARQ:16, num ULHARQ:16
+[0m[GNB_APP]   sr_ProhibitTimer 0, sr_TransMax 64, sr_ProhibitTimer_v1700 0, t300 400, t301 400, t310 2000, n310 10, t311 3000, n311 1, t319 400
+[0m[RRC]   Read in ServingCellConfigCommon (PhysCellId 0, ABSFREQSSB 641280, DLBand 78, ABSFREQPOINTA 640008, DLBW 106,RACH_TargetReceivedPower -96
+[0m[RRC]   absoluteFrequencySSB 641280 corresponds to 3619200000 Hz
+[0m[UTIL]   threadCreate() for MAC_STATS: creating thread with affinity ffffffff, priority 2
+[0m[NR_MAC]   PUSCH Target 200, PUCCH Target 150, PUCCH Failure 10, PUSCH Failure 10
+[0m[NR_PHY]   Copying 0 blacklisted PRB to L1 context
+[0m[NR_MAC]   Set TX antenna number to 1, Set RX antenna number to 1 (num ssb 1: 80000000,0)
+[0m[PHY]   DL frequency 3619200000 Hz, UL frequency 3619200000 Hz: band 48, uldl offset 0 Hz
+[0m[PHY]   Initializing frame parms for mu 1, N_RB 106, Ncp 0
+[0m[PHY]   Init: N_RB_DL 106, first_carrier_offset 1412, nb_prefix_samples 144,nb_prefix_samples0 176, ofdm_symbol_size 2048
+[0m[NR_RRC]   SIB1 freq: offsetToPointA 86
+[0m[GNB_APP]   F1AP: gNB idx 0 gNB_DU_id 3584, gNB_DU_name gNB-Eurecom-DU, TAC 1 MCC/MNC/length 1/1/2 cellID 1
+[0m[GNB_APP]   ngran_DU: Configuring Cell 0 for TDD
+[0m[GNB_APP]   SDAP layer is disabled
+[0m[GNB_APP]   Data Radio Bearer count 1
+[0m[93m[RRC]   no preferred ciphering algorithm set in configuration file, applying default parameters (no security)
+[0m[93m[RRC]   no preferred integrity algorithm set in configuration file, applying default parameters (nia2)
+[0m[UTIL]   threadCreate() for TASK_SCTP: creating thread with affinity ffffffff, priority 50
+[0m[X2AP]   X2AP is disabled.
+[0m[UTIL]   threadCreate() for TASK_GNB_APP: creating thread with affinity ffffffff, priority 50
+[0m[UTIL]   threadCreate() for TASK_GTPV1_U: creating thread with affinity ffffffff, priority 50
+[0m[UTIL]   threadCreate() for TASK_DU_F1: creating thread with affinity ffffffff, priority 50
+[0m[F1AP]   Starting F1AP at DU
+[0m[F1AP]   F1-C DU IPaddr 127.0.0.3, connect to F1-C CU 127.0.0.5, binding GTP to 127.0.0.3
+[0m[34m[F1AP]   DU Task Received F1AP_DU_REGISTER_REQ for instance 0: sending SCTP messages via assoc_id 0
+[0m[34m[F1AP]   Local IPv4 Address: 127.0.0.3, Remote IPv4 Address: 127.0.0.5
+[0m[GTPU]   Initializing UDP for local address 127.0.0.3 with port 2152
+[0m[GTPU]   Created gtpu instance id: 94
+[0m[34m[F1AP]   DU Task Received SCTP_NEW_ASSOCIATION_RESP for instance 0: sending SCTP messages via assoc_id 0
+[0m[34m[F1AP]   DU_send_F1_SETUP_REQUEST
+[0m[34m[F1AP]   DU Task Received SCTP_DATA_IND for instance 0: sending SCTP messages via assoc_id 429
+[0m[34m[F1AP]   Calling handler with instance 0
+[0m[34m[F1AP]   DU_handle_F1_SETUP_RESPONSE
+[0m[34m[F1AP]   Sending F1AP_SETUP_RESP ITTI message
+[0m[MAC]   received F1 Setup Response from CU gNB-Eurecom-CU
+[0m[MAC]   CU uses RRC version 17.3.0
+[0m[MAC]   Clearing the DU's UE states before, if any.
+[0m[PHY]   RU clock source set as internal
+[0m[PHY]   number of L1 instances 1, number of RU 1, number of CPU cores 32
+[0m[PHY]   Initialized RU proc 0 (,synch_to_ext_device),
+[0m[PHY]   RU thread-pool core string -1,-1 (size 2)
+[0m[UTIL]   threadCreate() for Tpool0_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool1_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for ru_thread: creating thread with affinity ffffffff, priority 97
+[0m[PHY]   Starting RU 0 (,synch_to_ext_device) on cpu 16
+[0m[PHY]   Initializing frame parms for mu 1, N_RB 106, Ncp 0
+[0m[PHY]   Init: N_RB_DL 106, first_carrier_offset 1412, nb_prefix_samples 144,nb_prefix_samples0 176, ofdm_symbol_size 2048
+[0m[PHY]   fp->scs=30000
+[0m[PHY]   fp->ofdm_symbol_size=2048
+[0m[PHY]   fp->nb_prefix_samples0=176
+[0m[PHY]   fp->nb_prefix_samples=144
+[0m[PHY]   fp->slots_per_subframe=2
+[0m[PHY]   fp->samples_per_subframe_wCP=57344
+[0m[PHY]   fp->samples_per_frame_wCP=573440
+[0m[PHY]   fp->samples_per_subframe=61440
+[0m[PHY]   fp->samples_per_frame=614400
+[0m[PHY]   fp->dl_CarrierFreq=3619200000
+[0m[PHY]   fp->ul_CarrierFreq=3619200000
+[0m[PHY]   fp->Nid_cell=0
+[0m[PHY]   fp->first_carrier_offset=1412
+[0m[PHY]   fp->ssb_start_subcarrier=0
+[0m[PHY]   fp->Ncp=0
+[0m[PHY]   fp->N_RB_DL=106
+[0m[PHY]   fp->numerology_index=1
+[0m[PHY]   fp->nr_band=48
+[0m[PHY]   fp->ofdm_offset_divisor=8
+[0m[PHY]   fp->threequarter_fs=0
+[0m[PHY]   fp->sl_CarrierFreq=0
+[0m[PHY]   fp->N_RB_SL=0
+[0m[PHY]   Setting RF config for N_RB 106, NB_RX 1, NB_TX 1
+[0m[PHY]   tune_offset 0 Hz, sample_rate 61440000 Hz
+[0m[PHY]   Channel 0: setting tx_gain offset 0, tx_freq 3619200000 Hz
+[0m[PHY]   Channel 0: setting rx_gain offset 114, rx_freq 3619200000 Hz
+[0m[HW]   Running as server waiting opposite rfsimulators to connect
+[0m[HW]   [RAU] has loaded RFSIMULATOR device.
+[0m[PHY]   RU 0 Setting N_TA_offset to 800 samples (UL Freq 3600120, N_RB 106, mu 1)
+[0m[PHY]   Signaling main thread that RU 0 is ready, sl_ahead 6
+[0m[PHY]   L1 configured without analog beamforming
+[0m[PHY]   Attaching RU 0 antenna 0 to gNB antenna 0
+[0m[UTIL]   threadCreate() for Tpool0_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool1_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool2_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool3_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool4_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool5_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool6_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for Tpool7_-1: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for L1_rx_thread: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for L1_tx_thread: creating thread with affinity ffffffff, priority 97
+[0m[UTIL]   threadCreate() for L1_stats: creating thread with affinity ffffffff, priority 1
+[0m[PHY]   got sync (ru_thread)
+[0m[PHY]   got sync (L1_stats_thread)
+[0mCMDLINE: "./nr-softmodem" "--rfsim" "--sa" "-O" "/home/oai72/Johnson/tool/scenario_gen/du/du_test_conf/41_du_gnb_prach_RootSequenceIndex_PR.conf" 
+[CONFIG] function config_libconfig_init returned 0
+DL frequency 3619200000: band 48, UL frequency 3619200000
+Initializing random number generator, seed 2312822510530811433
+TYPE <CTRL-C> TO TERMINATE
+[PHY]   RU 0 rf device ready
+[0m[PHY]   RU 0 RF started cpu_meas_enabled 0
+[0m[HW]   No connected device, generating void samples...
+[0m[32m[PHY]   Command line parameters for OAI UE: -C 3619200000 -r 106 --numerology 1 --ssb 516 
+[0m[NR_MAC]   Frame.Slot 128.0
+
+[0m[NR_MAC]   Frame.Slot 256.0
+
+[0m[NR_MAC]   Frame.Slot 384.0
+
+[0m[NR_MAC]   Frame.Slot 512.0
+
+[0m[NR_MAC]   Frame.Slot 640.0
+
+[0m[NR_MAC]   Frame.Slot 768.0
+
+[0m[NR_MAC]   Frame.Slot 896.0
+
+[0m[NR_MAC]   Frame.Slot 0.0
+
+[0m[NR_MAC]   Frame.Slot 128.0
+
+[0m[NR_MAC]   Frame.Slot 256.0
+
+[0m
+** Caught SIGTERM, shutting down
+[PHY]   Killing gNB 0 processing threads
+[0m[93m[SCTP]   Received SCTP SHUTDOWN EVENT
+[0m[34m[F1AP]   DU Task Received SCTP_NEW_ASSOCIATION_RESP for instance 0: sending SCTP messages via assoc_id 429
+[0m[93m[F1AP]   Received unsuccessful result for SCTP association (1), instance 0, cnx_id 0, retrying...
+[0m[PHY]   Stopping RU 0 processing threads
+[0m[PHY]   RU 0 RF device stopped
+[0mReturned from ITTI signal handler
+Bye.
