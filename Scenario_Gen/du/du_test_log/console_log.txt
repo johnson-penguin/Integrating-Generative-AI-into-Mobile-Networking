@@ -1,0 +1,514 @@
+📁 Log folder created.
+📄 Found DU config files: ['0_du_gnb_original.conf', '10_du_gnb_force_256qam_off.conf', '11_du_gnb_physCellId.conf', '12_du_gnb_absoluteFrequencySSB.conf', '13_du_gnb_dl_frequencyBand.conf', '14_du_gnb_dl_absoluteFrequencyPointA.conf', '15_du_gnb_dl_offstToCarrier.conf', '16_du_gnb_dl_subcarrierSpacing.conf', '17_du_gnb_dl_carrierBandwidth.conf', '18_du_gnb_initialDLBWPlocationAndBandwidth.conf', '19_du_gnb_initialDLBWPsubcarrierSpacing.conf', '1_du_gnb_Active_gNBs.conf', '20_du_gnb_initialDLBWPcontrolResourceSetZero.conf', '21_du_gnb_initialDLBWPsearchSpaceZero.conf', '22_du_gnb_ul_frequencyBand.conf', '23_du_gnb_ul_offstToCarrier.conf', '24_du_gnb_ul_subcarrierSpacing.conf', '25_du_gnb_ul_carrierBandwidth.conf', '26_du_gnb_pMax.conf', '27_du_gnb_initialULBWPlocationAndBandwidth.conf', '28_du_gnb_initialULBWPsubcarrierSpacing.conf', '29_du_gnb_prach_ConfigurationIndex.conf', '2_du_gnb_Asn1_verbosity.conf', '30_du_gnb_prach_msg1_FDM.conf', '31_du_gnb_prach_msg1_FrequencyStart.conf', '32_du_gnb_zeroCorrelationZoneConfig.conf', '33_du_gnb_preambleReceivedTargetPower.conf', '34_du_gnb_preambleTransMax.conf', '35_du_gnb_powerRampingStep.conf', '36_du_gnb_ra_ResponseWindow.conf', '37_du_gnb_ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR.conf', '38_du_gnb_ssb_perRACH_OccasionAndCB_PreamblesPerSSB.conf', '39_du_gnb_ra_ContentionResolutionTimer.conf', '3_du_gnb_gNB_ID.conf', '40_du_gnb_rsrp_ThresholdSSB.conf', '41_du_gnb_prach_RootSequenceIndex_PR.conf', '42_du_gnb_prach_RootSequenceIndex.conf', '43_du_gnb_msg1_SubcarrierSpacing.conf', '44_du_gnb_restrictedSetConfig.conf', '45_du_gnb_msg3_DeltaPreamble.conf', '46_du_gnb_p0_NominalWithGrant.conf', '47_du_gnb_pucchGroupHopping.conf', '48_du_gnb_hoppingId.conf', '49_du_gnb_p0_nominal.conf', '4_du_gnb_gNB_DU_ID.conf', '50_du_gnb_ssb_PositionsInBurst_Bitmap.conf', '51_du_gnb_ssb_periodicityServingCell.conf', '52_du_gnb_dmrs_TypeA_Position.conf', '53_du_gnb_subcarrierSpacing.conf', '54_du_gnb_referenceSubcarrierSpacing.conf', '55_du_gnb_dl_UL_TransmissionPeriodicity.conf', '56_du_gnb_nrofDownlinkSlots.conf', '57_du_gnb_nrofDownlinkSymbols.conf', '58_du_gnb_nrofUplinkSlots.conf', '59_du_gnb_nrofUplinkSymbols.conf', '5_du_gnb_gNB_name.conf', '60_du_gnb_ssPBCH_BlockPower.conf', '61_du_gnb_SCTP_INSTREAMS.conf', '62_du_gnb_SCTP_OUTSTREAMS.conf', '63_du_gnb_num_cc.conf', '64_du_gnb_tr_s_preference.conf', '65_du_gnb_tr_n_preference.conf', '66_du_gnb_local_n_address.conf', '67_du_gnb_remote_n_address.conf', '68_du_gnb_local_n_portc.conf', '69_du_gnb_local_n_portd.conf', '6_du_gnb_tracking_area_code.conf', '70_du_gnb_remote_n_portc.conf', '71_du_gnb_remote_n_portd.conf', '72_du_gnb_prach_dtx_threshold.conf', '73_du_gnb_pucch0_dtx_threshold.conf', '74_du_gnb_ofdm_offset_divisor.conf', '75_du_gnb_local_rf.conf', '76_du_gnb_nb_tx.conf', '77_du_gnb_nb_rx.conf', '78_du_gnb_att_tx.conf', '79_du_gnb_att_rx.conf', '7_du_gnb_plmn_list.conf', '80_du_gnb_bands.conf', '81_du_gnb_max_pdschReferenceSignalPower.conf', '82_du_gnb_max_rxgain.conf', '83_du_gnb_eNB_instances.conf', '84_du_gnb_clock_src.conf', '8_du_gnb_nr_cellid.conf', '9_du_gnb_min_rxtxtime.conf']
+
+🚀 [1] Testing DU config: 0_du_gnb_original.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [2] Testing DU config: 10_du_gnb_force_256qam_off.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [3] Testing DU config: 11_du_gnb_physCellId.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [4] Testing DU config: 12_du_gnb_absoluteFrequencySSB.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [5] Testing DU config: 13_du_gnb_dl_frequencyBand.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [6] Testing DU config: 14_du_gnb_dl_absoluteFrequencyPointA.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [7] Testing DU config: 15_du_gnb_dl_offstToCarrier.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [8] Testing DU config: 16_du_gnb_dl_subcarrierSpacing.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [9] Testing DU config: 17_du_gnb_dl_carrierBandwidth.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [10] Testing DU config: 18_du_gnb_initialDLBWPlocationAndBandwidth.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [11] Testing DU config: 19_du_gnb_initialDLBWPsubcarrierSpacing.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [12] Testing DU config: 1_du_gnb_Active_gNBs.conf
+🔧 CU started.
+📡 DU started.
+❌ Error in DU startup | Logs saved.
+
+🚀 [13] Testing DU config: 20_du_gnb_initialDLBWPcontrolResourceSetZero.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [14] Testing DU config: 21_du_gnb_initialDLBWPsearchSpaceZero.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [15] Testing DU config: 22_du_gnb_ul_frequencyBand.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [16] Testing DU config: 23_du_gnb_ul_offstToCarrier.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [17] Testing DU config: 24_du_gnb_ul_subcarrierSpacing.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [18] Testing DU config: 25_du_gnb_ul_carrierBandwidth.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [19] Testing DU config: 26_du_gnb_pMax.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [20] Testing DU config: 27_du_gnb_initialULBWPlocationAndBandwidth.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [21] Testing DU config: 28_du_gnb_initialULBWPsubcarrierSpacing.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [22] Testing DU config: 29_du_gnb_prach_ConfigurationIndex.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [23] Testing DU config: 2_du_gnb_Asn1_verbosity.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [24] Testing DU config: 30_du_gnb_prach_msg1_FDM.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [25] Testing DU config: 31_du_gnb_prach_msg1_FrequencyStart.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [26] Testing DU config: 32_du_gnb_zeroCorrelationZoneConfig.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [27] Testing DU config: 33_du_gnb_preambleReceivedTargetPower.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [28] Testing DU config: 34_du_gnb_preambleTransMax.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [29] Testing DU config: 35_du_gnb_powerRampingStep.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [30] Testing DU config: 36_du_gnb_ra_ResponseWindow.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [31] Testing DU config: 37_du_gnb_ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [32] Testing DU config: 38_du_gnb_ssb_perRACH_OccasionAndCB_PreamblesPerSSB.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [33] Testing DU config: 39_du_gnb_ra_ContentionResolutionTimer.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [34] Testing DU config: 3_du_gnb_gNB_ID.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [35] Testing DU config: 40_du_gnb_rsrp_ThresholdSSB.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [36] Testing DU config: 41_du_gnb_prach_RootSequenceIndex_PR.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [37] Testing DU config: 42_du_gnb_prach_RootSequenceIndex.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [38] Testing DU config: 43_du_gnb_msg1_SubcarrierSpacing.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [39] Testing DU config: 44_du_gnb_restrictedSetConfig.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [40] Testing DU config: 45_du_gnb_msg3_DeltaPreamble.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [41] Testing DU config: 46_du_gnb_p0_NominalWithGrant.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [42] Testing DU config: 47_du_gnb_pucchGroupHopping.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [43] Testing DU config: 48_du_gnb_hoppingId.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [44] Testing DU config: 49_du_gnb_p0_nominal.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [45] Testing DU config: 4_du_gnb_gNB_DU_ID.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [46] Testing DU config: 50_du_gnb_ssb_PositionsInBurst_Bitmap.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [47] Testing DU config: 51_du_gnb_ssb_periodicityServingCell.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [48] Testing DU config: 52_du_gnb_dmrs_TypeA_Position.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [49] Testing DU config: 53_du_gnb_subcarrierSpacing.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [50] Testing DU config: 54_du_gnb_referenceSubcarrierSpacing.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [51] Testing DU config: 55_du_gnb_dl_UL_TransmissionPeriodicity.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [52] Testing DU config: 56_du_gnb_nrofDownlinkSlots.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [53] Testing DU config: 57_du_gnb_nrofDownlinkSymbols.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [54] Testing DU config: 58_du_gnb_nrofUplinkSlots.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [55] Testing DU config: 59_du_gnb_nrofUplinkSymbols.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [56] Testing DU config: 5_du_gnb_gNB_name.conf
+🔧 CU started.
+📡 DU started.
+❌ Error in DU startup | Logs saved.
+
+🚀 [57] Testing DU config: 60_du_gnb_ssPBCH_BlockPower.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [58] Testing DU config: 61_du_gnb_SCTP_INSTREAMS.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [59] Testing DU config: 62_du_gnb_SCTP_OUTSTREAMS.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [60] Testing DU config: 63_du_gnb_num_cc.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [61] Testing DU config: 64_du_gnb_tr_s_preference.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [62] Testing DU config: 65_du_gnb_tr_n_preference.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [63] Testing DU config: 66_du_gnb_local_n_address.conf
+🔧 CU started.
+📡 DU started.
+❌ Error in DU startup | Logs saved.
+
+🚀 [64] Testing DU config: 67_du_gnb_remote_n_address.conf
+🔧 CU started.
+📡 DU started.
+⚠️ No sync or RF start | Logs saved.
+
+🚀 [65] Testing DU config: 68_du_gnb_local_n_portc.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [66] Testing DU config: 69_du_gnb_local_n_portd.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [67] Testing DU config: 6_du_gnb_tracking_area_code.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [68] Testing DU config: 70_du_gnb_remote_n_portc.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [69] Testing DU config: 71_du_gnb_remote_n_portd.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [70] Testing DU config: 72_du_gnb_prach_dtx_threshold.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [71] Testing DU config: 73_du_gnb_pucch0_dtx_threshold.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [72] Testing DU config: 74_du_gnb_ofdm_offset_divisor.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [73] Testing DU config: 75_du_gnb_local_rf.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [74] Testing DU config: 76_du_gnb_nb_tx.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [75] Testing DU config: 77_du_gnb_nb_rx.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [76] Testing DU config: 78_du_gnb_att_tx.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [77] Testing DU config: 79_du_gnb_att_rx.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [78] Testing DU config: 7_du_gnb_plmn_list.conf
+🔧 CU started.
+📡 DU started.
+⚠️ No sync or RF start | Logs saved.
+
+🚀 [79] Testing DU config: 80_du_gnb_bands.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [80] Testing DU config: 81_du_gnb_max_pdschReferenceSignalPower.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [81] Testing DU config: 82_du_gnb_max_rxgain.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [82] Testing DU config: 83_du_gnb_eNB_instances.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [83] Testing DU config: 84_du_gnb_clock_src.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [84] Testing DU config: 8_du_gnb_nr_cellid.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+🚀 [85] Testing DU config: 9_du_gnb_min_rxtxtime.conf
+🔧 CU started.
+📡 DU started.
+✅ Success | Logs saved.
+
+📊 Summary:
+- [1] 0_du_gnb_original.conf => ✅ Success
+- [2] 10_du_gnb_force_256qam_off.conf => ✅ Success
+- [3] 11_du_gnb_physCellId.conf => ✅ Success
+- [4] 12_du_gnb_absoluteFrequencySSB.conf => ✅ Success
+- [5] 13_du_gnb_dl_frequencyBand.conf => ✅ Success
+- [6] 14_du_gnb_dl_absoluteFrequencyPointA.conf => ✅ Success
+- [7] 15_du_gnb_dl_offstToCarrier.conf => ✅ Success
+- [8] 16_du_gnb_dl_subcarrierSpacing.conf => ✅ Success
+- [9] 17_du_gnb_dl_carrierBandwidth.conf => ✅ Success
+- [10] 18_du_gnb_initialDLBWPlocationAndBandwidth.conf => ✅ Success
+- [11] 19_du_gnb_initialDLBWPsubcarrierSpacing.conf => ✅ Success
+- [12] 1_du_gnb_Active_gNBs.conf => ❌ Error in DU startup
+- [13] 20_du_gnb_initialDLBWPcontrolResourceSetZero.conf => ✅ Success
+- [14] 21_du_gnb_initialDLBWPsearchSpaceZero.conf => ✅ Success
+- [15] 22_du_gnb_ul_frequencyBand.conf => ✅ Success
+- [16] 23_du_gnb_ul_offstToCarrier.conf => ✅ Success
+- [17] 24_du_gnb_ul_subcarrierSpacing.conf => ✅ Success
+- [18] 25_du_gnb_ul_carrierBandwidth.conf => ✅ Success
+- [19] 26_du_gnb_pMax.conf => ✅ Success
+- [20] 27_du_gnb_initialULBWPlocationAndBandwidth.conf => ✅ Success
+- [21] 28_du_gnb_initialULBWPsubcarrierSpacing.conf => ✅ Success
+- [22] 29_du_gnb_prach_ConfigurationIndex.conf => ✅ Success
+- [23] 2_du_gnb_Asn1_verbosity.conf => ✅ Success
+- [24] 30_du_gnb_prach_msg1_FDM.conf => ✅ Success
+- [25] 31_du_gnb_prach_msg1_FrequencyStart.conf => ✅ Success
+- [26] 32_du_gnb_zeroCorrelationZoneConfig.conf => ✅ Success
+- [27] 33_du_gnb_preambleReceivedTargetPower.conf => ✅ Success
+- [28] 34_du_gnb_preambleTransMax.conf => ✅ Success
+- [29] 35_du_gnb_powerRampingStep.conf => ✅ Success
+- [30] 36_du_gnb_ra_ResponseWindow.conf => ✅ Success
+- [31] 37_du_gnb_ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR.conf => ✅ Success
+- [32] 38_du_gnb_ssb_perRACH_OccasionAndCB_PreamblesPerSSB.conf => ✅ Success
+- [33] 39_du_gnb_ra_ContentionResolutionTimer.conf => ✅ Success
+- [34] 3_du_gnb_gNB_ID.conf => ✅ Success
+- [35] 40_du_gnb_rsrp_ThresholdSSB.conf => ✅ Success
+- [36] 41_du_gnb_prach_RootSequenceIndex_PR.conf => ✅ Success
+- [37] 42_du_gnb_prach_RootSequenceIndex.conf => ✅ Success
+- [38] 43_du_gnb_msg1_SubcarrierSpacing.conf => ✅ Success
+- [39] 44_du_gnb_restrictedSetConfig.conf => ✅ Success
+- [40] 45_du_gnb_msg3_DeltaPreamble.conf => ✅ Success
+- [41] 46_du_gnb_p0_NominalWithGrant.conf => ✅ Success
+- [42] 47_du_gnb_pucchGroupHopping.conf => ✅ Success
+- [43] 48_du_gnb_hoppingId.conf => ✅ Success
+- [44] 49_du_gnb_p0_nominal.conf => ✅ Success
+- [45] 4_du_gnb_gNB_DU_ID.conf => ✅ Success
+- [46] 50_du_gnb_ssb_PositionsInBurst_Bitmap.conf => ✅ Success
+- [47] 51_du_gnb_ssb_periodicityServingCell.conf => ✅ Success
+- [48] 52_du_gnb_dmrs_TypeA_Position.conf => ✅ Success
+- [49] 53_du_gnb_subcarrierSpacing.conf => ✅ Success
+- [50] 54_du_gnb_referenceSubcarrierSpacing.conf => ✅ Success
+- [51] 55_du_gnb_dl_UL_TransmissionPeriodicity.conf => ✅ Success
+- [52] 56_du_gnb_nrofDownlinkSlots.conf => ✅ Success
+- [53] 57_du_gnb_nrofDownlinkSymbols.conf => ✅ Success
+- [54] 58_du_gnb_nrofUplinkSlots.conf => ✅ Success
+- [55] 59_du_gnb_nrofUplinkSymbols.conf => ✅ Success
+- [56] 5_du_gnb_gNB_name.conf => ❌ Error in DU startup
+- [57] 60_du_gnb_ssPBCH_BlockPower.conf => ✅ Success
+- [58] 61_du_gnb_SCTP_INSTREAMS.conf => ✅ Success
+- [59] 62_du_gnb_SCTP_OUTSTREAMS.conf => ✅ Success
+- [60] 63_du_gnb_num_cc.conf => ✅ Success
+- [61] 64_du_gnb_tr_s_preference.conf => ✅ Success
+- [62] 65_du_gnb_tr_n_preference.conf => ✅ Success
+- [63] 66_du_gnb_local_n_address.conf => ❌ Error in DU startup
+- [64] 67_du_gnb_remote_n_address.conf => ⚠️ No sync or RF start
+- [65] 68_du_gnb_local_n_portc.conf => ✅ Success
+- [66] 69_du_gnb_local_n_portd.conf => ✅ Success
+- [67] 6_du_gnb_tracking_area_code.conf => ✅ Success
+- [68] 70_du_gnb_remote_n_portc.conf => ✅ Success
+- [69] 71_du_gnb_remote_n_portd.conf => ✅ Success
+- [70] 72_du_gnb_prach_dtx_threshold.conf => ✅ Success
+- [71] 73_du_gnb_pucch0_dtx_threshold.conf => ✅ Success
+- [72] 74_du_gnb_ofdm_offset_divisor.conf => ✅ Success
+- [73] 75_du_gnb_local_rf.conf => ✅ Success
+- [74] 76_du_gnb_nb_tx.conf => ✅ Success
+- [75] 77_du_gnb_nb_rx.conf => ✅ Success
+- [76] 78_du_gnb_att_tx.conf => ✅ Success
+- [77] 79_du_gnb_att_rx.conf => ✅ Success
+- [78] 7_du_gnb_plmn_list.conf => ⚠️ No sync or RF start
+- [79] 80_du_gnb_bands.conf => ✅ Success
+- [80] 81_du_gnb_max_pdschReferenceSignalPower.conf => ✅ Success
+- [81] 82_du_gnb_max_rxgain.conf => ✅ Success
+- [82] 83_du_gnb_eNB_instances.conf => ✅ Success
+- [83] 84_du_gnb_clock_src.conf => ✅ Success
+- [84] 8_du_gnb_nr_cellid.conf => ✅ Success
+- [85] 9_du_gnb_min_rxtxtime.conf => ✅ Success
