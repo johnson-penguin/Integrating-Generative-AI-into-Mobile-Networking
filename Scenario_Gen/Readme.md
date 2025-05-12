@@ -1,7 +1,10 @@
 # 1. cu_test_params.py / du_test_params.py
 Define multiple sets of test parameters with corresponding alternative values. Each parameter contains both original and variant values, which can be used to simulate errors or different scenarios of the setup behavior.
-- [OAI_CU : 22 case](https://github.com/johnson-penguin/Integrating-Generative-AI-into-Mobile-Networking/blob/main/Scenario_Gen/cu/cu_test_params.py)
-- [OAI_DU : 84 case](https://github.com/johnson-penguin/Integrating-Generative-AI-into-Mobile-Networking/blob/main/Scenario_Gen/du/du_test_params.py)
+- [OAI_CU config file: Total 22 params](https://github.com/johnson-penguin/Integrating-Generative-AI-into-Mobile-Networking/blob/main/Scenario_Gen/cu/cu_test_conf/0_cu_gnb_original.conf)
+    - [single param testcase generator](https://github.com/johnson-penguin/Integrating-Generative-AI-into-Mobile-Networking/blob/main/Scenario_Gen/cu/cu_test_params.py)
+- [OAI_DU config file: Total 84 params](https://github.com/johnson-penguin/Integrating-Generative-AI-into-Mobile-Networking/blob/main/Scenario_Gen/du/du_test_conf/0_du_gnb_original.conf)
+    -  [single param testcase generator](https://github.com/johnson-penguin/Integrating-Generative-AI-into-Mobile-Networking/blob/main/Scenario_Gen/du/du_test_params.py)
+
 
 ```bash=
 test_params = {
