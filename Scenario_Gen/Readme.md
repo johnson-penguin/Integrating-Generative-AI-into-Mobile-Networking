@@ -32,29 +32,35 @@ test_params = {
 ---
 
 # 2. gen_test_cu_config.py / gen_test_du_config.py
-Automatically generates a series of profiles based on the variables defined in [cu_test_params.py](https://github.com/johnson-penguin/Integrating-Generative-AI-into-Mobile-Networking/blob/main/Scenario_Gen/cu/gen_test_cu_config.py) / du_test_params.py:
-- 0_cu_gnb_original.conf: Backup of the original configuration file.
-- 1_cu_gnb_paramX.conf ~ N_cu_gnb_paramY.conf: Mutated versions of each parameter.
+Automatically Generate Multiple Configuration Profiles Based on cu_test_params.py / du_test_params.py:
 
-✅ This program will apply each set of original/variant parameters to the original configuration file and save it as a new .conf file.
+- `0_cu_gnb_original.conf`: A direct backup of the original configuration file. (Corresponds to the blue block in Figure 1)
+- `1_cu_gnb_paramX.conf ~ N_cu_gnb_paramY.conf`: Mutated configuration files, each containing a modified version of a specific parameter. (Corresponds to the red blocks in Figure 1)
 
-![image](https://github.com/user-attachments/assets/341e68cb-9749-4982-9572-769f3fd10be1)
+The program systematically applies each set of original and variant parameters to the baseline configuration file, generating a new .conf file for each case. These outputs align with the structure illustrated in Figure 1 below.
+
+- Figure 1
+    - ![image](https://github.com/user-attachments/assets/e05c304f-84b7-4f4a-a774-7edce0399846)
+
+
 
 ---
 
 # 3. test_cu_config_params.py
 Run all the above .conf configuration files in order and save the execution log to the specified directory:
 
-- Start the CU with nr-softmodem and terminate after 30 seconds of simulation.
+- Start the CU with nr-softmodem and terminate after **30 seconds** of simulation.
 - Each configuration file will produce a corresponding execution log.
-- A summary of the execution status (success, timeout, exit code, etc.) is listed at the end.
 
-It is normal for this session to time out because the CU will wait indefinitely for the DU to start.
+![image](https://github.com/user-attachments/assets/e8d38640-8db1-40d1-b00a-31070ec5269b)
 
-![image](https://github.com/user-attachments/assets/577f34cd-b134-4a46-bda6-14a50e8f700e)
+**Based on the execution results, you can identify which parameter modifications cause the CU or DU to crash during runtime.**
 
-Based on the status, you can determine which parameters will cause the CU or DU to crash directly during operation.
-![image](https://github.com/user-attachments/assets/e4124b12-d6ad-4aed-8896-a0c37a530126)
+A summary of the execution status — including **success**, **timeout**, and **exit codes** — is provided at the end of the test session.
+
+Note: It is expected for some sessions to time out, as the CU may wait indefinitely if the DU fails to start.
+
+![image](https://github.com/user-attachments/assets/ce4345d3-4520-46ea-a2d4-cdb882f647c7)
 
 - [Normal case (timeout)](https://github.com/johnson-penguin/Integrating-Generative-AI-into-Mobile-Networking/blob/main/Scenario_Gen/cu/cu_test_log/0_cu_gnb_original_log.txt)
 
