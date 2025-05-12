@@ -1,4 +1,20 @@
-# 1. cu_test_params.py / du_test_params.py
+# Flow Chart
+![論文-CU_conf_gen drawio](https://github.com/user-attachments/assets/5f99ce40-3277-4b74-9908-d28d53b99c25)
+
+# 1. gen_test_cu_config.py / gen_test_du_config.py
+Automatically Generate Multiple Configuration Profiles Based on cu_test_params.py / du_test_params.py:
+
+- `0_cu_gnb_original.conf`: A direct backup of the original configuration file. (Corresponds to the blue block in Figure 1)
+- `1_cu_gnb_paramX.conf ~ N_cu_gnb_paramY.conf`: Mutated configuration files, each containing a modified version of a specific parameter. (Corresponds to the red blocks in Figure 1)
+
+The program systematically applies each set of original and variant parameters to the baseline configuration file, generating a new .conf file for each case. These outputs align with the structure illustrated in Figure 1 below.
+
+- Figure 1
+    - ![image](https://github.com/user-attachments/assets/e05c304f-84b7-4f4a-a774-7edce0399846)
+
+---
+
+# 2. cu_test_params.py / du_test_params.py
 Define multiple sets of test parameters with corresponding alternative values. Each parameter contains both original and variant values, which can be used to simulate errors or different scenarios of the setup behavior.
 - [OAI_CU config file: Total 22 params](https://github.com/johnson-penguin/Integrating-Generative-AI-into-Mobile-Networking/blob/main/Scenario_Gen/cu/cu_test_conf/0_cu_gnb_original.conf)
     - [single param testcase generator](https://github.com/johnson-penguin/Integrating-Generative-AI-into-Mobile-Networking/blob/main/Scenario_Gen/cu/cu_test_params.py)
@@ -31,20 +47,7 @@ test_params = {
 
 ---
 
-# 2. gen_test_cu_config.py / gen_test_du_config.py
-Automatically Generate Multiple Configuration Profiles Based on cu_test_params.py / du_test_params.py:
 
-- `0_cu_gnb_original.conf`: A direct backup of the original configuration file. (Corresponds to the blue block in Figure 1)
-- `1_cu_gnb_paramX.conf ~ N_cu_gnb_paramY.conf`: Mutated configuration files, each containing a modified version of a specific parameter. (Corresponds to the red blocks in Figure 1)
-
-The program systematically applies each set of original and variant parameters to the baseline configuration file, generating a new .conf file for each case. These outputs align with the structure illustrated in Figure 1 below.
-
-- Figure 1
-    - ![image](https://github.com/user-attachments/assets/e05c304f-84b7-4f4a-a774-7edce0399846)
-
-
-
----
 
 # 3. test_cu_config_params.py
 Run all the above .conf configuration files in order and save the execution log to the specified directory:
