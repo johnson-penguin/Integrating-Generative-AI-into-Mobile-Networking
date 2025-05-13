@@ -1,4 +1,4 @@
-# CU Config Generator
+# CU Configuration Generator
 This tool generates multiple mutated versions of a CU .conf file for testing purposes. It randomly modifies 1 to 5 configuration parameters per file, and saves both the .conf and its corresponding metadata .json for debugging.
 
 # Why This Generator?
