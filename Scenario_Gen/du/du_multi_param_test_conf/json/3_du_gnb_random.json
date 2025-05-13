@@ -1,0 +1,6 @@
+{
+  "ofdm_offset_divisor": {
+    "original": "ofdm_offset_divisor = 8;",
+    "variant": "ofdm_offset_divisor = \"\";"
+  }
+}

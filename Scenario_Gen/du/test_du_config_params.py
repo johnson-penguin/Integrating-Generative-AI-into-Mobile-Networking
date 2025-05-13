@@ -1,83 +1,123 @@
 import os
 import subprocess
 import time
-import re
+from datetime import datetime
 
-# === 工具：清除 ANSI 控制碼（顏色） ===
-def remove_ansi(text):
-    ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
-    return ansi_escape.sub('', text)
-
-# === 路徑設定 ===
-config_dir = "/home/oai72/Johnson/tool/scenario_gen/du/du_test_conf"
-log_output_dir = "/home/oai72/Johnson/tool/scenario_gen/du/du_test_log"
+# === 設定 ===
 build_dir = "/home/oai72/oai_split/openairinterface5g/cmake_targets/ran_build/build"
-du_binary = "./nr-softmodem"
-du_cmd_template = f"sudo RFSIMULATOR=server {du_binary} --rfsim --sa -O {{}}"
+cu_config = "../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/johnson/cu_gnb.conf"
+du_config_dir = "/home/oai72/Johnson/tool/scenario_gen/du/du_test_conf"
+log_output_dir = "/home/oai72/Johnson/tool/scenario_gen/du/du_test_log"
 
-# 確保 log 輸出資料夾存在
+
+import sys
+
+# 將所有輸出導向 log 檔 + terminal
+class Tee:
+    def __init__(self, logfile_path):
+        self.terminal = sys.stdout
+        self.log = open(logfile_path, "w")
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+
+    def flush(self):
+        self.terminal.flush()
+        self.log.flush()
+
+# 最上方加這段
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+console_log_path = f"/home/oai72/Johnson/tool/scenario_gen/du/du_test_log/console_log.txt"
+sys.stdout = sys.stderr = Tee(console_log_path)
+
+
+
+
+
+
+
+
+
+
+# 建立 log 資料夾
 os.makedirs(log_output_dir, exist_ok=True)
+print("📁 Log folder created.")
 
-# === 搜尋所有 .conf 設定檔 ===
-conf_files = sorted(f for f in os.listdir(config_dir) if f.endswith(".conf"))
+# 取得所有 DU config
+du_confs = sorted(f for f in os.listdir(du_config_dir) if f.endswith(".conf"))
+print("📄 Found DU config files:", du_confs)
 
-# === 執行每個 config 檔案 ===
+# 進入執行目錄
 os.chdir(build_dir)
+
 summary = []
 
-for idx, conf_file in enumerate(conf_files):
-    config_path = os.path.join(config_dir, conf_file)
-    log_filename = os.path.splitext(conf_file)[0] + "_log.txt"
-    log_path = os.path.join(log_output_dir, log_filename)
+# === 測試每個 DU 設定檔 ===
+for idx, du_conf in enumerate(du_confs, 1):
+    du_conf_path = os.path.join(du_config_dir, du_conf)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    cu_log = os.path.join(log_output_dir, f"cu_log_{du_conf}_{timestamp}.txt")
+    du_log = os.path.join(log_output_dir, f"du_log_{du_conf}_{timestamp}.txt")
 
-    print(f"\n🔧 [{idx}] Running config: {conf_file}")
+    print(f"\n🚀 [{idx}] Testing DU config: {du_conf}")
 
-    # 清除殘留程序
-    subprocess.run("sudo pkill -9 -f nr-softmo", shell=True)
-    time.sleep(1)
-
-    cmd = du_cmd_template.format(config_path)
-    print(f"🛠️ Running: {cmd} for 30 seconds")
-
-    try:
-        proc = subprocess.run(
-            cmd.split(),
-            stdout=subprocess.PIPE,
+    # 啟動 CU
+    with open(cu_log, "w") as cu_log_f:
+        cu_proc = subprocess.Popen(
+            ["sudo", "./nr-softmodem", "--rfsim", "--sa", "-O", cu_config],
+            stdout=cu_log_f,
             stderr=subprocess.STDOUT,
-            timeout=30,
-            text=True
+            env=dict(os.environ, RFSIMULATOR="server")
         )
-        output = proc.stdout
-        status = f"exit={proc.returncode}"
-    except subprocess.TimeoutExpired as e:
-        partial_output = e.stdout
-        if isinstance(partial_output, bytes):
-            try:
-                partial_output = partial_output.decode("utf-8", errors="ignore")
-            except Exception:
-                partial_output = "[Unable to decode partial output]"
+        print("🔧 CU started.")
+        time.sleep(10)
 
-        output = f"⏰ Timeout after 30s\nPartial output:\n{partial_output}"   
-        status = "timeout"
+    # 啟動 DU
+    with open(du_log, "w") as du_log_f:
+        du_proc = subprocess.Popen(
+            ["sudo", "./nr-softmodem", "--rfsim", "--sa", "-O", du_conf_path],
+            stdout=du_log_f,
+            stderr=subprocess.STDOUT,
+            env=dict(os.environ, RFSIMULATOR="server")
+        )
+        print("📡 DU started.")
+        time.sleep(30)
 
-    output = remove_ansi(output)
+    # 關閉 CU / DU
+    cu_proc.kill()
+    du_proc.kill()
+    cu_proc.wait(timeout=5)
+    du_proc.wait(timeout=5)
 
-    with open(log_path, 'w') as f:
-        f.write(output)
+    # 預設狀態
+    status = "✅ Success"
 
-    print(f"📄 Saved log to {log_path}")
+    # 檢查 log
+    if os.path.getsize(du_log) == 0:
+        status = "❌ DU log empty"
+    else:
+        with open(du_log, 'r', encoding='utf-8', errors='ignore') as logf:
+            log_content = logf.read()
+            if "Assertion" in log_content or "couldn't be loaded" in log_content:
+                status = "❌ Error in DU startup"
+            elif "got sync" not in log_content and "RF started" not in log_content:
+                status = "⚠️ No sync or RF start"
+
+    # 加入 summary
     summary.append({
         "index": idx,
-        "config_file": conf_file,
-        "log_file": log_path,
+        "config_file": du_conf,
+        "log_file": du_log,
         "status": status
     })
 
-    time.sleep(1)  # 稍作冷卻避免系統未釋放資源
+    # 保險性殺掉殘留
+    subprocess.run(["sudo", "pkill", "-f", "nr-softmodem"])
+    print(f"{status} | Logs saved.")
+    time.sleep(1)
 
-# === 顯示摘要 ===
+# === 輸出測試總結 ===
 print("\n📊 Summary:")
 for s in summary:
     print(f"- [{s['index']}] {s['config_file']} => {s['status']}")
-
-print("\n✅ All configs executed.")

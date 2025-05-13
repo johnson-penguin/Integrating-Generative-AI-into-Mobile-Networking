@@ -1,0 +1,16 @@
+{
+  "1_du_gnb_random.conf": {
+    "json": "1_du_gnb_random.json",
+    "mutated_params": []
+  },
+  "2_du_gnb_random.conf": {
+    "json": "2_du_gnb_random.json",
+    "mutated_params": []
+  },
+  "3_du_gnb_random.conf": {
+    "json": "3_du_gnb_random.json",
+    "mutated_params": [
+      "ofdm_offset_divisor"
+    ]
+  }
+}
