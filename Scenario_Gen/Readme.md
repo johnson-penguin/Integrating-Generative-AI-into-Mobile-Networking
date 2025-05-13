@@ -1,5 +1,4 @@
 # Flow Chart
-![論文-CU_conf_gen drawio](https://github.com/user-attachments/assets/5f99ce40-3277-4b74-9908-d28d53b99c25)
 
 # 1. gen_test_cu_config.py / gen_test_du_config.py
 Automatically Generate Multiple Configuration Profiles Based on cu_test_params.py / du_test_params.py:
