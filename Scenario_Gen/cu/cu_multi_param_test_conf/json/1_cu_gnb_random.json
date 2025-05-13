@@ -1,0 +1,10 @@
+{
+  "remote_s_address": {
+    "original": "remote_s_address = \"127.0.0.3\";",
+    "variant": "remote_s_address = \"192.168.10.2\";"
+  },
+  "ciphering_algorithms": {
+    "original": "ciphering_algorithms = ( \"nea0\" );",
+    "variant": "ciphering_algorithms = \"@#$%^&*\";"
+  }
+}

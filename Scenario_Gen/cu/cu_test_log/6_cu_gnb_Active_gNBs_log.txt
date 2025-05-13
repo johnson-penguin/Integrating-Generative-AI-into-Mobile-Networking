@@ -21,8 +21,8 @@ Partial output:
 [GTPU]   Created gtpu instance id: 93
 [F1AP]   Starting F1AP at CU
 [NR_RRC]   Entering main loop of NR_RRC message task
-[NR_RRC]   PLMNs received from CUUP (mcc:1, mnc:1) did not match with PLMNs in RRC (mcc:0, mnc:0)
 [UTIL]   threadCreate() for TASK_GTPV1_U: creating thread with affinity ffffffff, priority 50
+[NR_RRC]   PLMNs received from CUUP (mcc:1, mnc:1) did not match with PLMNs in RRC (mcc:0, mnc:0)
 [NR_RRC]   Triggering E1AP Setup Failure for transac_id 0, assoc_id -1
 [F1AP]   F1AP_CU_SCTP_REQ(create socket) for 127.0.0.5 len 10
 [GTPU]   Initializing UDP for local address 127.0.0.5 with port 2152

@@ -2,26 +2,48 @@ import os
 import subprocess
 import time
 import re
+import sys
+from datetime import datetime
 
-# === 工具：清除 ANSI 控制碼（顏色） ===
+class Tee:
+    def __init__(self, log_path):
+        self.terminal = sys.stdout
+        self.log = open(log_path, "w")
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+
+    def flush(self):
+        self.terminal.flush()
+        self.log.flush()
+
+# 🔁 自動儲存 console 輸出
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+console_log_path = f"/home/oai72/Johnson/tool/scenario_gen/cu/cu_test_log/console_log.txt"
+sys.stdout = sys.stderr = Tee(console_log_path)
+print(f"📥 Logging this run to: {console_log_path}\n")
+
+
+
+# === Tool: Clear ANSI control codes (colors) ===
 def remove_ansi(text):
     ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
     return ansi_escape.sub('', text)
 
-# === 路徑設定 ===
-config_dir = "/home/oai72/Johnson/tool/test_code/cu/cu_test_conf"
-log_output_dir = "/home/oai72/Johnson/tool/test_code/cu/cu_test_log"
+config_dir = "/home/oai72/Johnson/tool/scenario_gen/cu/cu_test_conf"
+log_output_dir = "/home/oai72/Johnson/tool/scenario_gen/cu/cu_test_log"
 build_dir = "/home/oai72/oai_split/openairinterface5g/cmake_targets/ran_build/build"
 cu_binary = "./nr-softmodem"
 cu_cmd_template = f"sudo RFSIMULATOR=server {cu_binary} --rfsim --sa -O {{}}"
 
-# 確保 log 輸出資料夾存在
+# Make sure the log output folder exists
 os.makedirs(log_output_dir, exist_ok=True)
 
-# === 搜尋所有 .conf 設定檔 ===
+# === Execute each config file ===
 conf_files = sorted(f for f in os.listdir(config_dir) if f.endswith(".conf"))
 
-# === 執行每個 config 檔案 ===
+# === Execute each config file ===
 os.chdir(build_dir)
 summary = []
 
@@ -32,19 +54,18 @@ for idx, conf_file in enumerate(conf_files):
 
     print(f"\n🔧 [{idx}] Running config: {conf_file}")
 
-    # 清除殘留程序
     subprocess.run("sudo pkill -9 -f nr-softmo", shell=True)
     time.sleep(1)
 
     cmd = cu_cmd_template.format(config_path)
-    print(f"🛠️ Running: {cmd} for 30 seconds")
+    print(f"🛠️ Running: {cmd} for 20 seconds")
 
     try:
         proc = subprocess.run(
             cmd.split(),
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
-            timeout=30,
+            timeout=20,
             text=True
         )
         output = proc.stdout
@@ -57,7 +78,7 @@ for idx, conf_file in enumerate(conf_files):
             except Exception:
                 partial_output = "[Unable to decode partial output]"
 
-        output = f"⏰ Timeout after 30s\nPartial output:\n{partial_output}"   
+        output = f"⏰ Timeout after 20s\nPartial output:\n{partial_output}"   
         status = "timeout"
 
     output = remove_ansi(output)
@@ -73,9 +94,8 @@ for idx, conf_file in enumerate(conf_files):
         "status": status
     })
 
-    time.sleep(1)  # 稍作冷卻避免系統未釋放資源
+    time.sleep(1)  
 
-# === 顯示摘要 ===
 print("\n📊 Summary:")
 for s in summary:
     print(f"- [{s['index']}] {s['config_file']} => {s['status']}")

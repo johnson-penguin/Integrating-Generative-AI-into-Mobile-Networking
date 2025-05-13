@@ -1,0 +1,23 @@
+{
+  "1_cu_gnb_random.conf": {
+    "json": "1_cu_gnb_random.json",
+    "mutated_params": [
+      "remote_s_address",
+      "ciphering_algorithms"
+    ]
+  },
+  "2_cu_gnb_random.conf": {
+    "json": "2_cu_gnb_random.json",
+    "mutated_params": [
+      "nr_cellid"
+    ]
+  },
+  "3_cu_gnb_random.conf": {
+    "json": "3_cu_gnb_random.json",
+    "mutated_params": [
+      "gNB_name",
+      "nr_cellid",
+      "ciphering_algorithms"
+    ]
+  }
+}

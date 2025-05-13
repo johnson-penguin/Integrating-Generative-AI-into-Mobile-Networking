@@ -17,11 +17,11 @@
 [UTIL]   threadCreate() for TASK_CU_F1: creating thread with affinity ffffffff, priority 50
 [NGAP]   Send NGSetupRequest to AMF
 [NGAP]   3584 -> 0000e000
-[NGAP]   Received NGSetupResponse from AMF
 [GTPU]   Configuring GTPu
 [GTPU]   SA mode 
 [GTPU]   Configuring GTPu address : 192.168.8.43, port : 2152
 [GTPU]   Initializing UDP for local address 192.168.8.43 with port 2152
+[NGAP]   Received NGSetupResponse from AMF
 [GTPU]   Created gtpu instance id: 94
 [F1AP]   Starting F1AP at CU
 [GNB_APP]   [gNB 0] Received NGAP_REGISTER_GNB_CNF: associated AMF 1
@@ -32,11 +32,11 @@
 [GTPU]   Initializing UDP for local address 192.168.10.1 with port 2152
 [SCTP]   sctp_bindx() SCTP_BINDX_ADD_ADDR failed: errno 99 Cannot assign requested address
 [GTPU]   bind: Cannot assign requested address
-[SCTP]   could not open server socket, no SCTP listener active
 [GTPU]   failed to bind socket: 192.168.10.1 2152 
-[SCTP]   Failed to create new SCTP listener
 [GTPU]   can't create GTP-U instance
 [GTPU]   Created gtpu instance id: -1
+[SCTP]   could not open server socket, no SCTP listener active
+[SCTP]   Failed to create new SCTP listener
 
 Assertion (getCxt(instance)->gtpInst > 0) failed!
 In F1AP_CU_task() /home/oai72/oai_split/openairinterface5g/openair2/F1AP/f1ap_cu_task.c:124

@@ -14,3 +14,4 @@
 [UTIL]   threadCreate() for TASK_RRC_GNB: creating thread with affinity ffffffff, priority 50
 [NGAP]   Send NGSetupRequest to AMF
 [NGAP]   3584 -> 0000e000
+[NGAP]   Received NGSetupResponse from AMF

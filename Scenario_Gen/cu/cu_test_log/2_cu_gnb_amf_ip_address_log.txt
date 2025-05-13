@@ -19,12 +19,12 @@ Partial output:
 [UTIL]   threadCreate() for TASK_CU_F1: creating thread with affinity ffffffff, priority 50
 [NGAP]   Send NGSetupRequest to AMF
 [NGAP]   3584 -> 0000e000
-[NGAP]   Received NGSetupResponse from AMF
 [GTPU]   Configuring GTPu
 [GTPU]   SA mode 
 [GTPU]   Configuring GTPu address : 192.168.8.43, port : 2152
 [GTPU]   Initializing UDP for local address 192.168.8.43 with port 2152
 [GTPU]   Created gtpu instance id: 94
+[NGAP]   Received NGSetupResponse from AMF
 [F1AP]   Starting F1AP at CU
 [GNB_APP]   [gNB 0] Received NGAP_REGISTER_GNB_CNF: associated AMF 1
 [NR_RRC]   Entering main loop of NR_RRC message task
@@ -32,4 +32,4 @@ Partial output:
 [UTIL]   threadCreate() for TASK_GTPV1_U: creating thread with affinity ffffffff, priority 50
 [F1AP]   F1AP_CU_SCTP_REQ(create socket) for 127.0.0.5 len 10
 [GTPU]   Initializing UDP for local address 127.0.0.5 with port 2152
-[GTPU]   Created gtpu instance id: 95
+[GTPU]   Created gtpu instance id: 96

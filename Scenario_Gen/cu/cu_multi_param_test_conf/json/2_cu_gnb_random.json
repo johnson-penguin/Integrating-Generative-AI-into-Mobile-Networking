@@ -1,0 +1,6 @@
+{
+  "nr_cellid": {
+    "original": "nr_cellid = 1;",
+    "variant": "nr_cellid = 65535;"
+  }
+}

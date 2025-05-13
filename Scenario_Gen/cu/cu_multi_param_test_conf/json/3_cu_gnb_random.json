@@ -1,0 +1,14 @@
+{
+  "gNB_name": {
+    "original": "gNB_name  =  \"gNB-Eurecom-CU\";",
+    "variant": "gNB_name  =  \"gNB-Eurecom-CASDASDASDASDAS12312U\";"
+  },
+  "nr_cellid": {
+    "original": "nr_cellid = 1;",
+    "variant": "nr_cellid = 0xZZZZ;"
+  },
+  "ciphering_algorithms": {
+    "original": "ciphering_algorithms = ( \"nea0\" );",
+    "variant": "ciphering_algorithms = \"@#$%^&*\";"
+  }
+}

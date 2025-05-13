@@ -32,4 +32,4 @@ Partial output:
 [UTIL]   threadCreate() for TASK_GTPV1_U: creating thread with affinity ffffffff, priority 50
 [F1AP]   F1AP_CU_SCTP_REQ(create socket) for 127.0.0.5 len 10
 [GTPU]   Initializing UDP for local address 127.0.0.5 with port 2152
-[GTPU]   Created gtpu instance id: 95
+[GTPU]   Created gtpu instance id: 96
