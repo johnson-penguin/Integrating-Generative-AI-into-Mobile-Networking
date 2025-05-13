@@ -1,6 +1,16 @@
 # CU Config Generator
 This tool generates multiple mutated versions of a CU .conf file for testing purposes. It randomly modifies 1 to 5 configuration parameters per file, and saves both the .conf and its corresponding metadata .json for debugging.
 
+# Why This Generator?
+Manually creating configuration files with different parameter combinations is time-consuming and error-prone.
+This generator automates the process by producing a large number of .conf files with randomly mutated parameters based on a predefined rule set.
+
+It is designed to:
+- Accelerate testing by generating diverse test cases.
+- Simulate real-world misconfigurations and edge cases.
+- Help identify which parameters may cause the CU to crash.
+
+
 # Features
 - Generates multiple randomized `.conf` files from a baseline config.
 - Randomly mutates a number of parameters per file, controlled by the `num_params_range` setting in the script.
