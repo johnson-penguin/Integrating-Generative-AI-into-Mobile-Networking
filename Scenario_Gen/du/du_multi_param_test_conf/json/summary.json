@@ -1,16 +1,42 @@
 {
   "1_du_gnb_random.conf": {
     "json": "1_du_gnb_random.json",
-    "mutated_params": []
+    "mutated_params": [
+      "restrictedSetConfig",
+      "nrofUplinkSymbols",
+      "eNB_instances",
+      "min_rxtxtime"
+    ]
   },
   "2_du_gnb_random.conf": {
     "json": "2_du_gnb_random.json",
-    "mutated_params": []
+    "mutated_params": [
+      "local_n_portd",
+      "ul_subcarrierSpacing"
+    ]
   },
   "3_du_gnb_random.conf": {
     "json": "3_du_gnb_random.json",
     "mutated_params": [
-      "ofdm_offset_divisor"
+      "prach_msg1_FDM",
+      "remote_n_address",
+      "p0_nominal",
+      "nb_rx"
+    ]
+  },
+  "4_du_gnb_random.conf": {
+    "json": "4_du_gnb_random.json",
+    "mutated_params": [
+      "tr_n_preference",
+      "nb_rx",
+      "dl_frequencyBand"
+    ]
+  },
+  "5_du_gnb_random.conf": {
+    "json": "5_du_gnb_random.json",
+    "mutated_params": [
+      "nrofUplinkSymbols",
+      "remote_n_portc"
     ]
   }
 }

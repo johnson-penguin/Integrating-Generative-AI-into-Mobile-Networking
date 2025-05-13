@@ -1,0 +1,10 @@
+{
+  "nrofUplinkSymbols": {
+    "original": "nrofUplinkSymbols                                             = 4;",
+    "variant": "nrofUplinkSymbols = 5;"
+  },
+  "remote_n_portc": {
+    "original": "remote_n_portc  = 501;",
+    "variant": "remote_n_portc = \"\";"
+  }
+}

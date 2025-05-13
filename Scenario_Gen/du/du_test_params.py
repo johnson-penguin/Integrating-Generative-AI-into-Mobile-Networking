@@ -89,7 +89,7 @@ test_params = {
         ]
     },
     "min_rxtxtime": {
-        "original": 'min_rxtxtime = 6;',
+        "original": 'min_rxtxtime                                              = 6;',
         "variants": [
             'min_rxtxtime = 2;',
             'min_rxtxtime = "";',
@@ -111,7 +111,7 @@ test_params = {
         ]
     },
     "physCellId": {
-        "original": 'physCellId = 0;',
+        "original": 'physCellId                                                    = 0;',
         "variants": [
             'physCellId = 100;',
             'physCellId = "";',
@@ -122,7 +122,7 @@ test_params = {
         ]
     },
     "absoluteFrequencySSB": {
-        "original": 'absoluteFrequencySSB = 641280;',
+        "original": 'absoluteFrequencySSB                                          = 641280;',
         "variants": [
             'absoluteFrequencySSB = 640000;',
             'absoluteFrequencySSB = "";',
@@ -133,7 +133,7 @@ test_params = {
         ]
     },
     "dl_frequencyBand": {
-        "original": 'dl_frequencyBand = 78;',
+        "original": 'dl_frequencyBand                                                 = 78;',
         "variants": [
             'dl_frequencyBand = 77;',
             'dl_frequencyBand = "";',
@@ -144,7 +144,7 @@ test_params = {
         ]
     },
     "dl_absoluteFrequencyPointA": {
-    "original": 'dl_absoluteFrequencyPointA = 640008;',
+    "original": 'dl_absoluteFrequencyPointA                                       = 640008;',
     "variants": [
         'dl_absoluteFrequencyPointA = 642000;',
         'dl_absoluteFrequencyPointA = "";',
@@ -155,7 +155,7 @@ test_params = {
     ]
     },
     "dl_offstToCarrier": {
-        "original": 'dl_offstToCarrier = 0;',
+        "original": 'dl_offstToCarrier                                              = 0;',
         "variants": [
             'dl_offstToCarrier = 10;',
             'dl_offstToCarrier = "";',
@@ -166,7 +166,7 @@ test_params = {
         ]
     },
     "dl_subcarrierSpacing": {
-        "original": 'dl_subcarrierSpacing = 1;',
+        "original": 'dl_subcarrierSpacing                                           = 1;',
         "variants": [
             'dl_subcarrierSpacing = 2;',
             'dl_subcarrierSpacing = "";',
@@ -177,7 +177,7 @@ test_params = {
         ]
     },
     "dl_carrierBandwidth": {
-        "original": 'dl_carrierBandwidth = 106;',
+        "original": 'dl_carrierBandwidth                                            = 106;',
         "variants": [
             'dl_carrierBandwidth = 100;',
             'dl_carrierBandwidth = "";',
@@ -188,7 +188,7 @@ test_params = {
         ]
     },
     "initialDLBWPlocationAndBandwidth": {
-        "original": 'initialDLBWPlocationAndBandwidth = 28875;',
+        "original": 'initialDLBWPlocationAndBandwidth                               = 28875;',
         "variants": [
             'initialDLBWPlocationAndBandwidth = 28000;',
             'initialDLBWPlocationAndBandwidth = "";',
@@ -199,7 +199,7 @@ test_params = {
         ]
     },
     "initialDLBWPsubcarrierSpacing": {
-        "original": 'initialDLBWPsubcarrierSpacing = 1;',
+        "original": 'initialDLBWPsubcarrierSpacing                                           = 1;',
         "variants": [
             'initialDLBWPsubcarrierSpacing = 0;',
             'initialDLBWPsubcarrierSpacing = "";',
@@ -210,7 +210,7 @@ test_params = {
         ]
     },
     "initialDLBWPcontrolResourceSetZero": {
-        "original": 'initialDLBWPcontrolResourceSetZero = 12;',
+        "original": 'initialDLBWPcontrolResourceSetZero                              = 12;',
         "variants": [
             'initialDLBWPcontrolResourceSetZero = 13;',
             'initialDLBWPcontrolResourceSetZero = "";',
@@ -221,7 +221,7 @@ test_params = {
         ]
     },
     "initialDLBWPsearchSpaceZero": {
-        "original": 'initialDLBWPsearchSpaceZero = 0;',
+        "original": 'initialDLBWPsearchSpaceZero                                             = 0;',
         "variants": [
             'initialDLBWPsearchSpaceZero = 1;',
             'initialDLBWPsearchSpaceZero = "";',
@@ -232,7 +232,7 @@ test_params = {
         ]
     },
     "ul_frequencyBand": {
-        "original": 'ul_frequencyBand = 78;',
+        "original": 'ul_frequencyBand                                                 = 78;',
         "variants": [
             'ul_frequencyBand = 77;',
             'ul_frequencyBand = "";',
@@ -243,7 +243,7 @@ test_params = {
         ]
     },
     "ul_offstToCarrier": {
-        "original": 'ul_offstToCarrier = 0;',
+        "original": 'ul_offstToCarrier                                              = 0;',
         "variants": [
             'ul_offstToCarrier = 15;',
             'ul_offstToCarrier = "";',
@@ -254,7 +254,7 @@ test_params = {
         ]
     },
     "ul_subcarrierSpacing": {
-        "original": 'ul_subcarrierSpacing = 1;',
+        "original": 'ul_subcarrierSpacing                                           = 1;',
         "variants": [
             'ul_subcarrierSpacing = 0;',
             'ul_subcarrierSpacing = "";',
@@ -265,7 +265,7 @@ test_params = {
         ]
     },
     "ul_carrierBandwidth": {
-        "original": 'ul_carrierBandwidth = 106;',
+        "original": 'ul_carrierBandwidth                                            = 106;',
         "variants": [
             'ul_carrierBandwidth = 50;',
             'ul_carrierBandwidth = "";',
@@ -276,7 +276,7 @@ test_params = {
         ]
     },
     "pMax": {
-        "original": 'pMax = 20;',
+        "original": 'pMax                                                          = 20;',
         "variants": [
             'pMax = 23;',
             'pMax = "";',
@@ -287,7 +287,7 @@ test_params = {
         ]
     },
     "initialULBWPlocationAndBandwidth": {
-        "original": 'initialULBWPlocationAndBandwidth = 28875;',
+        "original": 'initialULBWPlocationAndBandwidth                            = 28875;',
         "variants": [
             'initialULBWPlocationAndBandwidth = 28000;',
             'initialULBWPlocationAndBandwidth = "";',
@@ -298,7 +298,7 @@ test_params = {
         ]
     },
     "initialULBWPsubcarrierSpacing": {
-        "original": 'initialULBWPsubcarrierSpacing = 1;',
+        "original": 'initialULBWPsubcarrierSpacing                                           = 1;',
         "variants": [
             'initialULBWPsubcarrierSpacing = 2;',
             'initialULBWPsubcarrierSpacing = "";',
@@ -309,7 +309,7 @@ test_params = {
         ]
     },
     "prach_ConfigurationIndex": {
-        "original": 'prach_ConfigurationIndex = 98;',
+        "original": 'prach_ConfigurationIndex                                  = 98;',
         "variants": [
             'prach_ConfigurationIndex = 100;',
             'prach_ConfigurationIndex = "";',
@@ -320,7 +320,7 @@ test_params = {
         ]
     },
     "prach_msg1_FDM": {
-        "original": 'prach_msg1_FDM = 0;',
+        "original": 'prach_msg1_FDM                                            = 0;',
         "variants": [
             'prach_msg1_FDM = 1;',
             'prach_msg1_FDM = "";',
@@ -331,7 +331,7 @@ test_params = {
         ]
     },
     "prach_msg1_FrequencyStart": {
-        "original": 'prach_msg1_FrequencyStart = 0;',
+        "original": 'prach_msg1_FrequencyStart                                 = 0;',
         "variants": [
             'prach_msg1_FrequencyStart = 5;',
             'prach_msg1_FrequencyStart = "";',
@@ -341,7 +341,7 @@ test_params = {
         ]
     },
     "zeroCorrelationZoneConfig": {
-        "original": 'zeroCorrelationZoneConfig = 13;',
+        "original": 'zeroCorrelationZoneConfig                                 = 13;',
         "variants": [
             'zeroCorrelationZoneConfig = 10;',
             'zeroCorrelationZoneConfig = "";',
@@ -351,7 +351,7 @@ test_params = {
         ]
     },
     "preambleReceivedTargetPower": {
-        "original": 'preambleReceivedTargetPower = -96;',
+        "original": 'preambleReceivedTargetPower                               = -96;',
         "variants": [
             'preambleReceivedTargetPower = -90;',
             'preambleReceivedTargetPower = "";',
@@ -361,7 +361,7 @@ test_params = {
         ]
     },
     "preambleTransMax": {
-        "original": 'preambleTransMax = 6;',
+        "original": 'preambleTransMax                                          = 6;',
         "variants": [
             'preambleTransMax = 10;',
             'preambleTransMax = "";',
@@ -371,7 +371,7 @@ test_params = {
         ]
     },
     "powerRampingStep": {
-        "original": 'powerRampingStep = 1;',
+        "original": 'powerRampingStep                                            = 1;',
         "variants": [
             'powerRampingStep = 2;',
             'powerRampingStep = "";',
@@ -381,7 +381,7 @@ test_params = {
         ]
     },
     "ra_ResponseWindow": {
-        "original": 'ra_ResponseWindow = 4;',
+        "original": 'ra_ResponseWindow                                           = 4;',
         "variants": [
             'ra_ResponseWindow = 8;',
             'ra_ResponseWindow = "";',
@@ -391,7 +391,7 @@ test_params = {
         ]
     },
     "ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR": {
-        "original": 'ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR = 4;',
+        "original": 'ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR                = 4;',
         "variants": [
             'ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR = 2;',
             'ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR = "";',
@@ -400,7 +400,7 @@ test_params = {
         ]
     },
     "ssb_perRACH_OccasionAndCB_PreamblesPerSSB": {
-        "original": 'ssb_perRACH_OccasionAndCB_PreamblesPerSSB = 14;',
+        "original": 'ssb_perRACH_OccasionAndCB_PreamblesPerSSB                   = 14;',
         "variants": [
             'ssb_perRACH_OccasionAndCB_PreamblesPerSSB = 8;',
             'ssb_perRACH_OccasionAndCB_PreamblesPerSSB = "";',
@@ -409,7 +409,7 @@ test_params = {
         ]
     },
     "ra_ContentionResolutionTimer": {
-        "original": 'ra_ContentionResolutionTimer = 7;',
+        "original": 'ra_ContentionResolutionTimer                                = 7;',
         "variants": [
             'ra_ContentionResolutionTimer = 16;',
             'ra_ContentionResolutionTimer = "";',
@@ -418,7 +418,7 @@ test_params = {
         ]
     },
     "rsrp_ThresholdSSB": {
-        "original": 'rsrp_ThresholdSSB = 19;',
+        "original": 'rsrp_ThresholdSSB                                           = 19;',
         "variants": [
             'rsrp_ThresholdSSB = 25;',
             'rsrp_ThresholdSSB = "";',
@@ -427,7 +427,7 @@ test_params = {
         ]
     },
     "prach_RootSequenceIndex_PR": {
-        "original": 'prach_RootSequenceIndex_PR = 2;',
+        "original": 'prach_RootSequenceIndex_PR                                  = 2;',
         "variants": [
             'prach_RootSequenceIndex_PR = 0;',
             'prach_RootSequenceIndex_PR = "";',
@@ -436,7 +436,7 @@ test_params = {
         ]
     },
     "prach_RootSequenceIndex": {
-        "original": 'prach_RootSequenceIndex = 1;',
+        "original": 'prach_RootSequenceIndex                                     = 1;',
         "variants": [
             'prach_RootSequenceIndex = 22;',
             'prach_RootSequenceIndex = "";',
@@ -445,7 +445,7 @@ test_params = {
         ]
     },
     "msg1_SubcarrierSpacing": {
-        "original": 'msg1_SubcarrierSpacing = 1,',
+        "original": 'msg1_SubcarrierSpacing                                      = 1,',
         "variants": [
             'msg1_SubcarrierSpacing = 0,',
             'msg1_SubcarrierSpacing = "";',
@@ -454,7 +454,7 @@ test_params = {
         ]
     },
     "restrictedSetConfig": {
-        "original": 'restrictedSetConfig = 0,',
+        "original": 'restrictedSetConfig                                         = 0,',
         "variants": [
             'restrictedSetConfig = 1,',
             'restrictedSetConfig = "";',
@@ -463,7 +463,7 @@ test_params = {
         ]
     },
     "msg3_DeltaPreamble": {
-        "original": 'msg3_DeltaPreamble = 1;',
+        "original": 'msg3_DeltaPreamble                                          = 1;',
         "variants": [
             'msg3_DeltaPreamble = 3;',
             'msg3_DeltaPreamble = "";',
@@ -472,7 +472,7 @@ test_params = {
         ]
     },
     "p0_NominalWithGrant": {
-        "original": 'p0_NominalWithGrant =-90;',
+        "original": 'p0_NominalWithGrant                                         =-90;',
         "variants": [
             'p0_NominalWithGrant =-80;',
             'p0_NominalWithGrant = "";',
@@ -481,7 +481,7 @@ test_params = {
         ]
     },
     "pucchGroupHopping": {
-        "original": 'pucchGroupHopping = 0;',
+        "original": 'pucchGroupHopping                                           = 0;',
         "variants": [
             'pucchGroupHopping = 1;',
             'pucchGroupHopping = "";',
@@ -490,7 +490,7 @@ test_params = {
         ]
     },
     "hoppingId": {
-        "original": 'hoppingId = 40;',
+        "original": 'hoppingId                                                   = 40;',
         "variants": [
             'hoppingId = 63;',
             'hoppingId = "";',
@@ -499,7 +499,7 @@ test_params = {
         ]
     },
     "p0_nominal": {
-        "original": 'p0_nominal = -90;',
+        "original": 'p0_nominal                                                  = -90;',
         "variants": [
             'p0_nominal = -80;',
             'p0_nominal = "";',
@@ -509,7 +509,7 @@ test_params = {
         ]
     },
     "ssb_PositionsInBurst_Bitmap": {
-        "original": 'ssb_PositionsInBurst_Bitmap = 1;',
+        "original": 'ssb_PositionsInBurst_Bitmap                                   = 1;',
         "variants": [
             'ssb_PositionsInBurst_Bitmap = 0;',
             'ssb_PositionsInBurst_Bitmap = "";',
@@ -518,7 +518,7 @@ test_params = {
         ]
     },
     "ssb_periodicityServingCell": {
-        "original": 'ssb_periodicityServingCell = 2;',
+        "original": 'ssb_periodicityServingCell                                    = 2;',
         "variants": [
             'ssb_periodicityServingCell = 1;',
             'ssb_periodicityServingCell = "";',
@@ -527,7 +527,7 @@ test_params = {
         ]
     },
     "dmrs_TypeA_Position": {
-        "original": 'dmrs_TypeA_Position = 0;',
+        "original": 'dmrs_TypeA_Position                                           = 0;',
         "variants": [
             'dmrs_TypeA_Position = 1;',
             'dmrs_TypeA_Position = "";',
@@ -536,7 +536,7 @@ test_params = {
         ]
     },
     "subcarrierSpacing": {
-        "original": 'subcarrierSpacing = 1;',
+        "original": 'subcarrierSpacing                                             = 1;',
         "variants": [
             'subcarrierSpacing = 0;',
             'subcarrierSpacing = "";',
@@ -545,7 +545,7 @@ test_params = {
         ]
     },
     "referenceSubcarrierSpacing": {
-        "original": 'referenceSubcarrierSpacing = 1;',
+        "original": 'referenceSubcarrierSpacing                                    = 1;',
         "variants": [
             'referenceSubcarrierSpacing = 2;',
             'referenceSubcarrierSpacing = "";',
@@ -554,7 +554,7 @@ test_params = {
         ]
     },
     "dl_UL_TransmissionPeriodicity": {
-        "original": 'dl_UL_TransmissionPeriodicity = 6;',
+        "original": 'dl_UL_TransmissionPeriodicity                                 = 6;',
         "variants": [
             'dl_UL_TransmissionPeriodicity = 7;',
             'dl_UL_TransmissionPeriodicity = "";',
@@ -563,7 +563,7 @@ test_params = {
         ]
     },
     "nrofDownlinkSlots": {
-        "original": 'nrofDownlinkSlots = 7;',
+        "original": 'nrofDownlinkSlots                                             = 7;',
         "variants": [
             'nrofDownlinkSlots = 5;',
             'nrofDownlinkSlots = "";',
@@ -572,7 +572,7 @@ test_params = {
         ]
     },
     "nrofDownlinkSymbols": {
-        "original": 'nrofDownlinkSymbols = 6;',
+        "original": 'nrofDownlinkSymbols                                           = 6;',
         "variants": [
             'nrofDownlinkSymbols = 7;',
             'nrofDownlinkSymbols = "";',
@@ -581,7 +581,7 @@ test_params = {
         ]
     },
     "nrofUplinkSlots": {
-        "original": 'nrofUplinkSlots = 2;',
+        "original": 'nrofUplinkSlots                                               = 2;',
         "variants": [
             'nrofUplinkSlots = 3;',
             'nrofUplinkSlots = "";',
@@ -590,7 +590,7 @@ test_params = {
         ]
     },
     "nrofUplinkSymbols": {
-        "original": 'nrofUplinkSymbols = 4;',
+        "original": 'nrofUplinkSymbols                                             = 4;',
         "variants": [
             'nrofUplinkSymbols = 5;',
             'nrofUplinkSymbols = "";',
@@ -599,7 +599,7 @@ test_params = {
         ]
     },
     "ssPBCH_BlockPower": {
-        "original": 'ssPBCH_BlockPower = -25;',
+        "original": 'ssPBCH_BlockPower                                             = -25;',
         "variants": [
             'ssPBCH_BlockPower = -20;',
             'ssPBCH_BlockPower = "";',
@@ -608,7 +608,7 @@ test_params = {
         ]
     },
     "SCTP_INSTREAMS": {
-        "original": 'SCTP_INSTREAMS = 2;',
+        "original": 'SCTP_INSTREAMS  = 2;',
         "variants": [
             'SCTP_INSTREAMS = 4;',
             'SCTP_INSTREAMS = "";',
@@ -636,7 +636,7 @@ test_params = {
         ]
     },
     "tr_s_preference": {
-        "original": 'tr_s_preference = "local_L1";',
+        "original": 'tr_s_preference  = "local_L1";',
         "variants": [
             'tr_s_preference = "f1";',
             'tr_s_preference = "";',
@@ -676,7 +676,7 @@ test_params = {
         ]
     },
     "local_n_portc": {
-        "original": 'local_n_portc = 500;',
+        "original": 'local_n_portc   = 500;',
         "variants": [
             'local_n_portc = 600;',
             'local_n_portc = "";',
@@ -686,7 +686,7 @@ test_params = {
         ]
     },
     "local_n_portd": {
-        "original": 'local_n_portd = 2152;',
+        "original": 'local_n_portd   = 2152;',
         "variants": [
             'local_n_portd = 2160;',
             'local_n_portd = "";',
@@ -696,7 +696,7 @@ test_params = {
         ]
     },
     "remote_n_portc": {
-        "original": 'remote_n_portc = 501;',
+        "original": 'remote_n_portc  = 501;',
         "variants": [
             'remote_n_portc = 601;',
             'remote_n_portc = "";',
@@ -706,7 +706,7 @@ test_params = {
         ]
     },
     "remote_n_portd": {
-        "original": 'remote_n_portd = 2152;',
+        "original": 'remote_n_portd  = 2152;',
         "variants": [
             'remote_n_portd = 2170;',
             'remote_n_portd = "";',
@@ -765,7 +765,7 @@ test_params = {
         ]
     },
     "local_rf": {
-        "original": 'local_rf = "yes";',
+        "original": 'local_rf       = "yes"',
         "variants": [
             'local_rf = "no";',
             'local_rf = "";',
@@ -775,7 +775,7 @@ test_params = {
         ]
     },
     "nb_tx": {
-        "original": 'nb_tx = 1;',
+        "original": 'nb_tx          = 1',
         "variants": [
             'nb_tx = 2;',
             'nb_tx = "";',
@@ -785,7 +785,7 @@ test_params = {
         ]
     },
     "nb_rx": {
-        "original": 'nb_rx = 1;',
+        "original": 'nb_rx          = 1',
         "variants": [
             'nb_rx = 2;',
             'nb_rx = "";',
@@ -795,7 +795,7 @@ test_params = {
         ]
     },
     "att_tx": {
-        "original": 'att_tx = 0;',
+        "original": 'att_tx         = 0',
         "variants": [
             'att_tx = 10;',
             'att_tx = "";',
@@ -805,7 +805,7 @@ test_params = {
         ]
     },
     "att_rx": {
-        "original": 'att_rx = 0;',
+        "original": 'att_rx         = 0',
         "variants": [
             'att_rx = 10;',
             'att_rx = "";',
@@ -815,7 +815,7 @@ test_params = {
         ]
     },
     "bands": {
-        "original": 'bands = [78];',
+        "original": 'bands          = [78];',
         "variants": [
             'bands = [77];',
             'bands = "";',
@@ -835,7 +835,7 @@ test_params = {
         ]
     },
     "max_rxgain": {
-        "original": 'max_rxgain = 114;',
+        "original": 'max_rxgain                    = 114;',
         "variants": [
             'max_rxgain = 120;',
             'max_rxgain = "";',
@@ -845,7 +845,7 @@ test_params = {
         ]
     },
     "eNB_instances": {
-        "original": 'eNB_instances = [0];',
+        "original": 'eNB_instances  = [0];',
         "variants": [
             'eNB_instances = [1];',
             'eNB_instances = "";',

@@ -1,1 +1,10 @@
-{}
+{
+  "local_n_portd": {
+    "original": "local_n_portd   = 2152;",
+    "variant": "local_n_portd = -500;"
+  },
+  "ul_subcarrierSpacing": {
+    "original": "ul_subcarrierSpacing                                           = 1;",
+    "variant": "ul_subcarrierSpacing = #!;"
+  }
+}

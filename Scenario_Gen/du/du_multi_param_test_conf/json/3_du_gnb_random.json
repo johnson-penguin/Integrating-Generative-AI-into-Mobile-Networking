@@ -1,6 +1,18 @@
 {
-  "ofdm_offset_divisor": {
-    "original": "ofdm_offset_divisor = 8;",
-    "variant": "ofdm_offset_divisor = \"\";"
+  "prach_msg1_FDM": {
+    "original": "prach_msg1_FDM                                            = 0;",
+    "variant": "prach_msg1_FDM = 1;"
+  },
+  "remote_n_address": {
+    "original": "remote_n_address = \"127.0.0.5\";",
+    "variant": "remote_n_address = \"invalid_ip\";"
+  },
+  "p0_nominal": {
+    "original": "p0_nominal                                                  = -90;",
+    "variant": "p0_nominal = \"\";"
+  },
+  "nb_rx": {
+    "original": "nb_rx          = 1",
+    "variant": "nb_rx = \"rx\";"
   }
 }

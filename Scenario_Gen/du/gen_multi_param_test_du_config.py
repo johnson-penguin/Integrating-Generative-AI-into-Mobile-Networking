@@ -3,11 +3,10 @@ import os
 import shutil
 import random
 import json
-import argparse
 from du_test_params import test_params
 
 # === Meta-parameters controlling test generation ===
-num_configs = 3  # Number of config files to generate
+num_configs = 20  # Number of config files to generate
 num_params_range = (2, 5) # Randomly mutate this many parameters per config
 
 # === Path settings ===

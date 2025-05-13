@@ -1,1 +1,18 @@
-{}
+{
+  "restrictedSetConfig": {
+    "original": "restrictedSetConfig                                         = 0,",
+    "variant": "restrictedSetConfig = 1,"
+  },
+  "nrofUplinkSymbols": {
+    "original": "nrofUplinkSymbols                                             = 4;",
+    "variant": "nrofUplinkSymbols = \"\";"
+  },
+  "eNB_instances": {
+    "original": "eNB_instances  = [0];",
+    "variant": "eNB_instances = \"\";"
+  },
+  "min_rxtxtime": {
+    "original": "min_rxtxtime                                              = 6;",
+    "variant": "min_rxtxtime = \"time\";"
+  }
+}

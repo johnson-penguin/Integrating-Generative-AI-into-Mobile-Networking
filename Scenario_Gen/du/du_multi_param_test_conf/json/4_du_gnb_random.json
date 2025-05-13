@@ -1,0 +1,14 @@
+{
+  "tr_n_preference": {
+    "original": "tr_n_preference = \"local_mac\";",
+    "variant": "tr_n_preference = \"???\";"
+  },
+  "nb_rx": {
+    "original": "nb_rx          = 1",
+    "variant": "nb_rx = 2;"
+  },
+  "dl_frequencyBand": {
+    "original": "dl_frequencyBand                                                 = 78;",
+    "variant": "dl_frequencyBand = 77;"
+  }
+}
