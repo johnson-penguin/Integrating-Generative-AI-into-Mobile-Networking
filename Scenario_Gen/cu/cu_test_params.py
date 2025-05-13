@@ -11,7 +11,7 @@ test_params = {
         ]
     },
     "amf_ip_address": {
-        "original": 'amf_ip_address = ({ ipv4 = "192.168.8.00" });',
+        "original": 'amf_ip_address = ({ ipv4 = "192.168.8.21" });',
         "variants": [
             'amf_ip_address = amf_ip_address = ({ ipv4 = 1.2.3.4 });',
             'amf_ip_address = "";',
@@ -110,7 +110,7 @@ test_params = {
         ]
     },
     "local_s_portc": {
-        "original": 'local_s_portc = 501;',
+        "original": 'local_s_portc  = 501;',
         "variants": [
             'local_s_portc = 0xZZZZ;',
             'local_s_portc = "string";',
@@ -121,7 +121,7 @@ test_params = {
         ]
     },
     "local_s_portd": {
-        "original": 'local_s_portd = 2152;',
+        "original": 'local_s_portd  = 2152;',
         "variants": [
             'local_s_portd = 999999999;',
             'local_s_portd = 2210;',
@@ -154,9 +154,9 @@ test_params = {
         ]
     },
     "GNB_IPV4_ADDRESS_FOR_NG_AMF": {
-        "original": 'GNB_IPV4_ADDRESS_FOR_NG_AMF = "192.168.8.43";',
+        "original": 'GNB_IPV4_ADDRESS_FOR_NG_AMF              = "192.168.8.43";',
         "variants": [
-            'GNB_IPV4_ADDRESS_FOR_NG_AMF = GNB_IPV4_ADDRESS_FOR_NG_AMF = 10.0.0.1;',
+            'GNB_IPV4_ADDRESS_FOR_NG_AMF = GNB_IPV4_ADDRESS_FOR_NG_AMF= 10.0.0.1;',
             'GNB_IPV4_ADDRESS_FOR_NG_AMF = "FMA_GN_ROF_SSERDDA_4VPI_BNG";',
             'GNB_IPV4_ADDRESS_FOR_NG_AMF = 1234;',
             'GNB_IPV4_ADDRESS_FOR_NG_AMF = "10.0.0.1";',
@@ -165,7 +165,7 @@ test_params = {
         ]
     },
     "GNB_IPV4_ADDRESS_FOR_NGU": {
-        "original": 'GNB_IPV4_ADDRESS_FOR_NGU = "192.168.8.43";',
+        "original": 'GNB_IPV4_ADDRESS_FOR_NGU                 = "192.168.8.43";',
         "variants": [
             'GNB_IPV4_ADDRESS_FOR_NGU = "@#$%^&*";',
             'GNB_IPV4_ADDRESS_FOR_NGU = "";',
@@ -176,7 +176,7 @@ test_params = {
         ]
     },
     "GNB_PORT_FOR_S1U": {
-        "original": 'GNB_PORT_FOR_S1U = 2152;',
+        "original": 'GNB_PORT_FOR_S1U                         = 2152;',
         "variants": [
             'GNB_PORT_FOR_S1U = ;',
             'GNB_PORT_FOR_S1U = 999999999;',
@@ -187,7 +187,7 @@ test_params = {
         ]
     },
     "SCTP_INSTREAMS": {
-        "original": 'SCTP_INSTREAMS = 2;',
+        "original": 'SCTP_INSTREAMS  = 2;',
         "variants": [
             'SCTP_INSTREAMS = 4;',
             'SCTP_INSTREAMS = "string";',

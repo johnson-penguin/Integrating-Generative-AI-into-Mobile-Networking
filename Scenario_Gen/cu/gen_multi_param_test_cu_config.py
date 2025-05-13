@@ -1,17 +1,13 @@
 import os
+import re
 import shutil
 import random
 import json
-import argparse
 from cu_test_params import test_params
 
 # === Meta-parameters controlling test generation ===
-parser = argparse.ArgumentParser(description="Generate randomized CU config files with mutated parameters.")
-parser.add_argument("-n", "--num_configs", type=int, default=3, help="Number of config files to generate (default: 3)")
-args = parser.parse_args()
-
-num_configs = args.num_configs  # Number of config files to generate
-num_params_range = (1, 5)       # Randomly mutate this many parameters per config
+num_configs = 3  # Number of config files to generate
+num_params_range = (1, 5)# Randomly mutate this many parameters per config
 
 # === Path settings ===
 original_config = "/home/oai72/oai_split/openairinterface5g/targets/PROJECTS/GENERIC-NR-5GC/CONF/johnson/cu_gnb.conf"
@@ -45,12 +41,15 @@ for i in range(1, num_configs + 1):
         orig = entry["original"]
         variant = random.choice(entry["variants"])
 
-        if orig in modified_content:
-            modified_content = modified_content.replace(orig, variant)
+        pattern = re.escape(orig.strip())
+        if re.search(pattern, modified_content):
+            modified_content = re.sub(pattern, variant, modified_content)
             mutation_log[key] = {
                 "original": orig,
                 "variant": variant
             }
+        else:
+            print(f"⚠️ Not found in config: {key} | {orig}")
 
     # Save mutated config
     conf_name = f"{i}_cu_gnb_random.conf"

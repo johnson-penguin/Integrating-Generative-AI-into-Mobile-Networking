@@ -1,14 +1,10 @@
 {
-  "gNB_name": {
-    "original": "gNB_name  =  \"gNB-Eurecom-CU\";",
-    "variant": "gNB_name  =  \"gNB-Eurecom-CASDASDASDASDAS12312U\";"
+  "local_s_if_name": {
+    "original": "local_s_if_name = \"lo\";",
+    "variant": "local_s_if_name = local_s_if_name = eth0;"
   },
-  "nr_cellid": {
-    "original": "nr_cellid = 1;",
-    "variant": "nr_cellid = 0xZZZZ;"
-  },
-  "ciphering_algorithms": {
-    "original": "ciphering_algorithms = ( \"nea0\" );",
-    "variant": "ciphering_algorithms = \"@#$%^&*\";"
+  "GNB_IPV4_ADDRESS_FOR_NG_AMF": {
+    "original": "GNB_IPV4_ADDRESS_FOR_NG_AMF              = \"192.168.8.43\";",
+    "variant": "GNB_IPV4_ADDRESS_FOR_NG_AMF = \"10.0.0.1\";"
   }
 }

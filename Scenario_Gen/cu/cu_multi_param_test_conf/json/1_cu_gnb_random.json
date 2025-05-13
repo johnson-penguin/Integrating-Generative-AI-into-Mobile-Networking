@@ -1,10 +1,18 @@
 {
-  "remote_s_address": {
-    "original": "remote_s_address = \"127.0.0.3\";",
-    "variant": "remote_s_address = \"192.168.10.2\";"
+  "GNB_IPV4_ADDRESS_FOR_NGU": {
+    "original": "GNB_IPV4_ADDRESS_FOR_NGU                 = \"192.168.8.43\";",
+    "variant": "GNB_IPV4_ADDRESS_FOR_NGU = \"@#$%^&*\";"
   },
-  "ciphering_algorithms": {
-    "original": "ciphering_algorithms = ( \"nea0\" );",
-    "variant": "ciphering_algorithms = \"@#$%^&*\";"
+  "GNB_PORT_FOR_S1U": {
+    "original": "GNB_PORT_FOR_S1U                         = 2152;",
+    "variant": "GNB_PORT_FOR_S1U = 2160;"
+  },
+  "local_s_address": {
+    "original": "local_s_address = \"127.0.0.5\";",
+    "variant": "local_s_address = \"sserdda_s_lacol\";"
+  },
+  "remote_s_portc": {
+    "original": "remote_s_portc = 500;",
+    "variant": "remote_s_portc = 540;"
   }
 }
