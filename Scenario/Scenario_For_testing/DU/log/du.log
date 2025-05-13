@@ -1,0 +1,34 @@
+[UTIL]   running in SA mode (no --phy-test, --do-ra, --nsa option present)
+[0m[OPT]   OPT disabled
+[0m[HW]   Version: Branch: develop Abrev. Hash: 054506f5ae Date: Tue Dec 10 13:33:23 2024 +0000
+[0m[GNB_APP]   Initialized RAN Context: RC.nb_nr_inst = 1, RC.nb_nr_macrlc_inst = 1, RC.nb_nr_L1_inst = 1, RC.nb_RU = 1, RC.nb_nr_CC[0] = 1
+[0m[NR_PHY]   Initializing gNB RAN context: RC.nb_nr_L1_inst = 1 
+[0m[NR_PHY]   Registered with MAC interface module (0x4df56b0)
+[0m[NR_PHY]   Initializing NR L1: RC.nb_nr_L1_inst = 1
+[0m[NR_PHY]   L1_RX_THREAD_CORE -1 (15)
+[0m[NR_PHY]   TX_AMP = 519 (-36 dBFS)
+[0m[PHY]   No prs_config configuration found..!!
+[0m[GNB_APP]   pdsch_AntennaPorts N1 1 N2 1 XP 1 pusch_AntennaPorts 1
+[0m[GNB_APP]   minTXRXTIME 6
+[0m[GNB_APP]   SIB1 TDA 1
+[0m[GNB_APP]   CSI-RS 0, SRS 0, 256 QAM force off, delta_MCS off, maxMIMO_Layers -1, HARQ feedback enabled, num DLHARQ:16, num ULHARQ:16
+[0m[GNB_APP]   sr_ProhibitTimer 0, sr_TransMax 64, sr_ProhibitTimer_v1700 0, t300 400, t301 400, t310 2000, n310 10, t311 3000, n311 1, t319 400
+[0m[RRC]   Read in ServingCellConfigCommon (PhysCellId 0, ABSFREQSSB 641280, DLBand 78, ABSFREQPOINTA 640008, DLBW 106,RACH_TargetReceivedPower -96
+[0m[RRC]   absoluteFrequencySSB 641280 corresponds to 3619200000 Hz
+[0m[UTIL]   threadCreate() for MAC_STATS: creating thread with affinity ffffffff, priority 2
+[0m[NR_MAC]   PUSCH Target 200, PUCCH Target 150, PUCCH Failure 10, PUSCH Failure 10
+[0m[NR_PHY]   Copying 0 blacklisted PRB to L1 context
+[0m[NR_MAC]   Set TX antenna number to 1, Set RX antenna number to 1 (num ssb 1: 80000000,0)
+[0m[PHY]   DL frequency 3619200000 Hz, UL frequency 3619200000 Hz: band 48, uldl offset 0 Hz
+[0m[PHY]   Initializing frame parms for mu 1, N_RB 106, Ncp 0
+[0m[PHY]   Init: N_RB_DL 106, first_carrier_offset 1412, nb_prefix_samples 144,nb_prefix_samples0 176, ofdm_symbol_size 2048
+[0m
+Assertion (strcmp(GNBSParams[1].strlistptr[0], *GNBParamList.paramarray[0][2].strptr) == 0) failed!
+In read_du_cell_info() /home/oai72/oai_split/openairinterface5g/openair2/GNB_APP/gnb_config.c:1111
+no active gNB found/mismatch of gNBs: gNB-Test-DU vs gNB-Eurecom-DU
+
+Exiting execution
+CMDLINE: "./nr-softmodem" "--rfsim" "--sa" "-O" "/home/oai72/Johnson/tool/scenario_gen/du/du_test_conf/1_du_gnb_Active_gNBs.conf" 
+[CONFIG] function config_libconfig_init returned 0
+DL frequency 3619200000: band 48, UL frequency 3619200000
+/home/oai72/oai_split/openairinterface5g/openair2/GNB_APP/gnb_config.c:1111 read_du_cell_info() Exiting OAI softmodem: _Assert_Exit_
