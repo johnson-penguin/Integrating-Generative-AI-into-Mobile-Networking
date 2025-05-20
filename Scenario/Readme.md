@@ -6,6 +6,8 @@
 ## Input Data Sources
 - gNB log
   - Logs from the gNB (Base station), such as RRC procedures, attach failures, or initialization errors.
+  - ![論文-gNB_LOG_check drawio](https://github.com/user-attachments/assets/db1b41de-4d6a-4640-a000-b1cbbeb0ab6e)
+
 - FH PCAP
   - Packet capture files from the FrontHaul interface (e.g., O-RAN C-Plane and U-Plane traffic).
   - ![論文-第 16 页 drawio](https://github.com/user-attachments/assets/1e730ee8-c533-4931-a4a0-eee04f348f5e)
