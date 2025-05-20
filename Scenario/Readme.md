@@ -10,7 +10,7 @@
 
 - FH PCAP
   - Packet capture files from the FrontHaul interface (e.g., O-RAN C-Plane and U-Plane traffic).
-  - ![論文-第 16 页 drawio](https://github.com/user-attachments/assets/1e730ee8-c533-4931-a4a0-eee04f348f5e)
+  - ![論文-FH_PCAP_check drawio](https://github.com/user-attachments/assets/7bfcb273-cd6d-4a82-9b8a-644fc78c3836)
 
 - RU log
   - Logs from the Radio Unit, containing timing, RF state, and synchronization information.
@@ -63,10 +63,8 @@ All these are combined into a structured prompt, sent to the LLM.
   - Reason: Explanation for the recommendation (e.g., "matches supported algorithm pool, avoids negotiation failure")
 
 ## Final Output
-Suggestions are applied to generate a New conf (new configuration file), ready for testing or deployment.
+- Integration of valid information from each input as **query**
+- Suggestions are applied to generate a New conf (new configuration file), ready for testing or deployment.
 
+![論文-流程圖 drawio](https://github.com/user-attachments/assets/cc24cf9e-f745-49a9-a41d-81c82c6949d8)
 
-
-
-
-![image](https://github.com/user-attachments/assets/22d83209-a6a7-4d7f-a69f-53f5f43ca165)
