@@ -1,0 +1,9 @@
+[
+  {
+    "label": "Num_Threads_PUSCH",
+    "content": "Num_Threads_PUSCH = 8;",
+    "reference_reason": "Recommended value: 8",
+    "model_reason": "The original value 'asdasfsad' is invalid. Setting Num_Threads_PUSCH to 8 resolves the configuration parsing failure and aligns with the recommended setting for optimal PUSCH processing.",
+    "target": "CU"
+  }
+]
