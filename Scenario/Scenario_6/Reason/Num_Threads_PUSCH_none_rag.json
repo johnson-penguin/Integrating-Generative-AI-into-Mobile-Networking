@@ -2,6 +2,6 @@
   {
     "label": "Num_Threads_PUSCH",
     "content": "Num_Threads_PUSCH = 4;",
-    "model_reason": "The value for Num_Threads_PUSCH is currently invalid ('asdasfsad'). It should be an integer representing the number of threads to use for PUSCH processing. Setting it to 4 provides a reasonable balance between resource utilization and processing capacity, suitable for many gNB deployments."
+    "model_reason": "Reducing the number of threads allocated to PUSCH processing can alleviate CPU overload issues and improve overall system stability, especially if the current value is causing resource contention. A value of 4 is a good starting point for optimization."
   }
 ]

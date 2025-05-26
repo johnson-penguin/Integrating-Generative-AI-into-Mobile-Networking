@@ -45,6 +45,6 @@ def extract_conf_segments_flat(conf_path, output_json_path):
 # 測試用
 if __name__ == "__main__":
     extract_conf_segments_flat(
-        conf_path="/home/aiml/johnson/debug_snippet_verifier/CASE/CASE_1/1_cu_gnb_Num_Threads_PUSCH.conf",
-        output_json_path="/home/aiml/johnson/debug_snippet_verifier/CASE/CASE_1/1_cu_gnb_Num_Threads_PUSCH.conf.segments.json"
+        conf_path="/home/aiml/johnson/Scenario/Scenario_6/fata_cu.conf",
+        output_json_path="/home/aiml/johnson/Scenario/Scenario_6/fata_cu_segments.json"
     )

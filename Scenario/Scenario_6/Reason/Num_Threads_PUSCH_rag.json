@@ -2,8 +2,8 @@
   {
     "label": "Num_Threads_PUSCH",
     "content": "Num_Threads_PUSCH = 8;",
-    "reference_reason": "Recommended value: 8",
-    "model_reason": "The original value 'asdasfsad' is invalid. Setting Num_Threads_PUSCH to 8 resolves the configuration parsing failure and aligns with the recommended setting for optimal PUSCH processing.",
+    "reference_reason": "Matches recommended value based on debug knowledge.",
+    "model_reason": "Ensures the PUSCH processing threads are set to a valid integer value, preventing configuration parsing failures and optimizing resource allocation for uplink scheduling. The value 8 is a common and efficient setting for many configurations.",
     "target": "CU"
   }
 ]
