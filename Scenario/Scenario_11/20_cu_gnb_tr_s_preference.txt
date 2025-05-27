@@ -1,0 +1,20 @@
+CMDLINE: "./nr-softmodem" "-O" "../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/cu_gnb_test.conf" 
+[CONFIG] function config_libconfig_init returned 0
+[UTIL]   running in SA mode (no --phy-test, --do-ra, --nsa option present)
+[OPT]   OPT disabled
+[HW]   Version: Branch: HEAD Abrev. Hash: 60b0c1827d Date: Wed Mar 12 07:41:54 2025 +0000
+[GNB_APP]   Initialized RAN Context: RC.nb_nr_inst = 1, RC.nb_nr_macrlc_inst = 0, RC.nb_nr_L1_inst = 0, RC.nb_RU = 0, RC.nb_nr_CC[0] = 0
+[GNB_APP]   SDAP layer is disabled
+[GNB_APP]   Data Radio Bearer count 1
+[NR_RRC]   do_SIB23_NR, size 9
+[UTIL]   threadCreate() for TASK_SCTP: creating thread with affinity ffffffff, priority 50
+[X2AP]   X2AP is disabled.
+[UTIL]   threadCreate() for TASK_NGAP: creating thread with affinity ffffffff, priority 50
+[UTIL]   threadCreate() for TASK_GNB_APP: creating thread with affinity ffffffff, priority 50
+[NGAP]   Registered new gNB[0] and macro gNB id 3584
+[NGAP]   [gNB 0] check the amf registration state
+[UTIL]   threadCreate() for TASK_RRC_GNB: creating thread with affinity ffffffff, priority 50
+[SCTP]   Connect failed: Connection refused
+[NGAP]   Received unsuccessful result for SCTP association (3), instance 0, cnx_id 1
+[NGAP]   Received NGSetupResponse from AMF
+[1]    981434 segmentation fault  sudo ./nr-softmodem -O 

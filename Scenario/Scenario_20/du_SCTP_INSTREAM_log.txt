@@ -1,0 +1,11 @@
+CMDLINE: "./nr-softmodem" "--rfsim" "--sa" "-O" "../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/fata/du_gnb.conf" 
+[LIBCONFIG] file ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/fata/du_gnb.conf - line 158: syntax error
+
+[CONFIG] function config_libconfig_init returned -1
+[CONFIG] ../../../common/config/config_load_configmodule.c 379 config module "libconfig" couldn't be loaded
+[CONFIG] config_get, section log_config skipped, config module not properly initialized
+[LOG] init aborted, configuration couldn't be performed
+[CONFIG] config_get, section (null) skipped, config module not properly initialized
+[CONFIG] ../../../common/config/config_userapi.c 68 nfapi has no processed integer availablle
+[CONFIG] config_get, section (null) skipped, config module not properly initialized
+Getting configuration failed
