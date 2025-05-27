@@ -1,0 +1,3 @@
+Assertion (*scc->physCellId < 1008 && *scc->physCellId >=0) failed!
+In schedule_ssb() ../../../openair2/LAYER2/NR_MAC_gNB/gNB_scheduler_bch.c:63
+5G physicall cell id out of range: -1

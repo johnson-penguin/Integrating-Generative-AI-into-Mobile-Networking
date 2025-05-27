@@ -1,0 +1,2 @@
+[CONFIG] config_check_intrange: tracking_area_code: 0 invalid value, authorized range: 1 65533
+[ENB_APP]   [CONFIG] config_execcheck: section gNBs.[0] 1 parameters with wrong value

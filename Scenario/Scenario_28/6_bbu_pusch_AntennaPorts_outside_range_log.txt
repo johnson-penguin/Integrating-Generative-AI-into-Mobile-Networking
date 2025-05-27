@@ -1,0 +1,3 @@
+Assertion (pusch_AntennaPorts > 0 && pusch_AntennaPorts < 13) failed!
+In config_common() ../../../openair2/LAYER2/NR_MAC_gNB/config.c:689
+pusch_AntennaPorts in 1...12

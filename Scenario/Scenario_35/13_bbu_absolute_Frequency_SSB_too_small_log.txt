@@ -1,0 +1,7 @@
+[RRC]   Read in ServingCellConfigCommon (PhysCellId 0, ABSFREQSSB 6300, DLBand 78, ABSFREQPOINTA 626772, DLBW 273,RACH_TargetReceivedPower -100
+
+Assertion (nrarfcn >= N_OFFs) failed!
+In from_nrarfcn() ../../../common/utils/nr/nr_common.c:704
+nrarfcn 6300 < N_OFFs[78] 620000
+
+Exiting execution

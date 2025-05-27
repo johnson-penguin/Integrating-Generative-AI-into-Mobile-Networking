@@ -1,0 +1,3 @@
+Assertion (num_pdsch_antenna_ports > 0 && num_pdsch_antenna_ports < 33) failed!
+In config_common() ../../../openair2/LAYER2/NR_MAC_gNB/config.c:666
+pdsch_AntennaPorts in 1...32

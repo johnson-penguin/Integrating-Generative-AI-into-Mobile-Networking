@@ -1,0 +1,514 @@
+[
+  {
+    "label": "gNB_ID",
+    "content": "gNB_ID    =  0xe01;"
+  },
+  {
+    "label": "gNB_name",
+    "content": "gNB_name  =  \"gNB-OAI-3\";"
+  },
+  {
+    "label": "tracking_area_code",
+    "content": "tracking_area_code  =  1;"
+  },
+  {
+    "label": "plmn_list",
+    "content": "plmn_list = ({ mcc = 001 ;"
+  },
+  {
+    "label": "mnc",
+    "content": "mnc = 01 mnc_length = 2 snssaiList = ( { sst = 1 })})\n              \n\n    nr_cellid = 1;"
+  },
+  {
+    "label": "pdsch_AntennaPorts_XP",
+    "content": "pdsch_AntennaPorts_XP = 2;"
+  },
+  {
+    "label": "pusch_AntennaPorts",
+    "content": "pusch_AntennaPorts    = 2;"
+  },
+  {
+    "label": "do_CSIRS",
+    "content": "do_CSIRS              = 1;"
+  },
+  {
+    "label": "do_SRS",
+    "content": "do_SRS                = 0 ;"
+  },
+  {
+    "label": "force_256qam_off",
+    "content": "force_256qam_off      = 1;"
+  },
+  {
+    "label": "sib1_tda",
+    "content": "sib1_tda\t\t\t  = 15;"
+  },
+  {
+    "label": "pdcch_ConfigSIB1",
+    "content": "pdcch_ConfigSIB1 = (\n      {\n        controlResourceSetZero = 11;"
+  },
+  {
+    "label": "searchSpaceZero",
+    "content": "searchSpaceZero = 0;"
+  },
+  {
+    "label": "physCellId",
+    "content": "physCellId                                                    = 0;"
+  },
+  {
+    "label": "absoluteFrequencySSB",
+    "content": "absoluteFrequencySSB                                          = 630048;"
+  },
+  {
+    "label": "dl_frequencyBand",
+    "content": "dl_frequencyBand                                              = 78;"
+  },
+  {
+    "label": "dl_absoluteFrequencyPointA",
+    "content": "dl_absoluteFrequencyPointA                                    = 626772;"
+  },
+  {
+    "label": "dl_offstToCarrier",
+    "content": "dl_offstToCarrier                                           = 0;"
+  },
+  {
+    "label": "dl_subcarrierSpacing",
+    "content": "dl_subcarrierSpacing                                        = 1;"
+  },
+  {
+    "label": "dl_carrierBandwidth",
+    "content": "dl_carrierBandwidth                                         = 273;"
+  },
+  {
+    "label": "initialDLBWPlocationAndBandwidth",
+    "content": "initialDLBWPlocationAndBandwidth                             = 1099;"
+  },
+  {
+    "label": "initialDLBWPsubcarrierSpacing",
+    "content": "initialDLBWPsubcarrierSpacing                               = 1;"
+  },
+  {
+    "label": "initialDLBWPcontrolResourceSetZero",
+    "content": "initialDLBWPcontrolResourceSetZero                          = 11;"
+  },
+  {
+    "label": "initialDLBWPsearchSpaceZero",
+    "content": "initialDLBWPsearchSpaceZero                                 = 0;"
+  },
+  {
+    "label": "ul_frequencyBand",
+    "content": "ul_frequencyBand                                              = 78;"
+  },
+  {
+    "label": "ul_offstToCarrier",
+    "content": "ul_offstToCarrier                                             = 0;"
+  },
+  {
+    "label": "ul_subcarrierSpacing",
+    "content": "ul_subcarrierSpacing                                          = 1;"
+  },
+  {
+    "label": "ul_carrierBandwidth",
+    "content": "ul_carrierBandwidth                                           = 273;"
+  },
+  {
+    "label": "pMax",
+    "content": "pMax                                                          = 23;"
+  },
+  {
+    "label": "initialULBWPlocationAndBandwidth",
+    "content": "initialULBWPlocationAndBandwidth                            = 1099;"
+  },
+  {
+    "label": "initialULBWPsubcarrierSpacing",
+    "content": "initialULBWPsubcarrierSpacing                               = 1;"
+  },
+  {
+    "label": "prach_ConfigurationIndex",
+    "content": "prach_ConfigurationIndex                                  = 151;"
+  },
+  {
+    "label": "prach_msg1_FDM",
+    "content": "prach_msg1_FDM                                            = 0;"
+  },
+  {
+    "label": "prach_msg1_FrequencyStart",
+    "content": "prach_msg1_FrequencyStart                                 = 0;"
+  },
+  {
+    "label": "zeroCorrelationZoneConfig",
+    "content": "zeroCorrelationZoneConfig                                 = 0;"
+  },
+  {
+    "label": "preambleReceivedTargetPower",
+    "content": "preambleReceivedTargetPower                               = -100;"
+  },
+  {
+    "label": "preambleTransMax",
+    "content": "preambleTransMax                                          = 7;"
+  },
+  {
+    "label": "powerRampingStep",
+    "content": "powerRampingStep                                            = 3;"
+  },
+  {
+    "label": "ra_ResponseWindow",
+    "content": "ra_ResponseWindow                                           = 5;"
+  },
+  {
+    "label": "ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR",
+    "content": "ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR                = 3;"
+  },
+  {
+    "label": "ssb_perRACH_OccasionAndCB_PreamblesPerSSB",
+    "content": "ssb_perRACH_OccasionAndCB_PreamblesPerSSB                   = 15;"
+  },
+  {
+    "label": "ra_ContentionResolutionTimer",
+    "content": "ra_ContentionResolutionTimer                                = 7;"
+  },
+  {
+    "label": "rsrp_ThresholdSSB",
+    "content": "rsrp_ThresholdSSB                                           = 19;"
+  },
+  {
+    "label": "prach_RootSequenceIndex_PR",
+    "content": "prach_RootSequenceIndex_PR                                  = 2;"
+  },
+  {
+    "label": "prach_RootSequenceIndex",
+    "content": "prach_RootSequenceIndex                                     = 1;"
+  },
+  {
+    "label": "msg1_SubcarrierSpacing",
+    "content": "msg1_SubcarrierSpacing                                      = 1,\n\n\n        restrictedSetConfig                                         = 0,\n\n\n        msg3_DeltaPreamble                                          = 2;"
+  },
+  {
+    "label": "p0_NominalWithGrant",
+    "content": "p0_NominalWithGrant                                         = -96;"
+  },
+  {
+    "label": "pucchGroupHopping",
+    "content": "pucchGroupHopping                                           = 0;"
+  },
+  {
+    "label": "hoppingId",
+    "content": "hoppingId                                                   = 0;"
+  },
+  {
+    "label": "p0_nominal",
+    "content": "p0_nominal                                                  = -96;"
+  },
+  {
+    "label": "ssb_PositionsInBurst_PR",
+    "content": "ssb_PositionsInBurst_PR                                       = 2;"
+  },
+  {
+    "label": "ssb_PositionsInBurst_Bitmap",
+    "content": "ssb_PositionsInBurst_Bitmap                                   = 0x1;"
+  },
+  {
+    "label": "ssb_periodicityServingCell",
+    "content": "ssb_periodicityServingCell                                    = 2;"
+  },
+  {
+    "label": "dmrs_TypeA_Position",
+    "content": "dmrs_TypeA_Position                                           = 0;"
+  },
+  {
+    "label": "subcarrierSpacing",
+    "content": "subcarrierSpacing                                             = 1;"
+  },
+  {
+    "label": "referenceSubcarrierSpacing",
+    "content": "referenceSubcarrierSpacing                                    = 1;"
+  },
+  {
+    "label": "dl_UL_TransmissionPeriodicity",
+    "content": "dl_UL_TransmissionPeriodicity                                 = 6;"
+  },
+  {
+    "label": "nrofDownlinkSlots",
+    "content": "nrofDownlinkSlots                                             = 7;"
+  },
+  {
+    "label": "nrofDownlinkSymbols",
+    "content": "nrofDownlinkSymbols                                           = 6;"
+  },
+  {
+    "label": "nrofUplinkSlots",
+    "content": "nrofUplinkSlots                                               = 2;"
+  },
+  {
+    "label": "nrofUplinkSymbols",
+    "content": "nrofUplinkSymbols                                             = 4;"
+  },
+  {
+    "label": "ssPBCH_BlockPower",
+    "content": "ssPBCH_BlockPower                                                 = 10;"
+  },
+  {
+    "label": "num_cc",
+    "content": "num_cc                      = 1;"
+  },
+  {
+    "label": "tr_s_preference",
+    "content": "tr_s_preference             = \"local_L1\";"
+  },
+  {
+    "label": "tr_n_preference",
+    "content": "tr_n_preference             = \"local_RRC\";"
+  },
+  {
+    "label": "pusch_TargetSNRx10",
+    "content": "pusch_TargetSNRx10          = 300;"
+  },
+  {
+    "label": "pucch_TargetSNRx10",
+    "content": "pucch_TargetSNRx10          = 230;"
+  },
+  {
+    "label": "dl_bler_target_upper",
+    "content": "dl_bler_target_upper=.35;"
+  },
+  {
+    "label": "dl_bler_target_lower",
+    "content": "dl_bler_target_lower=.15;"
+  },
+  {
+    "label": "ul_bler_target_upper",
+    "content": "ul_bler_target_upper=.35;"
+  },
+  {
+    "label": "ul_bler_target_lower",
+    "content": "ul_bler_target_lower=.15;"
+  },
+  {
+    "label": "pusch_FailureThres",
+    "content": "pusch_FailureThres          = 100;"
+  },
+  {
+    "label": "ul_max_mcs",
+    "content": "ul_max_mcs                  = 28;"
+  },
+  {
+    "label": "num_cc",
+    "content": "num_cc = 1;"
+  },
+  {
+    "label": "tr_n_preference",
+    "content": "tr_n_preference = \"local_mac\";"
+  },
+  {
+    "label": "prach_dtx_threshold",
+    "content": "prach_dtx_threshold = 130\n  pucch0_dtx_threshold = 80;"
+  },
+  {
+    "label": "pusch_dtx_threshold",
+    "content": "pusch_dtx_threshold = 10;"
+  },
+  {
+    "label": "max_ldpc_iterations",
+    "content": "max_ldpc_iterations = 10;"
+  },
+  {
+    "label": "tx_amp_backoff_dB",
+    "content": "tx_amp_backoff_dB = 20;"
+  },
+  {
+    "label": "L1_rx_thread_core",
+    "content": "L1_rx_thread_core = 8;"
+  },
+  {
+    "label": "L1_tx_thread_core",
+    "content": "L1_tx_thread_core = 10;"
+  },
+  {
+    "label": "phase_compensation",
+    "content": "phase_compensation = 0;"
+  },
+  {
+    "label": "local_rf",
+    "content": "local_rf       = \"no\";"
+  },
+  {
+    "label": "nb_tx",
+    "content": "nb_tx          = 2;"
+  },
+  {
+    "label": "nb_rx",
+    "content": "nb_rx          = 2;"
+  },
+  {
+    "label": "att_tx",
+    "content": "att_tx         = 0;"
+  },
+  {
+    "label": "att_rx",
+    "content": "att_rx         = 0;"
+  },
+  {
+    "label": "bands",
+    "content": "bands          = [78];"
+  },
+  {
+    "label": "max_pdschReferenceSignalPower",
+    "content": "max_pdschReferenceSignalPower = -27;"
+  },
+  {
+    "label": "max_rxgain",
+    "content": "max_rxgain                    = 75;"
+  },
+  {
+    "label": "sf_extension",
+    "content": "sf_extension                  = 0;"
+  },
+  {
+    "label": "eNB_instances",
+    "content": "eNB_instances  = [0];"
+  },
+  {
+    "label": "ru_thread_core",
+    "content": "ru_thread_core = 6;"
+  },
+  {
+    "label": "sl_ahead",
+    "content": "sl_ahead       = 5;"
+  },
+  {
+    "label": "bf_weights",
+    "content": "bf_weights = [0x00007fff, 0x0000,0x00007fff, 0x0000];"
+  },
+  {
+    "label": "tr_preference",
+    "content": "tr_preference  = \"raw_if4p5\";"
+  },
+  {
+    "label": "do_precoding",
+    "content": "do_precoding = 0;"
+  },
+  {
+    "label": "Tadv_cp_dl",
+    "content": "Tadv_cp_dl = 125;"
+  },
+  {
+    "label": "iq_width",
+    "content": "iq_width = 9;"
+  },
+  {
+    "label": "iq_width_prach",
+    "content": "iq_width_prach = 9;"
+  },
+  {
+    "label": "fft_size",
+    "content": "fft_size = 12;"
+  },
+  {
+    "label": "eAxC_offset",
+    "content": "eAxC_offset = 2;"
+  },
+  {
+    "label": "Asn1_verbosity",
+    "content": "Asn1_verbosity = \"none\";"
+  },
+  {
+    "label": "mcc",
+    "content": "mcc = 001 ;"
+  },
+  {
+    "label": "nr_cellid",
+    "content": "nr_cellid = 1;"
+  },
+  {
+    "label": "controlResourceSetZero",
+    "content": "controlResourceSetZero = 11;"
+  },
+  {
+    "label": "msg3_DeltaPreamble",
+    "content": "msg3_DeltaPreamble                                          = 2;"
+  },
+  {
+    "label": "SCTP_INSTREAMS",
+    "content": "SCTP_INSTREAMS  = 2;"
+  },
+  {
+    "label": "SCTP_OUTSTREAMS",
+    "content": "SCTP_OUTSTREAMS = 2;"
+  },
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NG_AMF",
+    "content": "GNB_IPV4_ADDRESS_FOR_NG_AMF              = \"192.168.8.43\";"
+  },
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NGU",
+    "content": "GNB_IPV4_ADDRESS_FOR_NGU                 = \"192.168.8.43\";"
+  },
+  {
+    "label": "GNB_PORT_FOR_S1U",
+    "content": "GNB_PORT_FOR_S1U                         = 2152;"
+  },
+  {
+    "label": "pucch0_dtx_threshold",
+    "content": "pucch0_dtx_threshold = 80;"
+  },
+  {
+    "label": "drb_ciphering",
+    "content": "drb_ciphering = \"yes\";"
+  },
+  {
+    "label": "drb_integrity",
+    "content": "drb_integrity = \"no\";"
+  },
+  {
+    "label": "global_log_level",
+    "content": "global_log_level                      =\"info\";"
+  },
+  {
+    "label": "hw_log_level",
+    "content": "hw_log_level                          =\"debug\";"
+  },
+  {
+    "label": "phy_log_level",
+    "content": "phy_log_level                         =\"info\";"
+  },
+  {
+    "label": "mac_log_level",
+    "content": "mac_log_level                         =\"info\";"
+  },
+  {
+    "label": "rlc_log_level",
+    "content": "rlc_log_level                         =\"info\";"
+  },
+  {
+    "label": "pdcp_log_level",
+    "content": "pdcp_log_level                        =\"info\";"
+  },
+  {
+    "label": "rrc_log_level",
+    "content": "rrc_log_level                         =\"info\";"
+  },
+  {
+    "label": "ngap_log_level",
+    "content": "ngap_log_level                        =\"info\";"
+  },
+  {
+    "label": "f1ap_log_level",
+    "content": "f1ap_log_level                        =\"info\";"
+  },
+  {
+    "label": "system_core",
+    "content": "system_core = 0;"
+  },
+  {
+    "label": "io_core",
+    "content": "io_core = 4;"
+  },
+  {
+    "label": "mtu",
+    "content": "mtu = 1500;"
+  },
+  {
+    "label": "file_prefix",
+    "content": "file_prefix = \"fhi_72\";"
+  }
+]

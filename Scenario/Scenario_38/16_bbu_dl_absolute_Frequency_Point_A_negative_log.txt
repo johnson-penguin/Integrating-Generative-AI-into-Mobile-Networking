@@ -1,0 +1,8 @@
+[NR_PHY]   TDD period configuration: slot 9 is UPLINK
+DL frequency 4291882576000: band 0, UL frequency 4291882576000
+
+Assertion (current_band != 0) failed!
+In get_band() ../../../common/utils/nr/nr_common.c:478
+Can't find EUTRA band for frequency 4291882576000 and duplex_spacing 0
+
+Exiting execution

@@ -1,0 +1,5 @@
+[GNB_APP]   pdsch_AntennaPorts N1 1 N2 1 XP 20000 pusch_AntennaPorts 2
+
+Assertion (num_tx >= config.pdsch_AntennaPorts.XP * config.pdsch_AntennaPorts.N1 * config.pdsch_AntennaPorts.N2) failed!
+In RCconfig_nr_macrlc() ../../../openair2/GNB_APP/gnb_config.c:1445
+Number of logical antenna ports (set in config file with pdsch_AntennaPorts) cannot be larger than physical antennas (nb_tx)

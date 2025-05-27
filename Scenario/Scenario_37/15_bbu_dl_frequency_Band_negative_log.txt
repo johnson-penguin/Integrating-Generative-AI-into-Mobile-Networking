@@ -1,0 +1,7 @@
+[RRC]   Read in ServingCellConfigCommon (PhysCellId 0, ABSFREQSSB 630048, DLBand -78, ABSFREQPOINTA 626772, DLBW 273,RACH_TargetReceivedPower -100
+
+Assertion (i >= 0 && i < (sizeof(nr_bandtable)/sizeof(*(nr_bandtable)))) failed!
+In get_nr_table_idx() ../../../common/utils/nr/nr_common.c:790
+band is not existing: -78
+
+Exiting execution

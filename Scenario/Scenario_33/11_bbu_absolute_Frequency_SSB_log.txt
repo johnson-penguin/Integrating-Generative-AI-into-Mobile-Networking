@@ -1,0 +1,5 @@
+[RRC]   absoluteFrequencySSB -630048 corresponds to 4291817056000 Hz
+
+Assertion ((freq - 24250080000) % 17280000 == 0) failed!
+In check_ssb_raster() ../../../common/utils/nr/nr_common.c:406
+SSB frequency 4291817056000 Hz not on the synchronization raster (24250.08 MHz + N * 17.28 MHz)

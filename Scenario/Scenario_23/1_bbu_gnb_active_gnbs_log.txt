@@ -1,0 +1,3 @@
+Assertion (strcmp(GNBSParams[1].strlistptr[0], *GNBParamList.paramarray[0][2].strptr) == 0) failed!
+In read_du_cell_info() ../../../openair2/GNB_APP/gnb_config.c:1226
+no active gNB found/mismatch of gNBs: gNB-OAI-2 vs gNB-OAI-3

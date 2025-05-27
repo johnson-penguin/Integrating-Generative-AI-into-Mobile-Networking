@@ -1,0 +1,5 @@
+[NR_MAC]   TDA index from DCI 16 exceeds default TDA list array size 16
+
+Assertion (ld > 2 && ld < 15) failed!
+In fill_dmrs_mask() ../../../openair2/LAYER2/NR_MAC_COMMON/nr_mac_common.c:3468
+Illegal NrOfSymbols according to Table 5.1.2.1-1 Spec 38.214 0
