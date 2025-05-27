@@ -1,6 +1,0 @@
-- stage: cu_init
-  symptom: "Invalid or non-integer value for Num_Threads_PUSCH caused configuration parsing failure"
-  log_snippet: "Num_Threads_PUSCH.conf - line"
-  related_config:
-    - Num_Threads_PUSCH
-  notes: "The value assigned to Num_Threads_PUSCH must be a valid integer. Recommended value: 8"
