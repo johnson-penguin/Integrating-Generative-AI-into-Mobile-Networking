@@ -2,6 +2,6 @@
   {
     "label": "Num_Threads_PUSCH",
     "content": "Num_Threads_PUSCH = 4;",
-    "model_reason": "Reducing the number of threads allocated to PUSCH processing can alleviate CPU overload issues and improve overall system stability, especially if the current value is causing resource contention. A value of 4 is a good starting point for optimization."
+    "model_reason": "The current value 'asdasfsad' for Num_Threads_PUSCH is invalid. It should be an integer representing the number of threads to use for PUSCH processing. Setting it to 4 provides a reasonable default for many systems, balancing resource usage and performance."
   }
 ]

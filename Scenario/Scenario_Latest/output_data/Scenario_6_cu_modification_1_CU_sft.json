@@ -1,9 +1,11 @@
 [
   {
     "label": "Num_Threads_PUSCH",
-    "content": "Num_Threads_PUSCH = 8;",
-    "reference_reason": "Recommended value.",
+    "before": "Num_Threads_PUSCH = asdasfsad;",
+    "after": "Num_Threads_PUSCH = 8;",
     "model_reason": "The current value 'asdasfsad' is invalid and causes parsing failure. Setting it to the recommended value of 8 resolves the configuration error and optimizes PUSCH processing.",
-    "target": "CU"
+    "reference_reason": "Recommended value.",
+    "config_type": "CU",
+    "source_file": "1_cu_gnb_Num_Threads_PUSCH.conf"
   }
 ]
