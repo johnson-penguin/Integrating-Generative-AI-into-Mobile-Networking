@@ -48,3 +48,6 @@ To ensure that the log file contains ANSI color codes (used for classification),
 
 ```bash
 sudo script -c "./nr-softmodem -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/cu_gnb.conf --thread-pool 1,3,5,7" /home/oai72/Johnson/log/cu_gnb_with_ansi.log
+
+# Flow chart
+![論文-gNB_LOG_check drawio](https://github.com/user-attachments/assets/f648bc20-3a83-463b-9766-5e792dffc4c7)
