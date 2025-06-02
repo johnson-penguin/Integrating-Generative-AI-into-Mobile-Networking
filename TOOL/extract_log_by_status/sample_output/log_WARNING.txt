@@ -1,0 +1,1 @@
+[0m[93m[NGAP]   Received unsuccessful result for SCTP association (3), instance 0, cnx_id 1
