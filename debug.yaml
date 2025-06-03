@@ -1,59 +1,3 @@
-- stage: gnb_initialization
-  symptom: "gNB failed to recognize the configured ciphering algorithm ('nea4'), resulting in security module initialization error and potential connection failure with UE."
-  log_snippet: "[RRC]   unknown ciphering algorithm \"nia4\" in section \"security\" of the configuration file"
-
-  related_config:
-    - ciphering_algorithm
-  notes: |
-    1. Supported ciphering algorithms:
-      - nea0 (no encryption)
-      - nea1 (based on SNOW 3G)
-      - nea2 (based on AES)
-      - nea3 (based on ZUC)
-    2. It is recommended to use 'nea0' (no encryption) first to simplify initial debugging and avoid security negotiation failures.
-    3. Preferred ciphering algorithms the first one of the list that an UE supports in chosen : Valid values: nia0, nia1, nia2, nia3
-
-
-- stage: gnb_initialization
-  symptom: "gNB failed to recognize the configured ciphering algorithm ('nea8'), resulting in security module initialization error and potential connection failure with UE."
-  log_snippet: "[RRC]   unknown integrity algorithm \"nia8\" in section \"security\" of the configuration file"
-  related_config:
-    - integrity_algorithms 
-  notes: |
-    1. Supported ciphering algorithms:
-      - nea0 (no encryption)
-      - nea1 (based on SNOW 3G)
-      - nea2 (based on AES)
-      - nea3 (based on ZUC)
-    2. It is recommended to use 'nea0' (no encryption) first to simplify initial debugging and avoid security negotiation failures.
-    3. Preferred integrity algorithms the first one of the list that an UE supports in chosen : Valid values: nia0, nia1, nia2, nia3
-    4. The integrity_algorithms parameter supports configuring multiple algorithms as a list, for example: ("nia2", "nia1", "nia3", "nia0"). During security negotiation, the gNB will select the first algorithm from the list that is also supported by the UE.
-
-- stage: fh_setup
-  symptom: "PCAP file contains zero packets, likely due to incorrect MAC address configuration"
-  log_snippet: "[FH] No packets captured – possible mismatch in MAC address between DU and RU"
-  related_config:
-    - ru_addr
-    - du_addr
-  notes:
-      - "Ensure that the DU and RU MAC addresses are correctly configured and match each other to enable successful packet capture."
-
-- stage: fh_setup
-  symptom: "DU reports continuous 'Received Time doesn't correspond to the time we think it is' and 'Jump in frame counter' errors after XRAN start. Observed mismatch between expected and received frame/slot numbers and frequent double sync detection."
-  log_snippet: "[PHY]   Jump in frame counter last_frame 86 => 167, slot 19; [PHY]   Received Time doesn't correspond to the time we think it is (slot mismatch, received 167.19, expected 86.11); [PHY]   Detected double sync message 371.6 => 371.7"
-  related_config:
-    - iq_width_prach
-    - iq_width
-  notes:
-    - "Check and align IQ bit width settings between DU and RU. Mismatch in IQ configurations can cause frame and slot synchronization issues."
-
-- stage: ng_setup
-  symptom: "Incorrect AMF IP configuration, unable to establish NG connection"
-  log_snippet: "[SCTP] Connect failed: Connection refused"
-  related_config:
-    - amf_ip_address
-
-
 - stage: du_cell_config
   symptom: "Assertion failed due to mismatch between 'active_gNBs' and gNB name in parameter array"
   log_snippet: "Assertion (strcmp(GNBSParams[1].strlistptr[0], *GNBParamList.paramarray[0][2].strptr) == 0) failed!"
@@ -70,24 +14,24 @@
 
 - stage: mac_rlc_config
   symptom: "Invalid value for maxMIMO_layers caused assertion failure and forced gNB exit. This was caused by changing the pdsch_AntennaPorts_XP parameter into a negative number"
-  log_snippet: "Assertion (config.maxMIMO_layers != 0 && config.maxMIMO_layers <= tot_ant) failed!""
-- related_config:
-  - pdsch_AntennaPorts_XP
+  log_snippet: "Assertion (config.maxMIMO_layers != 0 && config.maxMIMO_layers <= tot_ant) failed!"
+  related_config:
+    - pdsch_AntennaPorts_XP
 
 - stage: common_config
   symptom: "invalid pusch_AntennaPorts value; predetermined range is 1-12"
   log_snippet: |
     "Assertion (pusch_AntennaPorts > 0 && pusch_AntennaPorts < 13) failed!"
-- related_config:
-  - pusch_AntennaPorts
+  related_config:
+    - pusch_AntennaPorts
 
 - stage: mac_nr_common
   symptom: "TD index is out of the predetermined value range; must be within the range 0-15"
   log_snippet: |
     "[NR_MAC]   TDA index from DCI 16 exceeds default TDA list array size 16
     Assertion (ld > 2 && ld < 15) failed!"
-- related_config:
-  - sib1_tda
+  related_config:
+    - sib1_tda
 
 - stage: phy_init
   symptom: "Physical Cell ID is set to an invalid value, causing assertion failure during SSB scheduling"
@@ -107,7 +51,7 @@
     In check_ssb_raster() ../../../common/utils/nr/nr_common.c:406
     SSB frequency 4291817056000 Hz not on the synchronization raster (24250.08 MHz + N * 17.28 MHz)
   related_config:
-  - absoluteFrequencySSB
+    - absoluteFrequencySSB
 
 - stage: band_config
   symptom: "Invalid frequency band; band value does not exist in NR band table"
@@ -129,7 +73,7 @@
     In get_band() ../../../common/utils/nr/nr_common.c:478
     Can't find EUTRA band for frequency 4291882576000 and duplex_spacing 0
   related_config:
-  - dl_absoluteFrequencyPointA
+    - dl_absoluteFrequencyPointA
 
 - stage: rrc_config
   symptom: "SIB1 ASN.1 encoding failed, likely due to invalid carrier configuration"
@@ -140,7 +84,7 @@
     In encode_SIB1_NR() ../../../openair2/RRC/NR/nr_rrc_config.c:2722
     ASN1 message encoding failed (scs-SpecificCarrierList, 18446744073709551615)!
   related_config:
-  - dl_offstToCarrier
+    - dl_offstToCarrier
 
 - stage: phy_config
   symptom: "Invalid combination of subcarrier spacing and carrier bandwidth; results in undefined bandwidth index"
@@ -151,8 +95,8 @@
     In get_supported_bw_mhz() ../../../common/utils/nr/nr_common.c:428
     Bandwidth index -1 is invalid
   related_config:
-  - dl_subcarrierSpacing
-  - dl_carrierBandwidth
+    - dl_subcarrierSpacing
+    - dl_carrierBandwidth
 
 - stage: rrc_config
   symptom: "ASN.1 encoding of SIB1 failed due to invalid initialDLBWPlocationAndBandwidth value"
@@ -163,7 +107,7 @@
     In encode_SIB1_NR() ../../../openair2/RRC/NR/nr_rrc_config.c:2722
     ASN1 message encoding failed (INTEGER, 18446744073709551615)!
   related_config:
-  - initialDLBWPlocationAndBandwidth
+    - initialDLBWPlocationAndBandwidth
 
 - stage: sib1_encoding
   symptom: "SIB1 ASN.1 encoding failed due to invalid subcarrier spacing configuration"
@@ -188,8 +132,6 @@
     - initialDLBWPcontrolResourceSetZero
     - initialDLBWPsearchSpaceZero
 
-
-==========================================================================================================================
 
 #this is CU Part
 - stage: cu_init
@@ -284,7 +226,19 @@
     Check for missing semicolons, brackets, or unsupported parameter values.
     Ensure all configuration statements are correctly formatted and within allowed ranges.
 
-# This is DU Part
+- stage: cu_config_parsing
+  symptom: "CU failed to start due to mismatch or missing Active_gNBs configuration"
+  log_snippet:
+    - "Assertion (strcmp(GNBSParams[1].strlistptr[0], *GNBParamList.paramarray[0][2].strptr) == 0) failed!"
+    - "no active gNB found/mismatch of gNBs"
+    - "read_du_cell_info() Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - Active_gNBs
+    - gNB_name
+  notes: |
+    This error indicates that the DU configuration's Active_gNBs or gNB_name does not match the expected value or is missing.
+    Ensure that the Active_gNBs list and gNB_name in the DU config file are correct and consistent with the rest of the system.
+    A mismatch or missing entry will cause the DU to exit with an assertion failure.
 
 - stage: du_config_parsing
   symptom: "DU failed to start due to mismatch or missing Active_gNBs configuration"
@@ -363,8 +317,44 @@
     This issue will prevent the DU from activating its radio and completing the F1 setup.
 
 
+- stage: cu_init
+  symptom: "Assertion failure due to nb_nr_inst = 0; likely missing or mismatched gNB_name in config"
+  log_snippet: "Assertion (RC.nb_nr_inst == 1) failed!"
+  related_config:
+    - Active_gNBs
+    - gNB_name
+  notes: |
+    The 'Active_gNBs' parameter should be a list of gNB names (e.g., Active_gNBs = ("gNB-Eurecom-CU");)
+    that correspond exactly to the 'gNB_name' fields declared in the 'gNBs' section.
 
-  
+    This error occurs when the configured gNB name in Active_gNBs is missing or not defined under 'gNBs',
+    resulting in nb_nr_inst = 0 and triggering an assertion failure.
 
-  
+    Ensure all names match exactly (case-sensitive) and that each name in Active_gNBs has a corresponding
+    configuration block with matching gNB_name.
 
+- stage: cu_init
+  symptom: "Mismatch between Active_gNBs and gNB_name causes invalid RAN context and PLMN mismatch"
+  log_snippet:
+    - "PLMNs received from CUUP"
+    - "did not match with PLMNs in RRC"
+    - "RC.nb_nr_inst = 1"
+    - "RC.nb_nr_L1_inst = 0"
+  related_config:
+    - Active_gNBs
+    - gNB_name
+  notes: |
+    If Active_gNBs does not match the gNB_name defined in the gNBs section,
+    the CU will initialize incorrectly, with invalid PLMN or zero RRC instances.
+    Ensure both values match exactly (case-sensitive).
+
+
+- stage: cu_config_parsing
+  symptom: "CU failed to start due to syntax error in configuration file"
+  log_snippet: "syntax error"
+  related_config:
+    - Num_Threads_PUSCH
+  notes: |
+    The value for 'Num_Threads_PUSCH' is not a valid integer.
+    Ensure all numeric parameters in the config file are set to valid values.
+    In this case, 'asdasfsad' caused a parsing failure. Recommended value: 4 or 8.

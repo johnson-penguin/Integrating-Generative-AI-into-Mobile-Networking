@@ -2,25 +2,64 @@ test_params = {
     "Num_Threads_PUSCH": {
         "original": 'Num_Threads_PUSCH = 8;',
         "variants": [
-            'Num_Threads_PUSCH = asdasfsad;',
-            'Num_Threads_PUSCH = "string";',
-            'Num_Threads_PUSCH = 999999999;',
-            'Num_Threads_PUSCH = ;',
-            'Num_Threads_PUSCH = 0xZZZZ;',
-            'Num_Threads_PUSCH = -1;',
+            # ❌ Type errors
+            'Num_Threads_PUSCH = asdasfsad;',          # Undefined variable or keyword
+            'Num_Threads_PUSCH = "string";',           # Quoted string instead of number
+            'Num_Threads_PUSCH = true;',               # Boolean value
+            'Num_Threads_PUSCH = 0xZZZZ;',             # Invalid hex format
+            'Num_Threads_PUSCH = [8];',                # Array instead of scalar
+            'Num_Threads_PUSCH = {};',                 # Object format
+
+            # ❌ Syntax errors
+            'Num_Threads_PUSCH = ;',                   # Missing value
+            'Num_Threads_PUSCH 8;',                    # Missing '='
+            'Num_Threads_PUSCH = 8',                   # Missing semicolon
+            'Num_Threads_PUSCH = "8;',                 # Missing closing quote
+
+            # ❌ Logic/Range errors
+            'Num_Threads_PUSCH = -1;',                 # Negative thread count
+            'Num_Threads_PUSCH = 0;',                  # Zero threads
+            'Num_Threads_PUSCH = 999999999;',          # Excessively large number
+            'Num_Threads_PUSCH = 1.5;',                # Non-integer value
         ]
     },
     "amf_ip_address": {
         "original": 'amf_ip_address = ({ ipv4 = "192.168.8.21" });',
         "variants": [
-            'amf_ip_address = amf_ip_address = ({ ipv4 = 1.2.3.4 });',
-            'amf_ip_address = "";',
-            'amf_ip_address = "sserdda_pi_fma";',
-            'amf_ip_address = "@#$%^&*";',
-            'amf_ip_address = ({ ipv4 = "1.2.3.4" });',
-            'amf_ip_address = 1234;',
+            # ❌ Syntax errors
+            'amf_ip_address = amf_ip_address = ({ ipv4 = 1.2.3.4 });',  # Duplicate assignment, missing quotes
+            'amf_ip_address = ({ ipv4 = "1.2.3.4" })',                  # Missing semicolon
+            'amf_ip_address = ({ ipv4 = 192.168.8.21 });',              # Missing quotes around IP
+            'amf_ip_address = ({ ipv4 = "192.168.8.21" }',              # Missing closing parenthesis
+            'amf_ip_address = ({ ipv4: "192.168.8.21" });',             # Invalid key delimiter (colon instead of =)
+
+            # ❌ Type errors
+            'amf_ip_address = 1234;',                                   # Integer instead of object
+            'amf_ip_address = true;',                                   # Boolean
+            'amf_ip_address = [ "192.168.8.21" ];',                     # Array instead of object
+
+            # ❌ Garbage / invalid strings
+            'amf_ip_address = "";',                                     # Empty string
+            'amf_ip_address = "sserdda_pi_fma";',                       # Reversed nonsense string
+            'amf_ip_address = "@#$%^&*";',                              # Special characters
+            'amf_ip_address = "192.168.8.21";',                         # Valid IP, but wrong format (should be inside object)
+
+            # ❌ Semantically invalid IP addresses
+            'amf_ip_address = ({ ipv4 = "300.400.500.600" });',         # Octets out of range
+            'amf_ip_address = ({ ipv4 = "abcd.ef.gh.ij" });',           # Alphabetic
+            'amf_ip_address = ({ ipv4 = "" });',                        # Empty IP value
+
+            # ❌ Wrong structure
+            'amf_ip_address = ();',                                     # Empty object
+            'amf_ip_address = {};',                                     # Wrong bracket type
+            'amf_ip_address = ({ });',                                  # Object with no keys
+
+            # ✅ Valid alternatives
+            'amf_ip_address = ({ ipv4 = "10.0.0.1" });',                # Different valid IP
+            'amf_ip_address = ({ ipv4 = "127.0.0.1" });'                # Loopback address
         ]
     },
+
     "remote_s_address": {
         "original": 'remote_s_address = "127.0.0.3";',
         "variants": [
@@ -35,36 +74,86 @@ test_params = {
     "ciphering_algorithms": {
         "original": 'ciphering_algorithms = ( "nea0" );',
         "variants": [
-            'ciphering_algorithms = ( "nea4" );',
-            'ciphering_algorithms = "@#$%^&*";',
-            'ciphering_algorithms = "smhtirogla_gnirehpic";',
-            'ciphering_algorithms = "";',
-            'ciphering_algorithms = 1234;',
-            'ciphering_algorithms = ciphering_algorithms = ( nea4 );',
+            # ❌ Unsupported algorithm
+            'ciphering_algorithms = ( "nea4" );',               # Unsupported value
+
+            # ❌ Special characters or nonsensical strings
+            'ciphering_algorithms = "@#$%^&*";',                # Garbage string without parentheses
+            'ciphering_algorithms = "smhtirogla_gnirehpic";',   # Reversed nonsense string
+            'ciphering_algorithms = "";',                       # Empty string
+            'ciphering_algorithms = "nea1";',                   # Missing parentheses
+
+            # ❌ Wrong type
+            'ciphering_algorithms = 1234;',                     # Integer instead of string list
+            'ciphering_algorithms = [ "nea1" ];',               # Array instead of tuple-like syntax
+            'ciphering_algorithms = true;',                     # Boolean
+
+            # ❌ Syntax errors
+            'ciphering_algorithms = ( nea4 );',                 # Missing quotes
+            'ciphering_algorithms = ( "nea1", );',              # Trailing comma
+            'ciphering_algorithms = ( "nea1", "nea2", );',      # Extra trailing comma
+
+            # ❌ Completely broken formats
+            'ciphering_algorithms = ciphering_algorithms = ( "nea8" );',  # Duplicate assignment
+            'ciphering_algorithms = ( "nea1", 1234 );',         # Mixed types inside list
         ]
     },
+
     "integrity_algorithms": {
         "original": 'integrity_algorithms = ( "nia2", "nia0" );',
         "variants": [
-            'integrity_algorithms = integrity_algorithms = ( nia8 );',
-            'integrity_algorithms = ( "nia8" );',
-            'integrity_algorithms = "@#$%^&*";',
-            'integrity_algorithms = "smhtirogla_ytirgetni";',
-            'integrity_algorithms = "";',
-            'integrity_algorithms = 1234;',
+            # ❌ Duplicate assignment
+            'integrity_algorithms = integrity_algorithms = ( nia8 );',    # No quotes, invalid syntax
+
+            # ❌ Unsupported or malformed values
+            'integrity_algorithms = ( "nia8" );',             # Unsupported algorithm
+            'integrity_algorithms = ( "nia2", "nia8" );',     # One valid, one invalid
+            'integrity_algorithms = ( "nia2", "" );',         # Empty item
+
+            # ❌ Garbage / nonsense
+            'integrity_algorithms = "@#$%^&*";',              # Special characters
+            'integrity_algorithms = "smhtirogla_ytirgetni";', # Reversed junk string
+            'integrity_algorithms = "";',                     # Empty string only
+
+            # ❌ Wrong types
+            'integrity_algorithms = 1234;',                   # Integer instead of list
+            'integrity_algorithms = [ "nia1" ];',             # Array brackets
+            'integrity_algorithms = true;',                   # Boolean
+
+            # ❌ Syntax issues
+            'integrity_algorithms = ( "nia1", "nia2", );',    # Trailing comma
+            'integrity_algorithms = ( "nia1", 1234 );',       # Mixed types
+            'integrity_algorithms = ( nia2 );',               # Missing quotes
         ]
     },
+
     "Active_gNBs": {
         "original": 'Active_gNBs = ( "gNB-Eurecom-CU");',
         "variants": [
-            'Active_gNBs = 1234;',
-            'Active_gNBs = "@#$%^&*";',
-            'Active_gNBs = Active_gNBs = ( gNB-Eurecom-asdasASDA);',
-            'Active_gNBs = "sBNg_evitcA";',
-            'Active_gNBs = "";',
-            'Active_gNBs = ( "gNB-Eurecom-asdasASDA");',
+            # ❌ Invalid type
+            'Active_gNBs = 1234;',                          # Integer instead of string or list
+            'Active_gNBs = true;',                          # Boolean
+            'Active_gNBs = [ "gNB-Eurecom-CU" ];',          # Array with square brackets
+
+            # ❌ Garbage / nonsense values
+            'Active_gNBs = "@#$%^&*";',                     # Special characters
+            'Active_gNBs = "sBNg_evitcA";',                 # Reversed nonsense
+            'Active_gNBs = "";',                            # Empty string
+
+            # ❌ Syntax errors
+            'Active_gNBs = Active_gNBs = ( gNB-Eurecom-asdasASDA);',  # Duplicate assignment, missing quotes
+            'Active_gNBs = ( "gNB-Eurecom-CU" )',           # Missing semicolon
+            'Active_gNBs = ( gNB-Eurecom-CU );',            # Unquoted value
+            'Active_gNBs = ( "gNB-1", );',                  # Trailing comma
+            'Active_gNBs = ( "gNB-1", 1234 );',             # Mixed value types
+
+            # ❌ Unknown or malformed values
+            'Active_gNBs = ( "gNB-Eurecom-asdasASDA");',    # Random gNB name
+            'Active_gNBs = ( "" );',                        # Empty element in list
+            'Active_gNBs = ( );',                           # Empty parentheses
         ]
     },
+
     "gNB_name": {
         "original": 'gNB_name  =  "gNB-Eurecom-CU";',
         "variants": [
@@ -90,23 +179,64 @@ test_params = {
     "local_s_if_name": {
         "original": 'local_s_if_name = "lo";',
         "variants": [
-            'local_s_if_name = "eth0";',
-            'local_s_if_name = "eman_fi_s_lacol";',
-            'local_s_if_name = "@#$%^&*";',
-            'local_s_if_name = "";',
-            'local_s_if_name = local_s_if_name = eth0;',
-            'local_s_if_name = 1234;',
+            # ❌ Nonsensical or garbage strings
+            'local_s_if_name = "eman_fi_s_lacol";',             # Reversed nonsense string
+            'local_s_if_name = "@#$%^&*";',                     # Special characters
+            'local_s_if_name = "";',                            # Empty string
+
+            # ❌ Syntax errors
+            'local_s_if_name = local_s_if_name = eth0;',        # Duplicate assignment, unquoted value
+            'local_s_if_name = eth0;',                          # Unquoted value
+            'local_s_if_name = "lo"',                           # Missing semicolon
+            'local_s_if_name = "eth0;',                         # Missing closing quote
+            'local_s_if_name = ;',                              # Missing value
+
+            # ❌ Type errors
+            'local_s_if_name = 1234;',                          # Integer instead of string
+            'local_s_if_name = true;',                          # Boolean value
+            'local_s_if_name = [ "eth0" ];',                    # Array format
+            'local_s_if_name = {};',                            # Object format
+
+            # ❌ Invalid interface values (semantically invalid)
+            'local_s_if_name = "loopback";',                    # Not a valid Linux interface
+            'local_s_if_name = "invalid_iface_999";',           # Invalid naming format
+            'local_s_if_name = " ";'                            # Whitespace-only string
         ]
     },
+
     "local_s_address": {
         "original": 'local_s_address = "127.0.0.5";',
         "variants": [
-            'local_s_address = "";',
-            'local_s_address = local_s_address = 192.168.10.1;',
-            'local_s_address = "sserdda_s_lacol";',
-            'local_s_address = "@#$%^&*";',
-            'local_s_address = "192.168.10.1";',
-            'local_s_address = 1234;',
+            # ❌ Empty or missing value
+            'local_s_address = "";',                      # Empty string
+            'local_s_address = ;',                        # Missing value
+
+            # ❌ Syntax errors
+            'local_s_address = local_s_address = 192.168.10.1;',  # Duplicate assignment without quotes
+            'local_s_address = "127.0.0.5"',              # Missing semicolon
+            'local_s_address = "192.168.10.1"',           # Missing semicolon
+            'local_s_address = "192.168.10.1;',           # Missing closing quote
+
+            # ❌ Invalid types
+            'local_s_address = 1234;',                    # Integer instead of string
+            'local_s_address = true;',                    # Boolean instead of string
+            'local_s_address = [ "127.0.0.1" ];',         # Array instead of string
+
+            # ❌ Nonsensical strings
+            'local_s_address = "sserdda_s_lacol";',       # Reversed nonsense string
+            'local_s_address = "@#$%^&*";',               # Special characters
+
+            # ❌ Semantically invalid IPs
+            'local_s_address = "127.000.000.256";',       # Octet out of range
+            'local_s_address = "192.168.300.1";',         # Octet > 255
+
+            # ❌ Valid syntax, but incorrect semantics
+            'local_s_address = "localhost";',             # Not an IP address
+            'local_s_address = "abc.def.ghi.jkl";',       # Alphabetic fake IP
+            'local_s_address = "....";',                  # Dots only
+
+            # ✅ Valid alternative
+            'local_s_address = "192.168.10.1";'           # Correct syntax and valid IP
         ]
     },
     "local_s_portc": {
