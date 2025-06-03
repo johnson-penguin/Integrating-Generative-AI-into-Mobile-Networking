@@ -1,0 +1,11 @@
+[
+  {
+    "label": "Active_gNBs",
+    "before": "Active_gNBs = \"sBNg_evitcA\";",
+    "after": "Active_gNBs = \"gNB-Eurecom-CU\";",
+    "model_reason": "The 'Active_gNBs' parameter must match the 'gNB_name' for the CU to correctly identify and manage the gNB instance, resolving the CU startup failure.",
+    "reference_reason": "Correct gNB name based on 'gNB_name' parameter.",
+    "config_type": "CU",
+    "source_file": "5_cu_gnb_Active_gNBs.conf"
+  }
+]

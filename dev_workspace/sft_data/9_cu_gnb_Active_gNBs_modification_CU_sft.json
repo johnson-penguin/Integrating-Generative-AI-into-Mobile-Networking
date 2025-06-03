@@ -1,0 +1,20 @@
+[
+  {
+    "label": "plmn_list",
+    "before": "plmn_list = ({ mcc = 001;",
+    "after": "plmn_list = ( { mcc = 001; mnc = 01; mnc_length = 2; } );",
+    "model_reason": "The original plmn_list configuration was incomplete, missing the closing parenthesis and curly brace, leading to a syntax error. This correction ensures the config is parsed correctly.",
+    "reference_reason": "Complete and valid PLMN list structure.",
+    "config_type": "CU",
+    "source_file": "9_cu_gnb_Active_gNBs.conf"
+  },
+  {
+    "label": "snssaiList",
+    "before": "snssaiList = ( { sst = 1;",
+    "after": "snssaiList = ( { sst = 1; } );",
+    "model_reason": "The original snssaiList configuration was incomplete, missing the closing parenthesis and curly brace, leading to a syntax error. Completing the structure resolves the parsing error.",
+    "reference_reason": "Complete and valid SNSSAI list structure.",
+    "config_type": "CU",
+    "source_file": "9_cu_gnb_Active_gNBs.conf"
+  }
+]

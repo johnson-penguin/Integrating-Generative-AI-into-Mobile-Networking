@@ -1,0 +1,7 @@
+[
+  {
+    "label": "AMF_IPV4_ADDRESS",
+    "content": "AMF_IPV4_ADDRESS = \"192.168.8.21\";",
+    "model_reason": "The gNB needs to know the IP address of the AMF to establish the NG connection. The provided configuration is missing an explicit declaration of the AMF's IP address, using the IPv4 parameter as the AMF address allows it to connect with the AMF."
+  }
+]

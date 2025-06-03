@@ -1,0 +1,44 @@
+[
+  {
+    "label": "amf_ip_address",
+    "content": "amf_ip_address = ({ ipv4 = \"192.168.8.21\" });",
+    "reference_reason": "Matches the CN_AMF_IP from the reference device table",
+    "model_reason": "Correct IP address ensures proper communication between the gNB and the AMF, resolving potential connectivity issues.",
+    "target": "CU"
+  },
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NG_AMF",
+    "content": "GNB_IPV4_ADDRESS_FOR_NG_AMF = \"192.168.8.43\";",
+    "reference_reason": "No direct match, but using the provided IP for consistency",
+    "model_reason": "Using a consistent IP address for the GNB's NG AMF interface helps in maintaining network stability and preventing configuration mismatches.",
+    "target": "CU"
+  },
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NGU",
+    "content": "GNB_IPV4_ADDRESS_FOR_NGU = \"192.168.8.43\";",
+    "reference_reason": "No direct match, but using the provided IP for consistency",
+    "model_reason": "Consistent IP addressing for the GNB's NGU interface is crucial for maintaining network integrity and preventing potential routing issues.",
+    "target": "CU"
+  },
+  {
+    "label": "du_addr",
+    "content": "du_addr = \"00:11:22:33:44:66\";",
+    "reference_reason": "Matches the du_addr from the reference device table",
+    "model_reason": "Correct MAC address for the DU ensures accurate identification and communication within the network, preventing potential device misidentification.",
+    "target": "CU"
+  },
+  {
+    "label": "ru_addr",
+    "content": "ru_addr = \"10:70:fd:14:1c:10\";",
+    "reference_reason": "Matches the ru_addr from the reference device table",
+    "model_reason": "Correct MAC address for the RU ensures accurate identification and communication within the network, preventing potential device misidentification.",
+    "target": "CU"
+  },
+  {
+    "label": "Num_Threads_PUSCH",
+    "content": "Num_Threads_PUSCH = 1;",
+    "reference_reason": "No reference, adjusting for syntax correction",
+    "model_reason": "The original value 'asdasfsad' is not a valid integer, which could cause configuration parsing errors. Setting it to a plausible value like 1 ensures the configuration can be loaded correctly.",
+    "target": "CU"
+  }
+]

@@ -1,0 +1,9 @@
+[UTIL]   running in SA mode (no --phy-test, --do-ra, --nsa option present)
+[OPT]   OPT disabled
+[HW]   Version: Branch: develop Abrev. Hash: 054506f5ae Date: Tue Dec 10 13:33:23 2024 +0000
+[GNB_APP]   Initialized RAN Context: RC.nb_nr_inst = 1, RC.nb_nr_macrlc_inst = 0, RC.nb_nr_L1_inst = 0, RC.nb_RU = 0, RC.nb_nr_CC[0] = 0
+[GNB_APP]   F1AP: gNB_CU_id[0] 3584
+[GNB_APP]   F1AP: gNB_CU_name[0] gNB-Eurecom-CU
+[GNB_APP]   SDAP layer is disabled
+[GNB_APP]   Data Radio Bearer count 1
+[NR_RRC]   do_SIB23_NR, size 9

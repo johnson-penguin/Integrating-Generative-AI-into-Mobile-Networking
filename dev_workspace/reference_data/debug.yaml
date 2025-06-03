@@ -1,0 +1,360 @@
+- stage: du_cell_config
+  symptom: "Assertion failed due to mismatch between 'active_gNBs' and gNB name in parameter array"
+  log_snippet: "Assertion (strcmp(GNBSParams[1].strlistptr[0], *GNBParamList.paramarray[0][2].strptr) == 0) failed!"
+  related_config:
+    - active_gNBs
+
+- stage: config_check
+  symptom: "Reserved tracking area code used; configuration rejected before initialization"
+  log_snippet: |
+    "[CONFIG] config_check_intrange: tracking_area_code: 0 invalid value, authorized range: 1 65533
+    [ENB_APP]   [CONFIG] config_execcheck: section gNBs.[0] 1 parameters with wrong value"
+  related_config:
+    - tracking_area_code
+
+- stage: mac_rlc_config
+  symptom: "Invalid value for maxMIMO_layers caused assertion failure and forced gNB exit. This was caused by changing the pdsch_AntennaPorts_XP parameter into a negative number"
+  log_snippet: "Assertion (config.maxMIMO_layers != 0 && config.maxMIMO_layers <= tot_ant) failed!"
+  related_config:
+    - pdsch_AntennaPorts_XP
+
+- stage: common_config
+  symptom: "invalid pusch_AntennaPorts value; predetermined range is 1-12"
+  log_snippet: |
+    "Assertion (pusch_AntennaPorts > 0 && pusch_AntennaPorts < 13) failed!"
+  related_config:
+    - pusch_AntennaPorts
+
+- stage: mac_nr_common
+  symptom: "TD index is out of the predetermined value range; must be within the range 0-15"
+  log_snippet: |
+    "[NR_MAC]   TDA index from DCI 16 exceeds default TDA list array size 16
+    Assertion (ld > 2 && ld < 15) failed!"
+  related_config:
+    - sib1_tda
+
+- stage: phy_init
+  symptom: "Physical Cell ID is set to an invalid value, causing assertion failure during SSB scheduling"
+  log_snippet: |
+    "Assertion (*scc->physCellId < 1008 && *scc->physCellId >=0) failed!
+    In schedule_ssb() ../../../openair2/LAYER2/NR_MAC_gNB/gNB_scheduler_bch.c:63
+    5G physical cell id out of range: -2"
+  related_config:
+    - physCellId
+
+- stage: rrc_config
+  symptom: "SSB frequency not aligned with the NR synchronization raster"
+  log_snippet: |
+    [RRC]   absoluteFrequencySSB -630048 corresponds to 4291817056000 Hz
+
+    Assertion ((freq - 24250080000) % 17280000 == 0) failed!
+    In check_ssb_raster() ../../../common/utils/nr/nr_common.c:406
+    SSB frequency 4291817056000 Hz not on the synchronization raster (24250.08 MHz + N * 17.28 MHz)
+  related_config:
+    - absoluteFrequencySSB
+
+- stage: band_config
+  symptom: "Invalid frequency band; band value does not exist in NR band table"
+  log_snippet: |
+    [RRC]   DLBand -78
+
+    Assertion (i >= 0 && i < (sizeof(nr_bandtable)/sizeof(*(nr_bandtable)))) failed!
+    In get_nr_table_idx() ../../../common/utils/nr/nr_common.c:790
+    band is not existing: -78
+  related_config:
+    - dl_frequencyBand
+
+- stage: phy_config
+  symptom: "DL frequency doesn't map to a valid NR band; band 0 is not allowed"
+  log_snippet: |
+    DL frequency 4291882576000: band 0, UL frequency 4291882576000
+
+    Assertion (current_band != 0) failed!
+    In get_band() ../../../common/utils/nr/nr_common.c:478
+    Can't find EUTRA band for frequency 4291882576000 and duplex_spacing 0
+  related_config:
+    - dl_absoluteFrequencyPointA
+
+- stage: rrc_config
+  symptom: "SIB1 ASN.1 encoding failed, likely due to invalid carrier configuration"
+  log_snippet: |
+    [NR_RRC]   SIB1 freq: offsetToPointA 252
+
+    Assertion (enc_rval.encoded > 0 && enc_rval.encoded <= max_buffer_size * 8) failed!
+    In encode_SIB1_NR() ../../../openair2/RRC/NR/nr_rrc_config.c:2722
+    ASN1 message encoding failed (scs-SpecificCarrierList, 18446744073709551615)!
+  related_config:
+    - dl_offstToCarrier
+
+- stage: phy_config
+  symptom: "Invalid combination of subcarrier spacing and carrier bandwidth; results in undefined bandwidth index"
+  log_snippet: |
+    [NR_PHY]   Copying 0 blacklisted PRB to L1 context
+
+    Assertion (bw_index >= 0 && bw_index <= (sizeof(bandwidth_index_to_mhz)/sizeof(*(bandwidth_index_to_mhz)))) failed!
+    In get_supported_bw_mhz() ../../../common/utils/nr/nr_common.c:428
+    Bandwidth index -1 is invalid
+  related_config:
+    - dl_subcarrierSpacing
+    - dl_carrierBandwidth
+
+- stage: rrc_config
+  symptom: "ASN.1 encoding of SIB1 failed due to invalid initialDLBWPlocationAndBandwidth value"
+  log_snippet: |
+    [NR_RRC]   SIB1 freq: offsetToPointA 252
+
+    Assertion (enc_rval.encoded > 0 && enc_rval.encoded <= max_buffer_size * 8) failed!
+    In encode_SIB1_NR() ../../../openair2/RRC/NR/nr_rrc_config.c:2722
+    ASN1 message encoding failed (INTEGER, 18446744073709551615)!
+  related_config:
+    - initialDLBWPlocationAndBandwidth
+
+- stage: sib1_encoding
+  symptom: "SIB1 ASN.1 encoding failed due to invalid subcarrier spacing configuration"
+  log_snippet: |
+    [NR_RRC]   SIB1 freq: offsetToPointA -2304
+
+    Assertion (enc_rval.encoded > 0 && enc_rval.encoded <= max_buffer_size * 8) failed!
+    In encode_SIB1_NR() ../../../openair2/RRC/NR/nr_rrc_config.c:2722
+    ASN1 message encoding failed (INTEGER, 18446744073709551615)!
+  related_config:
+    - initialDLBWPsubcarrierSpacing
+
+- stage: sib1_encoding
+  symptom: "Failed to encode NR_PDCCH_ConfigCommon due to invalid control resource set or search space configuration"
+  log_snippet: |
+    [NR_RRC]   SIB1 freq: offsetToPointA 252
+
+    Assertion (enc_rval.encoded > 0 && enc_rval.encoded < sizeof(buf)) failed!
+    In clone_pdcch_configcommon() ../../../openair2/RRC/NR/nr_rrc_config.c:200
+    could not clone NR_PDCCH_ConfigCommon: problem while encoding
+  related_config:
+    - initialDLBWPcontrolResourceSetZero
+    - initialDLBWPsearchSpaceZero
+
+
+#this is CU Part
+- stage: cu_init
+  symptom: "CU failed to bind SCTP and GTPU sockets due to misconfigured or unavailable local IP addresses, preventing F1AP and NGAP from fully initializing."
+  log_snippet:
+    - "sctp_bindx() SCTP_BINDX_ADD_ADDR failed: errno 99 Cannot assign requested address"
+    - "could not open socket, no SCTP connection established"
+    - "bind: Cannot assign requested address"
+    - "failed to bind socket"
+    - "can't create GTP-U instance"
+  related_config:
+    - local_s_address
+    - local_n_address
+    - sctp_ip_address
+    - gtpu_ip_address
+    - local_bind_ip
+  notes: |
+    1. Make sure the configured local IP address is assigned to an interface on your host (check with `ip a`).
+    2. In simulation or containerized environments, prefer loopback or virtual interface IPs (e.g., `127.0.0.X`).
+    3. Failure in socket binding means no SCTP association or GTP-U path can be established, breaking F1-C and N3 interfaces respectively.
+    4. Double-check the config file for misconfigured IPs under F1 and GTP-U sections.
+
+- stage: cu_config_parsing
+  symptom: "CU failed to initialize due to a syntax error in the configuration file, preventing the libconfig module from loading."
+  log_snippet:
+    - "syntax error"
+    - "config_libconfig_init returned -1"
+    - "config module \"libconfig\" couldn't be loaded"
+    - "init aborted, configuration couldn't be performed"
+    - "Getting configuration failed"
+  related_config:
+    - cu configuration file
+  notes: |
+    1. The configuration file contains a syntax error — check for missing semicolons, brackets, or incorrect data types.
+    2. `libconfig` uses strict syntax: key-value pairs must end with `;` and sections with `{}` must be properly closed.
+    3. Use a config linter or double-check the reported line manually.
+    4. Until this is fixed, the CU process will not proceed past configuration loading.
+
+- stage: cu_config_parsing
+  symptom: "Unknown or unsupported ciphering algorithm specified in CU config file"
+  log_snippet:
+    - "unknown ciphering algorithm"
+    - "ciphering_algorithms"
+  related_config:
+    - ciphering_algorithms
+  notes: |
+    The ciphering_algorithms parameter contains an unsupported value (e.g., "nea4").
+    Only use supported values: nea0, nea1, nea2, nea3.
+    Remove or correct any unsupported ciphering algorithms to avoid CU startup failure.
+
+- stage: cu_config_parsing
+  symptom: "Unknown or unsupported integrity algorithm specified in CU config file"
+  log_snippet:
+    - "unknown integrity algorithm"
+    - "integrity_algorithms"
+  related_config:
+    - integrity_algorithms
+  notes: |
+    The integrity_algorithms parameter contains an unsupported value (e.g., "nia8").
+    Only use supported values: nia0, nia1, nia2, nia3.
+    Remove or correct any unsupported integrity algorithms to avoid CU startup failure.
+
+- stage: cu_init
+  symptom: "CU failed to start because local_s_address could not be assigned or bound"
+  log_snippet:
+    - "failed to bind socket"
+    - "Cannot assign requested address"
+    - "can't create GTP-U instance"
+    - "Assertion (getCxt(instance)->gtpInst > 0) failed!"
+    - "Failed to create CU F1-U UDP listener"
+    - "Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - local_s_address
+  notes: |
+    The configured local_s_address is not available on this machine or is already in use.
+    Make sure the IP address exists on the host, is not already in use, and is properly configured in the network interface.
+    All related errors above are caused by this root issue.
+
+- stage: cu_config_parsing
+  symptom: "CU failed to start due to syntax error or invalid value in configuration file"
+  log_snippet:
+    - "syntax error"
+    - "couldn't be loaded"
+    - "not properly initialized"
+    - "init aborted"
+    - "Getting configuration failed"
+    - "config_libconfig_init returned -1"
+  related_config:
+    - Num_Threads_PUSCH
+  notes: |
+    This error indicates a syntax issue or invalid value in the CU configuration file.
+    Check for missing semicolons, brackets, or unsupported parameter values.
+    Ensure all configuration statements are correctly formatted and within allowed ranges.
+
+- stage: cu_config_parsing
+  symptom: "CU failed to start due to mismatch or missing Active_gNBs configuration"
+  log_snippet:
+    - "Assertion (strcmp(GNBSParams[1].strlistptr[0], *GNBParamList.paramarray[0][2].strptr) == 0) failed!"
+    - "no active gNB found/mismatch of gNBs"
+    - "read_du_cell_info() Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - Active_gNBs
+    - gNB_name
+  notes: |
+    This error indicates that the DU configuration's Active_gNBs or gNB_name does not match the expected value or is missing.
+    Ensure that the Active_gNBs list and gNB_name in the DU config file are correct and consistent with the rest of the system.
+    A mismatch or missing entry will cause the DU to exit with an assertion failure.
+
+- stage: du_config_parsing
+  symptom: "DU failed to start due to mismatch or missing Active_gNBs configuration"
+  log_snippet:
+    - "Assertion (strcmp(GNBSParams[1].strlistptr[0], *GNBParamList.paramarray[0][2].strptr) == 0) failed!"
+    - "no active gNB found/mismatch of gNBs"
+    - "read_du_cell_info() Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - Active_gNBs
+    - gNB_name
+  notes: |
+    This error indicates that the DU configuration's Active_gNBs or gNB_name does not match the expected value or is missing.
+    Ensure that the Active_gNBs list and gNB_name in the DU config file are correct and consistent with the rest of the system.
+    A mismatch or missing entry will cause the DU to exit with an assertion failure.
+
+- stage: du_config_parsing
+  symptom: "DU failed to start due to mismatch or missing gNB_name configuration"
+  log_snippet:
+    - "Assertion (strcmp(GNBSParams[1].strlistptr[0], *GNBParamList.paramarray[0][2].strptr) == 0) failed!"
+    - "no active gNB found/mismatch of gNBs"
+    - "read_du_cell_info() Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - gNB_name
+    - Active_gNBs
+  notes: |
+    This error indicates that the gNB_name or Active_gNBs in the DU configuration does not match the expected value or is missing.
+    Ensure that the gNB_name and Active_gNBs in the DU config file are correct and consistent with the rest of the system.
+    A mismatch or missing entry will cause the DU to exit with an assertion failure.
+
+- stage: du_f1_setup
+  symptom: "F1AP Setup Failure reported by CU, possible configuration mismatch between DU and CU"
+  log_snippet:
+    - "the CU reported F1AP Setup Failure"
+    - "configuration mismatch"
+    - "F1AP Setup Failure"
+  related_config:
+    - plmn_list
+    - gNB_DU_id
+    - gNB_DU_name
+    - TAC
+  notes: |
+    This error indicates that the CU rejected the F1AP setup request from the DU, likely due to a mismatch in configuration parameters such as PLMN, gNB_DU_id, gNB_DU_name, or TAC.
+    Ensure that these parameters are consistent and correctly set in both DU and CU configuration files.
+    A mismatch will prevent the DU from establishing an F1 interface with the CU.
+
+- stage: du_init
+  symptom: "DU failed to start because local_n_address could not be assigned or bound"
+  log_snippet:
+    - "bind: Cannot assign requested address"
+    - "failed to bind socket"
+    - "can't create GTP-U instance"
+    - "Assertion (gtpInst > 0) failed!"
+    - "cannot create DU F1-U GTP module"
+    - "F1AP_DU_task() Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - local_n_address
+  notes: |
+    The configured local_n_address is not available on this machine or is already in use.
+    Make sure the IP address exists on the host, is not already in use, and is properly configured in the network interface.
+    All related errors above are caused by this root issue.
+
+- stage: du_f1_setup
+  symptom: "DU stuck waiting for F1 Setup Response, likely due to configuration mismatch with CU"
+  log_snippet:
+    - "waiting for F1 Setup Response before activating radio"
+    - "No sync or RF start"
+    - "F1 Setup Failure"
+  related_config:
+    - remote_n_address
+    - plmn_list
+    - gNB_DU_id
+    - gNB_DU_name
+  notes: |
+    The DU is waiting for an F1 Setup Response from the CU but does not receive it, often due to a configuration mismatch (such as remote_n_address, PLMN, gNB_DU_id, or gNB_DU_name).
+    Ensure that all relevant parameters are consistent and correctly set in both DU and CU configuration files.
+    This issue will prevent the DU from activating its radio and completing the F1 setup.
+
+
+- stage: cu_init
+  symptom: "Assertion failure due to nb_nr_inst = 0; likely missing or mismatched gNB_name in config"
+  log_snippet: "Assertion (RC.nb_nr_inst == 1) failed!"
+  related_config:
+    - Active_gNBs
+    - gNB_name
+  notes: |
+    The 'Active_gNBs' parameter should be a list of gNB names (e.g., Active_gNBs = ("gNB-Eurecom-CU");)
+    that correspond exactly to the 'gNB_name' fields declared in the 'gNBs' section.
+
+    This error occurs when the configured gNB name in Active_gNBs is missing or not defined under 'gNBs',
+    resulting in nb_nr_inst = 0 and triggering an assertion failure.
+
+    Ensure all names match exactly (case-sensitive) and that each name in Active_gNBs has a corresponding
+    configuration block with matching gNB_name.
+
+- stage: cu_init
+  symptom: "Mismatch between Active_gNBs and gNB_name causes invalid RAN context and PLMN mismatch"
+  log_snippet:
+    - "PLMNs received from CUUP"
+    - "did not match with PLMNs in RRC"
+    - "RC.nb_nr_inst = 1"
+    - "RC.nb_nr_L1_inst = 0"
+  related_config:
+    - Active_gNBs
+    - gNB_name
+  notes: |
+    If Active_gNBs does not match the gNB_name defined in the gNBs section,
+    the CU will initialize incorrectly, with invalid PLMN or zero RRC instances.
+    Ensure both values match exactly (case-sensitive).
+
+
+- stage: cu_config_parsing
+  symptom: "CU failed to start due to syntax error in configuration file"
+  log_snippet: "syntax error"
+  related_config:
+    - Num_Threads_PUSCH
+  notes: |
+    The value for 'Num_Threads_PUSCH' is not a valid integer.
+    Ensure all numeric parameters in the config file are set to valid values.
+    In this case, 'asdasfsad' caused a parsing failure. Recommended value: 4 or 8.

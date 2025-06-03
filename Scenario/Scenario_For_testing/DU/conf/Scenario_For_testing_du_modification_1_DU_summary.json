@@ -1,8 +1,0 @@
-[
-  {
-    "label": "Active_gNBs",
-    "before": "Active_gNBs = ( \"gNB-Test-DU\");",
-    "after": "Active_gNBs = ( \"gNB-Eurecom-DU\");",
-    "model_reason": "The 'no active gNB found/mismatch of gNBs' error indicates a discrepancy between the Active_gNBs parameter and the actual gNB name used by the DU. Correcting this ensures that the DU correctly identifies itself within the network."
-  }
-]

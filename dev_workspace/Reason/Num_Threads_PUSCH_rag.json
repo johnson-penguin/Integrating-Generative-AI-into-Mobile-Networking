@@ -1,0 +1,9 @@
+[
+  {
+    "label": "Num_Threads_PUSCH",
+    "content": "Num_Threads_PUSCH = 4;",
+    "reference_reason": "No direct reference, using recommended value.",
+    "model_reason": "The value for 'Num_Threads_PUSCH' must be a valid integer to resolve the syntax error and ensure proper CU functionality. A value of 4 is recommended for optimal performance.",
+    "target": "CU"
+  }
+]

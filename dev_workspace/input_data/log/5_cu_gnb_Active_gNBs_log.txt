@@ -1,0 +1,13 @@
+[UTIL]   running in SA mode (no --phy-test, --do-ra, --nsa option present)
+[OPT]   OPT disabled
+[HW]   Version: Branch: develop Abrev. Hash: 054506f5ae Date: Tue Dec 10 13:33:23 2024 +0000
+
+Assertion (RC.nb_nr_inst == 1) failed!
+In NRRCConfig() /home/oai72/oai_split/openairinterface5g/openair2/GNB_APP/gnb_config.c:2186
+Configuration error: RC.nb_nr_inst (0) must equal NUMBER_OF_gNB_MAX (1).
+Currently, only one instance of each layer (L1, L2, L3) is supported.
+Ensure that nb_nr_inst matches the maximum allowed gNB instances in this configuration.
+Exiting execution
+CMDLINE: "./nr-softmodem" "--rfsim" "--sa" "-O" "/home/oai72/Johnson/tool/scenario_gen/cu/cu_test_conf/5_cu_gnb_Active_gNBs.conf" 
+[CONFIG] function config_libconfig_init returned 0
+/home/oai72/oai_split/openairinterface5g/openair2/GNB_APP/gnb_config.c:2186 NRRCConfig() Exiting OAI softmodem: _Assert_Exit_

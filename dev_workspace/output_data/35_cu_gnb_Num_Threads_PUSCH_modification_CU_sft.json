@@ -1,0 +1,11 @@
+[
+  {
+    "label": "Num_Threads_PUSCH",
+    "before": "Num_Threads_PUSCH = asdasfsad;",
+    "after": "Num_Threads_PUSCH = 4;",
+    "model_reason": "The value for 'Num_Threads_PUSCH' must be a valid integer to resolve the syntax error and ensure proper CU functionality. A value of 4 is recommended for optimal performance.",
+    "reference_reason": "No direct reference, using recommended value",
+    "config_type": "CU",
+    "source_file": "35_cu_gnb_Num_Threads_PUSCH.conf"
+  }
+]

@@ -1,0 +1,9 @@
+[
+  {
+    "label": "amf_ip_address",
+    "content": "amf_ip_address = ({ ipv4 = \"192.168.8.21\" });",
+    "reference_reason": "matches CN_AMF_IP in reference device table",
+    "model_reason": "The CU failed to complete NG Setup because the AMF IP address was not correctly configured. Updating the amf_ip_address to match the reference table's CN_AMF_IP will resolve this issue, enabling successful NG setup.",
+    "target": "CU"
+  }
+]

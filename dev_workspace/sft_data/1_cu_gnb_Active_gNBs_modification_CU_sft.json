@@ -1,0 +1,11 @@
+[
+  {
+    "label": "Active_gNBs",
+    "before": "Active_gNBs = 1234;",
+    "after": "Active_gNBs = \"gNB-Eurecom-CU\";",
+    "model_reason": "The 'Active_gNBs' parameter in the DU configuration must match the 'gNB_name' in the CU configuration for the DU to successfully connect and start. The error message '_Assert_Exit_' indicates a mismatch, therefore the value is being changed to the correct value from the CU.",
+    "reference_reason": "Sets Active_gNBs to match gNB_name as string",
+    "config_type": "CU",
+    "source_file": "1_cu_gnb_Active_gNBs.conf"
+  }
+]

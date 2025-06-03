@@ -1,0 +1,11 @@
+[LIBCONFIG] file /home/oai72/Johnson/tool/scenario_gen/cu/cu_test_conf/50_cu_gnb_local_s_address.conf - line 27: syntax error
+
+[CONFIG] /home/oai72/oai_split/openairinterface5g/common/config/config_load_configmodule.c 379 config module "libconfig" couldn't be loaded
+[CONFIG] config_get, section log_config skipped, config module not properly initialized
+[LOG] init aborted, configuration couldn't be performed
+[CONFIG] config_get, section (null) skipped, config module not properly initialized
+[CONFIG] /home/oai72/oai_split/openairinterface5g/common/config/config_userapi.c 68 nfapi has no processed integer availablle
+[CONFIG] config_get, section (null) skipped, config module not properly initialized
+Getting configuration failed
+CMDLINE: "./nr-softmodem" "--rfsim" "--sa" "-O" "/home/oai72/Johnson/tool/scenario_gen/cu/cu_test_conf/50_cu_gnb_local_s_address.conf" 
+[CONFIG] function config_libconfig_init returned -1

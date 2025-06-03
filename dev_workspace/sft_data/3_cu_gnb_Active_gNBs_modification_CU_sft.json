@@ -1,0 +1,11 @@
+[
+  {
+    "label": "Active_gNBs",
+    "before": "Active_gNBs = [ \"gNB-Eurecom-CU\" ];",
+    "after": "Active_gNBs = [ \"gNB-Eurecom-DU\" ];",
+    "model_reason": "The CU must be configured to be aware of the DUs it controls. Setting Active_gNBs to the DU's name allows the CU to properly associate with and manage the DU, resolving the startup failure.",
+    "reference_reason": "The DU's gNB name should be added to Active_gNBs",
+    "config_type": "CU",
+    "source_file": "3_cu_gnb_Active_gNBs.conf"
+  }
+]

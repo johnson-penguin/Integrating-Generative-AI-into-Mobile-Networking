@@ -1,0 +1,52 @@
+[
+  {
+    "label": "Num_Threads_PUSCH",
+    "content": "Num_Threads_PUSCH = 4;",
+    "model_reason": "Excessive threads can lead to resource contention and instability, especially on systems with limited cores, triggering assertions. Reducing the number of PUSCH threads can improve stability and prevent crashes."
+  },
+  {
+    "label": "global_log_level",
+    "content": "global_log_level                      = \"notice\";",
+    "model_reason": "Excessive logging can consume significant resources and potentially contribute to instability, particularly when an issue is already present. Reducing the log level can alleviate this strain."
+  },
+  {
+    "label": "hw_log_level",
+    "content": "hw_log_level                          = \"notice\";",
+    "model_reason": "Excessive logging can consume significant resources and potentially contribute to instability, particularly when an issue is already present. Reducing the log level can alleviate this strain."
+  },
+  {
+    "label": "phy_log_level",
+    "content": "phy_log_level                         = \"notice\";",
+    "model_reason": "Excessive logging can consume significant resources and potentially contribute to instability, particularly when an issue is already present. Reducing the log level can alleviate this strain."
+  },
+  {
+    "label": "mac_log_level",
+    "content": "mac_log_level                         = \"notice\";",
+    "model_reason": "Excessive logging can consume significant resources and potentially contribute to instability, particularly when an issue is already present. Reducing the log level can alleviate this strain."
+  },
+  {
+    "label": "rlc_log_level",
+    "content": "rlc_log_level                         = \"notice\";",
+    "model_reason": "Excessive logging can consume significant resources and potentially contribute to instability, particularly when an issue is already present. Reducing the log level can alleviate this strain."
+  },
+  {
+    "label": "pdcp_log_level",
+    "content": "pdcp_log_level                        = \"notice\";",
+    "model_reason": "Excessive logging can consume significant resources and potentially contribute to instability, particularly when an issue is already present. Reducing the log level can alleviate this strain."
+  },
+  {
+    "label": "rrc_log_level",
+    "content": "rrc_log_level                         = \"notice\";",
+    "model_reason": "Excessive logging can consume significant resources and potentially contribute to instability, particularly when an issue is already present. Reducing the log level can alleviate this strain."
+  },
+  {
+    "label": "ngap_log_level",
+    "content": "ngap_log_level                        = \"notice\";",
+    "model_reason": "Excessive logging can consume significant resources and potentially contribute to instability, particularly when an issue is already present. Reducing the log level can alleviate this strain."
+  },
+  {
+    "label": "f1ap_log_level",
+    "content": "f1ap_log_level                        = \"notice\";",
+    "model_reason": "Excessive logging can consume significant resources and potentially contribute to instability, particularly when an issue is already present. Reducing the log level can alleviate this strain."
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "label": "Active_gNBs",
+    "before": "Active_gNBs = ( \"gNB-Eurecom-asdasASDA\");",
+    "after": "Active_gNBs = ( \"gNB-Eurecom-CU\" );",
+    "model_reason": "Ensures a match between Active_gNBs and gNB_name to prevent invalid RAN context and PLMN mismatch, resolving the 'did not match with PLMNs in RRC' issue.",
+    "reference_reason": "Matches the gNB_name defined in the gNBs section",
+    "config_type": "CU",
+    "source_file": "12_cu_gnb_Active_gNBs.conf"
+  }
+]

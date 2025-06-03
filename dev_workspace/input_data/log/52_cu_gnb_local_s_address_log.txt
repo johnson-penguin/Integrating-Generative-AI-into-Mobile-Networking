@@ -1,0 +1,35 @@
+⏰ Timeout after 20s
+Partial output:
+[UTIL]   running in SA mode (no --phy-test, --do-ra, --nsa option present)
+[OPT]   OPT disabled
+[HW]   Version: Branch: develop Abrev. Hash: 054506f5ae Date: Tue Dec 10 13:33:23 2024 +0000
+[GNB_APP]   Initialized RAN Context: RC.nb_nr_inst = 1, RC.nb_nr_macrlc_inst = 0, RC.nb_nr_L1_inst = 0, RC.nb_RU = 0, RC.nb_nr_CC[0] = 0
+[GNB_APP]   F1AP: gNB_CU_id[0] 3584
+[GNB_APP]   F1AP: gNB_CU_name[0] gNB-Eurecom-CU
+[GNB_APP]   SDAP layer is disabled
+[GNB_APP]   Data Radio Bearer count 1
+[NR_RRC]   do_SIB23_NR, size 9
+[UTIL]   threadCreate() for TASK_SCTP: creating thread with affinity ffffffff, priority 50
+[X2AP]   X2AP is disabled.
+[UTIL]   threadCreate() for TASK_NGAP: creating thread with affinity ffffffff, priority 50
+[UTIL]   threadCreate() for TASK_GNB_APP: creating thread with affinity ffffffff, priority 50
+[NGAP]   Registered new gNB[0] and macro gNB id 3584
+[NGAP]   [gNB 0] check the amf registration state
+[UTIL]   threadCreate() for TASK_RRC_GNB: creating thread with affinity ffffffff, priority 50
+[UTIL]   threadCreate() for TASK_CU_F1: creating thread with affinity ffffffff, priority 50
+[NGAP]   Send NGSetupRequest to AMF
+[NGAP]   3584 -> 0000e000
+[GTPU]   Configuring GTPu
+[GTPU]   SA mode 
+[GTPU]   Configuring GTPu address : 192.168.8.43, port : 2152
+[GTPU]   Initializing UDP for local address 192.168.8.43 with port 2152
+[GTPU]   Created gtpu instance id: 94
+[NGAP]   Received NGSetupResponse from AMF
+[F1AP]   Starting F1AP at CU
+[GNB_APP]   [gNB 0] Received NGAP_REGISTER_GNB_CNF: associated AMF 1
+[NR_RRC]   Entering main loop of NR_RRC message task
+[NR_RRC]   Accepting new CU-UP ID 3584 name gNB-Eurecom-CU (assoc_id -1)
+[UTIL]   threadCreate() for TASK_GTPV1_U: creating thread with affinity ffffffff, priority 50
+[F1AP]   F1AP_CU_SCTP_REQ(create socket) for 127.0.0.5 len 10
+[GTPU]   Initializing UDP for local address 127.0.0.5 with port 2152
+[GTPU]   Created gtpu instance id: 95

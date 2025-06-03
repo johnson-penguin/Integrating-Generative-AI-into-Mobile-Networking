@@ -1,0 +1,158 @@
+[
+  {
+    "label": "Active_gNBs",
+    "content": "Active_gNBs = ( \"gNB-Eurecom-CU\");"
+  },
+  {
+    "label": "gNBs",
+    "content": "gNBs =\n(\n {\n    \n    gNB_ID = 0xe00;\n\n\n\n    gNB_name  =  \"gNB-Eurecom-CU\";\n\n    \n    tracking_area_code  =  1;\n    plmn_list = ({ mcc = 001; mnc = 01; mnc_length = 2; snssaiList = ( { sst = 1;});"
+  },
+  {
+    "label": "amf_ip_address",
+    "content": "amf_ip_address = ({ ipv4 = \"192.168.8.21\" });"
+  },
+  {
+    "label": "security",
+    "content": "security = {\n  \n  \n  \n  ciphering_algorithms = ( \"nea0\" );"
+  },
+  {
+    "label": "integrity_algorithms",
+    "content": "integrity_algorithms = ( \"nia2\", \"nia0\" );"
+  },
+  {
+    "label": "Asn1_verbosity",
+    "content": "Asn1_verbosity = \"none\";"
+  },
+  {
+    "label": "Num_Threads_PUSCH",
+    "content": "Num_Threads_PUSCH = asdasfsad;"
+  },
+  {
+    "label": "gNB_ID",
+    "content": "gNB_ID = 0xe00;"
+  },
+  {
+    "label": "gNB_name",
+    "content": "gNB_name  =  \"gNB-Eurecom-CU\";"
+  },
+  {
+    "label": "tracking_area_code",
+    "content": "tracking_area_code  =  1;"
+  },
+  {
+    "label": "mcc",
+    "content": "mcc = 001;"
+  },
+  {
+    "label": "mnc",
+    "content": "mnc = 01;"
+  },
+  {
+    "label": "mnc_length",
+    "content": "mnc_length = 2;"
+  },
+  {
+    "label": "sst",
+    "content": "sst = 1;"
+  },
+  {
+    "label": "nr_cellid",
+    "content": "nr_cellid = 1;"
+  },
+  {
+    "label": "tr_s_preference",
+    "content": "tr_s_preference = \"f1\";"
+  },
+  {
+    "label": "local_s_if_name",
+    "content": "local_s_if_name = \"lo\";"
+  },
+  {
+    "label": "local_s_address",
+    "content": "local_s_address = \"127.0.0.5\";"
+  },
+  {
+    "label": "remote_s_address",
+    "content": "remote_s_address = \"127.0.0.3\";"
+  },
+  {
+    "label": "local_s_portc",
+    "content": "local_s_portc   = 501;"
+  },
+  {
+    "label": "local_s_portd",
+    "content": "local_s_portd   = 2152;"
+  },
+  {
+    "label": "remote_s_portc",
+    "content": "remote_s_portc  = 500;"
+  },
+  {
+    "label": "remote_s_portd",
+    "content": "remote_s_portd  = 2152;"
+  },
+  {
+    "label": "SCTP_INSTREAMS",
+    "content": "SCTP_INSTREAMS  = 2;"
+  },
+  {
+    "label": "SCTP_OUTSTREAMS",
+    "content": "SCTP_OUTSTREAMS = 2;"
+  },
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NG_AMF",
+    "content": "GNB_IPV4_ADDRESS_FOR_NG_AMF              = \"192.168.8.43\";"
+  },
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NGU",
+    "content": "GNB_IPV4_ADDRESS_FOR_NGU                 = \"192.168.8.43\";"
+  },
+  {
+    "label": "GNB_PORT_FOR_S1U",
+    "content": "GNB_PORT_FOR_S1U                         = 2152;"
+  },
+  {
+    "label": "drb_ciphering",
+    "content": "drb_ciphering = \"yes\";"
+  },
+  {
+    "label": "drb_integrity",
+    "content": "drb_integrity = \"no\";"
+  },
+  {
+    "label": "global_log_level",
+    "content": "global_log_level                      =\"info\";"
+  },
+  {
+    "label": "hw_log_level",
+    "content": "hw_log_level                          =\"info\";"
+  },
+  {
+    "label": "phy_log_level",
+    "content": "phy_log_level                         =\"info\";"
+  },
+  {
+    "label": "mac_log_level",
+    "content": "mac_log_level                         =\"info\";"
+  },
+  {
+    "label": "rlc_log_level",
+    "content": "rlc_log_level                         =\"info\";"
+  },
+  {
+    "label": "pdcp_log_level",
+    "content": "pdcp_log_level                        =\"info\";"
+  },
+  {
+    "label": "rrc_log_level",
+    "content": "rrc_log_level                         =\"info\";"
+  },
+  {
+    "label": "ngap_log_level",
+    "content": "ngap_log_level                        =\"info\";"
+  },
+  {
+    "label": "f1ap_log_level",
+    "content": "f1ap_log_level                        =\"info\";"
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "label": "Active_gNBs",
+    "before": "Active_gNBs = ( );",
+    "after": "Active_gNBs = (\"gNB-Eurecom-CU\");",
+    "model_reason": "The Active_gNBs parameter must be set to a list containing the gNB name to resolve the assertion failure and ensure proper gNB configuration.",
+    "reference_reason": "Matches the gNB_name in the gNBs section.",
+    "config_type": "CU",
+    "source_file": "14_cu_gnb_Active_gNBs.conf"
+  }
+]

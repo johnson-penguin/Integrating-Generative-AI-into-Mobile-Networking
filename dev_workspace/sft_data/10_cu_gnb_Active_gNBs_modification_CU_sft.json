@@ -1,0 +1,11 @@
+[
+  {
+    "label": "Active_gNBs",
+    "before": "Active_gNBs = ( \"gNB-1\", );",
+    "after": "Active_gNBs = ( \"gNB-Eurecom-CU\", );",
+    "model_reason": "The Active_gNBs parameter must exactly match the gNB_name defined in the gNBs section to avoid initialization errors and PLMN mismatches, ensuring the RAN context is valid.",
+    "reference_reason": "Corrected to match gNB_name.",
+    "config_type": "CU",
+    "source_file": "10_cu_gnb_Active_gNBs.conf"
+  }
+]
