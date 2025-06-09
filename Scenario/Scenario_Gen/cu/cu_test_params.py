@@ -69,6 +69,16 @@ test_params = {
             'remote_s_address = "192.168.10.2";',
             'remote_s_address = "";',
             'remote_s_address = "sserdda_s_etomer";',
+            # Added variants:
+            'remote_s_address = ;',  # Missing value
+            'remote_s_address = [ "127.0.0.3" ];',  # Array instead of string
+            'remote_s_address = true;',  # Boolean
+            'remote_s_address = remote_s_address = "127.0.0.3";',  # Duplicate assignment
+            'remote_s_address = "127.0.0.3"',  # Missing semicolon
+            'remote_s_address = "127.0.0.300";',  # Invalid IP octet
+            'remote_s_address = "localhost";',  # Not an IP address
+            'remote_s_address = {};',  # Object instead of string
+            'remote_s_address = " ";'  # Whitespace only
         ]
     },
     "ciphering_algorithms": {
@@ -91,7 +101,7 @@ test_params = {
             # ❌ Syntax errors
             'ciphering_algorithms = ( nea4 );',                 # Missing quotes
             'ciphering_algorithms = ( "nea1", );',              # Trailing comma
-            'ciphering_algorithms = ( "nea1", "nea2", );',      # Extra trailing comma
+            'ciphering_algorithms = ( "nea1", "nea2", );'      # Extra trailing comma
 
             # ❌ Completely broken formats
             'ciphering_algorithms = ciphering_algorithms = ( "nea8" );',  # Duplicate assignment
@@ -163,6 +173,14 @@ test_params = {
             'gNB_name = "eman_BNg";',
             'gNB_name = "";',
             'gNB_name  =  "gNB-Eurecom-CASDASDASDASDAS12312U";',
+            # Added variants:
+            'gNB_name = ;',  # Missing value
+            'gNB_name = [ "gNB-Eurecom-CU" ];',  # Array instead of string
+            'gNB_name = true;',  # Boolean
+            'gNB_name = gNB_name = "gNB-Eurecom-CU";',  # Duplicate assignment
+            'gNB_name = "gNB-Eurecom-CU"',  # Missing semicolon
+            'gNB_name = {};',  # Object instead of string
+            'gNB_name = " ";'  # Whitespace only
         ]
     },
     "gNB_ID": {
@@ -174,6 +192,13 @@ test_params = {
             'gNB_ID = ;',
             'gNB_ID = 0xFFFFFFFFF;',
             'gNB_ID = 0xZZZZ;',
+            # Added variants:
+            'gNB_ID = true;',  # Boolean
+            'gNB_ID = [ 0xe00 ];',  # Array instead of scalar
+            'gNB_ID = {};',  # Object instead of scalar
+            'gNB_ID = gNB_ID = 0xe00;',  # Duplicate assignment
+            'gNB_ID = 0xe00',  # Missing semicolon
+            'gNB_ID = " ";'  # Whitespace only
         ]
     },
     "local_s_if_name": {
@@ -248,6 +273,13 @@ test_params = {
             'local_s_portc = 999999999;',
             'local_s_portc = ;',
             'local_s_portc = 550;',
+            # Added variants:
+            'local_s_portc = true;',  # Boolean
+            'local_s_portc = [ 501 ];',  # Array instead of scalar
+            'local_s_portc = {};',  # Object instead of scalar
+            'local_s_portc = local_s_portc = 501;',  # Duplicate assignment
+            'local_s_portc = 501',  # Missing semicolon
+            'local_s_portc = " ";'  # Whitespace only
         ]
     },
     "local_s_portd": {
@@ -259,6 +291,13 @@ test_params = {
             'local_s_portd = "string";',
             'local_s_portd = 0xZZZZ;',
             'local_s_portd = ;',
+            # Added variants:
+            'local_s_portd = true;',  # Boolean
+            'local_s_portd = [ 2152 ];',  # Array instead of scalar
+            'local_s_portd = {};',  # Object instead of scalar
+            'local_s_portd = local_s_portd = 2152;',  # Duplicate assignment
+            'local_s_portd = 2152',  # Missing semicolon
+            'local_s_portd = " ";'  # Whitespace only
         ]
     },
     "remote_s_portc": {
@@ -270,6 +309,13 @@ test_params = {
             'remote_s_portc = 0xZZZZ;',
             'remote_s_portc = 999999999;',
             'remote_s_portc = "string";',
+            # Added variants:
+            'remote_s_portc = true;',  # Boolean
+            'remote_s_portc = [ 500 ];',  # Array instead of scalar
+            'remote_s_portc = {};',  # Object instead of scalar
+            'remote_s_portc = remote_s_portc = 500;',  # Duplicate assignment
+            'remote_s_portc = 500',  # Missing semicolon
+            'remote_s_portc = " ";'  # Whitespace only
         ]
     },
     "remote_s_portd": {
@@ -281,6 +327,13 @@ test_params = {
             'remote_s_portd = 999999999;',
             'remote_s_portd = "string";',
             'remote_s_portd = 0xZZZZ;',
+            # Added variants:
+            'remote_s_portd = true;',  # Boolean
+            'remote_s_portd = [ 2152 ];',  # Array instead of scalar
+            'remote_s_portd = {};',  # Object instead of scalar
+            'remote_s_portd = remote_s_portd = 2152;',  # Duplicate assignment
+            'remote_s_portd = 2152',  # Missing semicolon
+            'remote_s_portd = " ";'  # Whitespace only
         ]
     },
     "GNB_IPV4_ADDRESS_FOR_NG_AMF": {
@@ -292,6 +345,16 @@ test_params = {
             'GNB_IPV4_ADDRESS_FOR_NG_AMF = "10.0.0.1";',
             'GNB_IPV4_ADDRESS_FOR_NG_AMF = "";',
             'GNB_IPV4_ADDRESS_FOR_NG_AMF = "@#$%^&*";',
+            # Added variants:
+            'GNB_IPV4_ADDRESS_FOR_NG_AMF = ;',  # Missing value
+            'GNB_IPV4_ADDRESS_FOR_NG_AMF = [ "192.168.8.43" ];',  # Array instead of string
+            'GNB_IPV4_ADDRESS_FOR_NG_AMF = true;',  # Boolean
+            'GNB_IPV4_ADDRESS_FOR_NG_AMF = GNB_IPV4_ADDRESS_FOR_NG_AMF = "192.168.8.43";',  # Duplicate assignment
+            'GNB_IPV4_ADDRESS_FOR_NG_AMF = "192.168.8.43"',  # Missing semicolon
+            'GNB_IPV4_ADDRESS_FOR_NG_AMF = "192.168.8.300";',  # Invalid IP octet
+            'GNB_IPV4_ADDRESS_FOR_NG_AMF = "localhost";',  # Not an IP address
+            'GNB_IPV4_ADDRESS_FOR_NG_AMF = {};',  # Object instead of string
+            'GNB_IPV4_ADDRESS_FOR_NG_AMF = " ";'  # Whitespace only
         ]
     },
     "GNB_IPV4_ADDRESS_FOR_NGU": {
@@ -303,6 +366,16 @@ test_params = {
             'GNB_IPV4_ADDRESS_FOR_NGU = "10.0.0.2";',
             'GNB_IPV4_ADDRESS_FOR_NGU = "UGN_ROF_SSERDDA_4VPI_BNG";',
             'GNB_IPV4_ADDRESS_FOR_NGU = GNB_IPV4_ADDRESS_FOR_NGU = 10.0.0.2;',
+            # Added variants:
+            'GNB_IPV4_ADDRESS_FOR_NGU = ;',  # Missing value
+            'GNB_IPV4_ADDRESS_FOR_NGU = [ "192.168.8.43" ];',  # Array instead of string
+            'GNB_IPV4_ADDRESS_FOR_NGU = true;',  # Boolean
+            'GNB_IPV4_ADDRESS_FOR_NGU = GNB_IPV4_ADDRESS_FOR_NGU = "192.168.8.43";',  # Duplicate assignment
+            'GNB_IPV4_ADDRESS_FOR_NGU = "192.168.8.43"',  # Missing semicolon
+            'GNB_IPV4_ADDRESS_FOR_NGU = "192.168.8.300";',  # Invalid IP octet
+            'GNB_IPV4_ADDRESS_FOR_NGU = "localhost";',  # Not an IP address
+            'GNB_IPV4_ADDRESS_FOR_NGU = {};',  # Object instead of string
+            'GNB_IPV4_ADDRESS_FOR_NGU = " ";'  # Whitespace only
         ]
     },
     "GNB_PORT_FOR_S1U": {
@@ -314,6 +387,13 @@ test_params = {
             'GNB_PORT_FOR_S1U = -1;',
             'GNB_PORT_FOR_S1U = 2160;',
             'GNB_PORT_FOR_S1U = 0xZZZZ;',
+            # Added variants:
+            'GNB_PORT_FOR_S1U = true;',  # Boolean
+            'GNB_PORT_FOR_S1U = [ 2152 ];',  # Array instead of scalar
+            'GNB_PORT_FOR_S1U = {};',  # Object instead of scalar
+            'GNB_PORT_FOR_S1U = GNB_PORT_FOR_S1U = 2152;',  # Duplicate assignment
+            'GNB_PORT_FOR_S1U = 2152',  # Missing semicolon
+            'GNB_PORT_FOR_S1U = " ";'  # Whitespace only
         ]
     },
     "SCTP_INSTREAMS": {
@@ -325,6 +405,13 @@ test_params = {
             'SCTP_INSTREAMS = -1;',
             'SCTP_INSTREAMS = 999999999;',
             'SCTP_INSTREAMS = 0xZZZZ;',
+            # Added variants:
+            'SCTP_INSTREAMS = true;',  # Boolean
+            'SCTP_INSTREAMS = [ 2 ];',  # Array instead of scalar
+            'SCTP_INSTREAMS = {};',  # Object instead of scalar
+            'SCTP_INSTREAMS = SCTP_INSTREAMS = 2;',  # Duplicate assignment
+            'SCTP_INSTREAMS = 2',  # Missing semicolon
+            'SCTP_INSTREAMS = " ";'  # Whitespace only
         ]
     },
     "SCTP_OUTSTREAMS": {
@@ -336,6 +423,13 @@ test_params = {
             'SCTP_OUTSTREAMS = 0xZZZZ;',
             'SCTP_OUTSTREAMS = 999999999;',
             'SCTP_OUTSTREAMS = 4;',
+            # Added variants:
+            'SCTP_OUTSTREAMS = true;',  # Boolean
+            'SCTP_OUTSTREAMS = [ 2 ];',  # Array instead of scalar
+            'SCTP_OUTSTREAMS = {};',  # Object instead of scalar
+            'SCTP_OUTSTREAMS = SCTP_OUTSTREAMS = 2;',  # Duplicate assignment
+            'SCTP_OUTSTREAMS = 2',  # Missing semicolon
+            'SCTP_OUTSTREAMS = " ";'  # Whitespace only
         ]
     },
     "tr_s_preference": {
@@ -347,6 +441,14 @@ test_params = {
             'tr_s_preference = "e1";',
             'tr_s_preference = 1234;',
             'tr_s_preference = "";',
+            # Added variants:
+            'tr_s_preference = ;',  # Missing value
+            'tr_s_preference = [ "f1" ];',  # Array instead of string
+            'tr_s_preference = true;',  # Boolean
+            'tr_s_preference = tr_s_preference = "f1";',  # Duplicate assignment
+            'tr_s_preference = "f1"',  # Missing semicolon
+            'tr_s_preference = {};',  # Object instead of string
+            'tr_s_preference = " ";'  # Whitespace only
         ]
     },
     "nr_cellid": {
@@ -358,6 +460,13 @@ test_params = {
             'nr_cellid = ;',
             'nr_cellid = 999999999;',
             'nr_cellid = "string";',
+            # Added variants:
+            'nr_cellid = true;',  # Boolean
+            'nr_cellid = [ 1 ];',  # Array instead of scalar
+            'nr_cellid = {};',  # Object instead of scalar
+            'nr_cellid = nr_cellid = 1;',  # Duplicate assignment
+            'nr_cellid = 1',  # Missing semicolon
+            'nr_cellid = " ";'  # Whitespace only
         ]
     },
     "plmn_list": {
@@ -369,6 +478,13 @@ test_params = {
             'plmn_list = 999999999;',
             'plmn_list = ({ mcc = 208; mnc = 93; mnc_length = 2; snssaiList = ( { sst = 1; }); });',
             'plmn_list = ;',
+            # Added variants:
+            'plmn_list = true;',  # Boolean
+            'plmn_list = [ { mcc = 001; } ];',  # Array instead of object
+            'plmn_list = {};',  # Object instead of expected structure
+            'plmn_list = plmn_list = ({ mcc = 001; });',  # Duplicate assignment
+            'plmn_list = ({ });',  # Empty object
+            'plmn_list = " ";'  # Whitespace only
         ]
     },
 }
