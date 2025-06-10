@@ -1,0 +1,11 @@
+[
+  {
+    "label": "remote_s_portd",
+    "before": "remote_s_portd = remote_s_portd = 2152;",
+    "after": "remote_s_portd = 2152;",
+    "model_reason": "The syntax error is resolved by removing the duplicate parameter name, ensuring the configuration file is parsed correctly and the CU can start successfully. This change is necessary to establish a valid connection.",
+    "reference_reason": "Matches the recommended value from the debug knowledge.",
+    "config_type": "CU",
+    "source_file": "10_cu_gnb_remote_s_portd.conf"
+  }
+]

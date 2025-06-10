@@ -1,0 +1,11 @@
+[
+  {
+    "label": "CU Initialization",
+    "before": null,
+    "after": null,
+    "model_reason": "CU started successfully. No revision needed.",
+    "reference_reason": "",
+    "config_type": "CU",
+    "source_file": "43_cu_gnb_nr_cellid.conf"
+  }
+]

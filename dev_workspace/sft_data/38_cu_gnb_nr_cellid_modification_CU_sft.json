@@ -1,0 +1,11 @@
+[
+  {
+    "label": "nr_cellid",
+    "before": "nr_cellid = 0xZZZZ;",
+    "after": "nr_cellid = 0x1A2B3C4D;",
+    "model_reason": "The original value 0xZZZZ is invalid and caused a syntax error, replacing it with a valid 36-bit identifier resolves the CU init failure issue.",
+    "reference_reason": "Matches expected hexadecimal format",
+    "config_type": "CU",
+    "source_file": "38_cu_gnb_nr_cellid.conf"
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "label": "tr_s_preference",
+    "before": "tr_s_preference = {};",
+    "after": "tr_s_preference = \"f1\";",
+    "model_reason": "The self-referencing or undefined enum value caused a parsing failure, and setting tr_s_preference to 'f1' is necessary for proper CU/DU communication. This change resolves the CU init failure and allows the F1AP to start.",
+    "reference_reason": "Matches expected setting for CU/DU communication via the F1 interface",
+    "config_type": "CU",
+    "source_file": "24_cu_gnb_tr_s_preference.conf"
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "label": "remote_s_portd",
+    "before": "remote_s_portd = ;",
+    "after": "remote_s_portd = 2152;",
+    "model_reason": "The value for 'remote_s_portd' must be a valid integer to resolve the syntax error and ensure proper CU configuration. Setting it to 2152 aligns with the OAI default value, which is expected for standard operation.",
+    "reference_reason": "Matches the recommended value for remote_s_portd.",
+    "config_type": "CU",
+    "source_file": "2_cu_gnb_remote_s_portd.conf"
+  }
+]

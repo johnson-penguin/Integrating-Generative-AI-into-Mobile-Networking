@@ -1,0 +1,11 @@
+[
+  {
+    "label": "tr_s_preference",
+    "before": "tr_s_preference = \"f1\"\n    # tr_s_preference = \"s1\"\n\n    local_s_if_name = \"lo\";",
+    "after": "tr_s_preference = \"f1\";",
+    "model_reason": "Setting tr_s_preference to 'f1' is necessary for proper CU/DU communication in a typical O-RAN deployment, resolving the CU init failure due to syntax error.",
+    "reference_reason": "Matches expected setting for CU/DU communication via the F1 interface",
+    "config_type": "CU",
+    "source_file": "23_cu_gnb_tr_s_preference.conf"
+  }
+]

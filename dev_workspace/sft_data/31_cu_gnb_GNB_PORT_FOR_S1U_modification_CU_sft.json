@@ -1,0 +1,11 @@
+[
+  {
+    "label": "GNB_PORT_FOR_S1U",
+    "before": "GNB_PORT_FOR_S1U = 0xZZZZ;",
+    "after": "GNB_PORT_FOR_S1U = 2152;",
+    "model_reason": "The original value 0xZZZZ is not a valid integer, causing a syntax error and CU init failure. Changing to 2152 resolves the issue and allows the CU to initialize correctly.",
+    "reference_reason": "Matches the recommended value from the debug knowledge",
+    "config_type": "CU",
+    "source_file": "31_cu_gnb_GNB_PORT_FOR_S1U.conf"
+  }
+]

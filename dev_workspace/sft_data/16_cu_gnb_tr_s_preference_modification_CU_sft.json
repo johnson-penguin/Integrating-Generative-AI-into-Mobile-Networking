@@ -1,0 +1,11 @@
+[
+  {
+    "label": "tr_s_preference",
+    "before": "tr_s_preference = \"e1\";",
+    "after": "tr_s_preference = \"f1\";",
+    "model_reason": "Setting tr_s_preference to 'f1' is necessary for proper CU/DU communication over the F1 interface, resolving the CU init failure and F1AP not started issues.",
+    "reference_reason": "Matches expected setting for CU/DU communication in O-RAN deployment",
+    "config_type": "CU",
+    "source_file": "16_cu_gnb_tr_s_preference.conf"
+  }
+]

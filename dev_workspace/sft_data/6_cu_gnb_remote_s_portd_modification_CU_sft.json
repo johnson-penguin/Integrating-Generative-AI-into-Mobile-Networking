@@ -1,0 +1,11 @@
+[
+  {
+    "label": "remote_s_portd",
+    "before": "remote_s_portd = 0xZZZZ;",
+    "after": "remote_s_portd = 2152;",
+    "model_reason": "The original value was not a valid integer, causing a syntax error and preventing the CU from starting. Changing to the recommended value resolves this issue and ensures proper CU operation.",
+    "reference_reason": "Matches the recommended value for remote_s_portd.",
+    "config_type": "CU",
+    "source_file": "6_cu_gnb_remote_s_portd.conf"
+  }
+]

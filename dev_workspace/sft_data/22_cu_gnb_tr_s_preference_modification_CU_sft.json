@@ -1,0 +1,11 @@
+[
+  {
+    "label": "tr_s_preference",
+    "before": "tr_s_preference = tr_s_preference = \"f1\";",
+    "after": "tr_s_preference = \"f1\";",
+    "model_reason": "The self-referencing assignment caused a parsing failure, and setting tr_s_preference to 'f1' is necessary for proper CU/DU communication in a typical O-RAN deployment.",
+    "reference_reason": "Matches expected setting for CU/DU communication via the F1 interface",
+    "config_type": "CU",
+    "source_file": "22_cu_gnb_tr_s_preference.conf"
+  }
+]

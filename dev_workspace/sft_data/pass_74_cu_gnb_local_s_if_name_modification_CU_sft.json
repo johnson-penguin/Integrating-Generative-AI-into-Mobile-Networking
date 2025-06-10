@@ -1,0 +1,11 @@
+[
+  {
+    "label": "CU Initialization",
+    "before": null,
+    "after": null,
+    "model_reason": "CU started successfully. No revision needed.",
+    "reference_reason": "",
+    "config_type": "CU",
+    "source_file": "74_cu_gnb_local_s_if_name.conf"
+  }
+]

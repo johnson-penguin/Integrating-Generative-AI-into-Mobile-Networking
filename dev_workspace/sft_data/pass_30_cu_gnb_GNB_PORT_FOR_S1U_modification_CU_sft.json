@@ -1,0 +1,11 @@
+[
+  {
+    "label": "CU Initialization",
+    "before": null,
+    "after": null,
+    "model_reason": "CU started successfully. No revision needed.",
+    "reference_reason": "",
+    "config_type": "CU",
+    "source_file": "30_cu_gnb_GNB_PORT_FOR_S1U.conf"
+  }
+]

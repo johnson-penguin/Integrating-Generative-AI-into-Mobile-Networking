@@ -1,0 +1,11 @@
+[
+  {
+    "label": "nr_cellid",
+    "before": "nr_cellid = ;",
+    "after": "nr_cellid = 0x12345678;",
+    "model_reason": "The original value was empty, causing a syntax error. Assigning a valid hexadecimal value resolves the libconfig parsing failure and allows for proper CU initialization.",
+    "reference_reason": "No direct reference, but follows the 3GPP TS 38.413 §9.3.1.7 format for a valid 36-bit identifier",
+    "config_type": "CU",
+    "source_file": "41_cu_gnb_nr_cellid.conf"
+  }
+]
