@@ -1,3 +1,12 @@
+- stage: cu_init_success
+  symptom: "CU initialization success"
+  log_snippet: "Initialization complete without error"
+  related_config: []
+  notes: |
+    The CU started successfully and no issues were detected in the configuration file.
+    All required parameters are correctly set.
+    No changes are required at this stage.
+
 - stage: du_cell_config
   symptom: "Assertion failed due to mismatch between 'active_gNBs' and gNB name in parameter array"
   log_snippet: "Assertion (strcmp(GNBSParams[1].strlistptr[0], *GNBParamList.paramarray[0][2].strptr) == 0) failed!"
@@ -133,26 +142,6 @@
     - initialDLBWPsearchSpaceZero
 
 
-#this is CU Part
-- stage: cu_init
-  symptom: "CU failed to bind SCTP and GTPU sockets due to misconfigured or unavailable local IP addresses, preventing F1AP and NGAP from fully initializing."
-  log_snippet:
-    - "sctp_bindx() SCTP_BINDX_ADD_ADDR failed: errno 99 Cannot assign requested address"
-    - "could not open socket, no SCTP connection established"
-    - "bind: Cannot assign requested address"
-    - "failed to bind socket"
-    - "can't create GTP-U instance"
-  related_config:
-    - local_s_address
-    - local_n_address
-    - sctp_ip_address
-    - gtpu_ip_address
-    - local_bind_ip
-  notes: |
-    1. Make sure the configured local IP address is assigned to an interface on your host (check with `ip a`).
-    2. In simulation or containerized environments, prefer loopback or virtual interface IPs (e.g., `127.0.0.X`).
-    3. Failure in socket binding means no SCTP association or GTP-U path can be established, breaking F1-C and N3 interfaces respectively.
-    4. Double-check the config file for misconfigured IPs under F1 and GTP-U sections.
 
 - stage: cu_config_parsing
   symptom: "CU failed to initialize due to a syntax error in the configuration file, preventing the libconfig module from loading."
@@ -338,8 +327,6 @@
   log_snippet:
     - "PLMNs received from CUUP"
     - "did not match with PLMNs in RRC"
-    - "RC.nb_nr_inst = 1"
-    - "RC.nb_nr_L1_inst = 0"
   related_config:
     - Active_gNBs
     - gNB_name
@@ -357,4 +344,94 @@
   notes: |
     The value for 'Num_Threads_PUSCH' is not a valid integer.
     Ensure all numeric parameters in the config file are set to valid values.
-    In this case, 'asdasfsad' caused a parsing failure. Recommended value: 4 or 8.
+    Recommended value: 4 or 8. (OAI default value: 4)
+
+- stage: cu_config_parsing
+  symptom:  "CU failed to start due to `tr_s_preference` syntax error in configuration file"
+  log_snippet: 
+    - "tr_s_preference"
+  related_config:
+    - tr_s_preference
+  notes: |
+    The configuration contained a self-referencing or undefined enum value (e1),
+    which caused a parsing failure. This line should be replaced with a valid string assignment.
+    CU/DU format: tr_s_preference = "f1";
+
+    In a typical O-RAN deployment, CU and DU are connected via the F1 interface.
+    Therefore, setting tr_s_preference to "f1" is necessary for proper CU/DU communication.
+
+- stage: cu_config_parsing
+  symptom: "Invalid or oversized value for 'nr_cellid' caused libconfig parsing failure"
+  log_snippet: "syntax error"
+  related_config:
+    - nr_cellid
+  notes: |
+    The value assigned to `nr_cellid` must be a valid 36-bit identifier as specified in 3GPP TS 38.413 §9.3.1.7.
+    Acceptable format includes hexadecimal values up to 0xFFFFFFFFF (9 hex digits), or equivalent decimal values.
+    For example: `nr_cellid = 0x1A2B3C4D;`
+    Avoid using strings or characters beyond 0–9 and A–F.
+
+- stage: cu_config_parsing
+  symptom: "CU failed to start due to `local_s_portc` syntax error in configuration file"
+  log_snippet: 
+    - "CU failed to start due to `local_s_portc` syntax error in configuration file"
+  related_config:
+    - local_s_portc
+  notes: |
+    The configuration file failed to parse due to an invalid numeric value assigned to `local_s_portc`.
+
+    In libconfig format, numeric values must be valid decimal (e.g., 501) or hexadecimal (e.g., 0x1F5).
+    Any malformed values—such as containing non-hex characters, incorrect prefixes, or trailing characters—
+    will cause the parser to throw a syntax error.
+
+    This parameter sets the SCTP port used by the CU to establish the F1-C interface connection with the DU.
+    OpenAirInterface (OAI) recommends using port `501` by default for this purpose.
+
+- stage: cu_config_parsing
+  symptom: "CU failed to start due to 'remote_s_portd' syntax error in configuration file"
+  log_snippet: 
+    - "CU failed to start due to 'remote_s_portd' syntax error in configuration file"
+  related_config:
+    - remote_s_portd 
+  notes: |
+    The value for 'remote_s_portd' is not a valid integer.
+    Ensure all numeric parameters in the config file are set to valid values.
+    Recommended value: 2152. (OAI default value: 2152)
+
+    
+- stage: cu_config_parsing
+  symptom: "CU failed to start due to `GNB_PORT_FOR_S1U` syntax error in configuration file"
+  log_snippet: 
+    - "CU failed to start due to `GNB_PORT_FOR_S1U` syntax error in configuration file"
+  related_config:
+    - GNB_PORT_FOR_S1U 
+  notes: |
+    The value for 'GNB_PORT_FOR_S1U' is not a valid integer.
+    Ensure all numeric parameters in the config file are set to valid values.
+    Recommended value: 2152. (OAI default value: 2152)
+
+
+- stage: cu_config_parsing
+  symptom: "CU failed to start due to syntax error at 'local_s_if_name' in configuration file"
+  log_snippet: "CU failed to start due to syntax error at 'local_s_if_name' in configuration file"
+  related_config:
+    - local_s_if_name
+  notes: |
+    The 'local_s_if_name' parameter likely contains a syntax error. Common issues include:
+    - Missing semicolon (`;`) at the end
+    - Missing double quotes (`"`) around interface name
+    - Wrong indentation or being placed outside of NETWORK_INTERFACES block
+
+    CU and DU on the same machine:
+    - local_s_if_name = "lo";
+    
+    CU and DU on different machines:   
+    - Actual NIC name, e.g., `"eno1"`, `"eth0"`, `"ens3"`
+    - local_s_if_name = "eno1";
+    - local_s_if_name = "eth0";
+    - local_s_if_name = "ens3";
+    Ensure the interface name is correctly specified and matches the actual network interface on your system.
+
+    This parameter is used to specify the local interface name for CU-DU communication.
+    Use "lo" if CU and DU are on the same machine, or a valid NIC like "eno1" if they are on separate hosts.
+    default value: "lo"
