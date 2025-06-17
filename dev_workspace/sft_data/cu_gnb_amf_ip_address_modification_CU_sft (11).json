@@ -1,0 +1,11 @@
+[
+  {
+    "label": "amf_ip_address",
+    "before": "amf_ip_address = \"192.168.8.21\";",
+    "after": "amf_ip_address = ({ ipv4 = \"192.168.8.21\" });",
+    "model_reason": "The AMF IP address was provided as a string but needs to be in the format '{ ipv4 = \"ip_address\" }' for correct parsing. This change ensures the CU can establish a connection with the AMF.",
+    "reference_reason": "Matches expected IP.",
+    "config_type": "CU",
+    "source_file": "128_cu_gnb_amf_ip_address.conf"
+  }
+]

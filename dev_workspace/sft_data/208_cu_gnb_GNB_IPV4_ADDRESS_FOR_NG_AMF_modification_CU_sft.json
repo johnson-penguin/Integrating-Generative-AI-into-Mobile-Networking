@@ -1,0 +1,29 @@
+[
+  {
+    "label": "local_s_address",
+    "before": "local_s_address = \"127.0.0.5\";",
+    "after": "local_s_address = \"192.168.8.43\";",
+    "model_reason": "The local_s_address should be the CU's IP address to establish the F1 interface correctly. This ensures proper communication with the DU.",
+    "reference_reason": "matches CU_IP in reference_info",
+    "config_type": "CU",
+    "source_file": "208_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  },
+  {
+    "label": "remote_s_address",
+    "before": "remote_s_address = \"127.0.0.3\";",
+    "after": "remote_s_address = \"192.168.8.43\";",
+    "model_reason": "The remote_s_address should be the DU's IP address to establish the F1 interface correctly. This ensures proper communication with the DU.",
+    "reference_reason": "matches DU_IP in reference_info",
+    "config_type": "CU",
+    "source_file": "208_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  },
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NGU",
+    "before": "GNB_IPV4_ADDRESS_FOR_NGU                 = \"192.168.8.43\";",
+    "after": "GNB_IPV4_ADDRESS_FOR_NGU = \"192.168.8.43\";",
+    "model_reason": "This config specifies the CU IP address for NGU interface. It is required to establish a user plane connection.",
+    "reference_reason": "matches CU_IP in reference_info",
+    "config_type": "CU",
+    "source_file": "208_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  }
+]

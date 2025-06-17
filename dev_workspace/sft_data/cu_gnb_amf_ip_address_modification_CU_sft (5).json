@@ -1,0 +1,29 @@
+[
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NG_AMF",
+    "before": "GNB_IPV4_ADDRESS_FOR_NG_AMF              = \"192.168.8.43\";",
+    "after": "GNB_IPV4_ADDRESS_FOR_NG_AMF = \"192.168.8.43\";",
+    "model_reason": "This parameter specifies the CU's IPv4 address used for the NG interface towards the AMF. While not directly linked in reference table, it still should align with the network configuration.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "CU",
+    "source_file": "120_cu_gnb_amf_ip_address.conf"
+  },
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NGU",
+    "before": "GNB_IPV4_ADDRESS_FOR_NGU                 = \"192.168.8.43\";",
+    "after": "GNB_IPV4_ADDRESS_FOR_NGU = \"192.168.8.43\";",
+    "model_reason": "This parameter specifies the CU's IPv4 address used for the NGU interface towards the UPF. While not directly linked in reference table, it still should align with the network configuration.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "CU",
+    "source_file": "120_cu_gnb_amf_ip_address.conf"
+  },
+  {
+    "label": "plmn_list",
+    "before": "plmn_list = ({ mcc = 001;",
+    "after": "plmn_list = ({ mcc = 001; mnc = 01; mnc_length = 2; snssaiList = ( { sst = 1;}); });",
+    "model_reason": "This parameter configures the PLMN ID and S-NSSAI for the gNB. While no matching information is present in the reference table, the correctness of the parameters is still important to function correctly.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "CU",
+    "source_file": "120_cu_gnb_amf_ip_address.conf"
+  }
+]

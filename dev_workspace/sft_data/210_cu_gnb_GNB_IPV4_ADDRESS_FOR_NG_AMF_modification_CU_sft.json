@@ -1,0 +1,20 @@
+[
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NG_AMF",
+    "before": "GNB_IPV4_ADDRESS_FOR_NG_AMF = GNB_IPV4_ADDRESS_FOR_NG_AMF = \"192.168.8.43\";",
+    "after": "GNB_IPV4_ADDRESS_FOR_NG_AMF = \"192.168.8.43\";",
+    "model_reason": "The original configuration had a syntax error and assigned the parameter to itself.  Setting it to the correct CU IP address allows the CU to communicate with the AMF.",
+    "reference_reason": "Matches CU_IP in reference_info.",
+    "config_type": "CU",
+    "source_file": "210_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  },
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NGU",
+    "before": "GNB_IPV4_ADDRESS_FOR_NGU                 = \"192.168.8.43\";",
+    "after": "GNB_IPV4_ADDRESS_FOR_NGU = \"192.168.8.43\";",
+    "model_reason": "Setting the NGU address to the correct CU IP address to allow the CU to communicate with the UPF. CU and DU are co-located in this deployment",
+    "reference_reason": "Matches DU_IP in reference_info.",
+    "config_type": "CU",
+    "source_file": "210_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  }
+]

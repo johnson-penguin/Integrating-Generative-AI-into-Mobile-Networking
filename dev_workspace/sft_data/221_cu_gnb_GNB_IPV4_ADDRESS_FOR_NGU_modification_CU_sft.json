@@ -1,0 +1,11 @@
+[
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NGU",
+    "before": "GNB_IPV4_ADDRESS_FOR_NGU = GNB_IPV4_ADDRESS_FOR_NGU = 10.0.0.2;",
+    "after": "GNB_IPV4_ADDRESS_FOR_NGU = \"192.168.8.43\";",
+    "model_reason": "The GNB_IPV4_ADDRESS_FOR_NGU should be the CU's IP address to enable proper communication with the UPF. The original configuration had a syntax error and an incorrect IP address.",
+    "reference_reason": "Matches CU_IP in reference_info.",
+    "config_type": "CU",
+    "source_file": "221_cu_gnb_GNB_IPV4_ADDRESS_FOR_NGU.conf"
+  }
+]

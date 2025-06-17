@@ -1,0 +1,11 @@
+[
+  {
+    "label": "amf_ip_address",
+    "before": "amf_ip_address = ({ ipv4 = 192.168.8.21 });",
+    "after": "amf_ip_address = ({ ipv4 = \"192.168.8.21\" });",
+    "model_reason": "The CU failed to start because the AMF IP address was not a string. Correcting this syntax error will allow the CU to establish a connection to the AMF and initialize properly.",
+    "reference_reason": "Matches expected IP address from reference_info.CN_AMF_IP.",
+    "config_type": "CU",
+    "source_file": "119_cu_gnb_amf_ip_address.conf"
+  }
+]

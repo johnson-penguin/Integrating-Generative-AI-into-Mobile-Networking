@@ -1,0 +1,11 @@
+[
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NG_AMF",
+    "before": "GNB_IPV4_ADDRESS_FOR_NG_AMF = \"FMA_GN_ROF_SSERDDA_4VPI_BNG\";",
+    "after": "GNB_IPV4_ADDRESS_FOR_NG_AMF = \"192.168.8.43\";",
+    "model_reason": "The current value is an unresolved string that will cause SCTP to crash. By setting it to a valid local IP, we ensure stable SCTP operation.",
+    "reference_reason": "CU_IP in reference_info is yyy.yyy.yyy.yyy",
+    "config_type": "CU",
+    "source_file": "202_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  }
+]

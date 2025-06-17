@@ -1,0 +1,11 @@
+[
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NG_AMF",
+    "before": "GNB_IPV4_ADDRESS_FOR_NG_AMF = \"192.168.8.300\";",
+    "after": "GNB_IPV4_ADDRESS_FOR_NG_AMF = \"192.168.8.43\";",
+    "model_reason": "GNB_IPV4_ADDRESS_FOR_NG_AMF should be set to the CU's IP address. Setting this parameter to the correct IP allows the CU to bind the local SCTP socket to a specific interface and avoids potential connectivity issues.",
+    "reference_reason": "matches CU_IP from reference_info[\"CU_IP\"]",
+    "config_type": "CU",
+    "source_file": "212_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  }
+]

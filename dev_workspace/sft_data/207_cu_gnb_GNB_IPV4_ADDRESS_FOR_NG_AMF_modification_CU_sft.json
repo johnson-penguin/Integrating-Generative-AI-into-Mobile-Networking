@@ -1,0 +1,20 @@
+[
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NG_AMF",
+    "before": "GNB_IPV4_ADDRESS_FOR_NG_AMF = ;",
+    "after": "GNB_IPV4_ADDRESS_FOR_NG_AMF = \"192.168.8.43\";",
+    "model_reason": "The GNB_IPV4_ADDRESS_FOR_NG_AMF parameter was empty, causing a syntax error. Setting it to the CU's IP address is necessary for the CU to communicate with the AMF.",
+    "reference_reason": "Matches CU_IP from the reference_info dictionary.",
+    "config_type": "CU",
+    "source_file": "207_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  },
+  {
+    "label": "GNB_PORT_FOR_S1U",
+    "before": "GNB_PORT_FOR_S1U                         = 2152;",
+    "after": "GNB_PORT_FOR_S1U = 2152;",
+    "model_reason": "The debug knowledge specifies this parameter should be a valid integer, and recommends 2152 as a valid value, which it already is. Leaving it as is to ensure proper S1-U interface functionality.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "CU",
+    "source_file": "207_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  }
+]

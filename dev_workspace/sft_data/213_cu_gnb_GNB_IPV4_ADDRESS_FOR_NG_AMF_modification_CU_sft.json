@@ -1,0 +1,11 @@
+[
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NG_AMF",
+    "before": "GNB_IPV4_ADDRESS_FOR_NG_AMF = \"localhost\";",
+    "after": "GNB_IPV4_ADDRESS_FOR_NG_AMF = \"192.168.8.43\";",
+    "model_reason": "Setting this to the CU's IP address allows the CU to bind its SCTP socket to a specific interface, avoiding potential routing issues. The 'CU NGAP missing' issue can be caused by an unresolved string assigned to this parameter.",
+    "reference_reason": "Matches 'CU_IP' in reference_info.",
+    "config_type": "CU",
+    "source_file": "213_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  }
+]

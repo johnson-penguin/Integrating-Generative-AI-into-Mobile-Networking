@@ -1,0 +1,11 @@
+[
+  {
+    "label": "GNB_PORT_FOR_S1U",
+    "before": "GNB_PORT_FOR_S1U                         = 2152;",
+    "after": "GNB_PORT_FOR_S1U = 2152;",
+    "model_reason": "The provided debug information indicates a potential issue with this parameter. Ensuring it's set to the default value (2152) as per the debug knowledge can resolve startup failures due to invalid port configurations. It may already be correct, but this ensures no issues in the future",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "CU",
+    "source_file": "225_cu_gnb_GNB_IPV4_ADDRESS_FOR_NGU.conf"
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "label": "amf_ip_address",
+    "before": "amf_ip_address = 1234;",
+    "after": "amf_ip_address = ({ ipv4 = \"192.168.8.21\" });",
+    "model_reason": "The original value of amf_ip_address was incorrect, preventing the CU from establishing an NGAP connection with the AMF. Updating it with the correct AMF IP address resolves the 'CU NGAP missing' issue and allows proper network communication.",
+    "reference_reason": "Matches expected IP from reference_info.CN_AMF_IP = 192.168.8.21",
+    "config_type": "CU",
+    "source_file": "122_cu_gnb_amf_ip_address.conf"
+  }
+]

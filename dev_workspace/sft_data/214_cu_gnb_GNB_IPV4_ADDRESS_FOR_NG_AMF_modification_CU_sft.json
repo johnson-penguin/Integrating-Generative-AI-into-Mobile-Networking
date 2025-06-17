@@ -1,0 +1,29 @@
+[
+  {
+    "label": "local_s_address",
+    "before": "local_s_address = \"127.0.0.5\";",
+    "after": "local_s_address = \"192.168.8.43\";",
+    "model_reason": "The local_s_address should be the IP address of the CU to ensure correct F1 interface setup. This change aligns the local S-address with the CU's IP.",
+    "reference_reason": "Matches CU_IP from reference_info.",
+    "config_type": "CU",
+    "source_file": "214_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  },
+  {
+    "label": "remote_s_address",
+    "before": "remote_s_address = \"127.0.0.3\";",
+    "after": "remote_s_address = \"192.168.8.43\";",
+    "model_reason": "The remote_s_address should be the IP address of the DU to ensure correct F1 interface setup. Using the correct IP of DU allows correct F1AP signaling between CU and DU.",
+    "reference_reason": "Matches DU_IP from reference_info.",
+    "config_type": "CU",
+    "source_file": "214_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  },
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NGU",
+    "before": "GNB_IPV4_ADDRESS_FOR_NGU                 = \"192.168.8.43\";",
+    "after": "GNB_IPV4_ADDRESS_FOR_NGU = \"192.168.8.43\";",
+    "model_reason": "The GNB_IPV4_ADDRESS_FOR_NGU should be the CU's IP address for correct UPF routing. By aligning GNB_IPV4_ADDRESS_FOR_NGU with the CU's IP address, data packets can be routed correctly through CU.",
+    "reference_reason": "Matches CU_IP from reference_info.",
+    "config_type": "CU",
+    "source_file": "214_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  }
+]

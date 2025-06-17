@@ -1,0 +1,20 @@
+[
+  {
+    "label": "amf_ip_address",
+    "before": "amf_ip_address = ({ ipv4 = \"192.168.8.21\" });",
+    "after": "amf_ip_address = ({ ipv4 = \"192.168.8.21\"; });",
+    "model_reason": "Ensures the CU connects to the correct AMF instance for establishing the NG interface, which is critical for control plane functionality.",
+    "reference_reason": "Matches amf_ip_address from reference_info.",
+    "config_type": "CU",
+    "source_file": "215_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  },
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NG_AMF",
+    "before": "GNB_IPV4_ADDRESS_FOR_NG_AMF = \" \";",
+    "after": "GNB_IPV4_ADDRESS_FOR_NG_AMF = \"192.168.8.43\";",
+    "model_reason": "Assigning the CU's IP address to GNB_IPV4_ADDRESS_FOR_NG_AMF ensures that the SCTP socket binds to the correct local interface, preventing connection failures and allowing the CU to communicate with the AMF.",
+    "reference_reason": "Matches CU_IP from reference_info.",
+    "config_type": "CU",
+    "source_file": "215_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "label": "amf_ip_address",
+    "before": "amf_ip_address = ({ ipv4 = \"192.168.8.21\" });",
+    "after": "amf_ip_address = ({ ipv4 = \"192.168.8.21\"; });",
+    "model_reason": "The amf_ip_address needs to be correctly set to allow the CU to establish a connection with the AMF. This ensures that the NGSetupRequest is sent to the correct AMF IP address.",
+    "reference_reason": "matches expected IP from reference_info[\"amf_ip_address \"]",
+    "config_type": "CU",
+    "source_file": "206_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  },
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NG_AMF",
+    "before": "GNB_IPV4_ADDRESS_FOR_NG_AMF = \"@#$%^&*\";",
+    "after": "GNB_IPV4_ADDRESS_FOR_NG_AMF = \"192.168.8.43\";",
+    "model_reason": "GNB_IPV4_ADDRESS_FOR_NG_AMF was set to an invalid string which will cause name resolution failures. Setting it to the CU IP allows SCTP to bind to the correct local address.",
+    "reference_reason": "matches expected IP from reference_info[\"CU_IP\"]",
+    "config_type": "CU",
+    "source_file": "206_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  }
+]

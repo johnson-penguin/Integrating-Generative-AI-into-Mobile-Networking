@@ -1,0 +1,29 @@
+[
+  {
+    "label": "local_s_address",
+    "before": "local_s_address = \"127.0.0.5\";",
+    "after": "local_s_address = \"192.168.8.43\";",
+    "model_reason": "The local_s_address should be set to the CU's IP address for F1 interface communication. This ensures the CU can properly communicate with the DU.",
+    "reference_reason": "Matches the expected CU_IP in reference_info.",
+    "config_type": "CU",
+    "source_file": "209_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  },
+  {
+    "label": "remote_s_address",
+    "before": "remote_s_address = \"127.0.0.3\";",
+    "after": "remote_s_address = \"192.168.8.43\";",
+    "model_reason": "The remote_s_address must be set to the DU's IP address. Incorrect addressing leads to F1 interface setup failures causing CU init failure.",
+    "reference_reason": "Matches the expected DU_IP in reference_info.",
+    "config_type": "CU",
+    "source_file": "209_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  },
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NGU",
+    "before": "GNB_IPV4_ADDRESS_FOR_NGU                 = \"192.168.8.43\";",
+    "after": "GNB_IPV4_ADDRESS_FOR_NGU = \"192.168.8.43\";",
+    "model_reason": "This parameter should be configured with the CU's IP address. It is critical for establishing the data plane (NGU) connectivity for user traffic and failing to set it properly can lead to service disruption.",
+    "reference_reason": "Matches the expected CU_IP in reference_info.",
+    "config_type": "CU",
+    "source_file": "209_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  }
+]

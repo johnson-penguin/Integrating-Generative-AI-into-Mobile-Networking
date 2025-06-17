@@ -1,0 +1,20 @@
+[
+  {
+    "label": "GNB_PORT_FOR_S1U",
+    "before": "GNB_PORT_FOR_S1U                         = 2152;",
+    "after": "GNB_PORT_FOR_S1U = 2152;",
+    "model_reason": "While the debug information suggests checking GNB_PORT_FOR_S1U, the existing value of 2152 matches the OAI default, so no change is required. The error message cited in the issue description pointed to another variable instead, indicating the root problem lies elsewhere.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "CU",
+    "source_file": "201_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  },
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NG_AMF",
+    "before": "GNB_IPV4_ADDRESS_FOR_NG_AMF = GNB_IPV4_ADDRESS_FOR_NG_AMF= 10.0.0.1;",
+    "after": "GNB_IPV4_ADDRESS_FOR_NG_AMF = \"192.168.8.43\";",
+    "model_reason": "The original configuration has a syntax error (`GNB_IPV4_ADDRESS_FOR_NG_AMF = GNB_IPV4_ADDRESS_FOR_NG_AMF= 10.0.0.1;`) and lacks quotes around the IP address. I have fixed the syntax and used the provided IP address `192.168.8.43` from the existing CU configuration.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "CU",
+    "source_file": "201_cu_gnb_GNB_IPV4_ADDRESS_FOR_NG_AMF.conf"
+  }
+]
