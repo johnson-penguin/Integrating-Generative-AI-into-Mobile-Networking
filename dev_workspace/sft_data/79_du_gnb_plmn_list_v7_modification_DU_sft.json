@@ -1,0 +1,11 @@
+[
+  {
+    "label": "plmn_list",
+    "before": "plmn_list = ({ mcc = 001;",
+    "after": "plmn_list = ({ mcc = 001; mnc = 01; mnc_length = 2; });",
+    "model_reason": "The DU configuration is missing the mnc and mnc_length parameters inside plmn_list. Setting mnc_length to 2, which matches the length of mnc(01), resolves the DU initialization failure.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "79_du_gnb_plmn_list_v7.conf"
+  }
+]

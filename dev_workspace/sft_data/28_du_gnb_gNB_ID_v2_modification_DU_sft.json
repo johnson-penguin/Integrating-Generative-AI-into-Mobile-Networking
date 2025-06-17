@@ -1,0 +1,11 @@
+[
+  {
+    "label": "gNB_ID",
+    "before": "gNB_ID = \"0xe00\";",
+    "after": "gNB_ID = 0xe00;",
+    "model_reason": "The DU failed to start because gNB_DU_ID must match the CU's gNB_ID for successful F1 registration. Ensuring this consistency resolves the DU initialization failure.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "27_du_gnb_gNB_ID_v2.conf"
+  }
+]

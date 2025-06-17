@@ -1,0 +1,11 @@
+[
+  {
+    "label": "gNB_name",
+    "before": "gNB_name  =  \"gNB-Test-DU\";",
+    "after": "gNB_name  =  \"gNB-Eurecom-DU\";",
+    "model_reason": "The DU's gNB_name should be consistent with Active_gNBs. Correcting the gNB_name to align with DU naming conventions.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "51_du_gnb_gNB_name_v1.conf"
+  }
+]

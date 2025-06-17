@@ -1,0 +1,11 @@
+[
+  {
+    "label": "gNB_DU_ID",
+    "before": "gNB_DU_ID = \"@invalid\";",
+    "after": "gNB_DU_ID = 0xe00;",
+    "model_reason": "The DU failed to start due to a missing or incorrect gNB_DU_ID. Setting it to the same value as the CU's gNB_ID will resolve the F1 registration failure.",
+    "reference_reason": "Matches CU.gNB_ID = 0xe00.",
+    "config_type": "DU",
+    "source_file": "42_du_gnb_gNB_DU_ID_v4.conf"
+  }
+]

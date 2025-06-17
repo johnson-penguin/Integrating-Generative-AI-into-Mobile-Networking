@@ -1,0 +1,20 @@
+[
+  {
+    "label": "Active_gNBs",
+    "before": "Active_gNBs = ( \"gNB-Eurecom-DU\");",
+    "after": "Active_gNBs = ( \"gNB-Eurecom-DU\" );",
+    "model_reason": "The DU failed to start because the `Active_gNBs` parameter did not include the DU's `gNB_name`. This correction enables the DU to register to itself and resolve initialization issues.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "52_du_gnb_gNB_name_v2.conf"
+  },
+  {
+    "label": "gNB_name",
+    "before": "gNB_name  =  \"\";",
+    "after": "gNB_name  =  \"gNB-Eurecom-DU\";",
+    "model_reason": "Setting gNB_name to gNB-Eurecom-DU ensures that the DU identifies itself correctly within the 5G network. This is crucial for proper DU initialization and functionality.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "52_du_gnb_gNB_name_v2.conf"
+  }
+]

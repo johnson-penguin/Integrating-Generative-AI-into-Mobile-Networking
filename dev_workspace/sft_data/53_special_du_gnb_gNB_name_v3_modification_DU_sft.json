@@ -1,0 +1,29 @@
+[
+  {
+    "label": "Active_gNBs",
+    "before": "Active_gNBs = ( \"gNB-Eurecom-DU\");",
+    "after": "Active_gNBs = ( \"@#$%^&*\" );",
+    "model_reason": "The DU's Active_gNBs parameter must match the gNB_name parameter to ensure the DU registers to itself correctly during initialization, resolving the 'DU failed to start' error.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "53_du_gnb_gNB_name_v3.conf"
+  },
+  {
+    "label": "gNB_name",
+    "before": "gNB_name  =  \"@#$%^&*\";",
+    "after": "gNB_name = \"gNB-Eurecom-DU\";",
+    "model_reason": "Changing gNB_name to a valid name based on typical configurations will enable easier debugging and network setup. It is critical that Active_gNBs matches gNB_name.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "53_du_gnb_gNB_name_v3.conf"
+  },
+  {
+    "label": "Active_gNBs",
+    "before": "Active_gNBs = ( \"@#$%^&*\" );",
+    "after": "Active_gNBs = ( \"gNB-Eurecom-DU\" );",
+    "model_reason": "The DU's Active_gNBs parameter must match the gNB_name parameter to ensure the DU registers to itself correctly during initialization, resolving the 'DU failed to start' error.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "53_du_gnb_gNB_name_v3.conf"
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "label": "gNB_ID",
+    "before": "gNB_ID = \"@#$%^&*\";",
+    "after": "gNB_ID = 0xe00;",
+    "model_reason": "The DU must have the same gNB_ID as the CU, to which it connects, to match its peer end. This change resolves the reported init failure.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "31_du_gnb_gNB_ID_v6.conf"
+  },
+  {
+    "label": "gNB_name",
+    "before": "gNB_name  =  \"gNB-Eurecom-DU\";",
+    "after": "gNB_name  =  \"gNB-Eurecom-CU\";",
+    "model_reason": "The gNB_name must match the CU's gNB_name for correct association and function, resolving startup issues.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "31_du_gnb_gNB_ID_v6.conf"
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "label": "gNB_name",
+    "before": "gNB_name  =  \"invalid-name\";",
+    "after": "gNB_name  =  \"gNB-Eurecom-DU\";",
+    "model_reason": "The DU failed to start because the gNB_name was invalid or didn't match what CU expected. The DU gNB_name has been changed to be consistent with the Active_gNBs configuration.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "56_du_gnb_gNB_name_v6.conf"
+  }
+]

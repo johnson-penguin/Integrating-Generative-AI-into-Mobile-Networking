@@ -1,0 +1,11 @@
+[
+  {
+    "label": "gNB_ID",
+    "before": "gNB_ID = \"\";",
+    "after": "gNB_ID = 0xe00;",
+    "model_reason": "The gNB_ID must be configured to a non-empty value for the DU to start correctly. Using the same gNB_ID as the CU may cause conflicts, consider assigning a unique ID.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "37_du_gnb_gNB_ID_v12.conf"
+  }
+]

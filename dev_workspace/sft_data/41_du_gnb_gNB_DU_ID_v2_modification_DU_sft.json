@@ -1,0 +1,11 @@
+[
+  {
+    "label": "gNB_DU_ID",
+    "before": "gNB_DU_ID = \"\";",
+    "after": "gNB_DU_ID = 0xe00;",
+    "model_reason": "The gNB_DU_ID was missing or invalid.  Setting it to 0xe00 (matching gNB_ID in CU) is necessary for the DU to initialize and connect to the CU via F1 interface.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "40_du_gnb_gNB_DU_ID_v2.conf"
+  }
+]

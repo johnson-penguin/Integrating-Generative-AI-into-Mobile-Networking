@@ -1,0 +1,11 @@
+[
+  {
+    "label": "gNB_ID",
+    "before": "gNB_ID = \"0xe00\";",
+    "after": "gNB_ID = 0xe00;",
+    "model_reason": "The gNB_ID is being set to 0xe00. DU init failure indicates missing gNB_ID. Adding this parameter with the corresponding value to the DU configuration allows the DU to register properly on the network.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "27_du_gnb_gNB_ID_v2.conf"
+  }
+]

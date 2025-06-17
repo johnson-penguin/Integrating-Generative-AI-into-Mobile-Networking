@@ -1,0 +1,11 @@
+[
+  {
+    "label": "nr_cellid",
+    "before": "nr_cellid = -10;",
+    "after": "nr_cellid = 1;",
+    "model_reason": "The DU failed to start due to an invalid nr_cellid (-10).  Setting it to a valid positive integer (1) within the allowed 36-bit range resolves the DU initialization failure and ensures proper NCI computation.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "86_du_gnb_nr_cellid_v3.conf"
+  }
+]

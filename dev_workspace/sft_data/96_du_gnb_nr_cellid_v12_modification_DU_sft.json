@@ -1,0 +1,11 @@
+[
+  {
+    "label": "nr_cellid",
+    "before": "nr_cellid = 9999999999999;",
+    "after": "nr_cellid = 1;",
+    "model_reason": "The DU crashed because nr_cellid was out of the signed 32-bit integer range. Setting it to 1 resolves the crash and aligns with the CU configuration.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "96_du_gnb_nr_cellid_v12.conf"
+  }
+]

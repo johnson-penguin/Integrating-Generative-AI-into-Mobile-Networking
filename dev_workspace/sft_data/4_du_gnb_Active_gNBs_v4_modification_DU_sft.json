@@ -1,0 +1,11 @@
+[
+  {
+    "label": "Active_gNBs",
+    "before": "Active_gNBs = ( true);",
+    "after": "Active_gNBs = ( \"gNB-Eurecom-DU\" );",
+    "model_reason": "DU 'Active_gNBs' must match the 'gNB_name'. Changing the 'Active_gNBs' value here to align it with the DU's 'gNB_name' solves the DU initialization problem.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "4_du_gnb_Active_gNBs_v4.conf"
+  }
+]

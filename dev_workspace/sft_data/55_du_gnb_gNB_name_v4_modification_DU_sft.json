@@ -1,0 +1,11 @@
+[
+  {
+    "label": "gNB_name",
+    "before": "gNB_name  =  1234;",
+    "after": "gNB_name = \"gNB-Eurecom-DU\";",
+    "model_reason": "The original gNB_name was an integer. This update corrects it to the expected string format and ensures consistency with the Active_gNBs parameter for proper DU initialization.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "54_du_gnb_gNB_name_v4.conf"
+  }
+]

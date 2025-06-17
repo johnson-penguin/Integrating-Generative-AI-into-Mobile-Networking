@@ -1,0 +1,11 @@
+[
+  {
+    "label": "plmn_list",
+    "before": "plmn_list = \"\";",
+    "after": "plmn_list = ({ mcc = 001; mnc = 01; mnc_length = 2; snssaiList = ( { sst = 1;}); });",
+    "model_reason": "The DU requires a valid PLMN list to properly propagate the network identity and allow UEs to connect to the cell. Missing this configuration prevents initial cell setup.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "74_du_gnb_plmn_list_v2.conf"
+  }
+]

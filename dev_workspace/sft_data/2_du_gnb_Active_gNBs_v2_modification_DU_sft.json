@@ -1,0 +1,20 @@
+[
+  {
+    "label": "Active_gNBs",
+    "before": "Active_gNBs = ( );",
+    "after": "Active_gNBs = ( \"gNB-Eurecom-CU\");",
+    "model_reason": "The DU initialization failed because Active_gNBs was empty. Populating Active_gNBs in the DU configuration with the gNB name of the CU ensures the DU correctly associates with the CU, resolving the RAN context and PLMN mismatch.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "2_du_gnb_Active_gNBs_v2.conf"
+  },
+  {
+    "label": "gNB_name",
+    "before": "gNB_name  =  \"gNB-Eurecom-DU\";",
+    "after": "gNB_name = \"gNB-Eurecom-CU\";",
+    "model_reason": "The Active_gNBs parameter in the DU configuration must match the gNB_name in the CU configuration. To ensure proper association between the DU and CU, the gNB_name must match the gNB name listed in Active_gNBs of the DU configuration.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "2_du_gnb_Active_gNBs_v2.conf"
+  }
+]

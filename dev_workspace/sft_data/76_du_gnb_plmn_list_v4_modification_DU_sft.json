@@ -1,0 +1,11 @@
+[
+  {
+    "label": "plmn_list",
+    "before": "plmn_list = malformed_entry;",
+    "after": "plmn_list = ({ mcc = 001; mnc = 01; mnc_length = 2; snssaiList = ( { sst = 1;}); });",
+    "model_reason": "The 'plmn_list' entry in the original DU configuration was malformed ('plmn_list = malformed_entry;'). This correction ensures proper network registration and service provisioning by defining the Public Land Mobile Network (PLMN) identifier.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "76_du_gnb_plmn_list_v4.conf"
+  }
+]

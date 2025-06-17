@@ -1,0 +1,11 @@
+[
+  {
+    "label": "gNB_name",
+    "before": "gNB_name = [\"gNB-Eurecom-DU\"];",
+    "after": "gNB_name = \"gNB-Eurecom-DU\";",
+    "model_reason": "The DU's gNB_name must match the Active_gNBs parameter for the DU to initialize correctly.  Ensuring this consistency is critical for the DU to join the network and function as intended.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "59_du_gnb_gNB_name_v9.conf"
+  }
+]

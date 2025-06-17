@@ -1,0 +1,11 @@
+[
+  {
+    "label": "nb_tx",
+    "before": "nb_tx = 0;",
+    "after": "nb_tx = 1;",
+    "model_reason": "The DU is failing because the number of logical antenna ports exceeds the physical antenna count. Setting `nb_tx` to 1 explicitly resolves the initialization failure by ensuring at least one transmit antenna is configured.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "970_du_gnb_nb_tx_v10.conf"
+  }
+]

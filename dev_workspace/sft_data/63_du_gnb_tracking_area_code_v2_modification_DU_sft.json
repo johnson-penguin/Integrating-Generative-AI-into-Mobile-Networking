@@ -1,0 +1,11 @@
+[
+  {
+    "label": "tracking_area_code",
+    "before": "tracking_area_code  = zaxa;",
+    "after": "tracking_area_code  = 1;",
+    "model_reason": "The DU failed due to an invalid tracking_area_code. The value 'zaxa' is not a valid integer. It should be changed to a numerical value.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "63_du_gnb_tracking_area_code_v2.conf"
+  }
+]

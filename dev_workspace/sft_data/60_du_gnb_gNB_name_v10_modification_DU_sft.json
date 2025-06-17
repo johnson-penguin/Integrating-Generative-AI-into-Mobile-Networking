@@ -1,0 +1,11 @@
+[
+  {
+    "label": "gNB_name",
+    "before": "gNB_name = {};",
+    "after": "gNB_name = \"gNB-Eurecom-DU\";",
+    "model_reason": "The DU gNB_name parameter was empty. This needs to be set to the same name as the value in the Active_gNBs parameter.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "60_du_gnb_gNB_name_v10.conf"
+  }
+]

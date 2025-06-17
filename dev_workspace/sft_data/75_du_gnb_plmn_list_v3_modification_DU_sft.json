@@ -1,0 +1,11 @@
+[
+  {
+    "label": "plmn_list",
+    "before": "plmn_list = ({ mcc = \"abc\";",
+    "after": "plmn_list = ({ mcc = 001; mnc = 01; mnc_length = 2; snssaiList = ( { sst = 1;}); });",
+    "model_reason": "The PLMN list should match between CU and DU to ensure seamless handover and network attachment. The current DU configuration has placeholder values.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "75_du_gnb_plmn_list_v3.conf"
+  }
+]

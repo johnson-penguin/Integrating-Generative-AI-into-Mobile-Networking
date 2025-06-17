@@ -1,0 +1,11 @@
+[
+  {
+    "label": "gNB_name",
+    "before": "gNB_name  =  \"@#$%^&*\";",
+    "after": "gNB_name  =  \"gNB-Eurecom-DU\";",
+    "model_reason": "The gNB_name in the DU configuration was invalid. This must be a valid and consistent identifier throughout the network for proper function and debugging.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "53_du_gnb_gNB_name_v3.conf"
+  }
+]

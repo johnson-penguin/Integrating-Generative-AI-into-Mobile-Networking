@@ -1,0 +1,11 @@
+[
+  {
+    "label": "tracking_area_code",
+    "before": "tracking_area_code  = !!@;",
+    "after": "tracking_area_code = 1;",
+    "model_reason": "The DU init failure is due to an invalid or missing tracking_area_code. The original value '!!@;' is clearly invalid.  Setting it to '1' to align with the CU's TAC resolves this initialization failure.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "64_du_gnb_tracking_area_code_v3.conf"
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "label": "gNB_ID",
+    "before": "gNB_ID = true;",
+    "after": "gNB_ID = 0xe00;",
+    "model_reason": "The DU configuration had an error. `gNB_ID` parameter was set to `true`. Ensuring that gNB_DU_ID is equal to CU.gNB_ID resolves F1 registration failure.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "28_du_gnb_gNB_ID_v3.conf"
+  }
+]

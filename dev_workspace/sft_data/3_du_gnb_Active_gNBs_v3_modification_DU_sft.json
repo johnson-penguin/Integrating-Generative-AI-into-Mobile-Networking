@@ -1,0 +1,20 @@
+[
+  {
+    "label": "Active_gNBs",
+    "before": "Active_gNBs = ( 1234);",
+    "after": "Active_gNBs = ( \"gNB-Eurecom-CU\");",
+    "model_reason": "The DU failed to start due to a mismatch or missing Active_gNBs configuration, so it should be updated to match the CU's Active_gNBs to ensure proper communication.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "3_du_gnb_Active_gNBs_v3.conf"
+  },
+  {
+    "label": "gNB_name",
+    "before": "gNB_name  =  \"gNB-Eurecom-DU\";",
+    "after": "gNB_name = \"gNB-Eurecom-DU\";",
+    "model_reason": "Updating the gNB_name in the DU configuration to be consistent with the DU's actual name. This will allow for proper logging and node identication.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "3_du_gnb_Active_gNBs_v3.conf"
+  }
+]

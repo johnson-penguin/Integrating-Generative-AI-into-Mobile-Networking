@@ -1,0 +1,20 @@
+[
+  {
+    "label": "Active_gNBs",
+    "before": "Active_gNBs = ( \"gNB-Eurecom-DU\");",
+    "after": "Active_gNBs = ( \"gNB-Eurecom-DU\" );",
+    "model_reason": "The DU configuration needs to declare itself as the active gNB to correctly initialize and connect to the CU. This ensures the DU registers as a valid endpoint in the network.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "52_du_gnb_gNB_name_v2.conf"
+  },
+  {
+    "label": "gNB_name",
+    "before": "gNB_name  =  \"\";",
+    "after": "gNB_name = \"gNB-Eurecom-DU\";",
+    "model_reason": "Setting the gNB_name in the DU configuration is essential for identification and proper communication with the CU. This name must match the configuration within the CU's Active_gNBs list if multiple DUs are being managed.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "52_du_gnb_gNB_name_v2.conf"
+  }
+]

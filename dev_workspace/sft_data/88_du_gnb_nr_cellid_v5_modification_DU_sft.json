@@ -1,0 +1,11 @@
+[
+  {
+    "label": "nr_cellid",
+    "before": "nr_cellid = 0xFFFFFFFF;",
+    "after": "nr_cellid = 1;",
+    "model_reason": "The DU failed to start because the original value of `nr_cellid` (0xFFFFFFFF) exceeded the 36-bit limit. Changed to a valid value (1) to allow DU initialization.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "88_du_gnb_nr_cellid_v5.conf"
+  }
+]

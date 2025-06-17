@@ -1,0 +1,11 @@
+[
+  {
+    "label": "Active_gNBs",
+    "before": "Active_gNBs = ( \"\");",
+    "after": "Active_gNBs = ( \"gNB-Eurecom-CU\");",
+    "model_reason": "The DU's Active_gNBs must match the gNB_name of the CU to establish a connection. Setting it to the CU's gNB name ensures correct association.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "12_du_gnb_Active_gNBs_v12.conf"
+  }
+]

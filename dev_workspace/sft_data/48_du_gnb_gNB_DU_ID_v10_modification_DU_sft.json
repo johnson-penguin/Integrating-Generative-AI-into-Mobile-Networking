@@ -1,0 +1,11 @@
+[
+  {
+    "label": "gNB_DU_ID",
+    "before": "gNB_DU_ID = {};",
+    "after": "gNB_DU_ID = 0xe00;",
+    "model_reason": "The DU configuration file was missing the `gNB_DU_ID` parameter. Setting it to 0xe00 to match the `gNB_ID` in the CU configuration ensures successful F1 registration.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "48_du_gnb_gNB_DU_ID_v10.conf"
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "label": "plmn_list",
+    "before": "plmn_list = ({ mcc = 999;",
+    "after": "plmn_list = ({ mcc = 999; mnc = 999; mnc_length = 3; });",
+    "model_reason": "The DU failed to start due to an invalid `mnc_length` parameter. Since the MNC is '999', the `mnc_length` must be set to 3 to match the digit length of the MNC, resolving the DU initialization failure.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "77_du_gnb_plmn_list_v5.conf"
+  }
+]

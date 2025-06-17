@@ -1,0 +1,11 @@
+[
+  {
+    "label": "nr_cellid",
+    "before": "nr_cellid = -10;",
+    "after": "nr_cellid = 1;",
+    "model_reason": "The original value '-10' is outside the valid range (0 to 68719476735). Changed to '1' to resolve the DU initialization failure.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "DU",
+    "source_file": "86_du_gnb_nr_cellid_v3.conf"
+  }
+]
