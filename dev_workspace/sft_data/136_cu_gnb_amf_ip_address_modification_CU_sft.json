@@ -1,0 +1,11 @@
+[
+  {
+    "label": "amf_ip_address",
+    "before": "amf_ip_address = ({ ipv4 = \"127.0.0.1\" });",
+    "after": "amf_ip_address = ({ ipv4 = \"192.168.8.21\" });",
+    "model_reason": "The AMF IP address should be configured correctly for proper communication between the gNB and the core network. Updating it based on the provided reference ensures correct connectivity.",
+    "reference_reason": "Matches amf_ip_address in reference_info.",
+    "config_type": "CU",
+    "source_file": "136_cu_gnb_amf_ip_address.conf"
+  }
+]

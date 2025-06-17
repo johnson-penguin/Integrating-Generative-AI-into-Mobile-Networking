@@ -1,0 +1,11 @@
+[
+  {
+    "label": "amf_ip_address",
+    "before": "amf_ip_address = \"\";",
+    "after": "amf_ip_address = ({ ipv4 = \"192.168.8.21\" });",
+    "model_reason": "The CU NGAP is failing to connect because the amf_ip_address is not set correctly. Setting it to the correct IP address allows the CU to establish a connection with the AMF.",
+    "reference_reason": "Matches expected IP.",
+    "config_type": "CU",
+    "source_file": "125_cu_gnb_amf_ip_address.conf"
+  }
+]

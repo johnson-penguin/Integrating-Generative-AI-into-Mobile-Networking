@@ -1,0 +1,11 @@
+[
+  {
+    "label": "amf_ip_address",
+    "before": "amf_ip_address = {};",
+    "after": "amf_ip_address = ({ ipv4 = \"192.168.8.21\" });",
+    "model_reason": "The `amf_ip_address` was empty, causing the CU to fail to send the NGSetupRequest to the AMF. Setting it to the correct AMF IP address will resolve this issue.",
+    "reference_reason": "Matches expected IP from reference_info.CN_AMF_IP = 192.168.8.21.",
+    "config_type": "CU",
+    "source_file": "133_cu_gnb_amf_ip_address.conf"
+  }
+]

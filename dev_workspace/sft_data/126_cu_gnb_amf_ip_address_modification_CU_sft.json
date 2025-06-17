@@ -1,0 +1,11 @@
+[
+  {
+    "label": "amf_ip_address",
+    "before": "amf_ip_address = \"sserdda_pi_fma\";",
+    "after": "amf_ip_address = ({ ipv4 = \"192.168.8.21\" });",
+    "model_reason": "The original value for amf_ip_address was invalid.  Setting it to the correct value from the reference will allow the CU to connect to the AMF.",
+    "reference_reason": "Matches expected IP in reference_info.CN_AMF_IP = 192.168.8.21.",
+    "config_type": "CU",
+    "source_file": "126_cu_gnb_amf_ip_address.conf"
+  }
+]

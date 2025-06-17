@@ -1,0 +1,11 @@
+[
+  {
+    "label": "amf_ip_address",
+    "before": "amf_ip_address = ({ });",
+    "after": "amf_ip_address = ( { ipv4 = \"192.168.8.21\"; } );",
+    "model_reason": "The CU needs the correct AMF IP address to establish a connection with the core network. The original configuration was empty, causing the CU to fail to initialize.",
+    "reference_reason": "Matches amf_ip_address from reference_info.",
+    "config_type": "CU",
+    "source_file": "134_cu_gnb_amf_ip_address.conf"
+  }
+]
