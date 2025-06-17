@@ -1,0 +1,11 @@
+[
+  {
+    "label": "ciphering_algorithms",
+    "before": "ciphering_algorithms = ( \"nea1\", 1234 );",
+    "after": "ciphering_algorithms = ( \"nea1\" );",
+    "model_reason": "The current configuration includes an invalid value (1234) for ciphering_algorithms, which is causing the CU to fail initialization. Removing the invalid entry ensures that only supported algorithms are used, resolving the startup error.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "CU",
+    "source_file": "27_cu_gnb_ciphering_algorithms.conf"
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "label": "ciphering_algorithms",
+    "before": "ciphering_algorithms = ( \"nea!\" );",
+    "after": "ciphering_algorithms = ( \"nea0\" );",
+    "model_reason": "The current configuration 'nea!' is an invalid ciphering algorithm. Replacing it with 'nea0', a valid and commonly supported option, will resolve the CU initialization failure related to ciphering.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "CU",
+    "source_file": "28_cu_gnb_ciphering_algorithms.conf"
+  }
+]

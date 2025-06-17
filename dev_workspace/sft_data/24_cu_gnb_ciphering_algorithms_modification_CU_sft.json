@@ -1,0 +1,29 @@
+[
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NG_AMF",
+    "before": "GNB_IPV4_ADDRESS_FOR_NG_AMF              = \"192.168.8.43\";",
+    "after": "GNB_IPV4_ADDRESS_FOR_NG_AMF = \"192.168.8.43\";",
+    "model_reason": "This sets the CU's IP address for the NG interface, allowing the AMF to correctly route traffic to the CU. Using the correct IP is essential for establishing a stable connection.",
+    "reference_reason": "Matches CU_IP in reference_info.",
+    "config_type": "CU",
+    "source_file": "24_cu_gnb_ciphering_algorithms.conf"
+  },
+  {
+    "label": "GNB_IPV4_ADDRESS_FOR_NGU",
+    "before": "GNB_IPV4_ADDRESS_FOR_NGU                 = \"192.168.8.43\";",
+    "after": "GNB_IPV4_ADDRESS_FOR_NGU = \"192.168.8.43\";",
+    "model_reason": "This configuration ensures that the CU uses the correct IP address for the NGu interface, which is used for user plane data transmission. Incorrect NGu configuration can lead to data connectivity issues for UEs.",
+    "reference_reason": "Matches CU_IP in reference_info.",
+    "config_type": "CU",
+    "source_file": "24_cu_gnb_ciphering_algorithms.conf"
+  },
+  {
+    "label": "ciphering_algorithms",
+    "before": "ciphering_algorithms = ( nea4 );",
+    "after": "ciphering_algorithms = ( \"nea0\" );",
+    "model_reason": "The original value 'nea4' is likely invalid and may not be supported. 'nea0' is a common ciphering algorithm supported by 5G networks. Ensure this algorithm is supported by both the CU and AMF for successful key exchange and data protection.",
+    "reference_reason": "No relevant information found in reference_context.",
+    "config_type": "CU",
+    "source_file": "24_cu_gnb_ciphering_algorithms.conf"
+  }
+]
