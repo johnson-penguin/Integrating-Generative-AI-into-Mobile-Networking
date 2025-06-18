@@ -1,1 +1,1 @@
-![LLM-NV drawio](https://github.com/user-attachments/assets/5efd568a-6d1e-44a2-837a-c75b41a4ca10)
+![論文-NV drawio](https://github.com/user-attachments/assets/fdbf4ec4-803a-4ba4-922d-c47cf3e2751d)
