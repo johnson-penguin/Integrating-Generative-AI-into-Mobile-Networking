@@ -1,0 +1,366 @@
+[
+  {
+    "label": "Active_gNBs",
+    "content": "Active_gNBs = ( \"\");"
+  },
+  {
+    "label": "Asn1_verbosity",
+    "content": "Asn1_verbosity = \"none\";"
+  },
+  {
+    "label": "gNB_ID",
+    "content": "gNB_ID = 0xe00;"
+  },
+  {
+    "label": "gNB_DU_ID",
+    "content": "gNB_DU_ID = 0xe00;"
+  },
+  {
+    "label": "gNB_name",
+    "content": "gNB_name  =  \"gNB-Eurecom-DU\";"
+  },
+  {
+    "label": "tracking_area_code",
+    "content": "tracking_area_code  = 1;"
+  },
+  {
+    "label": "plmn_list",
+    "content": "plmn_list = ({ mcc = 001; mnc = 01; mnc_length = 2; snssaiList = ( { sst = 1;}); });"
+  },
+  {
+    "label": "nr_cellid",
+    "content": "nr_cellid = 1;"
+  },
+  {
+    "label": "min_rxtxtime",
+    "content": "min_rxtxtime                                              = 6;"
+  },
+  {
+    "label": "force_256qam_off",
+    "content": "force_256qam_off = 1;"
+  },
+  {
+    "label": "physCellId",
+    "content": "physCellId                                                    = 0;"
+  },
+  {
+    "label": "absoluteFrequencySSB",
+    "content": "absoluteFrequencySSB                                          = 641280;"
+  },
+  {
+    "label": "dl_frequencyBand",
+    "content": "dl_frequencyBand                                                 = 78;"
+  },
+  {
+    "label": "dl_absoluteFrequencyPointA",
+    "content": "dl_absoluteFrequencyPointA                                       = 640008;"
+  },
+  {
+    "label": "dl_offstToCarrier",
+    "content": "dl_offstToCarrier                                              = 0;"
+  },
+  {
+    "label": "dl_subcarrierSpacing",
+    "content": "dl_subcarrierSpacing                                           = 1;"
+  },
+  {
+    "label": "dl_carrierBandwidth",
+    "content": "dl_carrierBandwidth                                            = 106;"
+  },
+  {
+    "label": "initialDLBWPlocationAndBandwidth",
+    "content": "initialDLBWPlocationAndBandwidth                               = 28875; # 6366 12925 12956 28875 12952"
+  },
+  {
+    "label": "initialDLBWPsubcarrierSpacing",
+    "content": "initialDLBWPsubcarrierSpacing                                           = 1;"
+  },
+  {
+    "label": "initialDLBWPcontrolResourceSetZero",
+    "content": "initialDLBWPcontrolResourceSetZero                              = 12;"
+  },
+  {
+    "label": "initialDLBWPsearchSpaceZero",
+    "content": "initialDLBWPsearchSpaceZero                                             = 0;"
+  },
+  {
+    "label": "ul_frequencyBand",
+    "content": "ul_frequencyBand                                                 = 78;"
+  },
+  {
+    "label": "ul_offstToCarrier",
+    "content": "ul_offstToCarrier                                              = 0;"
+  },
+  {
+    "label": "ul_subcarrierSpacing",
+    "content": "ul_subcarrierSpacing                                           = 1;"
+  },
+  {
+    "label": "ul_carrierBandwidth",
+    "content": "ul_carrierBandwidth                                            = 106;"
+  },
+  {
+    "label": "pMax",
+    "content": "pMax                                                          = 20;"
+  },
+  {
+    "label": "initialULBWPlocationAndBandwidth",
+    "content": "initialULBWPlocationAndBandwidth                            = 28875;"
+  },
+  {
+    "label": "initialULBWPsubcarrierSpacing",
+    "content": "initialULBWPsubcarrierSpacing                                           = 1;"
+  },
+  {
+    "label": "prach_msg1_FDM",
+    "content": "prach_msg1_FDM                                            = 0;"
+  },
+  {
+    "label": "prach_msg1_FrequencyStart",
+    "content": "prach_msg1_FrequencyStart                                 = 0;"
+  },
+  {
+    "label": "zeroCorrelationZoneConfig",
+    "content": "zeroCorrelationZoneConfig                                 = 13;"
+  },
+  {
+    "label": "preambleReceivedTargetPower",
+    "content": "preambleReceivedTargetPower                               = -96;"
+  },
+  {
+    "label": "preambleTransMax",
+    "content": "preambleTransMax                                          = 6;"
+  },
+  {
+    "label": "powerRampingStep",
+    "content": "powerRampingStep                                            = 1;"
+  },
+  {
+    "label": "ra_ResponseWindow",
+    "content": "ra_ResponseWindow                                           = 4;"
+  },
+  {
+    "label": "ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR",
+    "content": "ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR                = 4;"
+  },
+  {
+    "label": "ssb_perRACH_OccasionAndCB_PreamblesPerSSB",
+    "content": "ssb_perRACH_OccasionAndCB_PreamblesPerSSB                   = 14;"
+  },
+  {
+    "label": "ra_ContentionResolutionTimer",
+    "content": "ra_ContentionResolutionTimer                                = 7;"
+  },
+  {
+    "label": "rsrp_ThresholdSSB",
+    "content": "rsrp_ThresholdSSB                                           = 19;"
+  },
+  {
+    "label": "prach_RootSequenceIndex_PR",
+    "content": "prach_RootSequenceIndex_PR                                  = 2;"
+  },
+  {
+    "label": "prach_RootSequenceIndex",
+    "content": "prach_RootSequenceIndex                                     = 1;"
+  },
+  {
+    "label": "msg3_DeltaPreamble",
+    "content": "msg3_DeltaPreamble                                          = 1;"
+  },
+  {
+    "label": "p0_NominalWithGrant",
+    "content": "p0_NominalWithGrant                                         =-90;"
+  },
+  {
+    "label": "pucchGroupHopping",
+    "content": "pucchGroupHopping                                           = 0;"
+  },
+  {
+    "label": "hoppingId",
+    "content": "hoppingId                                                   = 40;"
+  },
+  {
+    "label": "p0_nominal",
+    "content": "p0_nominal                                                  = -90;"
+  },
+  {
+    "label": "ssb_PositionsInBurst_Bitmap",
+    "content": "ssb_PositionsInBurst_Bitmap                                   = 1;"
+  },
+  {
+    "label": "ssb_periodicityServingCell",
+    "content": "ssb_periodicityServingCell                                    = 2;"
+  },
+  {
+    "label": "dmrs_TypeA_Position",
+    "content": "dmrs_TypeA_Position                                           = 0;"
+  },
+  {
+    "label": "subcarrierSpacing",
+    "content": "subcarrierSpacing                                             = 1;"
+  },
+  {
+    "label": "referenceSubcarrierSpacing",
+    "content": "referenceSubcarrierSpacing                                    = 1;"
+  },
+  {
+    "label": "dl_UL_TransmissionPeriodicity",
+    "content": "dl_UL_TransmissionPeriodicity                                 = 6;"
+  },
+  {
+    "label": "nrofDownlinkSlots",
+    "content": "nrofDownlinkSlots                                             = 7;"
+  },
+  {
+    "label": "nrofDownlinkSymbols",
+    "content": "nrofDownlinkSymbols                                           = 6;"
+  },
+  {
+    "label": "nrofUplinkSlots",
+    "content": "nrofUplinkSlots                                               = 2;"
+  },
+  {
+    "label": "nrofUplinkSymbols",
+    "content": "nrofUplinkSymbols                                             = 4;"
+  },
+  {
+    "label": "ssPBCH_BlockPower",
+    "content": "ssPBCH_BlockPower                                             = -25;"
+  },
+  {
+    "label": "SCTP_INSTREAMS",
+    "content": "SCTP_INSTREAMS  = 2;"
+  },
+  {
+    "label": "SCTP_OUTSTREAMS",
+    "content": "SCTP_OUTSTREAMS = 2;"
+  },
+  {
+    "label": "num_cc",
+    "content": "num_cc           = 1;"
+  },
+  {
+    "label": "tr_s_preference",
+    "content": "tr_s_preference  = \"local_L1\";"
+  },
+  {
+    "label": "tr_n_preference",
+    "content": "tr_n_preference  = \"f1\";"
+  },
+  {
+    "label": "local_n_address",
+    "content": "local_n_address = \"127.0.0.3\";"
+  },
+  {
+    "label": "remote_n_address",
+    "content": "remote_n_address = \"127.0.0.1\";"
+  },
+  {
+    "label": "local_n_portc",
+    "content": "local_n_portc   = 500;"
+  },
+  {
+    "label": "local_n_portd",
+    "content": "local_n_portd   = 2152;"
+  },
+  {
+    "label": "remote_n_portc",
+    "content": "remote_n_portc  = 501;"
+  },
+  {
+    "label": "remote_n_portd",
+    "content": "remote_n_portd  = 2152;"
+  },
+  {
+    "label": "num_cc",
+    "content": "num_cc = 1;"
+  },
+  {
+    "label": "tr_n_preference",
+    "content": "tr_n_preference = \"local_mac\";"
+  },
+  {
+    "label": "prach_dtx_threshold",
+    "content": "prach_dtx_threshold = 120;"
+  },
+  {
+    "label": "pucch0_dtx_threshold",
+    "content": "pucch0_dtx_threshold = 150;"
+  },
+  {
+    "label": "ofdm_offset_divisor",
+    "content": "ofdm_offset_divisor = 8; #set this to UINT_MAX for offset 0"
+  },
+  {
+    "label": "bands",
+    "content": "bands          = [78];"
+  },
+  {
+    "label": "max_pdschReferenceSignalPower",
+    "content": "max_pdschReferenceSignalPower = -27;"
+  },
+  {
+    "label": "max_rxgain",
+    "content": "max_rxgain                    = 114;"
+  },
+  {
+    "label": "eNB_instances",
+    "content": "eNB_instances  = [0];"
+  },
+  {
+    "label": "clock_src",
+    "content": "clock_src = \"internal\";"
+  },
+  {
+    "label": "serveraddr",
+    "content": "serveraddr = \"server\";"
+  },
+  {
+    "label": "serverport",
+    "content": "serverport = 4043;"
+  },
+  {
+    "label": "options",
+    "content": "options = (); #(\"saviq\"); or/and \"chanmod\""
+  },
+  {
+    "label": "modelname",
+    "content": "modelname = \"AWGN\";"
+  },
+  {
+    "label": "global_log_level",
+    "content": "global_log_level                      =\"info\";"
+  },
+  {
+    "label": "hw_log_level",
+    "content": "hw_log_level                          =\"info\";"
+  },
+  {
+    "label": "phy_log_level",
+    "content": "phy_log_level                         =\"info\";"
+  },
+  {
+    "label": "mac_log_level",
+    "content": "mac_log_level                         =\"info\";"
+  },
+  {
+    "label": "rlc_log_level",
+    "content": "rlc_log_level                         =\"info\";"
+  },
+  {
+    "label": "pdcp_log_level",
+    "content": "pdcp_log_level                        =\"info\";"
+  },
+  {
+    "label": "rrc_log_level",
+    "content": "rrc_log_level                         =\"info\";"
+  },
+  {
+    "label": "f1ap_log_level",
+    "content": "f1ap_log_level                         =\"debug\";"
+  },
+  {
+    "label": "ngap_log_level",
+    "content": "ngap_log_level                         =\"debug\";"
+  }
+]
