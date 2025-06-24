@@ -1,16 +1,23 @@
-- stage: du_cell_config
-  symptom: "Assertion failed due to mismatch between 'active_gNBs' and gNB name in parameter array"
-  log_snippet: "Assertion (strcmp(GNBSParams[1].strlistptr[0], *GNBParamList.paramarray[0][2].strptr) == 0) failed!"
-  related_config:
-    - active_gNBs
+- stage: cu_init_success
+  type: CU
+  symptom: "CU initialization success"
+  log_snippet: "Initialization complete without error"
+  related_config: []
+  notes: |
+    The CU started successfully and no issues were detected in the configuration file.
+    All required parameters are correctly set.
+    No changes are required at this stage.
 
-- stage: config_check
-  symptom: "Reserved tracking area code used; configuration rejected before initialization"
-  log_snippet: |
-    "[CONFIG] config_check_intrange: tracking_area_code: 0 invalid value, authorized range: 1 65533
-    [ENB_APP]   [CONFIG] config_execcheck: section gNBs.[0] 1 parameters with wrong value"
-  related_config:
-    - tracking_area_code
+- stage: du_init_success
+  type: DU
+  symptom: "DU initialization success"
+  log_snippet: "Initialization complete without error"
+  related_config: []
+  notes: |
+    The DU started successfully and no issues were detected in the configuration file.
+    All required parameters are correctly set.
+    No changes are required at this stage.
+
 
 - stage: mac_rlc_config
   symptom: "Invalid value for maxMIMO_layers caused assertion failure and forced gNB exit. This was caused by changing the pdsch_AntennaPorts_XP parameter into a negative number"
@@ -133,26 +140,6 @@
     - initialDLBWPsearchSpaceZero
 
 
-#this is CU Part
-- stage: cu_init
-  symptom: "CU failed to bind SCTP and GTPU sockets due to misconfigured or unavailable local IP addresses, preventing F1AP and NGAP from fully initializing."
-  log_snippet:
-    - "sctp_bindx() SCTP_BINDX_ADD_ADDR failed: errno 99 Cannot assign requested address"
-    - "could not open socket, no SCTP connection established"
-    - "bind: Cannot assign requested address"
-    - "failed to bind socket"
-    - "can't create GTP-U instance"
-  related_config:
-    - local_s_address
-    - local_n_address
-    - sctp_ip_address
-    - gtpu_ip_address
-    - local_bind_ip
-  notes: |
-    1. Make sure the configured local IP address is assigned to an interface on your host (check with `ip a`).
-    2. In simulation or containerized environments, prefer loopback or virtual interface IPs (e.g., `127.0.0.X`).
-    3. Failure in socket binding means no SCTP association or GTP-U path can be established, breaking F1-C and N3 interfaces respectively.
-    4. Double-check the config file for misconfigured IPs under F1 and GTP-U sections.
 
 - stage: cu_config_parsing
   symptom: "CU failed to initialize due to a syntax error in the configuration file, preventing the libconfig module from loading."
@@ -171,16 +158,24 @@
     4. Until this is fixed, the CU process will not proceed past configuration loading.
 
 - stage: cu_config_parsing
-  symptom: "Unknown or unsupported ciphering algorithm specified in CU config file"
+  type: CU
+  symptom: "CU failed due to unknown ciphering algorithm"
   log_snippet:
-    - "unknown ciphering algorithm"
-    - "ciphering_algorithms"
+    - 'unknown ciphering algorithm "nea4" in section "security"'
   related_config:
     - ciphering_algorithms
   notes: |
-    The ciphering_algorithms parameter contains an unsupported value (e.g., "nea4").
-    Only use supported values: nea0, nea1, nea2, nea3.
-    Remove or correct any unsupported ciphering algorithms to avoid CU startup failure.
+    The ciphering algorithm `"nea4"` is not supported by the CU stack.
+    Valid values typically include: `"nea0"`, `"nea1"`, `"nea2"` — optionally `"nea3"` if implemented.
+
+    - To fix:
+      Replace with a valid option, such as:
+      ```c
+      ciphering_algorithms = ( "nea0" );
+      ```
+
+    - Using unsupported values will cause the CU to reject the configuration during initialization.
+
 
 - stage: cu_config_parsing
   symptom: "Unknown or unsupported integrity algorithm specified in CU config file"
@@ -226,49 +221,37 @@
     Check for missing semicolons, brackets, or unsupported parameter values.
     Ensure all configuration statements are correctly formatted and within allowed ranges.
 
-- stage: cu_config_parsing
-  symptom: "CU failed to start due to mismatch or missing Active_gNBs configuration"
-  log_snippet:
-    - "Assertion (strcmp(GNBSParams[1].strlistptr[0], *GNBParamList.paramarray[0][2].strptr) == 0) failed!"
-    - "no active gNB found/mismatch of gNBs"
-    - "read_du_cell_info() Exiting OAI softmodem: _Assert_Exit_"
-  related_config:
-    - Active_gNBs
-    - gNB_name
-  notes: |
-    This error indicates that the DU configuration's Active_gNBs or gNB_name does not match the expected value or is missing.
-    Ensure that the Active_gNBs list and gNB_name in the DU config file are correct and consistent with the rest of the system.
-    A mismatch or missing entry will cause the DU to exit with an assertion failure.
 
-- stage: du_config_parsing
+- stage: du_init
+  type: DU
   symptom: "DU failed to start due to mismatch or missing Active_gNBs configuration"
   log_snippet:
-    - "Assertion (strcmp(GNBSParams[1].strlistptr[0], *GNBParamList.paramarray[0][2].strptr) == 0) failed!"
     - "no active gNB found/mismatch of gNBs"
     - "read_du_cell_info() Exiting OAI softmodem: _Assert_Exit_"
   related_config:
     - Active_gNBs
     - gNB_name
   notes: |
-    This error indicates that the DU configuration's Active_gNBs or gNB_name does not match the expected value or is missing.
-    Ensure that the Active_gNBs list and gNB_name in the DU config file are correct and consistent with the rest of the system.
-    A mismatch or missing entry will cause the DU to exit with an assertion failure.
+    This error indicates that the DU configuration's `Active_gNBs` is either missing or does not include the correct `gNB_name`.
+    To resolve this issue:
+    
+    - Ensure that `Active_gNBs` includes a name that **exactly matches** the DU's `gNB_name`. This name is case-sensitive.
+    - A mismatch will prevent the DU from establishing a CU connection and result in a softmodem assertion failure.
 
-- stage: du_config_parsing
-  symptom: "DU failed to start due to mismatch or missing gNB_name configuration"
-  log_snippet:
-    - "Assertion (strcmp(GNBSParams[1].strlistptr[0], *GNBParamList.paramarray[0][2].strptr) == 0) failed!"
-    - "no active gNB found/mismatch of gNBs"
-    - "read_du_cell_info() Exiting OAI softmodem: _Assert_Exit_"
-  related_config:
-    - gNB_name
-    - Active_gNBs
-  notes: |
-    This error indicates that the gNB_name or Active_gNBs in the DU configuration does not match the expected value or is missing.
-    Ensure that the gNB_name and Active_gNBs in the DU config file are correct and consistent with the rest of the system.
-    A mismatch or missing entry will cause the DU to exit with an assertion failure.
+    - Example fix:
+    If the DU config includes:
+      ```c
+      gNB_name = "gNB-Eurecom-DU";
+      ```
+    Then you must set:
+      ```c
+      Active_gNBs = ( "gNB-Eurecom-DU" );
+      ```
+    This ensures DU registration to itself is correctly resolved during initialization.
+
 
 - stage: du_f1_setup
+  type: DU
   symptom: "F1AP Setup Failure reported by CU, possible configuration mismatch between DU and CU"
   log_snippet:
     - "the CU reported F1AP Setup Failure"
@@ -284,7 +267,216 @@
     Ensure that these parameters are consistent and correctly set in both DU and CU configuration files.
     A mismatch will prevent the DU from establishing an F1 interface with the CU.
 
+
+- stage: cu_init
+  type: CU
+  symptom: "Mismatch between Active_gNBs and gNB_name causes invalid RAN context and PLMN mismatch"
+  log_snippet:
+    - "PLMNs received from CUUP"
+    - "did not match with PLMNs in RRC"
+    - "Assertion (RC.nb_nr_inst == 1) failed!"
+  related_config:
+    - Active_gNBs
+    - gNB_name
+  notes: |
+    The Active_gNBs parameter should be a list of gNB names (e.g., Active_gNBs = ("gNB-Eurecom-CU");) that correspond exactly to the gNB_name fields declared in the gNBs section. This matching is case-sensitive and essential for correct initialization.
+    If a gNB name listed in Active_gNBs is missing or not defined in the gNBs section, it can result in nb_nr_inst = 0, triggering an assertion failure and causing the CU to initialize incorrectly — potentially with an invalid PLMN or zero RRC instances.
+    To avoid this error, ensure that:
+    Every name in Active_gNBs has a corresponding gNB_name block defined.
+    All names match exactly, including case.
+
+
+- stage: cu_config_parsing
+  type: CU
+  symptom: "CU failed to start due to syntax error in configuration file"
+  log_snippet: "syntax error"
+  related_config:
+    - Num_Threads_PUSCH
+  notes: |
+    The value for 'Num_Threads_PUSCH' is not a valid integer.
+    Ensure all numeric parameters in the config file are set to valid values.
+    Recommended value: 4 or 8. (OAI default value: 4)
+
+- stage: cu_config_parsing
+  type: CU
+  symptom:  "CU failed to start due to `tr_s_preference` syntax error in configuration file"
+  log_snippet: 
+    - "tr_s_preference"
+  related_config:
+    - tr_s_preference
+  notes: |
+    The configuration contained a self-referencing or undefined enum value (e1),
+    which caused a parsing failure. This line should be replaced with a valid string assignment.
+    CU/DU format: tr_s_preference = "f1";
+
+    In a typical O-RAN deployment, CU and DU are connected via the F1 interface.
+    Therefore, setting tr_s_preference to "f1" is necessary for proper CU/DU communication.
+
+- stage: cu_config_parsing
+  type: CU
+  symptom: "Invalid or oversized value for 'nr_cellid' caused libconfig parsing failure"
+  log_snippet: "syntax error"
+  related_config:
+    - nr_cellid
+  notes: |
+    The value assigned to `nr_cellid` must be a valid 36-bit identifier as specified in 3GPP TS 38.413 §9.3.1.7.
+    Acceptable format includes hexadecimal values up to 0xFFFFFFFFF (9 hex digits), or equivalent decimal values.
+    For example: `nr_cellid = 0x1A2B3C4D;`
+    Avoid using strings or characters beyond 0–9 and A–F.
+
+- stage: cu_config_parsing
+  type: CU
+  symptom: "CU failed to start due to `local_s_portc` syntax error in configuration file"
+  log_snippet: 
+    - "CU failed to start due to `local_s_portc` syntax error in configuration file"
+  related_config:
+    - local_s_portc
+  notes: |
+    The configuration file failed to parse due to an invalid numeric value assigned to `local_s_portc`.
+
+    In libconfig format, numeric values must be valid decimal (e.g., 501) or hexadecimal (e.g., 0x1F5).
+    Any malformed values—such as containing non-hex characters, incorrect prefixes, or trailing characters—
+    will cause the parser to throw a syntax error.
+
+    This parameter sets the SCTP port used by the CU to establish the F1-C interface connection with the DU.
+    OpenAirInterface (OAI) recommends using port `501` by default for this purpose.
+
+- stage: cu_config_parsing
+  type: CU
+  symptom: "CU failed to start due to 'remote_s_portd' syntax error in configuration file"
+  log_snippet: 
+    - "CU failed to start due to 'remote_s_portd' syntax error in configuration file"
+  related_config:
+    - remote_s_portd 
+  notes: |
+    The value for 'remote_s_portd' is not a valid integer.
+    Ensure all numeric parameters in the config file are set to valid values.
+    Recommended value: 2152. (OAI default value: 2152)
+
+    
+- stage: cu_config_parsing
+  type: CU
+  symptom: "CU failed to start due to `GNB_PORT_FOR_S1U` syntax error in configuration file"
+  log_snippet: 
+    - "CU failed to start due to `GNB_PORT_FOR_S1U` syntax error in configuration file"
+  related_config:
+    - GNB_PORT_FOR_S1U 
+  notes: |
+    The value for 'GNB_PORT_FOR_S1U' is not a valid integer.
+    Ensure all numeric parameters in the config file are set to valid values.
+    Recommended value: 2152. (OAI default value: 2152)
+
+
+- stage: cu_config_parsing
+  type: CU
+  symptom: "CU failed to start due to syntax error at 'local_s_if_name' in configuration file"
+  log_snippet: "CU failed to start due to syntax error at 'local_s_if_name' in configuration file"
+  related_config:
+    - local_s_if_name
+  notes: |
+    The 'local_s_if_name' parameter likely contains a syntax error. Common issues include:
+    - Missing semicolon (`;`) at the end
+    - Missing double quotes (`"`) around interface name
+    - Wrong indentation or being placed outside of NETWORK_INTERFACES block
+
+    CU and DU on the same machine:
+    - local_s_if_name = "lo";
+    
+    CU and DU on different machines:   
+    - Actual NIC name, e.g., `"eno1"`, `"eth0"`, `"ens3"`
+    - local_s_if_name = "eno1";
+    - local_s_if_name = "eth0";
+    - local_s_if_name = "ens3";
+    Ensure the interface name is correctly specified and matches the actual network interface on your system.
+
+    This parameter is used to specify the local interface name for CU-DU communication.
+    Use "lo" if CU and DU are on the same machine, or a valid NIC like "eno1" if they are on separate hosts.
+    default value: "lo"
+
+
+
 - stage: du_init
+  type: DU
+  symptom: "DU failed to start due to missing gNB_ID in configuration file"
+  log_snippet:
+    - "Assertion (config_isparamset(GNBParamList.paramarray[0], 0)) failed!"
+    - "read_du_cell_info() ../../../openair2/GNB_APP/gnb_config.c:1108"
+    - "gNB_ID is not defined in configuration file"
+    - "read_du_cell_info() Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - gNB_ID
+  notes: |
+    The DU configuration file is missing the `gNB_ID` parameter, which is mandatory for proper initialization.
+    This value must be defined inside the `gNBs` block to uniquely identify the gNB instance within the DU context. Without it, the function `read_du_cell_info()` will trigger an assertion failure, and the DU will exit immediately.
+
+    - Example correction:
+    ```c
+    gNBs = (
+      {
+        gNB_ID = 0xe00;
+        gNB_name = "gNB-Eurecom-DU";
+        ...
+      }
+    );
+    ```
+    The `gNB_ID` should be a valid integer or hexadecimal value (e.g., `1` or `0xe00`), and must be consistent with other DU-related settings.
+
+- stage: du_init
+  type: DU
+  symptom: "DU failed to start due to missing or invalid gNB_DU_ID in configuration file"
+  log_snippet:
+    - "Assertion (config_isparamset(GNBParamList.paramarray[0], 27)) failed!"
+    - "gNB_DU_ID is not defined in configuration file"
+    - "read_du_cell_info() Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - gNB_DU_ID
+  notes: |
+    The `gNB_DU_ID` field is missing or incorrectly defined in the DU configuration file.
+
+    This field must be provided as an **integer** inside the `gNBs` block. Quoting it as a string (e.g., `"0xe00"`) or omitting it entirely will result in a softmodem assertion failure during initialization.
+
+    - Correct:
+    ```c
+    gNB_DU_ID = 0xe00;
+    ```
+
+    - Incorrect:
+    ```c
+    gNB_DU_ID = "0xe00";   // Wrong type: string
+    // or missing completely
+    ```
+
+    This ID must match the `gNB_ID` defined in the CU configuration. Mismatches can cause F1 registration failure, while missing values cause config load errors.
+
+
+
+- stage: du_init
+  type: DU
+  symptom: "DU failed due to gNB_ID defined as a string instead of integer"
+  log_snippet:
+    - "config_get() failed: gNB_ID not set or not an integer"
+    - "read_du_cell_info() Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - gNB_ID
+  notes: |
+    The `gNB_ID` field in the DU configuration must be an unquoted hexadecimal or decimal integer. A string value such as `"0xe00"` will cause DU configuration parsing to fail.
+
+    - Correct:
+    ```c
+    gNB_ID = 0xe00;
+    ```
+
+    - Incorrect:
+    ```c
+    gNB_ID = "0xe00";
+    ```
+
+    This integer should match the `gNB_DU_ID` in the same DU config block, and the `gNB_ID` expected by the CU.
+
+
+
+- stage: du_init
+  type: DU
   symptom: "DU failed to start because local_n_address could not be assigned or bound"
   log_snippet:
     - "bind: Cannot assign requested address"
@@ -300,61 +492,280 @@
     Make sure the IP address exists on the host, is not already in use, and is properly configured in the network interface.
     All related errors above are caused by this root issue.
 
-- stage: du_f1_setup
-  symptom: "DU stuck waiting for F1 Setup Response, likely due to configuration mismatch with CU"
+
+
+- stage: du_init
+  type: DU
+  symptom: "DU failed to start due to missing PLMN configuration"
   log_snippet:
-    - "waiting for F1 Setup Response before activating radio"
-    - "No sync or RF start"
-    - "F1 Setup Failure"
+    - "Assertion (PLMNParamList.numelt > 0) failed!"
+    - "read_du_cell_info() ../../../openair2/GNB_APP/gnb_config.c:1125"
+    - "need to have a PLMN in PLMN section"
+    - "read_du_cell_info() Exiting OAI softmodem: _Assert_Exit_"
   related_config:
-    - remote_n_address
-    - plmn_list
-    - gNB_DU_id
-    - gNB_DU_name
+    - DU.plmn_list
   notes: |
-    The DU is waiting for an F1 Setup Response from the CU but does not receive it, often due to a configuration mismatch (such as remote_n_address, PLMN, gNB_DU_id, or gNB_DU_name).
-    Ensure that all relevant parameters are consistent and correctly set in both DU and CU configuration files.
-    This issue will prevent the DU from activating its radio and completing the F1 setup.
+    The DU configuration file is missing a valid `plmn_list` entry in the `gNBs` block.
+    This list defines the MCC (Mobile Country Code) and MNC (Mobile Network Code) needed for the DU to operate under a valid PLMN. Without it, the DU cannot construct the cell identity and will assert at startup.
+    - Example:
+    ```c
+    plmn_list = (
+      {
+        mcc = 001;
+        mnc = 01;
+        mnc_length = 2;
+        snssaiList = ( { sst = 1; } );
+      }
+    );
+    ```
+
+    Make sure this section is defined and includes at least one valid MCC/MNC combination.
+    
+    LLM should add a properly formatted `plmn_list` block if it is missing or empty.
 
 
-- stage: cu_init
-  symptom: "Assertion failure due to nb_nr_inst = 0; likely missing or mismatched gNB_name in config"
-  log_snippet: "Assertion (RC.nb_nr_inst == 1) failed!"
-  related_config:
-    - Active_gNBs
-    - gNB_name
-  notes: |
-    The 'Active_gNBs' parameter should be a list of gNB names (e.g., Active_gNBs = ("gNB-Eurecom-CU");)
-    that correspond exactly to the 'gNB_name' fields declared in the 'gNBs' section.
-
-    This error occurs when the configured gNB name in Active_gNBs is missing or not defined under 'gNBs',
-    resulting in nb_nr_inst = 0 and triggering an assertion failure.
-
-    Ensure all names match exactly (case-sensitive) and that each name in Active_gNBs has a corresponding
-    configuration block with matching gNB_name.
-
-- stage: cu_init
-  symptom: "Mismatch between Active_gNBs and gNB_name causes invalid RAN context and PLMN mismatch"
+- stage: du_init
+  type: DU
+  symptom: "DU failed to start due to invalid mnc_length in plmn_list"
   log_snippet:
-    - "PLMNs received from CUUP"
-    - "did not match with PLMNs in RRC"
-    - "RC.nb_nr_inst = 1"
-    - "RC.nb_nr_L1_inst = 0"
+    - "config_check_intval: mnc_length: 0 invalid value"
+    - "authorized values: 2 3"
+    - "config_execcheck: section gNBs.[0].plmn_list.[0] 1 parameters with wrong value"
+    - "config_execcheck() Exiting OAI softmodem: exit_fun"
   related_config:
-    - Active_gNBs
-    - gNB_name
+    - DU.plmn_list.mnc_length
   notes: |
-    If Active_gNBs does not match the gNB_name defined in the gNBs section,
-    the CU will initialize incorrectly, with invalid PLMN or zero RRC instances.
-    Ensure both values match exactly (case-sensitive).
+    The parameter `mnc_length` in the `plmn_list` section must be set to either `2` or `3`.
+
+    A value of `0` is invalid and will cause the configuration checker to fail during DU initialization.
+
+    - Example correction:
+    ```c
+    plmn_list = (
+      {
+        mcc = 001;
+        mnc = 01;
+        mnc_length = 2;
+        snssaiList = ( { sst = 1; } );
+      }
+    );
+    ```
+
+    Ensure the `mnc_length` value matches the actual digit length of the MNC:
+    - `01` → `mnc_length = 2`
+    - `001` → `mnc_length = 3`
+
+    LLM should verify that `mnc_length` is either 2 or 3 based on the MNC format, and correct it if the value is missing or invalid.
+
+
+- stage: du_init
+  type: DU
+  symptom: "DU failed to start due to invalid nr_cellid exceeding 36-bit range"
+  log_snippet:
+    - "Assertion (cellID < (1l << 36)) failed!"
+    - "cellID must fit within 36 bits, but is"
+    - "get_SIB1_NR() Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - DU.nr_cellid
+  notes: |
+    The `nr_cellid` parameter must be a positive integer less than 2^36 (68719476735).
+
+    The current configuration exceeds this limit, which leads to an assertion failure when generating SIB1 during DU initialization.
+
+    ✅ Example of valid values:
+    ```c
+    nr_cellid = 1;        // valid
+    nr_cellid = 68719476734;  // still valid
+
+    // invalid:
+    nr_cellid = -1;
+    nr_cellid = 0xFFFFFFFFFFFFFFF6;  // too large for 36 bits
+    ```
+
+    LLM should ensure that `nr_cellid` is within the range `0 <= nr_cellid < 68719476736`.
+
+    This value is used to compute the NCI (NR Cell Identity), which is part of SIB1 broadcast.
+
+
+- stage: du_init
+  symptom: "DU failed due to logical antenna ports exceeding physical antenna count (nb_tx)"
+  log_snippet:
+    - "Assertion (num_tx >= config.pdsch_AntennaPorts.XP * config.pdsch_AntennaPorts.N1 * config.pdsch_AntennaPorts.N2) failed!"
+    - "Number of logical antenna ports (set in config file with pdsch_AntennaPorts) cannot be larger than physical antennas (nb_tx)"
+    - "RCconfig_nr_macrlc() Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - pdsch_AntennaPorts
+    - nb_tx
+  notes: |
+    This error occurs when the number of logical antenna ports exceeds the available physical transmit antennas (`nb_tx`).
+    
+    In OpenAirInterface, if `nb_tx` is not explicitly set, it defaults to **1**.
+    However, certain antenna configurations may require a higher value.
+
+    - Recommended Action:
+      - Set `nb_tx` explicitly in the configuration file
+      - Ensure `nb_tx` is set to **at least 1**, or higher if your antenna setup requires it
+
+    - Example:
+      If not already defined, add the following to your DU config:
+        nb_tx = 1;
+
+
+- stage: du_init
+  type: DU
+  symptom: "DU failed due to invalid or missing tracking_area_code"
+  log_snippet:
+    - "config_check_intrange: tracking_area_code:"
+    - "invalid value"
+    - "authorized range: 1 65533"
+  related_config:
+    - tracking_area_code
+  notes: |
+    The `tracking_area_code` defines the Tracking Area Code (TAC) of the gNB and must be a valid 16-bit integer **between 1 and 65533**.
+    
+    TAC is used by the 5G Core Network (AMF/MME) to track UE location and determine paging/registration areas. It is part of the **Tracking Area Identity (TAI)** which combines TAC and PLMN (MCC+MNC), and is broadcast in **SIB1** using the following ASN.1 structure:
+
+    - Invalid:
+    ```c
+    tracking_area_code = 0;       // Reserved and invalid
+    tracking_area_code = "0";     // Wrong type (string)
+    ```
+
+    - Valid:
+    ```c
+    tracking_area_code = 1;       // Minimum legal value
+    ```
+
+    This value must be present and correctly formatted. Missing or invalid values will cause `config_execcheck()` to exit during DU startup.
+    - Replace invalid values (≤0 or ≥65534) with a default (e.g., 1)
+    - Ensure the parameter exists and is not enclosed in quotes
+
+- stage: du_init
+  type: DU
+  symptom: "DU crashed due to mismatched nr_cellid with CU"
+  log_snippet:
+    - "Assertion (du_cell->nr_cellid == cu_cell->nr_cellid) failed!"
+    - "CellID mismatch: DU 2147483648 vs CU -2147483648"
+    - "f1_setup_response() Exiting OAI softmodem"
+  related_config:
+    - nr_cellid
+  notes: |
+    The DU defines `nr_cellid = 2147483648` (0x80000000), which exceeds the signed 32-bit integer range.
+    
+    When the CU parses this value, it may interpret it as `-2147483648`, causing a mismatch during F1 Setup handling.
+    
+    This triggers an assertion failure and causes the DU softmodem to crash during initialization.
+
+    -  Fix:
+    - Set `nr_cellid` to a safe and valid positive value like:
+      ```c
+      nr_cellid = 1;
+      ```
+
+    - Best Practice:
+    - Always ensure both DU and CU explicitly define the same `nr_cellid`.
+    - Avoid borderline values like `2147483648` that may cause signed overflow.
+
+
+
+- stage: ngsetup_no_ngsetup_request
+  type: CU
+  symptom: "CU failed to send NGSetupRequest due to invalid AMF or local IP configuration"
+  log_snippet:
+    - "Starting F1AP at CU"
+    - "F1AP_CU_SCTP_REQ(create socket)"
+    - "getaddrinfo(FMA_GN_ROF_SSERDDA_4VPI_BNG) failed: Name or service not known"
+    - "Assertion (status == 0) failed!"
+    - "sctp_handle_new_association_req()"
+  missing_keyword:
+    - "Send NGSetupRequest to AMF"
+    - "Received NGSetupResponse from AMF"
+  related_config:
+    - amf_ip_address
+    - GNB_IPV4_ADDRESS_FOR_NG_AMF
+  notes: |
+    The CU successfully started the F1AP layer and created SCTP sockets, 
+    but did not send the expected NGSetupRequest to the AMF — or in some cases, crashed due to invalid SCTP address resolution.
+
+    This typically indicates one of the following:
+    
+    - An incorrect `amf_ip_address` was configured:
+    - `amf_ip_address` refers to the **remote AMF's IP address**.
+    - To fix:
+      - Cross-check with the reference context (e.g., `CN_AMF_IP = xxx.xxx.xxx.xxx`) and set:
+        ```c
+        amf_ip_address = ({ ipv4 = "xxx.xxx.xxx.xxx"; });
+        ```
+
+    - An invalid value was assigned to `GNB_IPV4_ADDRESS_FOR_NG_AMF`:
+    - This parameter defines the **CU's local IP address**, and is usually optional.
+    - If the value is an unresolved string like `"FMA_GN_ROF_SSERDDA_4VPI_BNG"`, SCTP will crash due to name resolution failure.
+    - To fix:
+      - If `CU_IP` is available in the reference context (e.g., `CU_IP = yyy.yyy.yyy.yyy`), set:
+        ```c
+        GNB_IPV4_ADDRESS_FOR_NG_AMF = "yyy.yyy.yyy.yyy";
+        ```
+      - Otherwise, remove this parameter entirely unless explicit binding is required on multi-interface hosts.
+
+    **Do not confuse**:
+    - `amf_ip_address`: remote AMF IP (used to initiate NG connection)
+    - `GNB_IPV4_ADDRESS_FOR_NG_AMF`: local CU IP (used only to bind local SCTP socket)
+
 
 
 - stage: cu_config_parsing
-  symptom: "CU failed to start due to syntax error in configuration file"
-  log_snippet: "syntax error"
+  type: CU
+  symptom: "CU failed silently: log stopped after do_SIB23_NR with no F1AP or NGAP"
+  log_snippet:
+    - "do_SIB23_NR"
   related_config:
-    - Num_Threads_PUSCH
+    - GNB_IPV4_ADDRESS_FOR_NG_AMF
   notes: |
-    The value for 'Num_Threads_PUSCH' is not a valid integer.
-    Ensure all numeric parameters in the config file are set to valid values.
-    In this case, 'asdasfsad' caused a parsing failure. Recommended value: 4 or 8.
+    The CU log ends shortly after `do_SIB23_NR` and contains no signs of F1AP, SCTP, NGAP, or GTPU initialization.
+    This pattern strongly suggests a **silent failure** caused by an invalid or empty configuration value.
+
+    Most commonly, this is due to `GNB_IPV4_ADDRESS_FOR_NG_AMF` being set to an empty string (`""`), which prevents SCTP from binding and silently halts further module initialization.
+
+    - To fix:
+      - Remove the line if not needed, or
+      - Use a valid IP from the reference context (e.g., `CU_IP = 192.168.8.43`):
+        ```c
+        GNB_IPV4_ADDRESS_FOR_NG_AMF = "192.168.8.43";
+        ```
+
+    - This issue does **not produce any error logs** or assertions, making it easy to miss in automated log analysis.
+
+
+
+
+- stage: cu_config_parsing
+  type: CU
+  symptom: "Configuration parsing failed due to duplicate or invalid ciphering_algorithms assignment"
+  log_snippet:
+    - "duplicate setting name"
+    - "config module \"libconfig\" couldn't be loaded"
+    - "init aborted, configuration couldn't be performed"
+  related_config:
+    - ciphering_algorithms
+  notes: |
+    The configuration file contains multiple assignments to `ciphering_algorithms`, including a line with:
+      ```c
+      ciphering_algorithms = ciphering_algorithms = ( "nea8" );
+      ```
+
+    This causes libconfig to fail due to a duplicate setting name or malformed syntax.
+
+    - Problems:
+      - Duplicate parameter declaration
+      - Invalid chained assignment (`x = x = ...`)
+      - Syntax error: trailing comma or unsupported algorithm like `"nea8"`
+
+    - To fix:
+      - Remove all duplicate assignments
+      - Use only one correctly formatted definition:
+        ```c
+        ciphering_algorithms = ( "nea0" );
+        ```
+
+    - When libconfig fails to load, the CU does not proceed to any further module initialization.
+
