@@ -1,0 +1,3 @@
+-      dl_frequencyBand == 78;
+
++      dl_frequencyBand                                          = 78;

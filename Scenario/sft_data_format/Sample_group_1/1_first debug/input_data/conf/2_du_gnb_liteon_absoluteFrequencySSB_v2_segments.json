@@ -1,0 +1,478 @@
+[
+  {
+    "label": "Active_gNBs",
+    "content": "Active_gNBs = ( \"gNB-Eurecom-DU\");"
+  },
+  {
+    "label": "Asn1_verbosity",
+    "content": "Asn1_verbosity = \"none\";"
+  },
+  {
+    "label": "gNB_ID",
+    "content": "gNB_ID = 0xe00;"
+  },
+  {
+    "label": "gNB_DU_ID",
+    "content": "gNB_DU_ID = 0xe00;"
+  },
+  {
+    "label": "gNB_name",
+    "content": "gNB_name  =  \"gNB-Eurecom-DU\";"
+  },
+  {
+    "label": "tracking_area_code",
+    "content": "tracking_area_code  =  1;"
+  },
+  {
+    "label": "plmn_list",
+    "content": "plmn_list = ({ mcc = 001; mnc = 01; mnc_length = 2; snssaiList = ( { sst = 1;}); });"
+  },
+  {
+    "label": "nr_cellid",
+    "content": "nr_cellid = 12345678L;"
+  },
+  {
+    "label": "min_rxtxtime",
+    "content": "min_rxtxtime                                              = 6;"
+  },
+  {
+    "label": "force_256qam_off",
+    "content": "force_256qam_off = 1;"
+  },
+  {
+    "label": "physCellId",
+    "content": "physCellId                                                    = 0;"
+  },
+  {
+    "label": "absoluteFrequencySSB",
+    "content": "absoluteFrequencySSB = sixthreezero048;"
+  },
+  {
+    "label": "dl_frequencyBand",
+    "content": "dl_frequencyBand                                              = 78;"
+  },
+  {
+    "label": "dl_absoluteFrequencyPointA",
+    "content": "dl_absoluteFrequencyPointA                                    = 626772;"
+  },
+  {
+    "label": "dl_offstToCarrier",
+    "content": "dl_offstToCarrier                                              = 0;"
+  },
+  {
+    "label": "dl_subcarrierSpacing",
+    "content": "dl_subcarrierSpacing                                        = 1;"
+  },
+  {
+    "label": "dl_carrierBandwidth",
+    "content": "dl_carrierBandwidth                                         = 273;"
+  },
+  {
+    "label": "initialDLBWPlocationAndBandwidth",
+    "content": "initialDLBWPlocationAndBandwidth                             = 1099; #38.101-1 Table 5.3.2-1"
+  },
+  {
+    "label": "initialDLBWPsubcarrierSpacing",
+    "content": "initialDLBWPsubcarrierSpacing                               = 1;"
+  },
+  {
+    "label": "initialDLBWPcontrolResourceSetZero",
+    "content": "initialDLBWPcontrolResourceSetZero                          = 11;"
+  },
+  {
+    "label": "initialDLBWPsearchSpaceZero",
+    "content": "initialDLBWPsearchSpaceZero                                 = 0;"
+  },
+  {
+    "label": "ul_frequencyBand",
+    "content": "ul_frequencyBand                                                 = 78;"
+  },
+  {
+    "label": "ul_offstToCarrier",
+    "content": "ul_offstToCarrier                                              = 0;"
+  },
+  {
+    "label": "ul_subcarrierSpacing",
+    "content": "ul_subcarrierSpacing                                          = 1;"
+  },
+  {
+    "label": "ul_carrierBandwidth",
+    "content": "ul_carrierBandwidth                                           = 273;"
+  },
+  {
+    "label": "pMax",
+    "content": "pMax                                                          = 23;"
+  },
+  {
+    "label": "initialULBWPlocationAndBandwidth",
+    "content": "initialULBWPlocationAndBandwidth                            = 1099;"
+  },
+  {
+    "label": "initialULBWPsubcarrierSpacing",
+    "content": "initialULBWPsubcarrierSpacing                               = 1;"
+  },
+  {
+    "label": "prach_ConfigurationIndex",
+    "content": "prach_ConfigurationIndex                                  = 159;"
+  },
+  {
+    "label": "prach_msg1_FDM",
+    "content": "prach_msg1_FDM                                            = 0;"
+  },
+  {
+    "label": "prach_msg1_FrequencyStart",
+    "content": "prach_msg1_FrequencyStart                                 = 0;"
+  },
+  {
+    "label": "zeroCorrelationZoneConfig",
+    "content": "zeroCorrelationZoneConfig                                 = 15;"
+  },
+  {
+    "label": "preambleReceivedTargetPower",
+    "content": "preambleReceivedTargetPower                               = -104;"
+  },
+  {
+    "label": "preambleTransMax",
+    "content": "preambleTransMax                                          = 7;"
+  },
+  {
+    "label": "powerRampingStep",
+    "content": "powerRampingStep                                            = 2;"
+  },
+  {
+    "label": "ra_ResponseWindow",
+    "content": "ra_ResponseWindow                                           = 5;"
+  },
+  {
+    "label": "ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR",
+    "content": "ssb_perRACH_OccasionAndCB_PreamblesPerSSB_PR                = 3;"
+  },
+  {
+    "label": "ssb_perRACH_OccasionAndCB_PreamblesPerSSB",
+    "content": "ssb_perRACH_OccasionAndCB_PreamblesPerSSB                   = 15;"
+  },
+  {
+    "label": "ra_ContentionResolutionTimer",
+    "content": "ra_ContentionResolutionTimer                                = 7;"
+  },
+  {
+    "label": "rsrp_ThresholdSSB",
+    "content": "rsrp_ThresholdSSB                                           = 19;"
+  },
+  {
+    "label": "prach_RootSequenceIndex_PR",
+    "content": "prach_RootSequenceIndex_PR                                  = 2;"
+  },
+  {
+    "label": "prach_RootSequenceIndex",
+    "content": "prach_RootSequenceIndex                                     = 1;"
+  },
+  {
+    "label": "msg3_DeltaPreamble",
+    "content": "msg3_DeltaPreamble                                          = 2;"
+  },
+  {
+    "label": "p0_NominalWithGrant",
+    "content": "p0_NominalWithGrant                                         = -96;"
+  },
+  {
+    "label": "pucchGroupHopping",
+    "content": "pucchGroupHopping                                           = 0;"
+  },
+  {
+    "label": "hoppingId",
+    "content": "hoppingId                                                   = 0;"
+  },
+  {
+    "label": "p0_nominal",
+    "content": "p0_nominal                                                  = -96;"
+  },
+  {
+    "label": "ssb_PositionsInBurst_Bitmap",
+    "content": "ssb_PositionsInBurst_Bitmap                                   = 0x1;"
+  },
+  {
+    "label": "ssb_periodicityServingCell",
+    "content": "ssb_periodicityServingCell                                    = 2;"
+  },
+  {
+    "label": "dmrs_TypeA_Position",
+    "content": "dmrs_TypeA_Position                                           = 0;"
+  },
+  {
+    "label": "subcarrierSpacing",
+    "content": "subcarrierSpacing                                             = 1;"
+  },
+  {
+    "label": "referenceSubcarrierSpacing",
+    "content": "referenceSubcarrierSpacing                                    = 1;"
+  },
+  {
+    "label": "dl_UL_TransmissionPeriodicity",
+    "content": "dl_UL_TransmissionPeriodicity                                 = 5;"
+  },
+  {
+    "label": "nrofDownlinkSlots",
+    "content": "nrofDownlinkSlots                                             = 3;"
+  },
+  {
+    "label": "nrofDownlinkSymbols",
+    "content": "nrofDownlinkSymbols                                           = 6;"
+  },
+  {
+    "label": "nrofUplinkSlots",
+    "content": "nrofUplinkSlots                                               = 1;"
+  },
+  {
+    "label": "nrofUplinkSymbols",
+    "content": "nrofUplinkSymbols                                             = 4;"
+  },
+  {
+    "label": "ssPBCH_BlockPower",
+    "content": "ssPBCH_BlockPower                                                 = 0;"
+  },
+  {
+    "label": "SCTP_INSTREAMS",
+    "content": "SCTP_INSTREAMS  = 2;"
+  },
+  {
+    "label": "SCTP_OUTSTREAMS",
+    "content": "SCTP_OUTSTREAMS = 2;"
+  },
+  {
+    "label": "num_cc",
+    "content": "num_cc           = 1;"
+  },
+  {
+    "label": "tr_s_preference",
+    "content": "tr_s_preference  = \"local_L1\";"
+  },
+  {
+    "label": "tr_n_preference",
+    "content": "tr_n_preference  = \"f1\";"
+  },
+  {
+    "label": "local_n_address",
+    "content": "local_n_address = \"127.0.0.3\";"
+  },
+  {
+    "label": "remote_n_address",
+    "content": "remote_n_address = \"127.0.0.4\";"
+  },
+  {
+    "label": "local_n_portc",
+    "content": "local_n_portc   = 500;"
+  },
+  {
+    "label": "local_n_portd",
+    "content": "local_n_portd   = 2152;"
+  },
+  {
+    "label": "remote_n_portc",
+    "content": "remote_n_portc  = 501;"
+  },
+  {
+    "label": "remote_n_portd",
+    "content": "remote_n_portd  = 2152;"
+  },
+  {
+    "label": "pusch_TargetSNRx10",
+    "content": "pusch_TargetSNRx10          = 200;"
+  },
+  {
+    "label": "pucch_TargetSNRx10",
+    "content": "pucch_TargetSNRx10          = 200;"
+  },
+  {
+    "label": "ul_bler_target_upper",
+    "content": "ul_bler_target_upper        = .35;"
+  },
+  {
+    "label": "ul_bler_target_lower",
+    "content": "ul_bler_target_lower        = .15;"
+  },
+  {
+    "label": "pusch_FailureThres",
+    "content": "pusch_FailureThres          = 100;"
+  },
+  {
+    "label": "num_cc",
+    "content": "num_cc = 1;"
+  },
+  {
+    "label": "tr_n_preference",
+    "content": "tr_n_preference = \"local_mac\";"
+  },
+  {
+    "label": "pucch0_dtx_threshold",
+    "content": "pucch0_dtx_threshold = 80;"
+  },
+  {
+    "label": "pusch_dtx_threshold",
+    "content": "pusch_dtx_threshold = 10;"
+  },
+  {
+    "label": "tx_amp_backoff_dB",
+    "content": "tx_amp_backoff_dB = 20; # needs to match O-RU configuration"
+  },
+  {
+    "label": "L1_rx_thread_core",
+    "content": "L1_rx_thread_core = 8;"
+  },
+  {
+    "label": "L1_tx_thread_core",
+    "content": "L1_tx_thread_core = 10;"
+  },
+  {
+    "label": "phase_compensation",
+    "content": "phase_compensation = 0; # needs to match O-RU configuration"
+  },
+  {
+    "label": "local_rf",
+    "content": "local_rf       = \"no\";"
+  },
+  {
+    "label": "nb_tx",
+    "content": "nb_tx          = 4;"
+  },
+  {
+    "label": "nb_rx",
+    "content": "nb_rx          = 4;"
+  },
+  {
+    "label": "att_tx",
+    "content": "att_tx         = 0;"
+  },
+  {
+    "label": "att_rx",
+    "content": "att_rx         = 0;"
+  },
+  {
+    "label": "bands",
+    "content": "bands          = [78];"
+  },
+  {
+    "label": "max_pdschReferenceSignalPower",
+    "content": "max_pdschReferenceSignalPower = -27;"
+  },
+  {
+    "label": "max_rxgain",
+    "content": "max_rxgain                    = 75;"
+  },
+  {
+    "label": "sf_extension",
+    "content": "sf_extension                  = 0;"
+  },
+  {
+    "label": "eNB_instances",
+    "content": "eNB_instances  = [0];"
+  },
+  {
+    "label": "ru_thread_core",
+    "content": "ru_thread_core = 6;"
+  },
+  {
+    "label": "sl_ahead",
+    "content": "sl_ahead       = 5;"
+  },
+  {
+    "label": "tr_preference",
+    "content": "tr_preference  = \"raw_if4p5\"; # important: activate FHI7.2"
+  },
+  {
+    "label": "do_precoding",
+    "content": "do_precoding   = 0; # needs to match O-RU configuration"
+  },
+  {
+    "label": "global_log_level",
+    "content": "global_log_level                      =\"info\";"
+  },
+  {
+    "label": "hw_log_level",
+    "content": "hw_log_level                          =\"info\";"
+  },
+  {
+    "label": "phy_log_level",
+    "content": "phy_log_level                         =\"info\";"
+  },
+  {
+    "label": "mac_log_level",
+    "content": "mac_log_level                         =\"info\";"
+  },
+  {
+    "label": "rlc_log_level",
+    "content": "rlc_log_level                         =\"info\";"
+  },
+  {
+    "label": "pdcp_log_level",
+    "content": "pdcp_log_level                        =\"info\";"
+  },
+  {
+    "label": "rrc_log_level",
+    "content": "rrc_log_level                         =\"info\";"
+  },
+  {
+    "label": "f1ap_log_level",
+    "content": "f1ap_log_level                         =\"debug\";"
+  },
+  {
+    "label": "ngap_log_level",
+    "content": "ngap_log_level                         =\"debug\";"
+  },
+  {
+    "label": "dpdk_devices",
+    "content": "dpdk_devices = (\"0000:ca:02.0\", \"0000:ca:02.1\"); # one VF can be used as well"
+  },
+  {
+    "label": "system_core",
+    "content": "system_core = 0;"
+  },
+  {
+    "label": "io_core",
+    "content": "io_core = 4;"
+  },
+  {
+    "label": "worker_cores",
+    "content": "worker_cores = (2);"
+  },
+  {
+    "label": "ru_addr",
+    "content": "ru_addr = (\"00:aa:ff:bb:ff:cc\", \"00:aa:ff:bb:ff:cc\"); # old-liteon RU addr"
+  },
+  {
+    "label": "mtu",
+    "content": "mtu = 9000; # check if xran uses this properly"
+  },
+  {
+    "label": "T1a_cp_dl",
+    "content": "T1a_cp_dl = (285, 429);"
+  },
+  {
+    "label": "T1a_cp_ul",
+    "content": "T1a_cp_ul = (285, 429);"
+  },
+  {
+    "label": "T1a_up",
+    "content": "T1a_up = (96, 196);"
+  },
+  {
+    "label": "Ta4",
+    "content": "Ta4 = (110, 180);"
+  },
+  {
+    "label": "iq_width",
+    "content": "iq_width = 9;"
+  },
+  {
+    "label": "iq_width_prach",
+    "content": "iq_width_prach = 9;"
+  },
+  {
+    "label": "eAxC_offset",
+    "content": "eAxC_offset = 4;"
+  },
+  {
+    "label": "kbar",
+    "content": "kbar = 0;"
+  }
+]

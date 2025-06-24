@@ -1,0 +1,11 @@
+[LIBCONFIG] file ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/fata/ru_test_conf/22_du_gnb_liteon_dl_subcarrierSpacing_v2.conf - line 44: syntax error
+
+[CONFIG] ../../../common/config/config_load_configmodule.c 379 config module "libconfig" couldn't be loaded
+[CONFIG] config_get, section log_config skipped, config module not properly initialized
+[LOG] init aborted, configuration couldn't be performed
+[CONFIG] config_get, section (null) skipped, config module not properly initialized
+[CONFIG] ../../../common/config/config_userapi.c 68 nfapi has no processed integer availablle
+[CONFIG] config_get, section (null) skipped, config module not properly initialized
+Getting configuration failed
+CMDLINE: "./nr-softmodem" "-O" "../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/fata/ru_test_conf/22_du_gnb_liteon_dl_subcarrierSpacing_v2.conf" "--thread-pool" "9,11,13,15" 
+[CONFIG] function config_libconfig_init returned -1
