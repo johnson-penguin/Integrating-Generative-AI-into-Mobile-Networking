@@ -1,5 +1,14 @@
 reference_info = {
     "du_addr": "00:11:22:33:44:66",
-    "ru_addr": "10:70:fd:14:1c:10",
-    "CN_AMF_IP": "192.168.8.21"
+    "ru_addr": ("00:aa:ff:bb:ff:cc", "00:aa:ff:bb:ff:cc"),
+    "CN_AMF_IP": "192.168.8.21",
+    "absoluteFrequencySSB": "630048",
+    "SSB frequency(ARFCN)":	"3450720000(630048)",
+    "pointA frequency(ARFCN)": "3401580000(626772)"
+    "channel bandwidth": "100000000",
+    "compression IQ bitwidth": "9",
+    "dl_frequencyBand": 78,
+    "dl_carrierBandwidth": 273,
+    "initialDLBWPlocationAndBandwidth": 1099,
+    "initialDLBWPcontrolResourceSetZero": 11
 }

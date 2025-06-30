@@ -1,31 +1,25 @@
 - stage: cu_init_success
+  type: CU
   symptom: "CU initialization success"
   log_snippet: "Initialization complete without error"
-  related_config: []
+  related_config: 
+  - none
   notes: |
     The CU started successfully and no issues were detected in the configuration file.
     All required parameters are correctly set.
     No changes are required at this stage.
 
-- stage: du_cell_config
-  symptom: "Assertion failed due to mismatch between 'active_gNBs' and gNB name in parameter array"
-  log_snippet: "Assertion (strcmp(GNBSParams[1].strlistptr[0], *GNBParamList.paramarray[0][2].strptr) == 0) failed!"
-  related_config:
-    - active_gNBs
+- stage: du_init_success
+  type: DU
+  symptom: "DU initialization success"
+  log_snippet: "Initialization complete without error"
+  related_config: 
+  - none
+  notes: |
+    The DU started successfully and no issues were detected in the configuration file.
+    All required parameters are correctly set.
+    No changes are required at this stage.
 
-- stage: config_check
-  symptom: "Reserved tracking area code used; configuration rejected before initialization"
-  log_snippet: |
-    "[CONFIG] config_check_intrange: tracking_area_code: 0 invalid value, authorized range: 1 65533
-    [ENB_APP]   [CONFIG] config_execcheck: section gNBs.[0] 1 parameters with wrong value"
-  related_config:
-    - tracking_area_code
-
-- stage: mac_rlc_config
-  symptom: "Invalid value for maxMIMO_layers caused assertion failure and forced gNB exit. This was caused by changing the pdsch_AntennaPorts_XP parameter into a negative number"
-  log_snippet: "Assertion (config.maxMIMO_layers != 0 && config.maxMIMO_layers <= tot_ant) failed!"
-  related_config:
-    - pdsch_AntennaPorts_XP
 
 - stage: common_config
   symptom: "invalid pusch_AntennaPorts value; predetermined range is 1-12"
@@ -34,13 +28,29 @@
   related_config:
     - pusch_AntennaPorts
 
-- stage: mac_nr_common
-  symptom: "TD index is out of the predetermined value range; must be within the range 0-15"
+- stage: DU init
+  symptom: |
+    The DU fails to start due to an invalid `sib1_tda` value.
+    The configured TDA index (18) exceeds the maximum allowed index in the default TDA list (size 16).
+    This results in a DMRS configuration error and assertion failure.
   log_snippet: |
-    "[NR_MAC]   TDA index from DCI 16 exceeds default TDA list array size 16
-    Assertion (ld > 2 && ld < 15) failed!"
-  related_config:
-    - sib1_tda
+    In fill_dmrs_mask() ../../../openair2/LAYER2/NR_MAC_COMMON/nr_mac_common.c:3468
+    Illegal NrOfSymbols according to Table 5.1.2.1-1 Spec 38.214 0
+  related_config: sib1_tda
+  note: |
+    The parameter `sib1_tda = 18` is invalid because the default TDA list only allows indices 0–15.
+    This causes a MAC scheduling error and fails DMRS mask computation due to invalid number of symbols (ld = 0).
+  suggestion: |
+    Set `sib1_tda` to a valid index within the range of the configured TDA list.
+    For example:
+
+    ```c
+    sib1_tda = 15;
+    ```
+
+
+
+
 
 - stage: phy_init
   symptom: "Physical Cell ID is set to an invalid value, causing assertion failure during SSB scheduling"
@@ -51,92 +61,91 @@
   related_config:
     - physCellId
 
-- stage: rrc_config
+- stage: cell_search
   symptom: "SSB frequency not aligned with the NR synchronization raster"
   log_snippet: |
-    [RRC]   absoluteFrequencySSB -630048 corresponds to 4291817056000 Hz
-
     Assertion ((freq - 24250080000) % 17280000 == 0) failed!
     In check_ssb_raster() ../../../common/utils/nr/nr_common.c:406
-    SSB frequency 4291817056000 Hz not on the synchronization raster (24250.08 MHz + N * 17.28 MHz)
   related_config:
     - absoluteFrequencySSB
+  note: |
+      The configured absoluteFrequencySSB value (-630048) corresponds to 4291817056000 Hz,
+      which violates the 3GPP-defined NR synchronization raster rule:
+        freq = 24250.08 MHz + N × 17.28 MHz
+      In this case, (4291817056000 - 24250080000) / 17280000 = 247872.5 → not an integer,
+      meaning the frequency is not aligned with the required raster grid.
 
-- stage: band_config
-  symptom: "Invalid frequency band; band value does not exist in NR band table"
+      To fix this issue, absoluteFrequencySSB should be set so that the resulting frequency
+      satisfies the raster condition. For example, choosing N = 247872 results in:
+        24250080000 + 247872 × 17280000 = 4291809772800 Hz
+      which is a valid SSB frequency.
+
+      ⚠️ Note: Do not randomly generate absoluteFrequencySSB values.
+      Always refer to valid values listed in `reference.txt` to ensure compliance with NR raster rules.
+      reference_file: "reference.txt"
+
+
+
+- stage: cell_search
+  symptom: "Invalid frequency band configuration"
   log_snippet: |
-    [RRC]   DLBand -78
-
     Assertion (i >= 0 && i < (sizeof(nr_bandtable)/sizeof(*(nr_bandtable)))) failed!
     In get_nr_table_idx() ../../../common/utils/nr/nr_common.c:790
-    band is not existing: -78
+    band is not existing
   related_config:
     - dl_frequencyBand
+    - ul_frequencyBand
+  note: |
+    The configured frequency band is invalid (e.g., dl_frequencyBand = 0).
+    The OAI NR stack attempts to look up the band index in its internal NR band table.
+    If the band is not found (i.e., not part of the supported NR frequency bands), the system
+    triggers a fatal assertion and terminates execution.
 
-- stage: phy_config
-  symptom: "DL frequency doesn't map to a valid NR band; band 0 is not allowed"
+    - To fix this issue:
+      - Replace the invalid band (such as `0`) with a valid NR band, for example:
+          dl_frequencyBand = 1     (n1: 2100 MHz, FDD)
+          dl_frequencyBand = 3     (n3: 1800 MHz, FDD)
+          dl_frequencyBand = 257   (n257: 26 GHz, TDD mmWave)
+        And set `ul_frequencyBand` to match or reflect uplink capabilities accordingly.
+
+      - Ensure that the selected band is supported by both the DU and hardware capabilities.
+
+    **Do not guess or randomly assign frequency bands.**
+    You **must consult `reference.txt`** for valid NR band IDs and their corresponding frequency ranges.
+    This ensures alignment with the NR band lookup table used by the OAI stack.
+
+
+
+
+
+- stage: DU_init
+  symptom: DU failed to start due to invalid `dl_offstToCarrier` value
   log_snippet: |
-    DL frequency 4291882576000: band 0, UL frequency 4291882576000
+    ../../../openair2/RRC/NR/nr_rrc_config.c:2722 encode_SIB1_NR() Exiting OAI softmodem: _Assert_Exit_
+  related_config: dl_offstToCarrier
+  notes: |
+    The value `dl_offstToCarrier = -1` leads to an invalid offsetToCarrier in SIB1 encoding, causing an assertion failure in `encode_SIB1_NR`.
 
-    Assertion (current_band != 0) failed!
-    In get_band() ../../../common/utils/nr/nr_common.c:478
-    Can't find EUTRA band for frequency 4291882576000 and duplex_spacing 0
-  related_config:
-    - dl_absoluteFrequencyPointA
 
-- stage: rrc_config
-  symptom: "SIB1 ASN.1 encoding failed, likely due to invalid carrier configuration"
-  log_snippet: |
-    [NR_RRC]   SIB1 freq: offsetToPointA 252
-
-    Assertion (enc_rval.encoded > 0 && enc_rval.encoded <= max_buffer_size * 8) failed!
-    In encode_SIB1_NR() ../../../openair2/RRC/NR/nr_rrc_config.c:2722
-    ASN1 message encoding failed (scs-SpecificCarrierList, 18446744073709551615)!
-  related_config:
-    - dl_offstToCarrier
 
 - stage: phy_config
   symptom: "Invalid combination of subcarrier spacing and carrier bandwidth; results in undefined bandwidth index"
   log_snippet: |
-    [NR_PHY]   Copying 0 blacklisted PRB to L1 context
-
-    Assertion (bw_index >= 0 && bw_index <= (sizeof(bandwidth_index_to_mhz)/sizeof(*(bandwidth_index_to_mhz)))) failed!
-    In get_supported_bw_mhz() ../../../common/utils/nr/nr_common.c:428
-    Bandwidth index -1 is invalid
+    - [NR_PHY]   Copying 0 blacklisted PRB to L1 context
+    - Assertion (bw_index >= 0 && bw_index <= (sizeof(bandwidth_index_to_mhz)/sizeof(*(bandwidth_index_to_mhz)))) failed!
+    - In get_supported_bw_mhz() ../../../common/utils/nr/nr_common.c:428
+    - Bandwidth index -1 is invalid
   related_config:
     - dl_subcarrierSpacing
     - dl_carrierBandwidth
 
-- stage: rrc_config
-  symptom: "ASN.1 encoding of SIB1 failed due to invalid initialDLBWPlocationAndBandwidth value"
-  log_snippet: |
-    [NR_RRC]   SIB1 freq: offsetToPointA 252
-
-    Assertion (enc_rval.encoded > 0 && enc_rval.encoded <= max_buffer_size * 8) failed!
-    In encode_SIB1_NR() ../../../openair2/RRC/NR/nr_rrc_config.c:2722
-    ASN1 message encoding failed (INTEGER, 18446744073709551615)!
-  related_config:
-    - initialDLBWPlocationAndBandwidth
-
-- stage: sib1_encoding
-  symptom: "SIB1 ASN.1 encoding failed due to invalid subcarrier spacing configuration"
-  log_snippet: |
-    [NR_RRC]   SIB1 freq: offsetToPointA -2304
-
-    Assertion (enc_rval.encoded > 0 && enc_rval.encoded <= max_buffer_size * 8) failed!
-    In encode_SIB1_NR() ../../../openair2/RRC/NR/nr_rrc_config.c:2722
-    ASN1 message encoding failed (INTEGER, 18446744073709551615)!
-  related_config:
-    - initialDLBWPsubcarrierSpacing
-
 - stage: sib1_encoding
   symptom: "Failed to encode NR_PDCCH_ConfigCommon due to invalid control resource set or search space configuration"
   log_snippet: |
-    [NR_RRC]   SIB1 freq: offsetToPointA 252
-
-    Assertion (enc_rval.encoded > 0 && enc_rval.encoded < sizeof(buf)) failed!
-    In clone_pdcch_configcommon() ../../../openair2/RRC/NR/nr_rrc_config.c:200
-    could not clone NR_PDCCH_ConfigCommon: problem while encoding
+    - [NR_RRC]   SIB1 freq: offsetToPointA 252
+    - Assertion (enc_rval.encoded > 0 && enc_rval.encoded < sizeof(buf)) failed!
+    - In clone_pdcch_configcommon() ../../../openair2/RRC/NR/nr_rrc_config.c:200
+    - could not clone NR_PDCCH_ConfigCommon: problem while encoding
   related_config:
     - initialDLBWPcontrolResourceSetZero
     - initialDLBWPsearchSpaceZero
@@ -158,18 +167,6 @@
     2. `libconfig` uses strict syntax: key-value pairs must end with `;` and sections with `{}` must be properly closed.
     3. Use a config linter or double-check the reported line manually.
     4. Until this is fixed, the CU process will not proceed past configuration loading.
-
-- stage: cu_config_parsing
-  symptom: "Unknown or unsupported ciphering algorithm specified in CU config file"
-  log_snippet:
-    - "unknown ciphering algorithm"
-    - "ciphering_algorithms"
-  related_config:
-    - ciphering_algorithms
-  notes: |
-    The ciphering_algorithms parameter contains an unsupported value (e.g., "nea4").
-    Only use supported values: nea0, nea1, nea2, nea3.
-    Remove or correct any unsupported ciphering algorithms to avoid CU startup failure.
 
 - stage: cu_config_parsing
   symptom: "Unknown or unsupported integrity algorithm specified in CU config file"
@@ -199,65 +196,36 @@
     Make sure the IP address exists on the host, is not already in use, and is properly configured in the network interface.
     All related errors above are caused by this root issue.
 
-- stage: cu_config_parsing
-  symptom: "CU failed to start due to syntax error or invalid value in configuration file"
-  log_snippet:
-    - "syntax error"
-    - "couldn't be loaded"
-    - "not properly initialized"
-    - "init aborted"
-    - "Getting configuration failed"
-    - "config_libconfig_init returned -1"
-  related_config:
-    - Num_Threads_PUSCH
-  notes: |
-    This error indicates a syntax issue or invalid value in the CU configuration file.
-    Check for missing semicolons, brackets, or unsupported parameter values.
-    Ensure all configuration statements are correctly formatted and within allowed ranges.
-
-- stage: cu_config_parsing
-  symptom: "CU failed to start due to mismatch or missing Active_gNBs configuration"
-  log_snippet:
-    - "Assertion (strcmp(GNBSParams[1].strlistptr[0], *GNBParamList.paramarray[0][2].strptr) == 0) failed!"
-    - "no active gNB found/mismatch of gNBs"
-    - "read_du_cell_info() Exiting OAI softmodem: _Assert_Exit_"
-  related_config:
-    - Active_gNBs
-    - gNB_name
-  notes: |
-    This error indicates that the DU configuration's Active_gNBs or gNB_name does not match the expected value or is missing.
-    Ensure that the Active_gNBs list and gNB_name in the DU config file are correct and consistent with the rest of the system.
-    A mismatch or missing entry will cause the DU to exit with an assertion failure.
-
-- stage: du_config_parsing
+- stage: du_init
+  type: DU
   symptom: "DU failed to start due to mismatch or missing Active_gNBs configuration"
   log_snippet:
-    - "Assertion (strcmp(GNBSParams[1].strlistptr[0], *GNBParamList.paramarray[0][2].strptr) == 0) failed!"
     - "no active gNB found/mismatch of gNBs"
     - "read_du_cell_info() Exiting OAI softmodem: _Assert_Exit_"
   related_config:
     - Active_gNBs
     - gNB_name
   notes: |
-    This error indicates that the DU configuration's Active_gNBs or gNB_name does not match the expected value or is missing.
-    Ensure that the Active_gNBs list and gNB_name in the DU config file are correct and consistent with the rest of the system.
-    A mismatch or missing entry will cause the DU to exit with an assertion failure.
+    This error indicates that the DU configuration's `Active_gNBs` is either missing or does not include the correct `gNB_name`.
+    To resolve this issue:
+    
+    - Ensure that `Active_gNBs` includes a name that **exactly matches** the DU's `gNB_name`. This name is case-sensitive.
+    - A mismatch will prevent the DU from establishing a CU connection and result in a softmodem assertion failure.
 
-- stage: du_config_parsing
-  symptom: "DU failed to start due to mismatch or missing gNB_name configuration"
-  log_snippet:
-    - "Assertion (strcmp(GNBSParams[1].strlistptr[0], *GNBParamList.paramarray[0][2].strptr) == 0) failed!"
-    - "no active gNB found/mismatch of gNBs"
-    - "read_du_cell_info() Exiting OAI softmodem: _Assert_Exit_"
-  related_config:
-    - gNB_name
-    - Active_gNBs
-  notes: |
-    This error indicates that the gNB_name or Active_gNBs in the DU configuration does not match the expected value or is missing.
-    Ensure that the gNB_name and Active_gNBs in the DU config file are correct and consistent with the rest of the system.
-    A mismatch or missing entry will cause the DU to exit with an assertion failure.
+    - Example fix:
+    If the DU config includes:
+      ```c
+      gNB_name = "gNB-Eurecom-DU";
+      ```
+    Then you must set:
+      ```c
+      Active_gNBs = ( "gNB-Eurecom-DU" );
+      ```
+    This ensures DU registration to itself is correctly resolved during initialization.
+
 
 - stage: du_f1_setup
+  type: DU
   symptom: "F1AP Setup Failure reported by CU, possible configuration mismatch between DU and CU"
   log_snippet:
     - "the CU reported F1AP Setup Failure"
@@ -273,70 +241,27 @@
     Ensure that these parameters are consistent and correctly set in both DU and CU configuration files.
     A mismatch will prevent the DU from establishing an F1 interface with the CU.
 
-- stage: du_init
-  symptom: "DU failed to start because local_n_address could not be assigned or bound"
-  log_snippet:
-    - "bind: Cannot assign requested address"
-    - "failed to bind socket"
-    - "can't create GTP-U instance"
-    - "Assertion (gtpInst > 0) failed!"
-    - "cannot create DU F1-U GTP module"
-    - "F1AP_DU_task() Exiting OAI softmodem: _Assert_Exit_"
-  related_config:
-    - local_n_address
-  notes: |
-    The configured local_n_address is not available on this machine or is already in use.
-    Make sure the IP address exists on the host, is not already in use, and is properly configured in the network interface.
-    All related errors above are caused by this root issue.
-
-- stage: du_f1_setup
-  symptom: "DU stuck waiting for F1 Setup Response, likely due to configuration mismatch with CU"
-  log_snippet:
-    - "waiting for F1 Setup Response before activating radio"
-    - "No sync or RF start"
-    - "F1 Setup Failure"
-  related_config:
-    - remote_n_address
-    - plmn_list
-    - gNB_DU_id
-    - gNB_DU_name
-  notes: |
-    The DU is waiting for an F1 Setup Response from the CU but does not receive it, often due to a configuration mismatch (such as remote_n_address, PLMN, gNB_DU_id, or gNB_DU_name).
-    Ensure that all relevant parameters are consistent and correctly set in both DU and CU configuration files.
-    This issue will prevent the DU from activating its radio and completing the F1 setup.
-
 
 - stage: cu_init
-  symptom: "Assertion failure due to nb_nr_inst = 0; likely missing or mismatched gNB_name in config"
-  log_snippet: "Assertion (RC.nb_nr_inst == 1) failed!"
-  related_config:
-    - Active_gNBs
-    - gNB_name
-  notes: |
-    The 'Active_gNBs' parameter should be a list of gNB names (e.g., Active_gNBs = ("gNB-Eurecom-CU");)
-    that correspond exactly to the 'gNB_name' fields declared in the 'gNBs' section.
-
-    This error occurs when the configured gNB name in Active_gNBs is missing or not defined under 'gNBs',
-    resulting in nb_nr_inst = 0 and triggering an assertion failure.
-
-    Ensure all names match exactly (case-sensitive) and that each name in Active_gNBs has a corresponding
-    configuration block with matching gNB_name.
-
-- stage: cu_init
+  type: CU
   symptom: "Mismatch between Active_gNBs and gNB_name causes invalid RAN context and PLMN mismatch"
   log_snippet:
     - "PLMNs received from CUUP"
     - "did not match with PLMNs in RRC"
+    - "Assertion (RC.nb_nr_inst == 1) failed!"
   related_config:
     - Active_gNBs
     - gNB_name
   notes: |
-    If Active_gNBs does not match the gNB_name defined in the gNBs section,
-    the CU will initialize incorrectly, with invalid PLMN or zero RRC instances.
-    Ensure both values match exactly (case-sensitive).
+    The Active_gNBs parameter should be a list of gNB names (e.g., Active_gNBs = ("gNB-Eurecom-CU");) that correspond exactly to the gNB_name fields declared in the gNBs section. This matching is case-sensitive and essential for correct initialization.
+    If a gNB name listed in Active_gNBs is missing or not defined in the gNBs section, it can result in nb_nr_inst = 0, triggering an assertion failure and causing the CU to initialize incorrectly — potentially with an invalid PLMN or zero RRC instances.
+    To avoid this error, ensure that:
+    Every name in Active_gNBs has a corresponding gNB_name block defined.
+    All names match exactly, including case.
 
 
 - stage: cu_config_parsing
+  type: CU
   symptom: "CU failed to start due to syntax error in configuration file"
   log_snippet: "syntax error"
   related_config:
@@ -347,6 +272,7 @@
     Recommended value: 4 or 8. (OAI default value: 4)
 
 - stage: cu_config_parsing
+  type: CU
   symptom:  "CU failed to start due to `tr_s_preference` syntax error in configuration file"
   log_snippet: 
     - "tr_s_preference"
@@ -361,6 +287,7 @@
     Therefore, setting tr_s_preference to "f1" is necessary for proper CU/DU communication.
 
 - stage: cu_config_parsing
+  type: CU
   symptom: "Invalid or oversized value for 'nr_cellid' caused libconfig parsing failure"
   log_snippet: "syntax error"
   related_config:
@@ -372,6 +299,7 @@
     Avoid using strings or characters beyond 0–9 and A–F.
 
 - stage: cu_config_parsing
+  type: CU
   symptom: "CU failed to start due to `local_s_portc` syntax error in configuration file"
   log_snippet: 
     - "CU failed to start due to `local_s_portc` syntax error in configuration file"
@@ -388,6 +316,7 @@
     OpenAirInterface (OAI) recommends using port `501` by default for this purpose.
 
 - stage: cu_config_parsing
+  type: CU
   symptom: "CU failed to start due to 'remote_s_portd' syntax error in configuration file"
   log_snippet: 
     - "CU failed to start due to 'remote_s_portd' syntax error in configuration file"
@@ -400,6 +329,7 @@
 
     
 - stage: cu_config_parsing
+  type: CU
   symptom: "CU failed to start due to `GNB_PORT_FOR_S1U` syntax error in configuration file"
   log_snippet: 
     - "CU failed to start due to `GNB_PORT_FOR_S1U` syntax error in configuration file"
@@ -412,6 +342,7 @@
 
 
 - stage: cu_config_parsing
+  type: CU
   symptom: "CU failed to start due to syntax error at 'local_s_if_name' in configuration file"
   log_snippet: "CU failed to start due to syntax error at 'local_s_if_name' in configuration file"
   related_config:
@@ -435,3 +366,567 @@
     This parameter is used to specify the local interface name for CU-DU communication.
     Use "lo" if CU and DU are on the same machine, or a valid NIC like "eno1" if they are on separate hosts.
     default value: "lo"
+
+
+
+- stage: du_init
+  type: DU
+  symptom: "DU failed to start due to missing gNB_ID in configuration file"
+  log_snippet: |
+    Assertion (config_isparamset(GNBParamList.paramarray[0], 0)) failed!
+    read_du_cell_info() ../../../openair2/GNB_APP/gnb_config.c:1108
+    gNB_ID is not defined in configuration file
+    read_du_cell_info() Exiting OAI softmodem: _Assert_Exit_
+  related_config:
+    - gNB_ID
+  notes: |
+    The DU configuration file is missing the `gNB_ID` parameter, which is mandatory for proper initialization.
+    This value must be defined inside the `gNBs` block to uniquely identify the gNB instance within the DU context. Without it, the function `read_du_cell_info()` will trigger an assertion failure, and the DU will exit immediately.
+
+    - Example correction:
+    ```c
+    gNBs = (
+      {
+        gNB_ID = 0xe00;
+        gNB_name = "gNB-Eurecom-DU";
+        ...
+      }
+    );
+    ```
+    The `gNB_ID` should be a valid integer or hexadecimal value (e.g., `1` or `0xe00`), and must be consistent with other DU-related settings.
+
+- stage: du_init
+  type: DU
+  symptom: "DU failed to start due to missing or invalid gNB_DU_ID in configuration file"
+  log_snippet:
+    - "Assertion (config_isparamset(GNBParamList.paramarray[0], 27)) failed!"
+    - "gNB_DU_ID is not defined in configuration file"
+    - "read_du_cell_info() Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - gNB_DU_ID
+  notes: |
+    The `gNB_DU_ID` field is missing or incorrectly defined in the DU configuration file.
+
+    This field must be provided as an **integer** inside the `gNBs` block. Quoting it as a string (e.g., `"0xe00"`) or omitting it entirely will result in a softmodem assertion failure during initialization.
+
+    - Correct:
+    ```c
+    gNB_DU_ID = 0xe00;
+    ```
+
+    - Incorrect:
+    ```c
+    gNB_DU_ID = "0xe00";   // Wrong type: string
+    // or missing completely
+    ```
+
+    This ID must match the `gNB_ID` defined in the CU configuration. Mismatches can cause F1 registration failure, while missing values cause config load errors.
+
+
+
+
+
+- stage: du_init
+  type: DU
+  symptom: "DU failed to start because local_n_address could not be assigned or bound"
+  log_snippet:
+    - "bind: Cannot assign requested address"
+    - "failed to bind socket"
+    - "can't create GTP-U instance"
+    - "Assertion (gtpInst > 0) failed!"
+    - "cannot create DU F1-U GTP module"
+    - "F1AP_DU_task() Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - local_n_address
+  notes: |
+    The configured local_n_address is not available on this machine or is already in use.
+    Make sure the IP address exists on the host, is not already in use, and is properly configured in the network interface.
+    All related errors above are caused by this root issue.
+
+
+
+- stage: du_init
+  type: DU
+  symptom: "DU failed to start due to missing PLMN configuration"
+  log_snippet:
+    - "Assertion (PLMNParamList.numelt > 0) failed!"
+    - "read_du_cell_info() ../../../openair2/GNB_APP/gnb_config.c:1125"
+    - "need to have a PLMN in PLMN section"
+    - "read_du_cell_info() Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - DU.plmn_list
+  notes: |
+    The DU configuration file is missing a valid `plmn_list` entry in the `gNBs` block.
+    This list defines the MCC (Mobile Country Code) and MNC (Mobile Network Code) needed for the DU to operate under a valid PLMN. Without it, the DU cannot construct the cell identity and will assert at startup.
+    - Example:
+    ```c
+    plmn_list = (
+      {
+        mcc = 001;
+        mnc = 01;
+        mnc_length = 2;
+        snssaiList = ( { sst = 1; } );
+      }
+    );
+    ```
+
+    Make sure this section is defined and includes at least one valid MCC/MNC combination.
+    
+    LLM should add a properly formatted `plmn_list` block if it is missing or empty.
+
+
+- stage: du_init
+  type: DU
+  symptom: "DU failed to start due to invalid mnc_length in plmn_list"
+  log_snippet:
+    - "config_check_intval: mnc_length: 0 invalid value"
+    - "authorized values: 2 3"
+    - "config_execcheck: section gNBs.[0].plmn_list.[0] 1 parameters with wrong value"
+    - "config_execcheck() Exiting OAI softmodem: exit_fun"
+  related_config:
+    - DU.plmn_list.mnc_length
+  notes: |
+    The parameter `mnc_length` in the `plmn_list` section must be set to either `2` or `3`.
+
+    A value of `0` is invalid and will cause the configuration checker to fail during DU initialization.
+
+    - Example correction:
+    ```c
+    plmn_list = (
+      {
+        mcc = 001;
+        mnc = 01;
+        mnc_length = 2;
+        snssaiList = ( { sst = 1; } );
+      }
+    );
+    ```
+
+    Ensure the `mnc_length` value matches the actual digit length of the MNC:
+    - `01` → `mnc_length = 2`
+    - `001` → `mnc_length = 3`
+
+    LLM should verify that `mnc_length` is either 2 or 3 based on the MNC format, and correct it if the value is missing or invalid.
+
+
+- stage: du_init
+  type: DU
+  symptom: "DU failed to start due to invalid nr_cellid exceeding 36-bit range"
+  log_snippet:
+    - "Assertion (cellID < (1l << 36)) failed!"
+    - "cellID must fit within 36 bits, but is"
+    - "get_SIB1_NR() Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - DU.nr_cellid
+  notes: |
+    The `nr_cellid` parameter must be a positive integer less than 2^36 (68719476735).
+
+    The current configuration exceeds this limit, which leads to an assertion failure when generating SIB1 during DU initialization.
+
+    ✅ Example of valid values:
+    ```c
+    nr_cellid = 1;        // valid
+    nr_cellid = 68719476734;  // still valid
+
+    // invalid:
+    nr_cellid = -1;
+    nr_cellid = 0xFFFFFFFFFFFFFFF6;  // too large for 36 bits
+    ```
+
+    LLM should ensure that `nr_cellid` is within the range `0 <= nr_cellid < 68719476736`.
+
+    This value is used to compute the NCI (NR Cell Identity), which is part of SIB1 broadcast.
+
+
+- stage: du_init
+  symptom: "DU failed due to logical antenna ports exceeding physical antenna count (nb_tx)"
+  log_snippet: |
+    "Assertion (num_tx >= config.pdsch_AntennaPorts.XP * config.pdsch_AntennaPorts.N1 * config.pdsch_AntennaPorts.N2) failed!"
+    "Number of logical antenna ports (set in config file with pdsch_AntennaPorts) cannot be larger than physical antennas (nb_tx)"
+    "RCconfig_nr_macrlc() Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - pdsch_AntennaPorts
+    - nb_tx
+  notes: |
+    This error occurs when the number of logical antenna ports exceeds the available physical transmit antennas (`nb_tx`).
+    
+    In OpenAirInterface, if `nb_tx` is not explicitly set, it defaults to **1**.
+    However, certain antenna configurations may require a higher value.
+
+    - Recommended Action:
+      - Set `nb_tx` explicitly in the configuration file
+      - Ensure `nb_tx` is set to **at least 1**, or higher if your antenna setup requires it
+
+    - Example:
+      If not already defined, add the following to your DU config:
+        nb_tx = 1;
+
+
+- stage: du_init
+  type: DU
+  symptom: "DU failed due to invalid or missing tracking_area_code"
+  log_snippet: |
+    "config_check_intrange: tracking_area_code:"
+    "invalid value"
+    "authorized range: 1 65533"
+  related_config:
+    - tracking_area_code
+  notes: |
+    The `tracking_area_code` defines the Tracking Area Code (TAC) of the gNB and must be a valid 16-bit integer **between 1 and 65533**.
+    
+    TAC is used by the 5G Core Network (AMF/MME) to track UE location and determine paging/registration areas. It is part of the **Tracking Area Identity (TAI)** which combines TAC and PLMN (MCC+MNC), and is broadcast in **SIB1** using the following ASN.1 structure:
+
+    - Invalid:
+    ```c
+    tracking_area_code = 0;       // Reserved and invalid
+    tracking_area_code = "0";     // Wrong type (string)
+    ```
+
+    - Valid:
+    ```c
+    tracking_area_code = 1;       // Minimum legal value
+    ```
+
+    This value must be present and correctly formatted. Missing or invalid values will cause `config_execcheck()` to exit during DU startup.
+    - Replace invalid values (≤0 or ≥65534) with a default (e.g., 1)
+    - Ensure the parameter exists and is not enclosed in quotes
+
+- stage: du_init
+  type: DU
+  symptom: "DU crashed due to mismatched nr_cellid with CU"
+  log_snippet:  |
+    "Assertion (du_cell->nr_cellid == cu_cell->nr_cellid) failed!"
+    "CellID mismatch: DU 2147483648 vs CU -2147483648"
+    "f1_setup_response() Exiting OAI softmodem"
+  related_config:
+    - nr_cellid
+  notes: |
+    The DU defines `nr_cellid = 2147483648` (0x80000000), which exceeds the signed 32-bit integer range.
+    
+    When the CU parses this value, it may interpret it as `-2147483648`, causing a mismatch during F1 Setup handling.
+    
+    This triggers an assertion failure and causes the DU softmodem to crash during initialization.
+
+    -  Fix:
+    - Set `nr_cellid` to a safe and valid positive value like:
+      ```c
+      nr_cellid = 1;
+      ```
+
+    - Best Practice:
+    - Always ensure both DU and CU explicitly define the same `nr_cellid`.
+    - Avoid borderline values like `2147483648` that may cause signed overflow.
+
+
+
+- stage: ngsetup_no_ngsetup_request
+  type: CU
+  symptom: "CU failed to send NGSetupRequest due to invalid AMF or local IP configuration"
+  log_snippet:  |
+    "Starting F1AP at CU"
+    "F1AP_CU_SCTP_REQ(create socket)"
+    "getaddrinfo(FMA_GN_ROF_SSERDDA_4VPI_BNG) failed: Name or service not known"
+    "Assertion (status == 0) failed!"
+    "sctp_handle_new_association_req()"
+  missing_keyword:
+    - "Send NGSetupRequest to AMF"
+    - "Received NGSetupResponse from AMF"
+  related_config:
+    - amf_ip_address
+    - GNB_IPV4_ADDRESS_FOR_NG_AMF
+  notes: |
+    The CU successfully started the F1AP layer and created SCTP sockets, 
+    but did not send the expected NGSetupRequest to the AMF — or in some cases, crashed due to invalid SCTP address resolution.
+
+    This typically indicates one of the following:
+    
+    - An incorrect `amf_ip_address` was configured:
+    - `amf_ip_address` refers to the **remote AMF's IP address**.
+    - To fix:
+      - Cross-check with the reference context (e.g., `CN_AMF_IP = xxx.xxx.xxx.xxx`) and set:
+        ```c
+        amf_ip_address = ({ ipv4 = "xxx.xxx.xxx.xxx"; });
+        ```
+
+    - An invalid value was assigned to `GNB_IPV4_ADDRESS_FOR_NG_AMF`:
+    - This parameter defines the **CU's local IP address**, and is usually optional.
+    - If the value is an unresolved string like `"FMA_GN_ROF_SSERDDA_4VPI_BNG"`, SCTP will crash due to name resolution failure.
+    - To fix:
+      - If `CU_IP` is available in the reference context (e.g., `CU_IP = yyy.yyy.yyy.yyy`), set:
+        ```c
+        GNB_IPV4_ADDRESS_FOR_NG_AMF = "yyy.yyy.yyy.yyy";
+        ```
+      - Otherwise, remove this parameter entirely unless explicit binding is required on multi-interface hosts.
+
+    **Do not confuse**:
+    - `amf_ip_address`: remote AMF IP (used to initiate NG connection)
+    - `GNB_IPV4_ADDRESS_FOR_NG_AMF`: local CU IP (used only to bind local SCTP socket)
+
+
+
+- stage: cu_config_parsing
+  type: CU
+  symptom: "CU failed silently: log stopped after do_SIB23_NR with no F1AP or NGAP"
+  log_snippet:
+    - "do_SIB23_NR"
+  related_config:
+    - GNB_IPV4_ADDRESS_FOR_NG_AMF
+  notes: |
+    The CU log ends shortly after `do_SIB23_NR` and contains no signs of F1AP, SCTP, NGAP, or GTPU initialization.
+    This pattern strongly suggests a **silent failure** caused by an invalid or empty configuration value.
+
+    Most commonly, this is due to `GNB_IPV4_ADDRESS_FOR_NG_AMF` being set to an empty string (`""`), which prevents SCTP from binding and silently halts further module initialization.
+
+    - To fix:
+      - Remove the line if not needed, or
+      - Use a valid IP from the reference context (e.g., `CU_IP = 192.168.8.43`):
+        ```c
+        GNB_IPV4_ADDRESS_FOR_NG_AMF = "192.168.8.43";
+        ```
+
+    - This issue does **not produce any error logs** or assertions, making it easy to miss in automated log analysis.
+
+
+
+
+- stage: cu_config_parsing
+  type: CU
+  symptom: "Configuration parsing failed due to duplicate or invalid ciphering_algorithms assignment"
+  log_snippet:
+    unknown ciphering algorithm
+  related_config:
+    - ciphering_algorithms
+  notes: |
+    The configuration file contains multiple assignments to `ciphering_algorithms`, including a line with:
+      ```c
+      ciphering_algorithms = ciphering_algorithms = ( "nea8" );
+      ```
+
+    This causes libconfig to fail due to a duplicate setting name or malformed syntax.
+
+    - Problems:
+      - Duplicate parameter declaration
+      - Invalid chained assignment (`x = x = ...`)
+      - Syntax error: trailing comma or unsupported algorithm like `"nea8"`
+
+    - To fix:
+      - Remove all duplicate assignments
+      - Use only one correctly formatted definition:
+        ```c
+        ciphering_algorithms = ( "nea0" );
+        ```
+
+    - When libconfig fails to load, the CU does not proceed to any further module initialization.
+
+- stage: DU init
+  symptom: DU failed to start due to invalid DPDK device ID
+  log_snippet: |
+    EAL: Cannot find device (0000:ca:02.13)
+    EAL: Failed to attach device on primary process
+    nr-softmodem: Network port doesn't exist
+  related_config: dpdk_devices
+  note: |
+    The `dpdk_devices` field contains a non-existent or invalid PCI device ID (e.g., 0000:ca:02.13),
+    causing DPDK to fail and DU initialization to abort.
+    Please verify the device using `lspci` or `dpdk-devbind.py -s`, and ensure it is bound to `vfio-pci`.
+    Reference to `reference.txt` or `reference.json` is required to determine valid device IDs.
+
+- stage: DU init
+  symptom: DU failed to start due to invalid pdsch_AntennaPorts_XP value
+  log_snippet: |
+    Assertion (config.maxMIMO_layers != 0 && config.maxMIMO_layers <= tot_ant) failed!
+    In RCconfig_nr_macrlc() ../../../openair2/GNB_APP/gnb_config.c:1479
+    Invalid maxMIMO_layers -1
+  related_config: pdsch_AntennaPorts_XP
+  note: |
+    The configuration file sets `pdsch_AntennaPorts_XP = -5`, which is invalid.
+    This leads to a miscalculation of total antenna ports (`tot_ant`),
+    resulting in `maxMIMO_layers = -1` and triggering an assertion failure.
+    The value must be a non-negative integer, and should be adjusted to reflect the actual number of extra antenna ports.
+
+    Change `pdsch_AntennaPorts_XP` to a valid positive value.
+    As a starting point, set it to 1:
+
+    ```c
+    pdsch_AntennaPorts_XP = 1;
+    ```
+
+
+- stage: DU init
+  symptom: DU failed to start due to invalid pusch_AntennaPorts value
+  log_snippet: |
+    In config_common() ../../../openair2/LAYER2/NR_MAC_gNB/config.c:689
+    pusch_AntennaPorts in 1...12
+  related_config:
+    - pusch_AntennaPorts
+  note: |
+    The `pusch_AntennaPorts` parameter is set to `-1`, which is outside the valid range (1 to 12).
+    This triggers an assertion failure in `config_common()` during MAC initialization.
+
+    Please update the DU configuration file and assign a proper value such as:
+    
+    ```c
+    pusch_AntennaPorts = 1;
+    ```
+
+    This setting should align with the physical uplink antenna configuration or the expected simulation environment.
+
+
+- stage: DU init
+  symptom: DU failed due to pdsch_AntennaPorts_XP exceeding physical antenna capacity
+  log_snippet: |
+    Assertion (num_tx >= config.pdsch_AntennaPorts.XP * config.pdsch_AntennaPorts.N1 * config.pdsch_AntennaPorts.N2) failed!
+    In RCconfig_nr_macrlc() ../../../openair2/GNB_APP/gnb_config.c:1445
+    Number of logical antenna ports (set in config file with pdsch_AntennaPorts) cannot be larger than physical antennas (nb_tx)
+  related_config:
+    - pdsch_AntennaPorts_XP
+  note: |
+    The value of `pdsch_AntennaPorts_XP` is too large for the available number of physical transmit antennas.
+    This causes an assertion failure when XP × N1 × N2 > num_tx. In this case, N1 and N2 are 1, so XP itself must not exceed the number of tx antennas.
+    
+    Suggested fix:
+    ```c
+    pdsch_AntennaPorts_XP = 1;
+    ```
+    Choose a value that ensures `pdsch_AntennaPorts_XP ≤ num_tx`.
+
+
+- stage: DU init
+  symptom: |
+    The DU fails to start because `dl_frequencyBand` does not match the frequency indicated by `absoluteFrequencySSB`.
+    This results in an invalid GSCN value (start_gscn = 0), and causes an assertion failure.
+  log_snippet: |
+    Assertion (start_gscn != 0) failed!
+    In check_ssb_raster() ../../../common/utils/nr/nr_common.c:386
+  related_config: dl_frequencyBand
+  note: |
+    The configuration sets `dl_frequencyBand = 1`, but the actual downlink ARFCN (e.g., 630048)
+    corresponds to ~3450 MHz, which belongs to NR band 78 (n78).
+    Since band 1 does not include this frequency, the GSCN calculation fails and the softmodem exits.
+
+    Change `dl_frequencyBand` to match the intended downlink frequency band.
+
+    Example correction:
+
+    ```c
+    dl_frequencyBand = 78;  // Band n78 covers 3300–3800 MHz
+    ```
+
+    To validate the correct band for the given ARFCN, please refer to your local ARFCN-band mapping
+    file `reference.txt` (usually generated or provided alongside the test inputs).
+
+
+
+- stage: DU init
+  symptom: |
+    The DU fails to start because `dl_absoluteFrequencyPointA` is set to an invalid frequency
+    that does not map to any known NR band. As a result, the band lookup returns 0 and triggers an assertion.
+  log_snippet: |
+    Assertion (current_band != 0) failed!
+    In get_band() ../../../common/utils/nr/nr_common.c:478
+  related_config: dl_absoluteFrequencyPointA
+  note: |
+    The value of `dl_absoluteFrequencyPointA = 4291882576000` corresponds to 4291.88 MHz,
+    which is outside the defined NR band ranges in 3GPP specifications.
+    When the frequency cannot be mapped to a valid band, the system returns band 0 and fails initialization.
+
+    Please reference your input mapping file (e.g., `reference.txt`) to validate that the
+    configured frequency maps to a supported band.
+  suggestion: |
+    Use a valid value for `dl_absoluteFrequencyPointA` that maps to an existing NR band.
+
+    Example:
+
+    ```c
+    dl_absoluteFrequencyPointA = 631200;  // Maps to ~3456 MHz, which belongs to band 78
+    ```
+
+
+
+- stage: DU init
+  symptom: |
+    The DU fails to start due to an invalid downlink carrier bandwidth configuration.
+    The bandwidth index is computed as -1, which falls outside the allowed range,
+    resulting in an assertion failure in `get_supported_bw_mhz()`.
+  log_snippet: |
+    Assertion (bw_index >= 0 && bw_index <= (sizeof(bandwidth_index_to_mhz)/sizeof(*(bandwidth_index_to_mhz)))) failed!
+    In get_supported_bw_mhz() ../../../common/utils/nr/nr_common.c:428
+  related_config: dl_CarrierBandwidth
+  note: |
+    The parameter `dl_CarrierBandwidth = 123` is invalid.
+    It does not correspond to any supported bandwidth index according to the configured SCS and band.
+    This leads to the computation of `bw_index = -1`, which triggers an assertion and causes the DU to exit.
+
+    Please refer to your local `reference.txt` to determine the valid bandwidth index for the current SCS and NR band.
+  suggestion: |
+    Set `dl_CarrierBandwidth` to a valid value that matches the NR band and SCS.
+
+    Example for SCS = 30 kHz and band n78:
+
+    ```c
+    dl_CarrierBandwidth = 106;  // Corresponds to 100 MHz in band 78
+    ```
+
+- stage: DU init
+  symptom: |
+    The DU fails to start due to an invalid negative value for `initialDLBWPlocationAndBandwidth`,
+    which leads to ASN.1 encoding failure in `encode_SIB1_NR()`.
+  log_snippet: |
+    Assertion (enc_rval.encoded > 0 && enc_rval.encoded <= max_buffer_size * 8) failed!
+    In encode_SIB1_NR() ../../../openair2/RRC/NR/nr_rrc_config.c:2722
+  related_config: 
+    - initialDLBWPlocationAndBandwidth
+    - offsetToCarrier
+    - initialDLBWPsubcarrierSpacing
+  note: |
+    The configuration sets `initialDLBWPlocationAndBandwidth = -1812`, which is invalid.
+    This parameter must be a non-negative INTEGER according to the ASN.1 specification.
+    A negative value wraps into a large unsigned value (e.g., 18446744073709551615),
+    causing the ASN.1 encoder to fail and trigger a fatal assertion.
+
+    Refer to `reference.txt` or 3GPP TS 38.101-1 Table 5.3.2-1 for the correct values
+    based on channel bandwidth and subcarrier spacing.
+
+    For ASN.1 encoding rules and valid parameter ranges, also see 3GPP TS 38.331.
+  suggestion: |
+    Set `initialDLBWPlocationAndBandwidth` to a valid non-negative integer based on actual bandwidth part configuration.
+
+    Example:
+
+    ```c
+    initialDLBWPlocationAndBandwidth = 1099;  // Example value for BW=100MHz with SCS=30kHz
+    ```
+
+
+
+- stage: DU init
+  symptom: |
+    The DU fails to start due to an invalid value for `initialDLBWPcontrolResourceSetZero`,
+    which causes an ASN.1 encoding failure during the cloning of `PDCCH_ConfigCommon`.
+  log_snippet: |
+    Assertion (enc_rval.encoded > 0 && enc_rval.encoded < sizeof(buf)) failed!
+    In clone_pdcch_configcommon() ../../../openair2/RRC/NR/nr_rrc_config.c:200
+    could not clone NR_PDCCH_ConfigCommon: problem while encoding
+  related_config:
+    - initialDLBWPcontrolResourceSetZero
+    - initialDLBWPsearchSpaceZero
+  note: |
+    This error is caused by invalid values for either `initialDLBWPcontrolResourceSetZero` or `initialDLBWPsearchSpaceZero`.
+
+    • `initialDLBWPcontrolResourceSetZero = 131`: This ID is likely out of the valid encoding range.
+      It must match a defined CORESET in the control resource set list, usually within the 0–63 range.
+
+    • `initialDLBWPsearchSpaceZero = 4124`: This SearchSpace ID likely exceeds the supported range,
+      causing buffer overflow in the ASN.1 encoder and triggering a fatal assertion.
+
+    Both values must fall within encoding-compliant ranges and be defined in their respective configuration lists.
+
+    Refer to `reference.txt` or 3GPP TS 38.331 §6.3.2 for valid CORESET and SearchSpace ID ranges.
+  suggestion: |
+    Set valid values based on your configuration and CORESET/SearchSpace definitions.
+
+    Example correction:
+    ```c
+    initialDLBWPcontrolResourceSetZero = 0;  // Default CORESET ID
+    initialDLBWPsearchSpaceZero = 0;         // Default SearchSpace ID
+    ```

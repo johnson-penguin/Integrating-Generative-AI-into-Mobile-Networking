@@ -1,0 +1,20 @@
+[UTIL]   running in SA mode (no --phy-test, --do-ra, --nsa option present)
+[0m[OPT]   OPT disabled
+[0m[HW]   Version: Branch: HEAD Abrev. Hash: 60b0c1827d Date: Wed Mar 12 07:41:54 2025 +0000
+[0m[GNB_APP]   Initialized RAN Context: RC.nb_nr_inst = 1, RC.nb_nr_macrlc_inst = 1, RC.nb_nr_L1_inst = 1, RC.nb_RU = 1, RC.nb_nr_CC[0] = 1
+[0m[NR_PHY]   Initializing gNB RAN context: RC.nb_nr_L1_inst = 1 
+[0m[NR_PHY]   Registered with MAC interface module (0x46e7ff0)
+[0m[NR_PHY]   Initializing NR L1: RC.nb_nr_L1_inst = 1
+[0m[NR_PHY]   L1_RX_THREAD_CORE 8 (15)
+[0m[NR_PHY]   TX_AMP = 3276 (-20 dBFS)
+[0m[PHY]   No prs_config configuration found..!!
+[0m[GNB_APP]   pdsch_AntennaPorts N1 1 N2 1 XP 5 pusch_AntennaPorts 2
+[0m
+Assertion (num_tx >= config.pdsch_AntennaPorts.XP * config.pdsch_AntennaPorts.N1 * config.pdsch_AntennaPorts.N2) failed!
+In RCconfig_nr_macrlc() ../../../openair2/GNB_APP/gnb_config.c:1445
+Number of logical antenna ports (set in config file with pdsch_AntennaPorts) cannot be larger than physical antennas (nb_tx)
+
+Exiting execution
+CMDLINE: "./nr-softmodem" "-O" "../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/johnson/debug_case_du/2_du_gnb_pdsch_AntennaPorts_larger_than_physical antenna.conf" "--thread-pool" "9,11,13,15" 
+[CONFIG] function config_libconfig_init returned 0
+../../../openair2/GNB_APP/gnb_config.c:1445 RCconfig_nr_macrlc() Exiting OAI softmodem: _Assert_Exit_
