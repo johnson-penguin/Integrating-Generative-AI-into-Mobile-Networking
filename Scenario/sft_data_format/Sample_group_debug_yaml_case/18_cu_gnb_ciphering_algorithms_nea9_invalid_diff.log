@@ -1,0 +1,7 @@
+-    amf_ip_address = ({ ipv4 = "192.168.8.108" }); #free5GC
+
++    amf_ip_address = ({ ipv4 = "192.168.8.21" }); #free5GC
+
+-  ciphering_algorithms = ( "nea9" );
+
++  ciphering_algorithms = ( "nea0", "nea1", "nea2", "nea3" );

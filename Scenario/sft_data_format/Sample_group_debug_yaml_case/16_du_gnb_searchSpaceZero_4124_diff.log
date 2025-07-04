@@ -1,0 +1,7 @@
+-        initialDLBWPcontrolResourceSetZero                          = 11;
+
+-        initialDLBWPsearchSpaceZero                                 = 4124;
+
++        initialDLBWPcontrolResourceSetZero                          = 11; #Valid value
+
++        initialDLBWPsearchSpaceZero                                 = 1; #Valid value

@@ -1,0 +1,7 @@
+-Active_gNBs = ( "gNB-Eurecom-DU");
+
++Active_gNBs = ( "gNB-Eurecom-CU");
+
+-    gNB_name  =  "gNB-Eurecom-DU";
+
++    gNB_DU_name  =  "gNB-Eurecom-DU";

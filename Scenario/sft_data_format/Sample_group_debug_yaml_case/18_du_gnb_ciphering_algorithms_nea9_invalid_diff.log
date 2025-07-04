@@ -1,0 +1,3 @@
+-  ru_addr = ("00:aa:ff:bb:ff:cc", "00:aa:ff:bb:ff:cc"); # old-liteon RU addr
+
++  ru_addr = ("00:aa:ff:bb:ff:cc", "00:aa:ff:bb:ff:cc");
