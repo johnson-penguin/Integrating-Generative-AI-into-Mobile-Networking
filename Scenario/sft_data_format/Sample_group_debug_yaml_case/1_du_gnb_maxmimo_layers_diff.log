@@ -1,0 +1,3 @@
+-    pdsch_AntennaPorts_XP = -5; 
+
++    pdsch_AntennaPorts_XP = 1; 

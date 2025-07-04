@@ -1,0 +1,7 @@
+-    pdsch_AntennaPorts_XP = 5; 
+
++    pdsch_AntennaPorts_XP = 1; 
+
+-  ru_addr = ("00:aa:ff:bb:ff:cc", "00:aa:ff:bb:ff:cc"); # old-liteon RU addr
+
++  ru_addr = ("00:aa:ff:bb:ff:cc", "00:aa:ff:bb:ff:cc");

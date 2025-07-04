@@ -1,0 +1,3 @@
+-    pusch_AntennaPorts    = -1; 
+
++    pusch_AntennaPorts = 1; 
