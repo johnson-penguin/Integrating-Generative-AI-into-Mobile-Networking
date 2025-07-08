@@ -1,0 +1,7 @@
+-    nr_cellid = 12639812739;
+
++    nr_cellid = 12345;
+
+-    remote_s_portd  = 2!@;
+
++    remote_s_portd = 2152;

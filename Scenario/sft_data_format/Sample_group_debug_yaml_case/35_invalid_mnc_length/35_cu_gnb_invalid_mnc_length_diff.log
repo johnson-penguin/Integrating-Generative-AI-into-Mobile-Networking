@@ -1,0 +1,3 @@
+-    plmn_list = ({ mcc = 001; mnc = 01; mnc_length = 8; snssaiList = ( { sst = 1;}); });
+
++    plmn_list = ({ mcc = 001; mnc = 01; mnc_length = 2; snssaiList = ( { sst = 1;}); });

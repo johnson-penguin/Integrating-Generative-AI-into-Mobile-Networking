@@ -1,0 +1,7 @@
+-    nr_cellid = 12639812739;
+
++    nr_cellid = 126398;
+
+-    local_s_portc   = 5sda@;
+
++    local_s_portc = 500;

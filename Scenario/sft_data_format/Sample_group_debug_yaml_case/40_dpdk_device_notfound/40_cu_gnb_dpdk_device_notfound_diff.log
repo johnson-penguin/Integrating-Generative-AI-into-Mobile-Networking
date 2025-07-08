@@ -1,0 +1,7 @@
+-    local_s_address = "127.0.0.4";
+
+-    remote_s_address = "127.0.0.3";
+
++    local_s_address = "127.0.0.3";
+
++    remote_s_address = "127.0.0.4";

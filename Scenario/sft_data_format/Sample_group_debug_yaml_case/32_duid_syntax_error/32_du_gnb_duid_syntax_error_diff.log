@@ -1,0 +1,3 @@
+-    gNB_DU_ID = !@;
+
++    gNB_DU_ID = 0xe00;

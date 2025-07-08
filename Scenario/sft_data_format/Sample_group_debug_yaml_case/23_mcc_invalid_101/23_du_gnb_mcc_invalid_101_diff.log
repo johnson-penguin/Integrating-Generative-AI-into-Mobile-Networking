@@ -1,0 +1,7 @@
+-    gNB_name  =  "gNB-Eurecom-DU";
+
++    gNB_DU_name  =  "gNB-Eurecom-DU";
+
+-    plmn_list = ({ mcc = 001; mnc = 01; mnc_length = 2; snssaiList = ( { sst = 1;}); });
+
++    plmn_list = ({ mcc = 101; mnc = 01; mnc_length = 2; snssaiList = ( { sst = 1;}); });

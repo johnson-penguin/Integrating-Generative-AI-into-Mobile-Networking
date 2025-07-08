@@ -1,0 +1,15 @@
+-Active_gNBs = ( "gNB-Eurecom-DU");
+
++Active_gNBs = ( "gNB-Eurecom-DU" );
+
+-    gNB_name  =  "gNB-Eurecom-DU";
+
++    gNB_name = "gNB-Eurecom-DU";
+
+-    tracking_area_code  =  1;
+
+-    plmn_list = ({ mcc = 001; mnc = 01; mnc_length = 2; snssaiList = ( { sst = 1;}); });
+
++    tracking_area_code = 1;
+
++    plmn_list = ( { mcc = 001; mnc = 01; mnc_length = 2; snssaiList = ( { sst = 1; } ); } );
