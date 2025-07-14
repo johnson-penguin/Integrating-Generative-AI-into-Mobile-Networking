@@ -1,0 +1,18 @@
+Here is the output in the requested YAML format:
+
+- stage: du_init
+  type: DU
+  symptom: "Invalid maxMIMO_layers configuration"
+  log_snippet:
+    - "Assertion (config.maxMIMO_layers != 0 && config.maxMIMO_layers <= tot_ant) failed!"
+    - "Invalid maxMIMO_layers -1"
+  related_config:
+    - "maxMIMO_layers"
+  notes: |
+    The failure occurs during the DU initialization stage, specifically when configuring the MAC layer. The `maxMIMO_layers` parameter is set to -1, which is an invalid value. According to 3GPP TS 38.214, the maximum number of MIMO layers should be a positive integer.
+
+    In O-RAN architecture, the DU is responsible for the PHY and MAC layers. The `maxMIMO_layers` parameter is used to configure the number of MIMO layers supported by the DU. A negative value breaks the OAI's initialization logic, as it cannot determine the correct MIMO layer configuration.
+
+    The error log indicates an assertion failure in the `RCconfig_nr_macrlc()` function, which is responsible for configuring the MAC layer. The `tot_ant` variable likely represents the total number of antennas available, and the assertion checks that `maxMIMO_layers` is within a valid range.
+
+    To resolve this issue, the `maxMIMO_layers` parameter should be set to a valid positive integer value, reflecting the actual MIMO layer capability of the DU.

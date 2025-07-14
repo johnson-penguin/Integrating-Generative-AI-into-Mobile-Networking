@@ -1,0 +1,22 @@
+Here is the analysis and debug.yaml entry:
+
+- stage: du_init
+  type: DU
+  symptom: "Assertion failure in pdsch_AntennaPorts configuration"
+  log_snippet:
+    - "Assertion (num_tx >= config.pdsch_AntennaPorts.XP * config.pdsch_AntennaPorts.N1 * config.pdsch_AntennaPorts.N2) failed!"
+    - "../../../openair2/GNB_APP/gnb_config.c:1445 RCconfig_nr_macrlc() Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - "pdsch_AntennaPorts_XP"
+    - "pdsch_AntennaPorts.N1"
+    - "pdsch_AntennaPorts.N2"
+  notes: |
+    The failure occurs during the DU initialization stage, specifically in the MAC layer. The error is related to the configuration of PDSCH (Physical Downlink Shared Channel) antenna ports.
+
+    In 5G NR, PDSCH is used for downlink data transmission. The `pdsch_AntennaPorts` configuration parameter defines the number of antenna ports used for PDSCH transmission. The `XP`, `N1`, and `N2` sub-parameters specify the number of antenna ports in different dimensions.
+
+    The assertion failure indicates that the number of transmit antennas (`num_tx`) is less than the product of `XP`, `N1`, and `N2`. This means that the DU is not configured to support the required number of antenna ports for PDSCH transmission.
+
+    According to 3GPP TS 38.211, the PDSCH antenna ports are used to transmit the PDSCH signal. The number of antenna ports is determined by the network configuration and affects the PDSCH transmission scheme.
+
+    In OAI's initialization logic, the `RCconfig_nr_macrlc()` function is responsible for configuring the MAC layer. The assertion failure in this function indicates that the DU is unable to initialize the MAC layer due to the misconfigured `pdsch_AntennaPorts` parameter. This breaks the OAI's initialization logic, causing the DU to exit.

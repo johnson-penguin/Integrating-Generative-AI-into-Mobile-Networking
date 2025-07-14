@@ -1,0 +1,18 @@
+Here is the analysis and debug.yaml entry:
+
+- stage: du_init
+  type: DU
+  symptom: "Assertion failure in get_band() function"
+  log_snippet:
+    - "Assertion (current_band != 0) failed!"
+    - "get_band() Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - "dl_absoluteFrequencyPointA"
+  notes: |
+    The failure occurs during the DU initialization stage, specifically in the PHY layer. The `get_band()` function, responsible for retrieving the current band, fails due to an assertion error. This error is triggered by an invalid configuration of the `dl_absoluteFrequencyPointA` parameter.
+
+    In 5G NR, the `dl_absoluteFrequencyPointA` parameter is used to configure the downlink absolute frequency point A, which is essential for the DU to operate correctly. The O-RAN architecture relies on the DU to manage the radio resources, and an incorrect configuration of this parameter can lead to initialization failures.
+
+    According to 3GPP TS 38.104, the `dl_absoluteFrequencyPointA` parameter should be set to a valid value within the supported frequency range. In this case, the misconfiguration of this parameter causes the `get_band()` function to fail, resulting in the assertion error.
+
+    The OAI's initialization logic relies on the correct configuration of the DU to establish a valid radio environment. The misconfiguration of the `dl_absoluteFrequencyPointA` parameter breaks this logic, leading to the observed failure behavior.

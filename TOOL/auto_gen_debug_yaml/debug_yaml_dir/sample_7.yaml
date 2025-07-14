@@ -1,0 +1,18 @@
+Here is the output in the requested YAML format:
+
+- stage: du_init
+  type: DU
+  symptom: "Assertion failed in check_ssb_raster() function"
+  log_snippet:
+    - "Assertion ((freq - 24250080000) % 17280000 == 0) failed!"
+    - "Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - "absoluteFrequencySSB"
+  notes: |
+    The failure occurs during the DU initialization stage, specifically in the `check_ssb_raster()` function. This function is responsible for validating the SSB (Synchronization Signal Block) raster configuration.
+
+    The `absoluteFrequencySSB` parameter is involved in this failure, which is a critical configuration parameter for the DU. It specifies the absolute frequency of the SSB, which must align with the 5G NR frequency raster defined in 3GPP TS 38.104.
+
+    The assertion failure indicates that the provided `absoluteFrequencySSB` value does not satisfy the frequency raster constraint, which is a multiple of 17.28 MHz (17280000 Hz). This constraint is essential to ensure proper synchronization and cell search functionality in the 5G NR system.
+
+    The misconfiguration breaks OAI's initialization logic by causing the `check_ssb_raster()` function to fail, resulting in an assertion error and subsequent program termination. This failure affects the PHY layer, as it prevents the DU from properly configuring the SSB transmission, which is a critical component of the 5G NR physical layer.

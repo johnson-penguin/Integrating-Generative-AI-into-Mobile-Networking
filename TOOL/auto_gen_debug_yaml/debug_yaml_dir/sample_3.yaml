@@ -1,0 +1,18 @@
+Here is the output in the requested YAML format:
+
+- stage: du_init
+  type: DU
+  symptom: "Assertion failed for pusch_AntennaPorts configuration"
+  log_snippet:
+    - "Assertion (pusch_AntennaPorts > 0 && pusch_AntennaPorts < 13) failed!"
+    - "Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - "pusch_AntennaPorts"
+  notes: |
+    The failure occurs during the DU initialization stage, specifically when configuring the Physical Uplink Shared Channel (PUSCH) parameters. The `pusch_AntennaPorts` configuration parameter is invalid, causing an assertion failure.
+
+    In 5G NR, the PUSCH is a critical component of the uplink transmission, and its configuration is essential for proper gNB operation. The `pusch_AntennaPorts` parameter determines the number of antenna ports used for PUSCH transmission.
+
+    According to 3GPP TS 38.211, the number of antenna ports for PUSCH should be between 1 and 12. In this case, the configuration file specifies an invalid value for `pusch_AntennaPorts`, which triggers the assertion failure.
+
+    This misconfiguration breaks OAI's initialization logic, as the DU is unable to properly configure the PUSCH, leading to a failure in the DU initialization process.

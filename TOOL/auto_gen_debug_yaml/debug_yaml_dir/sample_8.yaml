@@ -1,0 +1,20 @@
+Here is the analysis and the generated `debug.yaml` entry:
+
+- stage: du_init
+  type: DU
+  symptom: "Assertion failure in DU initialization"
+  log_snippet:
+    - "Assertion (start_gscn != 0) failed!"
+    - "Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - "dl_frequencyBand"
+  notes: |
+    The failure occurs during the DU initialization stage, specifically when checking the SSB (Synchronization Signal Block) raster configuration. The `dl_frequencyBand` parameter is involved, which is related to the downlink frequency band configuration.
+
+    In 5G NR, the SSB is used for initial access and cell search. The SSB raster defines the possible frequency locations of the SSB. The `start_gscn` variable is likely related to the starting subcarrier index of the SSB raster.
+
+    The assertion failure indicates that the `start_gscn` value is 0, which is not a valid configuration. This suggests that the `dl_frequencyBand` parameter is not correctly set, leading to an invalid SSB raster configuration.
+
+    According to 3GPP TS 38.104, the SSB raster is defined by the `ssb-SubcarrierOffset` and `ssb-SubcarrierSpacing` parameters. The `dl_frequencyBand` parameter is likely used to determine these values.
+
+    The misconfiguration breaks OAI's initialization logic by causing the DU to exit during the initialization process, preventing the gNB from starting correctly. This issue affects the PHY layer, specifically the initial access and cell search functionality.

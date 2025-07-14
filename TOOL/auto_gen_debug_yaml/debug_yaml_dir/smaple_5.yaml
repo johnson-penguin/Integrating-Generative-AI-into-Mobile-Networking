@@ -1,0 +1,19 @@
+Here is the analysis and the generated `debug.yaml` entry:
+
+- stage: du_init
+  type: DU
+  symptom: "Assertion failure in DU initialization"
+  log_snippet:
+    - "Assertion (ld > 2 && ld < 15) failed!"
+  related_config:
+    - "sib1_tda"
+  notes: |
+    The failure occurs during the DU initialization stage, specifically when processing the SIB1 configuration. The `sib1_tda` parameter is involved, which is related to the Transmission Diversity Algorithm (TDA) configuration for SIB1.
+
+    In 5G NR, SIB1 is a critical system information block that carries essential information for the UE to access the network. The TDA configuration affects how SIB1 is transmitted and received.
+
+    The assertion failure suggests that the `ld` value, which is likely related to the layer density or transmission layer configuration, is outside the valid range of 2 to 15. This misconfiguration breaks OAI's DU initialization logic, as it cannot properly set up the SIB1 transmission parameters.
+
+    This issue is related to the PHY layer, as it affects the transmission and reception of SIB1. The 3GPP specification TS 38.331 provides details on the SIB1 structure and transmission, while the O-RAN architecture defines the DU's role in transmitting system information.
+
+    In this case, the invalid `sib1_tda` configuration leads to an incorrect setup of the SIB1 transmission parameters, causing the DU initialization to fail.

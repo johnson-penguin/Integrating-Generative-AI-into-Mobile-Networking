@@ -1,0 +1,19 @@
+Here is the analysis and debug.yaml entry:
+
+- stage: du_init
+  type: DU
+  symptom: "DU initialization failure due to misconfigured PUSCH antenna ports and SIB1 TDA"
+  log_snippet: []
+  related_config:
+    - pusch_AntennaPorts
+    - sib1_tda
+  notes: |
+    The DU initialization failure is caused by misconfigured parameters related to the Physical Layer (PHY) and Radio Resource Control (RRC) layers.
+
+    The `pusch_AntennaPorts` parameter is related to the PUSCH (Physical Uplink Shared Channel) configuration, which is used for uplink data transmission. In 5G NR, the PUSCH is used to transmit user data and control information from the UE to the gNB. The antenna ports configuration affects the beamforming and spatial multiplexing capabilities of the gNB. A misconfigured `pusch_AntennaPorts` parameter can lead to incorrect beamforming and spatial multiplexing, resulting in failed uplink data transmission.
+
+    The `sib1_tda` parameter is related to the System Information Block 1 (SIB1) transmission, which is used to broadcast system information to UEs in the cell. The TDA (Transmission Diversity Antenna) configuration affects the transmission of SIB1, which is essential for UE cell selection and initial access. A misconfigured `sib1_tda` parameter can lead to failed SIB1 transmission, resulting in UEs being unable to access the cell.
+
+    In OAI's DU initialization logic, these misconfigured parameters break the initialization process, causing the DU to fail to start. This is because the DU relies on correct PHY and RRC layer configurations to establish a valid radio interface with the UE.
+
+    Relevant 3GPP specifications: TS 38.211 (Physical channels and modulation), TS 38.331 (Radio Resource Control (RRC); Protocol specification)
