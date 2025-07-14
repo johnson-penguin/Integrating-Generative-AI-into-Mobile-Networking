@@ -1,0 +1,20 @@
+Here is the analysis and debug.yaml entry:
+
+- stage: du_init
+  type: DU
+  symptom: "Assertion failure in PDSCH antenna ports configuration"
+  log_snippet:
+    - "Assertion (num_tx >= config.pdsch_AntennaPorts.XP * config.pdsch_AntennaPorts.N1 * config.pdsch_AntennaPorts.N2) failed!"
+    - "_Assert_Exit_"
+  related_config:
+    - "pdsch_AntennaPorts_XP"
+    - "pdsch_AntennaPorts.N1"
+    - "pdsch_AntennaPorts.N2"
+  notes: |
+    The failure occurs during the DU initialization stage, specifically in the PHY layer, when configuring the PDSCH (Physical Downlink Shared Channel) antenna ports. The assertion failure indicates that the number of transmit antennas (num_tx) is less than the product of XP, N1, and N2, which are configuration parameters for the PDSCH antenna ports.
+
+    In 5G NR, the PDSCH is used for downlink data transmission, and its configuration is critical for proper operation. The XP, N1, and N2 parameters define the antenna port configuration, which affects the transmission scheme and beamforming.
+
+    According to 3GPP TS 38.211, the PDSCH antenna ports are configured using the `pdsch-AntennaPorts` parameter, which includes the XP, N1, and N2 sub-parameters. The O-RAN architecture also relies on this configuration for proper DU operation.
+
+    In this case, the misconfiguration of the PDSCH antenna ports leads to an assertion failure, causing the DU initialization to fail. The OAI softmodem exits due to the assertion failure, indicating a critical configuration error.

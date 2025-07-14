@@ -1,0 +1,414 @@
+[UTIL]   running in SA mode (no --phy-test, --do-ra, --nsa option present)
+[0m[OPT]   OPT disabled
+[0m[HW]   Version: Branch: HEAD Abrev. Hash: 60b0c1827d Date: Wed Mar 12 07:41:54 2025 +0000
+[0m[GNB_APP]   Initialized RAN Context: RC.nb_nr_inst = 1, RC.nb_nr_macrlc_inst = 1, RC.nb_nr_L1_inst = 1, RC.nb_RU = 1, RC.nb_nr_CC[0] = 1
+[0m[NR_PHY]   Initializing gNB RAN context: RC.nb_nr_L1_inst = 1 
+[0m[NR_PHY]   Registered with MAC interface module (0x3b26e70)
+[0m[NR_PHY]   Initializing NR L1: RC.nb_nr_L1_inst = 1
+[0m[NR_PHY]   L1_RX_THREAD_CORE 8 (15)
+[0m[NR_PHY]   TX_AMP = 3276 (-20 dBFS)
+[0m[PHY]   No prs_config configuration found..!!
+[0m[GNB_APP]   pdsch_AntennaPorts N1 1 N2 1 XP 1 pusch_AntennaPorts 1
+[0m[GNB_APP]   minTXRXTIME 6
+[0m[GNB_APP]   SIB1 TDA 1
+[0m[GNB_APP]   CSI-RS 0, SRS 0, 256 QAM force off, delta_MCS off, maxMIMO_Layers -1, HARQ feedback enabled, num DLHARQ:16, num ULHARQ:16
+[0m[GNB_APP]   sr_ProhibitTimer 0, sr_TransMax 64, sr_ProhibitTimer_v1700 0, t300 400, t301 400, t310 2000, n310 10, t311 3000, n311 1, t319 400
+[0m[NR_MAC]   Candidates per PDCCH aggregation level on UESS: L1: 0, L2: 2, L4: 0, L8: 0, L16: 0
+[0m[RRC]   Read in ServingCellConfigCommon (PhysCellId 0, ABSFREQSSB 630048, DLBand 78, ABSFREQPOINTA 626772, DLBW 273,RACH_TargetReceivedPower -104
+[0m[RRC]   absoluteFrequencySSB 630048 corresponds to 3450720000 Hz
+[0m[NR_MAC]   TDD period index = 5, based on the sum of dl_UL_TransmissionPeriodicity from Pattern1 (2.500000 ms) and Pattern2 (0.000000 ms): Total = 2.500000 ms
+[0m[UTIL]   threadCreate() for MAC_STATS: creating thread with affinity ffffffff, priority 2
+[0m[NR_MAC]   PUSCH Target 200, PUCCH Target 200, PUCCH Failure 10, PUSCH Failure 100
+[0m[NR_PHY]   Copying 0 blacklisted PRB to L1 context
+[0m[NR_MAC]   Set TX antenna number to 1, Set RX antenna number to 1 (num ssb 1: 80000000,0)
+[0m[NR_MAC]   TDD period index = 5, based on the sum of dl_UL_TransmissionPeriodicity from Pattern1 (2.500000 ms) and Pattern2 (0.000000 ms): Total = 2.500000 ms
+[0m[NR_MAC]   Set TDD configuration period to: 4 DL slots, 2 UL slots, 5 slots per period (NR_TDD_UL_DL_Pattern is 3 DL slots, 1 UL slots, 6 DL symbols, 4 UL symbols)
+[0m[NR_MAC]   Configured 1 TDD patterns (total slots: pattern1 = 5, pattern2 = 0)
+[0m[NR_PHY]   Set TDD Period Configuration: 4 periods per frame, 20 slots to be configured (4 DL, 2 UL)
+[0m[NR_PHY]   TDD period configuration: slot 0 is DOWNLINK
+[0m[NR_PHY]   TDD period configuration: slot 1 is DOWNLINK
+[0m[NR_PHY]   TDD period configuration: slot 2 is DOWNLINK
+[0m[NR_PHY]   TDD period configuration: slot 3 is FLEXIBLE: DDDDDDFFFFUUUU
+[0m[NR_PHY]   TDD period configuration: slot 4 is UPLINK
+[0m[PHY]   DL frequency 3450720000 Hz, UL frequency 3450720000 Hz: band 78, uldl offset 0 Hz
+[0m[PHY]   Initializing frame parms for mu 1, N_RB 273, Ncp 0
+[0m[PHY]   Init: N_RB_DL 273, first_carrier_offset 2458, nb_prefix_samples 288,nb_prefix_samples0 352, ofdm_symbol_size 4096
+[0m[NR_RRC]   SIB1 freq: offsetToPointA 252
+[0m[GNB_APP]   F1AP: gNB idx 0 gNB_DU_id 3584, gNB_DU_name gNB-Eurecom-DU, TAC 1 MCC/MNC/length 1/1/2 cellID 12345678
+[0m[GNB_APP]   ngran_DU: Configuring Cell 0 for TDD
+[0m[GNB_APP]   SDAP layer is disabled
+[0m[GNB_APP]   Data Radio Bearer count 1
+[0m[93m[RRC]   no preferred ciphering algorithm set in configuration file, applying default parameters (no security)
+[0m[93m[RRC]   no preferred integrity algorithm set in configuration file, applying default parameters (nia2)
+[0m[UTIL]   threadCreate() for TASK_SCTP: creating thread with affinity ffffffff, priority 50
+[0m[X2AP]   X2AP is disabled.
+[0m[UTIL]   threadCreate() for TASK_GNB_APP: creating thread with affinity ffffffff, priority 50
+[0m[UTIL]   threadCreate() for TASK_GTPV1_U: creating thread with affinity ffffffff, priority 50
+[0m[UTIL]   threadCreate() for TASK_DU_F1: creating thread with affinity ffffffff, priority 50
+[0m[F1AP]   Starting F1AP at DU
+[0m[F1AP]   F1-C DU IPaddr 127.0.0.3, connect to F1-C CU 127.0.0.4, binding GTP to 127.0.0.3
+[0m[34m[F1AP]   DU Task Received F1AP_DU_REGISTER_REQ for instance 0: sending SCTP messages via assoc_id 0
+[0m[34m[F1AP]   Local IPv4 Address: 127.0.0.3, Remote IPv4 Address: 127.0.0.4
+[0m[GTPU]   Initializing UDP for local address 127.0.0.3 with port 2152
+[0m[GTPU]   Created gtpu instance id: 94
+[0m[34m[F1AP]   DU Task Received SCTP_NEW_ASSOCIATION_RESP for instance 0: sending SCTP messages via assoc_id 0
+[0m[34m[F1AP]   DU_send_F1_SETUP_REQUEST
+[0m[34m[F1AP]   DU Task Received SCTP_DATA_IND for instance 0: sending SCTP messages via assoc_id 1354
+[0m[34m[F1AP]   Calling handler with instance 0
+[0m[34m[F1AP]   DU_handle_F1_SETUP_RESPONSE
+[0m[34m[F1AP]   Sending F1AP_SETUP_RESP ITTI message
+[0m[MAC]   received F1 Setup Response from CU gNB-Eurecom-CU
+[0m[MAC]   CU uses RRC version 17.3.0
+[0m[MAC]   Clearing the DU's UE states before, if any.
+[0m[PHY]   number of L1 instances 1, number of RU 1, number of CPU cores 32
+[0m[PHY]   Initialized RU proc 0 (NGFI_RAU_IF4p5,synch_to_ext_device),
+[0m[UTIL]   threadCreate() for ru_thread: creating thread with affinity 6, priority 97
+[0m[PHY]   Starting RU 0 (NGFI_RAU_IF4p5,synch_to_ext_device) on cpu 30
+[0m[PHY]   Initializing frame parms for mu 1, N_RB 273, Ncp 0
+[0m[PHY]   Init: N_RB_DL 273, first_carrier_offset 2458, nb_prefix_samples 288,nb_prefix_samples0 352, ofdm_symbol_size 4096
+[0m[PHY]   fp->scs=30000
+[0m[PHY]   fp->ofdm_symbol_size=4096
+[0m[PHY]   fp->nb_prefix_samples0=352
+[0m[PHY]   fp->nb_prefix_samples=288
+[0m[PHY]   fp->slots_per_subframe=2
+[0m[PHY]   fp->samples_per_subframe_wCP=114688
+[0m[PHY]   fp->samples_per_frame_wCP=1146880
+[0m[PHY]   fp->samples_per_subframe=122880
+[0m[PHY]   fp->samples_per_frame=1228800
+[0m[PHY]   fp->dl_CarrierFreq=3450720000
+[0m[PHY]   fp->ul_CarrierFreq=3450720000
+[0m[PHY]   fp->Nid_cell=0
+[0m[PHY]   fp->first_carrier_offset=2458
+[0m[PHY]   fp->ssb_start_subcarrier=0
+[0m[PHY]   fp->Ncp=0
+[0m[PHY]   fp->N_RB_DL=273
+[0m[PHY]   fp->numerology_index=1
+[0m[PHY]   fp->nr_band=78
+[0m[PHY]   fp->ofdm_offset_divisor=8
+[0m[PHY]   fp->threequarter_fs=0
+[0m[PHY]   fp->sl_CarrierFreq=0
+[0m[PHY]   fp->N_RB_SL=0
+[0m[PHY]   Setting RF config for N_RB 273, NB_RX 4, NB_TX 4
+[0m[PHY]   tune_offset 0 Hz, sample_rate 122880000 Hz
+[0m[PHY]   Channel 0: setting tx_gain offset 0, tx_freq 3450720000 Hz
+[0m[PHY]   Channel 1: setting tx_gain offset 0, tx_freq 3450720000 Hz
+[0m[PHY]   Channel 2: setting tx_gain offset 0, tx_freq 3450720000 Hz
+[0m[PHY]   Channel 3: setting tx_gain offset 0, tx_freq 3450720000 Hz
+[0m[PHY]   Channel 0: setting rx_gain offset 0, rx_freq 3450720000 Hz
+[0m[PHY]   Channel 1: setting rx_gain offset 0, rx_freq 3450720000 Hz
+[0m[PHY]   Channel 2: setting rx_gain offset 0, rx_freq 3450720000 Hz
+[0m[PHY]   Channel 3: setting rx_gain offset 0, rx_freq 3450720000 Hz
+[0m[PHY]   starting transport
+[0m[HW]   Initializing O-RAN 7.2 FH interface through xran library (compiled against headers of oran_e_maintenance_release_v1.4)
+[0mEAL: Detected 32 lcore(s)
+EAL: Detected 2 NUMA nodes
+EAL: Auto-detected process type: PRIMARY
+EAL: Detected shared linkage of DPDK
+EAL: Multi-process socket /var/run/dpdk/wls_0/mp_socket
+EAL: Selected IOVA mode 'PA'
+EAL: No available hugepages reported in hugepages-2048kB
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Probe PCI driver: net_i40e_vf (8086:154c) device: 0000:ca:02.0 (socket 1)
+CMDLINE: "./nr-softmodem" "-O" "../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/johnson/debug_case_du/0_du_gnb_success.conf" "--thread-pool" "9,11,13,15" 
+[CONFIG] function config_libconfig_init returned 0
+DL frequency 3450720000: band 78, UL frequency 3450720000
+xran_fh_init:
+  io_cfg:
+    id 0 (O-DU)
+    num_vfs 2
+    num_rxq 1
+    dpdk_dev [0000:ca:02.0, 0000:ca:02.1, (null), (null), (null), (null), (null), (null), (null), (null), (null), (null), (null), (null), (null), (null)]
+    bbdev_dev (null)
+    bbdev_mode -1
+    dpdkIoVaMode 0
+    dpdkMemorySize 8192
+    core 4
+    system_core 0
+    pkt_proc_core 0000000000000004
+    pkt_proc_core_64_127 0000000000000000
+    pkt_aux_core 0
+    timing_core 4
+    port (filled within xran library)
+    io_sleep 0
+    nEthLinePerPort 1
+    nEthLineSpeed 10
+    one_vf_cu_plane 0
+    eowd_cmn[0]:
+      initiator_en 0
+      numberOfSamples 0
+      filterType 0
+      responseTo 0
+      measVf 0
+      measState 0
+      measId 0
+      measMethod 0
+      owdm_enable 0
+      owdm_PlLength 0
+eowd_port (filled within xran library)
+  eAxCId_conf:
+    mask_cuPortId 0xf000
+    mask_bandSectorId 0x0f00
+    mask_ccId 0x00f0
+    mask_ruPortId 0x000f
+    bit_cuPortId 0
+    bit_bandSectorId 0
+    bit_ccId 0
+    bit_ruPortId 0
+  xran_ports 1
+  dpdkBasebandFecMode 0
+  dpdkBasebandDevice (null)
+  filePrefix wls_0
+  mtu 9000
+  p_o_du_addr (null)
+  p_o_ru_addr [00:AA:FF:BB:FF:CC, 00:AA:FF:BB:FF:CC]
+  totalBfWeights 0
+'DPDK 20.11.9'
+ xran_init: MTU 9000
+PF Eth line speed 10G
+PF Eth lines per O-xU port 1
+RX HW queues per O-xU Eth line 1 
+total cores 32 c_mask 0x00000000000000015 core 4 [id] system_core 0 [id] pkt_proc_core 0x00000000000000004 [mask] pkt_aux_core 0 [id] timing_core 4 [id]
+xran_ethdi_init_dpdk_io: Calling rte_eal_init:wls_0 -c 0x00000000000000015 -n2 --iova-mode=pa --socket-mem=8192 --socket-limit=8192 --proc-type=auto --no-telemetry --file-prefix wls_0 -a0000:00:00.0   
+xran_init_mbuf_pool: socket 0
+initializing port 0 for TX, drv=net_i40e_vf
+Port 0 MAC: 00 11 22 33 44 66
+Port 0: nb_rxd 4096 nb_txd 4096
+[0] mp_rx__p_0_q_0 num blocks 65535
+[0] mempool_small__0
+
+Checking link status portid [0]  EAL: Probe PCI driver: net_i40e_vf (8086:154c) device: 0000:ca:02.1 (socket 1)
+ ... done
+Port 0 Link Up - speed 10000 Mbps - full-duplex
+initializing port 1 for TX, drv=net_i40e_vf
+Port 1 MAC: 00 11 22 33 44 66
+Port 1: nb_rxd 4096 nb_txd 4096
+[1] mp_rx__p_1_q_0 num blocks 65535
+[1] mempool_small__1
+Created ring tx_ring_cp_1 on core 2
+Created ring rx_ring_cp_1_0 on core 2
+
+Checking link status portid [1]  [93m[PHY]   Please be aware that E release support will be removed by the end of January 2025. Instead, F release will be mandatory.
+[0m ... done
+Port 1 Link Up - speed 10000 Mbps - full-duplex
+[ 0] vf  0 local  SRC MAC: 00 11 22 33 44 66
+[ 0] vf  0 remote DST MAC: 00 aa ff bb ff cc
+[ 0] vf  1 local  SRC MAC: 00 11 22 33 44 66
+[ 0] vf  1 remote DST MAC: 00 aa ff bb ff cc
+created dl_gen_ring_up_0 on core 2
+xran_fh_config:
+  dpdk_port 0
+  sector_id 0
+  nCC 1
+  neAxc 4
+  neAxcUl 0
+  nAntElmTRx 0
+  nDLFftSize 0
+  nULFftSize 0
+  nDLRBs 273
+  nULRBs 273
+  nDLAbsFrePointA 0
+  nULAbsFrePointA 0
+  nDLCenterFreqARFCN 0
+  nULCenterFreqARFCN 0
+  ttiCb (nil)
+  ttiCbParam (nil)
+  Tadv_cp_dl 0
+  T2a_min_cp_dl 0
+  T2a_max_cp_dl 0
+  T2a_min_cp_ul 0
+  T2a_max_cp_ul 0
+  T2a_min_up 0
+  T2a_max_up 0
+  Ta3_min 0
+  Ta3_max 0
+  T1a_min_cp_dl 285
+  T1a_max_cp_dl 429
+  T1a_min_cp_ul 285
+  T1a_max_cp_ul 429
+  T1a_min_up 96
+  T1a_max_up 196
+  Ta4_min 110
+  Ta4_max 180
+  enableCP 1
+  prachEnable 1
+  srsEnable 0
+  puschMaskEnable 0
+  puschMaskSlot 0
+  cp_vlan_tag 0
+  up_vlan_tag 0
+  debugStop 0
+  debugStopCount 0
+  DynamicSectionEna 0
+  GPS_Alpha 0
+  GPS_Beta 0
+  prach_config:
+    nPrachConfIdx 159
+    nPrachSubcSpacing 1
+    nPrachZeroCorrConf 0
+    nPrachRestrictSet 0
+    nPrachRootSeqIdx 0
+    nPrachFreqStart 0
+    nPrachFreqOffset -3276
+    nPrachFilterIdx 0
+    startSymId 0
+    lastSymId 0
+    startPrbc 0
+    numPrbc 0
+    timeOffset 0
+    freqOffset 0
+    eAxC_offset 4
+  srs_config:
+    symbMask 0000
+    eAxC_offset 0
+  frame_conf:
+    nFrameDuplexType TDD
+    nNumerology 1
+    nTddPeriod 5
+    sSlotConfig[0]: DDDDDDDDDDDDDD
+    sSlotConfig[1]: DDDDDDDDDDDDDD
+    sSlotConfig[2]: DDDDDDDDDDDDDD
+    sSlotConfig[3]: DDDDDDGGGGUUUU
+    sSlotConfig[4]: UUUUUUUUUUUUUU
+  ru_config:
+    xranTech NR
+    xranCat A
+    xranCompHdrType static
+    iqWidth 9
+    compMeth 1
+    iqWidth_PRACH 9
+    compMeth_PRACH 1
+    fftSize 12
+    byteOrder network/BE
+    iqOrder I_Q
+    xran_max_frame 0
+  bbdev_enc (nil)
+  bbdev_dec (nil)
+  tx_cp_eAxC2Vf 0x7fbc4cfeb0e8
+  tx_up_eAxC2Vf 0x7fbc4cfebce8
+  rx_cp_eAxC2Vf 0x7fbc4cfec8e8
+  rx_up_eAxC2Vf 0x7fbc4cfed4e8
+  log_level 1
+  max_sections_per_slot 0
+  max_sections_per_symbol 0
+ xran_open: 5G NR Category A
+xRAN open PRACH config: Numerology 1 ConfIdx 159, preambleFmrt 10 startsymb 0, numSymbol 12, occassionsInPrachSlot 1
+PRACH: x 1 y[0] 0, y[1] 0 prach slot: 9 ..
+PRACH start symbol 0 lastsymbol 11
+xran_init_vfs_mapping: p 0 vf 0
+xran_init_vfs_mapping: p 0 vf 1
+xran_open: interval_us=500, interval_us_local=500
+XRAN_UP_VF: 0x0000
+xran_timing_source_thread [CPU  4] [PID: 1209410]
+TTI interval 500 [us]
+Start C-plane DL 71 us after TTI  [trigger on sym 2]
+Start C-plane UL 71 us after TTI  [trigger on sym 2]
+Start U-plane DL 196 us before OTA [offset  in sym -5]
+Start U-plane UL 180 us OTA        [offset  in sym 6]
+C-plane to U-plane delay 125 us after TTI
+O-XU      0
+HW        0
+Num cores 2
+Num ports 1
+O-RU Cat  0
+O-RU CC   1
+O-RU eAxC 4
+p:0 XRAN_JOB_TYPE_CP_DL worker id 1
+p:0 XRAN_JOB_TYPE_CP_UL worker id 1
+Start Sym timer 71428 ns
+spawn worker 0 core 2
+xran_generic_worker_thread [CPU  2] [PID: 1209410]
+xran_open [CPU  0] [PID: 1209410]
+Waiting on Timing thread...
+Initialize ORAN port instance 0 (1) sector 0
+xran_sector_get_instances() o_xu_id 0 xran_handle 0x7fbc233b4040
+xran_sector_get_instances [0]: CC 0 handle 0x7fbc3813d300
+Handle: 0x7fbc3c0da588 Instance: 0x7fbc3813d300
+-> hInstance 0x7fbc3813d300
+ru_0_cc_0_idx_0: [ handle 0x7fbc3813d300 0 0 ] [nPoolIndex 0] nNumberOfBuffers 2047 nBufferSize 14116
+CC:[ handle 0x7fbc3813d300 ru 0 cc_idx 0 ] [nPoolIndex 0] mb pool 0x27e709780 
+xran_bm_init() hInstance 0x7fbc3813d300 poolIdx 0 elements 2047 size 14116
+xran_bm_allocate_buffer() hInstance 0x7fbc3813d300 poolIdx 0 count 1120
+ru_0_cc_0_idx_1: [ handle 0x7fbc3813d300 0 0 ] [nPoolIndex 1] nNumberOfBuffers 8192 nBufferSize 32
+CC:[ handle 0x7fbc3813d300 ru 0 cc_idx 0 ] [nPoolIndex 1] mb pool 0x27c8e3380 
+xran_bm_init() hInstance 0x7fbc3813d300 poolIdx 1 elements 8192 size 32
+ru_0_cc_0_idx_2: [ handle 0x7fbc3813d300 0 0 ] [nPoolIndex 2] nNumberOfBuffers 2047 nBufferSize 7408
+CC:[ handle 0x7fbc3813d300 ru 0 cc_idx 0 ] [nPoolIndex 2] mb pool 0x27c2c0d40 
+xran_bm_init()[HW]   [RAU] has loaded ETHERNET trasport protocol.
+[0m[PHY]   RU 0: manually set CPU affinity to CPU 6
+[0m[PHY]   Starting IF interface for RU 0, nb_rx 4
+[0m[PHY]   RU 0 Setting N_TA_offset to 1600 samples (UL Freq 3401580, N_RB 273, mu 1)
+[0m[PHY]   Signaling main thread that RU 0 is ready, sl_ahead 5
+[0m[PHY]   L1 configured without analog beamforming
+[0m[PHY]   Attaching RU 0 antenna 0 to gNB antenna 0
+[0m[PHY]   Attaching RU 0 antenna 1 to gNB antenna 1
+[0m[PHY]   Attaching RU 0 antenna 2 to gNB antenna 2
+[0m[PHY]   Attaching RU 0 antenna 3 to gNB antenna 3
+[0m[UTIL]   threadCreate() for Tpool0_9: creating thread with affinity 9, priority 97
+[0m[UTIL]   threadCreate() for Tpool1_11: creating thread with affinity b, priority 97
+[0m[UTIL]   threadCreate() for Tpool2_13: creating thread with affinity d, priority 97
+[0m[UTIL]   threadCreate() for Tpool3_15: creating thread with affinity f, priority 97
+[0m[UTIL]   threadCreate() for L1_rx_thread: creating thread with affinity 8, priority 97
+[0m[UTIL]   threadCreate() for L1_tx_thread: creating thread with affinity a, priority 97
+[0m[UTIL]   threadCreate() for L1_stats: creating thread with affinity ffffffff, priority 1
+[0m[PHY]   got sync (L1_stats_thread)
+[0m[PHY]   got sync (ru_thread)
+[0m hInstance 0x7fbc3813d300 poolIdx 2 elements 2047 size 7408
+xran_bm_allocate_buffer() hInstance 0x7fbc3813d300 poolIdx 2 count 80
+xran_bm_allocate_buffer() hInstance 0x7fbc3813d300 poolIdx 1 count 1120
+ru_0_cc_0_idx_3: [ handle 0x7fbc3813d300 0 0 ] [nPoolIndex 3] nNumberOfBuffers 2047 nBufferSize 13168
+CC:[ handle 0x7fbc3813d300 ru 0 cc_idx 0 ] [nPoolIndex 3] mb pool 0x27b19a940 
+xran_bm_init() hInstance 0x7fbc3813d300 poolIdx 3 elements 2047 size 13168
+xran_bm_allocate_buffer() hInstance 0x7fbc3813d300 poolIdx 3 count 1120
+ru_0_cc_0_idx_4: [ handle 0x7fbc3813d300 0 0 ] [nPoolIndex 4] nNumberOfBuffers 8192 nBufferSize 32
+CC:[ handle 0x7fbc3813d300 ru 0 cc_idx 0 ] [nPoolIndex 4] mb pool 0x279534540 
+xran_bm_init() hInstance 0x7fbc3813d300 poolIdx 4 elements 8192 size 32
+ru_0_cc_0_idx_5: [ handle 0x7fbc3813d300 0 0 ] [nPoolIndex 5] nNumberOfBuffers 2047 nBufferSize 7408
+CC:[ handle 0x7fbc3813d300 ru 0 cc_idx 0 ] [nPoolIndex 5] mb pool 0x278f11f00 
+xran_bm_init() hInstance 0x7fbc3813d300 poolIdx 5 elements 2047 size 7408
+xran_bm_allocate_buffer() hInstance 0x7fbc3813d300 poolIdx 5 count 80
+xran_bm_allocate_buffer() hInstance 0x7fbc3813d300 poolIdx 4 count 1120
+ru_0_cc_0_idx_6: [ handle 0x7fbc3813d300 0 0 ] [nPoolIndex 6] nNumberOfBuffers 2047 nBufferSize 3360
+CC:[ handle 0x7fbc3813d300 ru 0 cc_idx 0 ] [nPoolIndex 6] mb pool 0x277debb00 
+xran_bm_init() hInstance 0x7fbc3813d300 poolIdx 6 elements 2047 size 3360
+xran_bm_allocate_buffer() hInstance 0x7fbc3813d300 poolIdx 6 count 1120
+ORAN: get_internal_parameter
+ORAN: get_internal_parameter
+ORAN: trx_oran_start
+O-DU: XRAN start time: 06/29/25 08:18:37.171240485 UTC [500]
+Start ORAN. Done
+TYPE <CTRL-C> TO TERMINATE
+[PHY]   RU 0 no rf device
+[0m[PHY]   RU 0 RF started cpu_meas_enabled 0
+[0m[PHY]   before adjusting, OAI: frame=0 slot=0, XRAN: frame=0 slot=9
+[0m[PHY]   After adjusting, OAI: frame=0 slot=9, XRAN: frame=0 slot=9
+[0m[32m[PHY]   Command line parameters for OAI UE: -C 3450720000 -r 273 --numerology 1 --ssb 1518 
+[0m[NR_MAC]   Frame.Slot 128.0
+
+[0m[NR_PHY]   [o-du 0][rx   86016 pps   86016 kbps 3558604][tx  127604 pps  127604 kbps 4717971][Total Msgs_Rcvd 86016]
+[0m[NR_PHY]   [o_du0][pusch0   18432 prach0    3072]
+[0m[NR_PHY]   [o_du0][pusch1   18432 prach1    3072]
+[0m[NR_PHY]   [o_du0][pusch2   18432 prach2    3072]
+[0m[NR_PHY]   [o_du0][pusch3   18432 prach3    3072]
+[0m[NR_MAC]   Frame.Slot 256.0
+
+[0m[NR_PHY]   [o-du 0][rx  172032 pps   86016 kbps 3558604][tx  255092 pps  127488 kbps 4717971][Total Msgs_Rcvd 172032]
+[0m[NR_PHY]   [o_du0][pusch0   36864 prach0    6144]
+[0m[NR_PHY]   [o_du0][pusch1   36864 prach1    6144]
+[0m[NR_PHY]   [o_du0][pusch2   36864 prach2    6144]
+[0m[NR_PHY]   [o_du0][pusch3   36864 prach3    6144]
+[0m
+** Caught SIGTERM, shutting down
+[GNB_APP]   stopping nr-softmodem
+[0m[PHY]   Killing gNB 0 processing threads
+[0m[PHY]   Stopping RU 0 processing threads
+[0m[93m[PHY]   No stop_rf() for RU 0 defined, cannot stop RF!
+[0m[GNB_APP]   turned off RU ifdevice
+[0mO-DU: thread_run start time: 06/29/25 08:18:38.000000001 UTC [500]
+first_call set from phy cb first_call_set=0x7fbc3c0d9ac0
+Returned from ITTI signal handler
+ORAN: trx_oran_stop
+fh_rx_bbdev-2 worker thread finished on core 2 [worker id 0]
+Closing timing source thread...
+Bye.

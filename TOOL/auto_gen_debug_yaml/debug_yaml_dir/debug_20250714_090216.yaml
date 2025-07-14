@@ -1,0 +1,18 @@
+Here is the output in the requested YAML format:
+
+- stage: du_init
+  type: DU
+  symptom: "Assertion failed for pusch_AntennaPorts configuration"
+  log_snippet:
+    - "Assertion (pusch_AntennaPorts > 0 && pusch_AntennaPorts < 13) failed!"
+    - "../../../openair2/LAYER2/NR_MAC_gNB/config.c:689 config_common() Exiting OAI softmodem: _Assert_Exit_"
+  related_config:
+    - "pusch_AntennaPorts"
+  notes: |
+    The failure occurs during the DU initialization stage, specifically when configuring the Physical Uplink Shared Channel (PUSCH) parameters. The `pusch_AntennaPorts` configuration parameter is invalid, causing an assertion failure.
+
+    In 5G NR, the PUSCH is a key physical channel used for uplink data transmission. The `pusch_AntennaPorts` parameter determines the number of antenna ports used for PUSCH transmission. According to 3GPP TS 38.211, the number of antenna ports should be between 1 and 12.
+
+    In this case, the misconfigured `pusch_AntennaPorts` value breaks the OAI's initialization logic, leading to an assertion failure in the `config_common()` function. This function is responsible for configuring the MAC layer parameters, including the PUSCH settings.
+
+    The affected layer is the MAC layer, which is responsible for managing the physical channels, including the PUSCH. The failure behavior expected in this case is that the DU initialization will fail, and the OAI softmodem will exit.
