@@ -1,0 +1,11 @@
+[LIBCONFIG] file ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/johnson/debug_case_cu/30_cu_gnb_local_ifname_invalid.conf - line 25: syntax error
+
+[CONFIG] ../../../common/config/config_load_configmodule.c 379 config module "libconfig" couldn't be loaded
+[CONFIG] config_get, section log_config skipped, config module not properly initialized
+[LOG] init aborted, configuration couldn't be performed
+[CONFIG] config_get, section (null) skipped, config module not properly initialized
+[CONFIG] ../../../common/config/config_userapi.c 68 nfapi has no processed integer availablle
+[CONFIG] config_get, section (null) skipped, config module not properly initialized
+Getting configuration failed
+CMDLINE: "./nr-softmodem" "-O" "../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/johnson/debug_case_cu/30_cu_gnb_local_ifname_invalid.conf" "--thread-pool" "1,3,5,7" 
+[CONFIG] function config_libconfig_init returned -1

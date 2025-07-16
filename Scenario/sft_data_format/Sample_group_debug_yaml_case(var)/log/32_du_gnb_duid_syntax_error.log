@@ -1,0 +1,11 @@
+[LIBCONFIG] file ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/johnson/debug_case_du/32_du_gnb_duid_syntax_error.conf - line 10: syntax error
+
+[CONFIG] ../../../common/config/config_load_configmodule.c 379 config module "libconfig" couldn't be loaded
+[CONFIG] config_get, section log_config skipped, config module not properly initialized
+[LOG] init aborted, configuration couldn't be performed
+[CONFIG] config_get, section (null) skipped, config module not properly initialized
+[CONFIG] ../../../common/config/config_userapi.c 68 nfapi has no processed integer availablle
+[CONFIG] config_get, section (null) skipped, config module not properly initialized
+Getting configuration failed
+CMDLINE: "./nr-softmodem" "-O" "../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/johnson/debug_case_du/32_du_gnb_duid_syntax_error.conf" "--thread-pool" "9,11,13,15" 
+[CONFIG] function config_libconfig_init returned -1

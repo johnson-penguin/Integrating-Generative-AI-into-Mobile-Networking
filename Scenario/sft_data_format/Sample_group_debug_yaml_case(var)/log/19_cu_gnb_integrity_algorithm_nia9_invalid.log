@@ -1,0 +1,12 @@
+[UTIL]   running in SA mode (no --phy-test, --do-ra, --nsa option present)
+[0m[OPT]   OPT disabled
+[0m[HW]   Version: Branch: HEAD Abrev. Hash: 60b0c1827d Date: Wed Mar 12 07:41:54 2025 +0000
+[0m[GNB_APP]   Initialized RAN Context: RC.nb_nr_inst = 1, RC.nb_nr_macrlc_inst = 0, RC.nb_nr_L1_inst = 0, RC.nb_RU = 0, RC.nb_nr_CC[0] = 0
+[0m[GNB_APP]   F1AP: gNB_CU_id[0] 3584
+[0m[GNB_APP]   F1AP: gNB_CU_name[0] gNB-Eurecom-CU
+[0m[GNB_APP]   SDAP layer is disabled
+[0m[GNB_APP]   Data Radio Bearer count 1
+[0m[NR_RRC]   do_SIB23_NR, size 9
+[0m[1;31m[RRC]   unknown integrity algorithm "nia9" in section "security" of the configuration file
+[0mCMDLINE: "./nr-softmodem" "-O" "../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/johnson/debug_case_cu/19_cu_gnb_integrity_algorithm_nia9_invalid.conf" "--thread-pool" "1,3,5,7" 
+[CONFIG] function config_libconfig_init returned 0
